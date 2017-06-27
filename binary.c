@@ -11,8 +11,8 @@ int main(void)
     printf("Value to convert: ");
     scanf("%d", &decimal);
 
-    if(decimal < 0){
-        printf("Incorrect Value Type.\n");
+    if (decimal < 0) {
+        printf("Incorrect value type.\n");
         return 1;
     }
 
