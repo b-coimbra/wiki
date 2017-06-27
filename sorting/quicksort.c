@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define size(x) (int) (sizeof(x) / sizeof(x[0]))
+
 void quicksort(int list[10], int left, int right)
 {
     int pivot, temp, i, j, half;
@@ -32,16 +34,15 @@ void quicksort(int list[10], int left, int right)
 int main()
 {
     int list[10] = {9, 3, 2, 5, 1, 4, 6, 7, 8};
-    int list_size = (int) (sizeof(list) / sizeof(list[0]));
 
     puts ("Not sorted: ");
-    for (size_t i = 0; i < list_size - 1; i++)
+    for (size_t i = 0; i < size(list) - 1; i++)
         printf("%d,", list[i]);
 
-    quicksort(list, 0, list_size - 1);
+    quicksort(list, 0, size(list) - 1);
 
     puts ("\nSorted: ");
-    for (size_t i = 0; i < list_size; i++)
+    for (size_t i = 0; i < size(list); i++)
         printf("%d,", list[i]);
 
     return 0;
