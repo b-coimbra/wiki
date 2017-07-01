@@ -1,3 +1,3 @@
-Collection of little basic-tier haskell programs.
+functional fun
 
-GHC version 8.0.1
+GHC version 8.0.2
