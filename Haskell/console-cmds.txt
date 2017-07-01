@@ -1,0 +1,9 @@
+:l, :load   <file>          load specific file
+:m, :module <module>        Specify prompt module (Prelude as default)
+:i, :info   <data>          fetch details about something. (eg: :i foldl)      
+:t, :type   <data>          returns the data structure of something. (eg: :t 3+3)
+:r, :reload                 compiles previous file
+:q, :quit                   quit ghci
+
+* use keyword 'let' for defining functions in Prelude
+* use spaces, not tabs to indent the source code

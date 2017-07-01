@@ -1,0 +1,1 @@
+life=->g,s{(0..s*s-1).map{|i|->n{n==3||(g[i]&&n==2)||nil}[[g[i-s-1],g[i-s],g[i-s+1],g[i-1],g[i+1],g[i+s-1],g[i+s],g[i+s+1]].compact.count]}}
