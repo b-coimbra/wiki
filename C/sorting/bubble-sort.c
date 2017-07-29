@@ -2,35 +2,36 @@
 #include <stdio.h>
 #include <math.h>
 
+#define size(x) (int) (sizeof(x) / sizeof(x[0]))
+
 int main(int argc, char *argv[])
 {
-    int i, temp, swapped, sort[10];
-    int sort_size = (int) (sizeof(sort) / sizeof(sort[0]));
-    int *sort_p = (int*) malloc(sort_size * sizeof(int));
+    int temp, sorted, list[10];
+    int *sort = (int*) malloc(size(list) * sizeof(int));
+    size_t i;
 
-    for (i = 0; i < sort_size; i++)
-        sort_p[i] = (rand() % 25) + 1;
+    for (i = 0; i < size(list); sort[i++] = (rand() % 25) + 1);
 
     while (1) {
-        swapped = 0;
+        sorted = 0;
 
-        for (i = 0; i < sort_size - 1; i++)
-            if (sort_p[i] > sort_p[i + 1]) {
-                temp = sort_p[i];
-                sort_p[i] = sort_p[i + 1];
-                sort_p[i + 1] = temp;
-                swapped = 1;
+        for (i = 0; i < size(list) - 1; i++) {
+            if (sort[i] > sort[i + 1]) {
+                temp = sort[i];
+                sort[i] = sort[i + 1];
+                sort[i + 1] = temp;
+                sorted = 1;
             }
+        }
 
-        if (swapped == 0)
-            break;
+        if (sorted == 0) break;
     }
 
-    for (i = 0; i < sort_size; i++)
-        printf("%d\n", sort_p[i]);
+    for (i = 0; i < size(list); printf("%d ", sort[i++]));
 
-    free(sort_p);
-    sort_p = NULL;
-
+    /*
+    free(sort);
+    sort = NULL;
+    */
    return 0;
 }
