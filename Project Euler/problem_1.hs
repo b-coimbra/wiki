@@ -5,4 +5,5 @@
 
     Find the sum of all the multiples of 3 or 5 below 1000.
 -}
-sum . takeWhile (<1000) $ [x | x <- [1..], x `mod` 3 == 0 || x `mod` 5 == 0]
+main :: IO ()
+main = print $ sum . takeWhile (<1000) $ [x | x <- [1..], x `mod` 3 == 0 || x `mod` 5 == 0]

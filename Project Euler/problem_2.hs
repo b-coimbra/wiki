@@ -7,5 +7,6 @@
 
     By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms.
 -}
-sumEvenFibs = sum [x | x <- takeWhile (<= round 4e6) fib, even x]
+main :: IO ()
+main = print $ sum [x | x <- takeWhile (<= round 4e6) fib, even x]
   where fib = 1:1 : zipWith (+) fib (tail fib)
