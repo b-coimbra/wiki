@@ -1,6 +1,8 @@
 (setq *print-case* :capitalize)
 
+;; constant global variable
 (defvar *name* (read))
+;; (defparameter *name* (read)) is a global variable
 
 (defun say-hi(name)
     (format t "Hello ~a! ~%" name))
@@ -50,3 +52,34 @@
 (get-age *age*)
 
 (terpri)
+
+;; local variable
+(let ((a 5)
+      ( b 6))
+  (+ a b))
+
+;; local function, can be used to declare multiple local functions at once (just like let)
+(flet ((f (n)
+         (+ n 10))
+       (g (n)
+         (- n 3)))
+  (g (f 5)))
+
+(eq 'abc 'ABC) ; returns true, lisp is case-insensitive
+
+(princ "lorem ipsum") ; display string
+
+
+(cons 'abc 'def) ; links the two symbols together
+
+(car '(a b c)) ; gets the first slot of a cell
+
+(cdr '(a b c)) ; gets the tail of the list
+
+(defun list-length (list)
+  (if list
+      (1+ (list-length (cdr list)))
+      0))
+
+(list-length '(a b c d)) ; => 4
+

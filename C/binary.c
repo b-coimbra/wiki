@@ -2,9 +2,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
- 
+
 char *tobinary(uint32_t x);
- 
+
 int main(void)
 {
     int decimal = 0; 
@@ -20,7 +20,7 @@ int main(void)
     printf("Binary: %s\n", binary);
     free(binary);
 }
- 
+
 char *tobinary(uint32_t x)
 {
     size_t bits = (x == 0) ? 1 : log10((double) x)/log10(2) + 1;
