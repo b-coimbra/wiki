@@ -5,8 +5,6 @@
 int main(int argc, char *argv[])
 {
     if (argc > 1)
-        for (size_t i = 0; i < strlen(argv[1]); i++)
-            printf("%c\n", argv[1][i]);
-
-    return 0;
+        for (size_t i = 0; i < argv; i++)
+            printf("argv[%d] %s\n", i, argv[i]);
 }
