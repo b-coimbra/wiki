@@ -72,7 +72,7 @@
 
 (cons 'abc 'def) ; links the two symbols together
 
-(car '(a b c)) ; gets the first slot of a cell
+(car '(a b c)) ; gets the first slot of a cell (head)
 
 (cdr '(a b c)) ; gets the tail of the list
 
