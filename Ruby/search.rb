@@ -1,29 +1,34 @@
-#/usr/bin/env ruby
+#!/usr/bin/env ruby
+# encoding: UTF-8
+# USAGE: ruby search.rb <anything you want to search>
+require 'win32ole'
 
-# TODO: search and replace
+BEGIN { abort "\e[31mwhat are you, fucking retarded?\nENTER THE ARGUMENTS!!!!!\[0m" if ARGV.empty? }
 
-def open(file)
-    @file = file
-    if File.file?(file) then @file = File.open(file, 'r+').read() else puts "Couldn't locate #{file} " end
+shell = WIN32OLE.new("Wscript.Shell")
 
-    def search(word)
-        @word = word
-        @word = @file.gsub(/[a-zA-Z0-9]*/i)
-    end
-    print "Search for word: \n=> "
-    search(gets.chomp)
+link, *keystrokes = ARGV; link = "www.#{link}.com"; link =~ /www\.(.*)\.com/i
+title = $1.capitalize
 
-    def replace(_word)
-        _word = @file.gsub("#{@word}", _word) {|x| x = File.open(@file, 'w+')
-            x << _word
-            x.close
-        }
-    end
-    print "Replace with: \n=> "
-    replace(gets.chomp)
+case RbConfig::CONFIG['host_os']
+when /mswin|mingw|cygwin/im
+    system "start #{link}"
+when /darwin/im
+    system "open #{link}"
+when /linux|bsd/im
+    system "xdg-open #{link}"
 end
 
-ext = [".txt", ".doc", ".pdf", ".docx"]
+print "Opening application.. "
 
-print "Name of the file?\n=> "
-open(gets.chomp + "#{ext[0]}")
+sleep 4
+
+(shell.Run(title); sleep 0.5) while !shell.AppActivate(title)
+
+print "[ok]\n"
+print "Sending keystrokes.. "
+
+shell.SendKeys(keystrokes*?\s + "{ENTER}")
+
+print "[ok]\n"
+puts("Sent command: \e[36m#{keystrokes}\e[0m to: #{link}")
