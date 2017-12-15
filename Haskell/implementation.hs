@@ -151,7 +151,7 @@ quicksort (x:xs) =
                ^--- pivot
 
     [4,6,5] ++ [3] ++ [2,1]
-    
+
     [6] ++ [4] ++ [5]
      ^------^ (left side must be smaller, swap)
     [4] ++ [6] ++ [5]
@@ -170,3 +170,74 @@ quicksort (x:xs) =
     [1,2,3] ++ [4,5,6]
     [1,2,3,4,5,6]
 -}
+
+replicate' :: (Num i, Ord i) => i -> a -> [a]
+replicate' n x
+    | n <= 0     = []
+    | otherwise = x:replicate' (n-1) x
+
+
+take' :: (Num i, Ord i) => i -> [a] -> [a]
+take' n _
+    | n <= 0     = []
+take' _ []      = []
+take' n (x:xs)  = x : take' (n-1) xs
+
+
+sqrtSums :: Int
+sqrtSums = length (takeWhile (<1000) . foldl (+) $ map . sqrt[1..]) + 1
+
+
+-- all functions below are equivalent:
+    {- (*2) <$> [1..20]
+    fmap (*2) [1..20]
+    [x*2 | x <- [1..20]]
+    [1..20] >>= \x -> [x * 2]
+    map (\x -> x * 2) [1..20]
+-}
+
+{-
+    Function application ($)
+
+    f (g (x y))
+    f $ g $ x y
+-}
+
+sum (filter (> 10) (map (*2) [2..10]))
+sum $ filter (> 10) $ map (*2) [2..10]
+
+{-
+    Function Application
+
+    *composing two functions produces a new function:
+        f . g = \x -> f (g x)
+-}
+
+map (\x -> negate (abs x)) [1..20]
+map (negate . abs) [1..20]
+
+map (\xs -> negate (sum (tail xs)))) [[1..5], [3..6], [1..7]]
+map (negate . sum . tail) [[1..5], [3..6], [1..7]]
+
+replicate 100 (product (map (*3) (zipWith max [1..5] [4..8])))
+replicate 100 . product . map (*3) . zipWith max [1..5] $ [4..8]
+
+fn x = ceiling (negate (tan (cos (max 50 x))))
+fn x = ceiling . negate . tan . cos . max 50
+
+-------------------------------------------------------------
+
+-- sum of all odd squares that are smaller than 10.000:
+oddSquareSum :: Int
+oddSquareSum = sum . takeWhile (<10000) . filter odd . map (^2) $ [1..]
+
+-- or:
+-- sum . takeWhile (<10000) [n^2 | n <- [1..], odd (n^2)]
+
+
+-- Collatz sequences:
+chain :: (Int a) => a -> [a]
+chain 1 = [1]
+chain n
+    | even n = n:chain (n `div` 2)
+    | odd n  = n:chain (n * 3 + 1)

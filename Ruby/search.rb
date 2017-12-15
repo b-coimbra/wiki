@@ -3,7 +3,7 @@
 # USAGE: ruby search.rb <anything you want to search>
 require 'win32ole'
 
-BEGIN { abort "\e[31mwhat are you, fucking retarded?\nENTER THE ARGUMENTS!!!!!\[0m" if ARGV.empty? }
+BEGIN { abort "\e[31mUsage: ruby search.rb <site> <text>\[0m" if ARGV.empty? }
 
 shell = WIN32OLE.new("Wscript.Shell")
 
