@@ -56,6 +56,11 @@ values."
     org-brain
     swiper
     counsel
+    ranger
+    drag-stuff
+    try
+    pdf-tools
+    workgroups2
    )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(
@@ -333,18 +338,65 @@ in `dotspacemacs/user-config'."
 
 (defun dotspacemacs/user-config ()
   ;; default theme
-  (spacemacs/load-theme 'kaolin-light)
+  (spacemacs/load-theme 'darktooth)
 
   (set-language-environment "UTF-8")
   (set-default-coding-systems 'utf-8)
+
+  (setenv "PATH" (concat "C:\\msys64\\mingw64\\bin;" (getenv "PATH")))
+
+  (setq default-directory "c:/Users/Bruno/Documents/")
+
+  (pdf-tools-install) ;; enable pdf-tools
+
+  ;; set default font
+  ;; (push '(font . "-outline-Fira Mono-normal-normal-normal-mono-13-*-*-*-c-*-iso8859-5") default-frame-alist)
+  (push '(font . "-outline-Fantasque Sans Mono-normal-normal-normal-mono-15-*-*-*-c-*-iso8859-5") default-frame-alist)
+  ;; (push '(font . "-outline-Menlo-normal-normal-normal-mono-14-*-*-*-c-*-iso10646-1") default-frame-alist)
+  ;; (push '(font . "-outline-mononoki-normal-normal-normal-mono-15-*-*-*-c-*-iso10646-1") default-frame-alist)
+  ;; (push '(font . "-outline-Consolas-normal-normal-normal-mono-14-*-*-*-c-*-iso8859-5") default-frame-alist)
 
   (setq tramp-ssh-controlmaster-options
         "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
 
   ;; dim the color of the separator for dark themes
-  ;; (set-face-attribute 'vertical-border
-  ;;                     nil
-  ;;                     :foreground "#252529")
+  (set-face-attribute 'vertical-border
+                      nil
+                      :foreground "#252529")
+
+  ;; neotree settings
+  (global-set-key [f8] 'neotree-toggle)
+  (setq neo-theme 'ascii)
+  (setq neo-window-fixed-size nil)
+  (setq neo-banner-message nil)
+
+  ;; workgroups2 settings
+  (workgroups-mode 1)
+  (setq wg-prefix-key (kbd "C-c w"))
+
+  (setq doc-view-ghostscript-program "C:/Program Files/gs/gs9.23/bin/gswin64.exe")
+  (add-hook 'pdf-view-mode-hook (lambda () (linum-mode -1))) ;; disable linum for pdf mode
+
+  ;; use ranger as the default directory handler
+  (ranger-override-dired-mode t)
+  (add-hook 'ranger-mode-hook (lambda () (linum-mode -1)))
+  ;; (ranger-toggle-literal)
+  (evil-global-set-key 'normal (kbd "SPC a r") 'ranger)
+
+  (evil-global-set-key 'normal (kbd "SPC '") 'eshell)
+
+  ;; ERC settings
+  (defun irc-maybe ()
+    "Connect to IRC."
+    (interactive)
+    (when (y-or-n-p "IRC? ")
+      (erc-tls :server "irc.lainchan.org" :port 6697 :nick "index")))
+
+  (evil-global-set-key 'normal (kbd "SPC a i") 'irc-maybe)
+
+  (erc-autojoin-mode 1)
+  (setq erc-autojoin-channels-alist
+        `(("lainchan.org" "#lainchan" "#programming")))
 
   ;; tab keybindings for navigating buffers
   (global-set-key [C-tab] 'next-buffer)
@@ -367,6 +419,8 @@ in `dotspacemacs/user-config'."
   (ivy-mode 1)
   (setq ivy-use-virtual-buffers t)
   (setq ivy-count-format "(%d/%d) ")
+  (global-set-key (kbd "M-x") 'counsel-M-x)
+  (evil-global-set-key 'normal (kbd "SPC SPC") 'counsel-M-x)
   (global-set-key (kbd "C-s") 'swiper) ;; swiper keybinding
   (global-set-key (kbd "C-;") 'avy-goto-char) ;; avy search by char
   (global-set-key (kbd "C-x C-f") 'counsel-find-file)
@@ -392,6 +446,8 @@ in `dotspacemacs/user-config'."
 
   (define-key global-map (kbd "C-c r") 'vr/replace)
   (define-key global-map (kbd "C-c q") 'vr/query-replace)
+
+  (evil-global-set-key 'normal (kbd "SPC T c") 'counsel-load-theme) ;; binding for loading themes quickly
 
   ;; (require 'multiple-cursors)
   (global-set-key (kbd "C->") 'mc/mark-next-like-this)
@@ -430,11 +486,6 @@ in `dotspacemacs/user-config'."
 
   (savehist-mode -1)
 
-  ;; set default font
-  ;(push '(font . "-outline-Fira Mono-normal-normal-normal-mono-13-*-*-*-c-*-iso8859-5") default-frame-alist)
-  (push '(font . "-outline-Fantasque Sans Mono-normal-normal-normal-mono-15-*-*-*-c-*-iso8859-5") default-frame-alist)
-  ;(push '(font . "-outline-Consolas-normal-normal-normal-mono-14-*-*-*-c-*-iso8859-5") default-frame-alist)
-
   (setq ediff-window-setup-function 'ediff-setup-windows-default)
 
   ;; diminish minor mode so it looks nicer
@@ -446,6 +497,7 @@ in `dotspacemacs/user-config'."
   (spacemacs|diminish helm-gtags-mode)
   (spacemacs|diminish ggtags-mode)
   (spacemacs|diminish rubocop-mode)
+  (spacemacs|diminish drag-stuff-mode)
 
   ;; powerline statusbar config
   (setq powerline-default-separator 'arrow-fade)
@@ -468,7 +520,8 @@ in `dotspacemacs/user-config'."
   (setq org-src-fontify-natively t)
 
   ;; enable flycheck
-  ;(setq flycheck-mode t)
+  ;; (setq flycheck-mode t)
+  ;; (global-flycheck-mode)
 
   ;; line spacing
   ;(setq-default line-spacing 2)
@@ -488,6 +541,9 @@ in `dotspacemacs/user-config'."
   (global-unset-key (kbd "M-<down-mouse-1>"))
   (global-set-key (kbd "M-<mouse-1>") 'mc/add-cursor-on-click)
 
+  ;; disable company mode for eshell (to fix pressing Enter twice)
+  (spacemacs|disable-company eshell-mode)
+
   ;; wraps words
   (setq-default word-wrap t)
   (global-visual-line-mode t)
@@ -495,31 +551,34 @@ in `dotspacemacs/user-config'."
   ;; shift selection for org-mode
   (setq org-support-shift-select t)
 
-  (defun move-line (n)
-    "Move the current line up or down by N lines."
-    (interactive "p")
-    (setq col (current-column))
-    (beginning-of-line) (setq start (point))
-    (end-of-line) (forward-char) (setq end (point))
-    (let ((line-text (delete-and-extract-region start end)))
-      (forward-line n)
-      (insert line-text)
-      ;; restore point to original column in moved line
-      (forward-line -1)
-      (forward-char col)))
+  ;; (defun move-line (n)
+  ;;   "Move the current line up or down by N lines."
+  ;;   (interactive "p")
+  ;;   (setq col (current-column))
+  ;;   (beginning-of-line) (setq start (point))
+  ;;   (end-of-line) (forward-char) (setq end (point))
+  ;;   (let ((line-text (delete-and-extract-region start end)))
+  ;;     (forward-line n)
+  ;;     (insert line-text)
+  ;;     ;; restore point to original column in moved line
+  ;;     (forward-line -1)
+  ;;     (forward-char col)))
 
-  (defun move-line-up (n)
-    "Move the current line up by N lines."
-    (interactive "p")
-    (move-line (if (null n) -1 (- n))))
+  ;; (defun move-line-up (n)
+  ;;   "Move the current line up by N lines."
+  ;;   (interactive "p")
+  ;;   (move-line (if (null n) -1 (- n))))
 
-  (defun move-line-down (n)
-    "Move the current line down by N lines."
-    (interactive "p")
-    (move-line (if (null n) 1 n)))
+  ;; (defun move-line-down (n)
+  ;;   "Move the current line down by N lines."
+  ;;   (interactive "p")
+  ;;   (move-line (if (null n) 1 n)))
 
-  (global-set-key (kbd "M-<up>") 'move-line-up)
-  (global-set-key (kbd "M-<down>") 'move-line-down)
+  ;; (global-set-key (kbd "M-<up>") 'move-line-up)
+  ;; (global-set-key (kbd "M-<down>") 'move-line-down)
+
+  (drag-stuff-global-mode 1)
+  (drag-stuff-define-keys)
 
   ;; lambda icon for lisp mode
   (font-lock-add-keywords 'racket-mode
@@ -528,8 +587,7 @@ in `dotspacemacs/user-config'."
                                                                      (match-end 1)
                                                                      ?λ))))))
 
-  (setq c-default-style "linux"
-        c-basic-offset 4) ; c-style indentation
+  (setq c-default-style "linux" c-basic-offset 4) ; c-style indentation
   (setq haskell-font-lock-symbols t) ; unicode symbols for haskell
   (global-prettify-symbols-mode 1) ; global unicode symbols
   (global-flycheck-mode -1) ; disable flycheck (it causes lag)
@@ -575,11 +633,9 @@ layers configuration. You are free to put any user code."
   (setq max-specpdl-size 6000)
 
   ;; use company for auto-complete every mode
-  (global-company-mode)
-
-  ;; use Marked2 for markdown open command
-  ;; via: http://jblevins.org/log/marked-2-command
-  ;; ( markdown-open-command "/usr/local/bin/mark")
+  (global-company-mode 1) ;; disable
+  (setq company-idle-delay 0)
+  (setq company-minimum-prefix-length 3)
 
   ;; for js2-mode default settings
   (setq-default js2-basic-offset 2)
@@ -616,10 +672,17 @@ layers configuration. You are free to put any user code."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ansi-color-names-vector
+   ["#0a0814" "#f2241f" "#67b11d" "#b1951d" "#4f97d7" "#a31db1" "#28def0" "#b2b2b2"])
+ '(custom-safe-themes
+   (quote
+    ("3edbdd0ad45cb8f7c2575c0ad8f6625540283c6e928713c328b0bacf4cfbb60f" "718fb4e505b6134cc0eafb7dad709be5ec1ba7a7e8102617d87d3109f56d9615" "5b388add509c423e4ac275668662486628690e7ffe0050998615fc4c3669c16c" "54e08527b4f4b127ebf7359acbbbecfab55152da01716c4809682eb71937fd33" "7f6796a9b925f727bbe1781dc65f7f23c0aa4d4dc19613aa3cf96e41a96651e4" default)))
  '(evil-want-Y-yank-to-eol t)
  '(package-selected-packages
    (quote
-    (counsel helm helm-core rubocop zenburn-theme xterm-color ws-butler winum which-key web-mode web-beautify volatile-highlights visual-regexp vi-tilde-fringe use-package toc-org tagedit swiper spaceline solarized-theme smeargle slim-mode shell-pop sass-mode rvm rust-mode ruby-tools rspec-mode robe restart-emacs request rbenv rake rainbow-delimiters racket-mode pug-mode projectile popwin persp-mode pcre2el paradox org-plus-contrib org-bullets org-brain open-junk-file nord-theme neotree multi-term move-text monokai-theme mmm-mode minitest markdown-toc magit-gitflow lorem-ipsum livid-mode linum-relative link-hint less-css-mode kaolin-themes json-mode js2-refactor js-doc intero info+ indent-guide hungry-delete hlint-refactor hl-todo hindent highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ haskell-snippets gruvbox-theme gotham-theme google-translate golden-ratio gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe fuzzy flycheck-pos-tip flycheck-haskell flx-ido fill-column-indicator fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eshell-z eshell-prompt-extras esh-help emmet-mode elisp-slime-nav dumb-jump diminish diff-hl define-word darktooth-theme company-web company-tern company-statistics company-ghci company-ghc company-cabal column-enforce-mode clean-aindent-mode bundler auto-yasnippet auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ac-ispell))))
+    (company-inf-ruby anaphora workgroups2 pdf-tools arduino-mode try drag-stuff ranger ivy-hydra avk-emacs-themes creamsody-theme sourcerer-theme challenger-deep-theme exotica-theme flatui-dark-theme git-gutter-fringe+ git-gutter+ with-editor emms-player-mpv bongo emms helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-hoogle helm-gitignore helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag ace-jump-helm-line counsel helm helm-core rubocop zenburn-theme xterm-color ws-butler winum which-key web-mode web-beautify volatile-highlights visual-regexp vi-tilde-fringe use-package toc-org tagedit swiper spaceline solarized-theme smeargle slim-mode shell-pop sass-mode rvm rust-mode ruby-tools rspec-mode robe restart-emacs request rbenv rake rainbow-delimiters racket-mode pug-mode projectile popwin persp-mode pcre2el paradox org-plus-contrib org-bullets org-brain open-junk-file nord-theme neotree multi-term move-text monokai-theme mmm-mode minitest markdown-toc magit-gitflow lorem-ipsum livid-mode linum-relative link-hint less-css-mode kaolin-themes json-mode js2-refactor js-doc intero info+ indent-guide hungry-delete hlint-refactor hl-todo hindent highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ haskell-snippets gruvbox-theme gotham-theme google-translate golden-ratio gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe fuzzy flycheck-pos-tip flycheck-haskell flx-ido fill-column-indicator fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eshell-z eshell-prompt-extras esh-help emmet-mode elisp-slime-nav dumb-jump diminish diff-hl define-word darktooth-theme company-web company-tern company-statistics company-ghci company-ghc company-cabal column-enforce-mode clean-aindent-mode bundler auto-yasnippet auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ac-ispell)))
+ '(pos-tip-background-color "#36473A")
+ '(pos-tip-foreground-color "#FFFFC8"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

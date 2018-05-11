@@ -1,0 +1,29 @@
+#+TITLE: Week's Schedule
+
+* Week's Schedule
+  DEADLINE: <2018-05-12 sáb>
+
+| Starting Day | Sat | Sun | Mon | Tue | Wed | Thu | Fri |
+|--------------+-----+-----+-----+-----+-----+-----+-----|
+| May 5        |     |     |     |     |     |     | X   |
+| May 12       |     |     |     |     |     |     |     |
+
+** Saturday
+   SCHEDULED: <2018-05-12 sáb>
+** Sunday
+   SCHEDULED: <2018-05-13 dom>
+** Monday
+   SCHEDULED: <2018-05-14 seg>
+** Tuesday
+   SCHEDULED: <2018-05-15 ter>
+** Wednesday
+   SCHEDULED: <2018-05-16 qua>
+** Thursday
+   SCHEDULED: <2018-05-17 qui>
+
+** TODO Friday
+   SCHEDULED: <2018-05-11 sex>
+   - [X] (12:10) go to college
+   - [X] (7:20) hit the gym
+   - [ ] (8:00) finish homework
+   - [ ] (10:00) something else

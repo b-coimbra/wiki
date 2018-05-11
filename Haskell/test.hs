@@ -31,6 +31,3 @@ sum' xs = foldl (+) 0 xs
 intercalate " " ["hey", "what's", "up"]
 
 intersperse '.' "wtf"
-
-
-
