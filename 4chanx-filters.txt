@@ -1,4 +1,0 @@
-/net(?:.\-*)neutrality|(smart|head)[phone|watch]+/im;op:only;stub:no;boards:g
-/(pl|r)e[db]+it/im;op:only;stub:no;boards:g # reddit related posts
-/intel|amd|CPU|vega|macbook|mac|^(?:i)?phone|apple|microsoft|win[bl|d|ows]+|google|facebook|samsung/im;op:only;stub:no;boards:g # social media or consumerism related posts
-/(bit|butt)coin|crypto(?:\s*)currency|min[ing|er]+/im;op:only;stub:no;boards:g # cryptocurrency posts
