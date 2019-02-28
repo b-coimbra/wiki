@@ -5,7 +5,6 @@
 
 (define args (vector->list (current-command-line-arguments)))
 
-
 (if (not (eq? '() args))
     (set url (string-append "https://a.4cdn.org/g/thread/"
                             (last (string-split (car args) "/")) ".json"))
