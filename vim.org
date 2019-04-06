@@ -1,4 +1,3 @@
-
 * Vim
 
 | Command           | Description                                        |
@@ -43,20 +42,5 @@
 | ea                | append at the end of a word (better than 'eli')    |
 | :tabnew           | creates a new tab                                  |
 | :tabclose         | closes the current tab                             |
-
-* RegEx
-
-| Expression | Description                                                            |
-|------------+------------------------------------------------------------------------|
-| ^          | negates a character class (eg: /[^g-f]/ -- NOT between g and f)        |
-| \W         | [^\w]                                                                  |
-| \D         | [^\d]                                                                  |
-| \S         | [^\s]                                                                  |
-| (?:ABC)    | won't capture the group                                                |
-| AB(?=C)    | lookahead, will match when AB is followed by C, but C won't be matched |
-
-* Spacemacs
-
-| Command | Description       |
-|---------+-------------------|
-| , s f   | skewer eval defun |
+| Ctrl-w <          | vertically shrinks the window                      |
+| Ctrl-w >          | vertically enlarges the window                     |
