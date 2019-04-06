@@ -1,11 +1,11 @@
 * RegEx
 
-| Expression  | Description                                                            |
-|-------------+------------------------------------------------------------------------|
-| ^           | negates a character class (eg: /[^g-f]/ -- NOT between g and f)        |
-| \W          | [^\w]                                                                  |
-| \D          | [^\d]                                                                  |
-| \S          | [^\s]                                                                  |
-| (?:ABC)     | won't capture the group                                                |
-| AB(?=C)     | lookahead, will match when AB is followed by C, but C won't be matched |
-| (?<name>.*) | gives a group a name                                                   |
+| Expression    | Description                                                            |
+|---------------+------------------------------------------------------------------------|
+| ~^~           | negates a character class (eg: =/[^g-f]/= -- NOT between g and f)      |
+| ~\W~          | =[^\w]=                                                                |
+| ~\D~          | =[^\d]=                                                                |
+| ~\S~          | =[^\s]=                                                                |
+| ~(?:ABC)~     | won't capture the group                                                |
+| ~AB(?=C)~     | lookahead, will match when AB is followed by C, but C won't be matched |
+| ~(?<name>.*)~ | gives a group a name                                                   |

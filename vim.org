@@ -1,46 +1,46 @@
 * Vim
 
-| Command           | Description                                        |
-|-------------------+----------------------------------------------------|
-| ysw"              | add surroinding word with "                        |
-| cst<              | change surround tag                                |
-| <VISUAL> :sort    | sort selected lines                                |
-| zt                | current line goes to top                           |
-| zb                | current line goes to bottom                        |
-| ^e                | scroll but preserve cursor position                |
-| ^y                | scroll top but preserve cursor position            |
-| g*                | searches current word <unlisted>                   |
-| ^z                | pause vim and play in the terminal                 |
-| fg                | return to vim                                      |
-| >i{               | one indent inside curly brackets (or > i B)        |
-| =i{               | indent inside curly brackets                       |
-| ^vI               | enter visual block then add a prefix '#'           |
-| %                 | matches equal pairs                                |
-| @@                | execute last macro                                 |
-| :reg              | lists all registers (macros included)              |
-| gv                | resume the previous visual mode selection          |
-| gJ                | join without whitespace                            |
-| g_                | jump to the last non-blank char of the line        |
-| Y                 | same as 'yy'                                       |
-| "0                | contents of the latest yank                        |
-| ~                 | change case                                        |
-| ZZ                | save and quit                                      |
-| ZQ                | save without quitting                              |
-| :x                | same as :wq                                        |
-| [)                | next close parens                                  |
-| [}                | next close curly braces                            |
-| ''                | move to last cursor position                       |
-| '.                | jump to last modification                          |
-| `.                | jump to exact last modification                    |
-| ".                | last inserted text                                 |
-| ":                | last executed command                              |
-| @:                | execute last command                               |
-| <C-O>             | retrace (backwards) your movements in a file       |
-| <C-I>             | retrace (forward)   your movements in a file       |
-| <INSERT> Ctrl-r = | execute an expression and paste it into the buffer |
-| :marks            | list of marks                                      |
-| ea                | append at the end of a word (better than 'eli')    |
-| :tabnew           | creates a new tab                                  |
-| :tabclose         | closes the current tab                             |
-| Ctrl-w <          | vertically shrinks the window                      |
-| Ctrl-w >          | vertically enlarges the window                     |
+| Command             | Description                                        |
+|---------------------+----------------------------------------------------|
+| ~ysw"~              | add surroinding word with ="=                      |
+| ~cst<~              | change surround tag                                |
+| ~<VISUAL> :sort~    | sort selected lines                                |
+| ~zt~                | current line goes to top                           |
+| ~zb~                | current line goes to bottom                        |
+| ~^e~                | scroll but preserve cursor position                |
+| ~^y~                | scroll top but preserve cursor position            |
+| ~g*~                | searches current word <unlisted>                   |
+| ~^z~                | pause vim and play in the terminal                 |
+| ~fg~                | return to vim                                      |
+| ~>i{~               | one indent inside curly brackets (or => i B=)      |
+| ~=i{~               | indent inside curly brackets                       |
+| ~^vI~               | enter visual block then add a prefix '#'           |
+| ~%~                 | matches equal pairs                                |
+| ~@@~                | execute last macro                                 |
+| ~:reg~              | lists all registers (macros included)              |
+| ~gv~                | resume the previous visual mode selection          |
+| ~gJ~                | join without whitespace                            |
+| ~g_~                | jump to the last non-blank char of the line        |
+| ~Y~                 | same as =yy=                                       |
+| ~"0~                | contents of the latest yank                        |
+| ~~~                 | change case                                        |
+| ~ZZ~                | save and quit                                      |
+| ~ZQ~                | save without quitting                              |
+| ~:x~                | same as =:wq=                                      |
+| ~[)~                | next close parens                                  |
+| ~[}~                | next close curly braces                            |
+| ~''~                | move to last cursor position                       |
+| ~'.~                | jump to last modification                          |
+| ~`.~                | jump to exact last modification                    |
+| ~".~                | last inserted text                                 |
+| ~":~                | last executed command                              |
+| ~@:~                | execute last command                               |
+| ~<C-O>~             | retrace (backwards) your movements in a file       |
+| ~<C-I>~             | retrace (forward)   your movements in a file       |
+| ~<INSERT> Ctrl-r =~ | execute an expression and paste it into the buffer |
+| ~:marks~            | list of marks                                      |
+| ~ea~                | append at the end of a word (better than =eli=)    |
+| ~:tabnew~           | creates a new tab                                  |
+| ~:tabclose~         | closes the current tab                             |
+| ~Ctrl-w <~          | vertically shrinks the window                      |
+| ~Ctrl-w >~          | vertically enlarges the window                     |

@@ -1,12 +1,12 @@
 
 * Spacemacs
 
-| Command | Description        |
-|---------+--------------------|
-| , s f   | skewer eval defun  |
-| M-m a r | summons ranger     |
-| M-m s e | summons iedit-mode |
-| M-m t t | treemacs           |
+| Command   | Description        |
+|-----------+--------------------|
+| ~, s f~   | skewer eval defun  |
+| ~M-m a r~ | summons ranger     |
+| ~M-m s e~ | summons iedit-mode |
+| ~M-m t t~ | treemacs           |
 
 * Git commands
 
