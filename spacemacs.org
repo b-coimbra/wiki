@@ -4,9 +4,9 @@
 | Command   | Description        |
 |-----------+--------------------|
 | ~, s f~   | skewer eval defun  |
-| ~M-m a r~ | summons ranger     |
-| ~M-m s e~ | summons iedit-mode |
-| ~M-m t t~ | treemacs           |
+| ~SPC a r~ | summons ranger     |
+| ~SPC s e~ | summons iedit-mode |
+| ~SPC t t~ | treemacs           |
 
 * Git commands
 

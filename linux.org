@@ -70,28 +70,30 @@
 
 * Other commands
   
-  | Command       | Description                                                                       |
-  |---------------+-----------------------------------------------------------------------------------|
-  | ~cd -~        | go to the previous working directory                                              |
-  | ~ls \*D~      | pathname expansion, returns all files starting with D                             |
-  | ~ls exe\*~    | all files ending with 'exe'                                                       |
-  | ~less <file>~ | view the contents of a file with a pager                                          |
-  | ~head <file>~ | first several lines of a file (pass -n <numer-of-lines> to see N number of lines) |
-  | ~tail <file>~ | last several lines of a file (pass -n <numer-of-lines> to see N number of lines)  |
-  | ~uname~       | show informations about the system (-a flag shows ALL info)                       |
-  | ~du~          | summarizes the *disk usage* of files                                              |
-  | ~du -sh *~    | summarizes every file in the current directory                                    |
-  | ~df~          | disk space of filesystem                                                          |
-  | ~ps~          | process status                                                                    |
-  | ~killall <p>~ | terminates a process                                                              |
-  | ~which~       | searches for executables specified by the environment variable PATH               |
-  | ~time~        | time the execution of any program (eg. time node script.js)                       |
-  | ~watch -n N~  | runs a command infinitely each N seconds                                          |
-  | ~apropos~     | find a command that I'm unaware of (eg. apropos "list dir")                       |
-  |               | use in conjuntion with (whatis) command                                           |
-  | ~whereis~     | searches for executables, source files and manual pages                           |
-  | ~diff~        | compares files, and lists their difference                                        |
-  | ~find~        | find files in directory (eg. find -name README.md)                                |
+  | Command        | Description                                                                       |
+  |----------------+-----------------------------------------------------------------------------------|
+  | ~cd -~         | go to the previous working directory                                              |
+  | ~ls \*D~       | pathname expansion, returns all files starting with D                             |
+  | ~ls exe\*~     | all files ending with 'exe'                                                       |
+  | ~less <file>~  | view the contents of a file with a pager                                          |
+  | ~head <file>~  | first several lines of a file (pass -n <numer-of-lines> to see N number of lines) |
+  | ~tail <file>~  | last several lines of a file (pass -n <numer-of-lines> to see N number of lines)  |
+  | ~uname~        | show informations about the system (-a flag shows ALL info)                       |
+  | ~du~           | summarizes the *disk usage* of files                                              |
+  | ~du -sh *~     | summarizes every file in the current directory                                    |
+  | ~df~           | disk space of filesystem                                                          |
+  | ~ps~           | process status                                                                    |
+  | ~ps -C <name>~ | find the PID of a specific program                                                |
+  | ~killall <p>~  | terminates a process                                                              |
+  | ~kill <PID>~   | terminates a process given the PID                                            |
+  | ~which~        | searches for executables specified by the environment variable PATH               |
+  | ~time~         | time the execution of any program (eg. time node script.js)                       |
+  | ~watch -n N~   | runs a command infinitely each N seconds                                          |
+  | ~apropos~      | find a command that I'm unaware of (eg. apropos "list dir")                       |
+  |                | use in conjuntion with (whatis) command                                           |
+  | ~whereis~      | searches for executables, source files and manual pages                           |
+  | ~diff~         | compares files, and lists their difference                                        |
+  | ~find~         | find files in directory (eg. find -name README.md)                                |
   
 * Fix typos
   
@@ -130,12 +132,34 @@
    | gzip   <filename>                                         | compresses a file to gzip format                        |
    | bzip2  <filename>                                         | compresses a file to bzip2 format                       |
   
-* Comma and Braces Operators
+* Shell expansion
   
-  We can use comma and braces to:
+  We can use shell expansion to:
   - rename and backup operations
   - pattern matching
+  - match any string
     
+** The =*= Wildcard
+
+   - The =*= is a greedy operator that matches any string, incuding the null string.
+     
+   ~$ echo file*~ returns =file.log file.tex file.txt file.exe=
+   ~$ echo *.tex~ returns =file.tex=
+   
+** The =?= Wildcard
+
+   - The =?= matches a single character.
+
+   ~$ echo file?.txt~ returns =file1.txt file2.txt file3.txt ...=
+
+** Inverting Sets
+
+   - The =^= character represents *not*.
+     - =[abc]= means either *a, b* or *c*
+     - =[^abc]= any character that is *not a, b* or *c*
+
+** Brace Expansion
+
   To backup settings.conf to settings.conf.bak:
 
   ~cp settings.conf{,.bak}~
@@ -153,45 +177,48 @@
   ~mv program.{c,exe} bin/~
     
 * Chaining Operators
-  - *&* (Ampersand Operator)
+  - ~&~ (Ampersand Operator)
 
-    run one or more commands in the background,
+    run one or more jobs in the background,
 
     EXAMPLE: ping www.google.com &
              apt-get update & apt-get upgrade &
+             
+    - ~Ctrl-z~ pauses the job
+    - ~jobs~ prints all the jobs
     
-  - *;* (Semi-colon operator)
+  - ~;~ (Semi-colon operator)
 
     run several commands at once sequentially, disregarding the exit status of the preceding command
 
     EXAMPLE: apt-get update ; apt-get upgrade ; mkdir test
 
-  - *&&* (AND operator)
+  - ~&&~ (AND operator)
 
     executes a command IF the exit status of the preceding command is 0
 
     EXAMPLE: ping www.google.com && links www.google.com    (checking the connection before using links command)
     
-  - *||* (OR operator)
+  - ~||~ (OR operator)
     
     much like an 'else' statement, allows to execute the second command only if the execution
     of the first fails (i.e., the exit status is 1)
     
     EXAMPLE: apt-get update || links www.google.com
 
-  - *!* (NOT operator)
+  - ~!~ (NOT operator)
     
     much like an 'except' statement, this command will execute all except the condition provided
     
     EXAMPLE: rm -r !(*.html)      removes all files in a folder except .html files
     
-  - *|* (PIPE operator)
+  - ~|~ (PIPE operator)
 
     passes the output of the first command to the second one
 
     EXAMPLE: ls -l | less
     
-  - *{}* (Command Combination operator)
+  - ~{}~ (Command Combination operator)
 
     combine two or more commands
 
@@ -199,20 +226,20 @@
 
 * RegEx Tools
 
-- *grep* (Globally search for a Regular Expression and Print)
+- ~grep~ (Globally search for a Regular Expression and Print)
   for searching stuff in files, or any STDOUT (eg. 'ls' command)
   
-  EXAMPLE: ls | grep "\.exe$"
+  EXAMPLE: =ls | grep "\.exe$"=
   
-- *sed* (stream editor)
+- ~sed~ (stream editor)
   for substitituing, deleting or filtering text on a stream
   
-  EXAMPLE: sed 's/regexp/replacement/g' file > output
+  EXAMPLE: =sed 's/regexp/replacement/g' file > output=
   
   -r will extend the Regex portability (POSIX)
   
-- *xargs* (command args)
+- ~xargs~ (command args)
   pass any command to it and it will execute it on a stream.
   
-  EXAMPLE: find | grep "\.exe$" | xargs ls -lh
+  EXAMPLE: =find | grep "\.exe$" | xargs ls -lh=
   

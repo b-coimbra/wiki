@@ -1,5 +1,7 @@
 * RegEx
 
+** Misc 
+
 | Expression    | Description                                                            |
 |---------------+------------------------------------------------------------------------|
 | ~^~           | negates a character class (eg: =/[^g-f]/= -- NOT between g and f)      |
@@ -9,3 +11,31 @@
 | ~(?:ABC)~     | won't capture the group                                                |
 | ~AB(?=C)~     | lookahead, will match when AB is followed by C, but C won't be matched |
 | ~(?<name>.*)~ | gives a group a name                                                   |
+
+** Identifiers
+
+| Identifier | Description                         |
+|------------+-------------------------------------|
+| ~\d~       | any number                          |
+| ~\D~       | anything but a number               |
+| ~\s~       | space                               |
+| ~\S~       | anything but a space                |
+| ~\w~       | any character                       |
+| ~\W~       | anything but a character            |
+| ~\b~       | the whitespace around words         |
+| ~.~        | any character expect for a new line |
+| ~\.~       | a period                            |
+
+** Modifiers
+
+| Modifier | Description                        |
+|----------+------------------------------------|
+| ~{1, 3}~ | we're expecting 1-3 ex: \d{1, 3}   |
+| ~{x}~    | expecting "x" ammount              |
+| ~+~      | Match 1 or more                    |
+| ~?~      | Match 0 or 1                       |
+| ~*~      | Match 0 or more                    |
+| ~$~      | Match the end of a string          |
+| ~^~      | Matching the beginning of a string |
+| ~[]~     | range or "variance" [A-Z]          |
+
