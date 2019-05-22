@@ -42,5 +42,8 @@
 | ~ea~                | append at the end of a word (better than =eli=)    |
 | ~:tabnew~           | creates a new tab                                  |
 | ~:tabclose~         | closes the current tab                             |
+| ~:r! {cmd}~         | pastes the content of cmd into the buffer          |
 | ~Ctrl-w <~          | vertically shrinks the window                      |
 | ~Ctrl-w >~          | vertically enlarges the window                     |
+| ~<C-a>~             | increment number                                   |
+| ~<C-x>~             | decrement number                                   |

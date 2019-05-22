@@ -8,7 +8,7 @@
   | ~!^~         | executes command with the FIRST arg passed to the last command |
   | ~!$~         | executes command with the LAST arg passed to the last command  |
   | ~!?keyword?~ | execute a command from history for the first pattern match     |
-  | ~!-N~        | execute command that was Nth position from the last in history |
+  | ~!n~         | execute a command from the nth position in the history         |
 
 * Permissions
 ** chmod (change mode)
@@ -243,3 +243,13 @@
   
   EXAMPLE: =find | grep "\.exe$" | xargs ls -lh=
   
+* Bash
+  
+  | keybinding | description                    |
+  |------------+--------------------------------|
+  | ~ctrl-u~   | delete entire line             |
+  | ~ctrl-l~   | clear screen                   |
+  | ~ctrl-w~   | delete last word               |
+  | ~ctrl-r~   | search through command history |
+  | ~alt-.~    | cycles through last arguments  |
+  | ~alt-*~    | expands glob                   |
