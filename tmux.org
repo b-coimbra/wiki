@@ -1,0 +1,19 @@
+* Tmux
+
+=C-a= is the prefix key (=C-b= is default).
+
+| Command                      | Description                |
+|------------------------------+----------------------------|
+| ~tmux new-session -s <name>~ | creates a new session      |
+| ~tmux attach -t <name>~      | attach to a session        |
+| ~C-a <n>~                    | goes to a window           |
+| ~C-a n~                      | next window                |
+| ~C-a p~                      | previous window            |
+| ~C-a d~                      | detach from session        |
+| ~C-a (~                      | previous session           |
+| ~C-a )~                      | next session               |
+| ~C-a s~                      | choose a session           |
+| ~C-a $~                      | rename the current session |
+| ~C-a "~                      | split vertically           |
+| ~C-a %~                      | split horizontally         |
+| ~C-a x~                      | kill current pane          |
