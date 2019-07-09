@@ -1,4 +1,3 @@
-
 class Types
   def str expr
     []
@@ -32,10 +31,10 @@ class Parser
     end
 
     def variable *expr
-      name, value = expr[1], expr[2]
+      name, value = expr
 
       expr.each do |elem|
-        if TYPES.include?(elem)
+        if TYPES.include? elem
           parse('int', value)
           token(elem, name, value)
         end

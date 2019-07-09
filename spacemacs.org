@@ -1,12 +1,17 @@
 
 * Spacemacs
 
-| Command   | Description        |
-|-----------+--------------------|
-| ~, s f~   | skewer eval defun  |
-| ~SPC a r~ | summons ranger     |
-| ~SPC s e~ | summons iedit-mode |
-| ~SPC t t~ | treemacs           |
+| Command   | Description                           |
+|-----------+---------------------------------------|
+| ~, s f~   | skewer eval defun                     |
+| ~SPC a r~ | summons ranger                        |
+| ~SPC s e~ | summons iedit-mode                    |
+| ~SPC t t~ | treemacs                              |
+| ~C-n~     | evil-mc next match                    |
+| ~C-p~     | evil-mc previous match                |
+| ~M-n~     | evil-mc move cursor to next match     |
+| ~M-p~     | evil-mc move cursor to previous match |
+| ~g r q~   | evil-mc remove all cursors            |
 
 * Git commands
 

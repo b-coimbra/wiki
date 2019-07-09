@@ -1,5 +1,3 @@
-
-
 class RomanNumerals
   NUMERALS = {
     'M' => 1000,
