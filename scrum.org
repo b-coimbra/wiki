@@ -21,7 +21,7 @@
 
 * Scrum Master (Servant-leader to the team)
   
-  Responsible for protecting the team and the process, running the meetings and keeping things going
+  Responsible for protecting the team and the process, running the meetings and keeping things going forward.
   O papel do Scrum master no time é garantir que o time siga os valores e princípios do desenvolvimento agile
   
 * The Team

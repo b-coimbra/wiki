@@ -9,7 +9,6 @@
 | ~zb~            | current line goes to bottom                           |
 | ~^e~            | scroll but preserve cursor position                   |
 | ~^y~            | scroll top but preserve cursor position               |
-| ~g*~            | searches current word <unlisted>                      |
 | ~^z~            | pause vim and play in the terminal                    |
 | ~fg~            | return to vim                                         |
 | ~>i{~           | one indent inside curly brackets (or => i B=)         |
@@ -51,6 +50,10 @@
 | ~<C-x>~         | decrement number                                      |
 | ~]m~            | next method                                           |
 | ~[m~            | previous method                                       |
+| ~(~             | move to beginning of current sentence                 |
+| ~)~             | move to beginning of next sentence                    |
+| ~[\[~           | move to beginning of current section                  |
+| ~]]~            | move to beginning of next section                     |
 | ~gd~            | go to definition (TAGS)                               |
 | ~gf~            | edit file at current position                         |
 | ~gF~            | edit file at line N at current position (file.py:N)   |
@@ -60,5 +63,19 @@
 | ~<I> ^n~        | next keyword completion                               |
 | ~<I> ^p~        | previous keyword completion                           |
 | ~:windo difft~  | diff on all open windows                              |
-| ~+~             | down to first non-blank char of line                  |
+| ~+~             | move to first char of next line                       |
+| ~-~             | move to first char of previous line                   |
 | ~:20vs .~       | create visual split with the file structure of a dir  |
+| ~d?text~        | delete until search (?/)                              |
+| ~"1p."~         | increments the buffer number of the register          |
+| ~:=~            | print all lines                                       |
+| ~1,10w file~    | write line 1 through 10 to a new file                 |
+| ~1,10w >>file~  | append line 1 through 10 to an existing file          |
+| ~:r file~       | read file and paste contents on current line          |
+| ~S~             | (same as =cc=) erase line and enter insert mode       |
+| ~nH~            | move =n= lines below top line                         |
+| ~nL~            | move =n= lines above last line                        |
+| ~#~             | match previous word under cursor                      |
+| ~g#~            | match previous word under cursor <unlisted>           |
+| ~*~             | match next word under cursor                          |
+| ~g*~            | match next word under cursor <unlisted>               |
