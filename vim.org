@@ -79,3 +79,5 @@
   | ~g#~            | match previous word under cursor <unlisted>           |
   | ~*~             | match next word under cursor                          |
   | ~g*~            | match next word under cursor <unlisted>               |
+  | ~:grep~         | starts the grep command                               |
+  | ~<V> o~         | go to the other end of the highlightext text          |
