@@ -1,0 +1,361 @@
+#+TITLE: Testes unitários com Karma & Jasmine
+#+AUTHOR: index
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/setup/theme-readtheorg.setup
+
+* Configuração
+
+  Setup necessário antes de rodar os testes.
+  
+** [[https://www.npmjs.com/package/karma-parallel][Karma parallel]]
+   
+   O *karma-parallel* é um plugin do Karma que acelera a execução dos testes através da invocação de múltiplas instâncias de um navegador, decidindo qual bloco =describe= deve rodar em tal determinado navegador.
+   
+   Antes de executar os testes, removemos as seções no arquivo de configuração do karma que configuram o =karma-parallel=, visto que só precisamos de um navegador -- e queremos economizar memória:
+   
+   1. No arquivo de configuração do karma: =ClientApp/src/karma.conf.js=.
+   2. Removemos as seguintes seções:
+ 
+      #+begin_src diff
+        module.exports = function(config) {
+          config.set({
+            // NOTE: 'parallel' must be the first framework in the list
+        -    frameworks: ['mocha' /* or 'jasmine' */],
+        +    frameworks: ['parallel', 'mocha' /* or 'jasmine' */],
+            plugins: [
+        -        require('karma-parallel'),
+                ...
+            ],
+        -    parallelOptions: {
+        -      executors: 4, // Defaults to cpu-count - 1
+        -      shardStrategy: 'round-robin'
+        -      }
+              }
+            }
+          });
+        };
+      #+end_src
+
+* Executando os testes
+
+  1. Navegue até a pasta _ClientApp_: ~$ cd ~/ClientApp~
+  
+  2. Execute os testes: ~$ ng tests --code-coverage~
+     
+     #+begin_quote
+     A flag =--code-coverage= é usada para gerar um relatório de cobertura -- a porcentagem de linhas executadas pelos testes (line coverage)
+     e garantir que cada uma das ramificações possíveis de cada ponto de decisão seja executada pelo menos uma vez (branch coverage).
+     #+end_quote
+
+* Jasmine
+** Matchers
+
+   Exemplos de /matchers/ mais utilizados. O restante se encontra em: [[https://jasmine.github.io/api/2.7/matchers.html][Jasmine Matchers]]
+
+*** toBe
+
+    #+begin_src typescript
+      const deuMolinho: boolean = true;
+
+      expect(deuMolinho).toBe(true);
+    #+end_src
+
+*** ToBeTruthy/ToBeFalsy
+
+    #+begin_src typescript
+      const deuMolinho: boolean = true;
+
+      expect(deuMolinho).toBeTruthy(true);
+    #+end_src
+
+** Métodos Globais
+*** it(description: string, fn: callback, timeout: int)
+
+    #+begin_src typescript
+       it('should sum 1 and 2', () => {
+         const sum: number = 1 + 2;
+
+         expect(sum).toBe(3);    // ===
+         expect(sum).toEqual(3); // ==
+
+         expect(sum == 3).toBe(true);
+
+         expect(sum).toBeGreaterThan(1);
+         expect(sum).toBeGreaterThanOrEqual(2);
+         expect(sum).toBeLessThan(4);
+         expect(sum).toBeDefined();
+         expect(sum).toBeInstanceOf(number);
+       });
+    #+end_src
+
+*** describe(description: string)
+
+    #+begin_src typescript
+       describe("timesheet.component.ts", () => {
+         it("should add a new time entry");
+         it("should fail to add a time entry");
+       });
+    #+end_src
+
+*** Setup
+***** beforeAll(fn: callback, timeout: int)
+
+      Executa *antes* de todos os specs dentro de um =describe=
+
+      #+begin_src typescript
+       describe("timesheet.component.ts", () => {
+         let mock: any;
+
+         beforeAll(() => {
+           this.mock = {
+             employees: {
+               employee: {
+                 id: 1,
+                 name: 'Bruno'
+               },
+               employee: {
+                 id: 2,
+                 name: 'Eduardo'
+               }
+             }
+           };
+         });
+       });
+      #+end_src
+
+***** beforeEach(fn: callback, timeout: int)
+
+      Executa para *cada* spec dentro de um =describe=
+
+      #+begin_src typescript
+        describe("timesheet.component.ts", () => {
+          let mock: any;
+
+          afterEach(() => {
+            this.mock
+              .employees
+              .map(employee => employee.updatedOn = new Date());
+          });
+        });
+      #+end_src
+
+*** Teardown
+***** afterEach(fn: callback, timeout: int)
+
+      No *final* de cada spec, executar uma ação destrutiva
+
+      #+begin_src typescript
+       afterEach(() => {
+         this.cleanup();
+       });
+
+       const cleanup = (): void =>
+         delete this.mock.employees;
+      #+end_src
+
+***** afterAll(fn: callback, timeout: int)
+
+      Executado no *final* de todas as specs 
+
+      #+begin_src typescript
+       describe("timesheet.component.ts", () => {
+         afterAll(() => {
+           this.cleanup();
+         });
+       })
+      #+end_src
+
+** SpyOn
+
+   Observa o retorno de um método de um objeto
+    
+   #+begin_src typescript
+      class Math {
+        constructor() { }
+
+        increment(num: number): number {
+          return ++num;
+        }
+      }
+
+      describe("timesheet.component.spec.ts", () => {
+        const math: Math;
+
+        beforeAll(() => {
+          this.math = new Math();
+        })
+
+        it('should increment by one', () => {
+          const num: number = 4;
+
+          let spy = spyOn(math, 'increment')
+            .withArgs(num)
+            .and
+            .returnValue(5);
+
+          math.increment(num);
+
+          expect(spy).toHaveBeenCalled();
+        });
+      });
+   #+end_src
+
+* Testes
+** Component
+*** Setup
+
+    #+begin_src typescript
+       import {
+         TestBed,
+         ComponentFixture
+       } from '@angular/core/testing';
+
+       describe("timesheet.component.ts", () => {
+         beforeEach(() => {
+           TestBed.configureTestingModule({
+             declarations: [
+               TimesheetComponent
+             ],
+             imports: [
+               BrowserModule,
+             ]
+           }).compileComponents()
+             .then(() => {
+               fixture = TestBed.createComponent(TimesheetComponent);
+               component = fixture.componentInstance;
+             });
+         });
+       })
+    #+end_src
+
+*** Testar métodos
+
+    #+begin_src typescript
+       import {
+         TestBed,
+         ComponentFixture
+       } from '@angular/core/testing';
+
+       describe("timesheet.component.ts", () => {
+         beforeEach(() => {
+           TestBed.configureTestingModule({
+             declarations: [
+               TimesheetComponent
+             ],
+             imports: [
+               BrowserModule,
+             ]
+           }).compileComponents()
+             .then(() => {
+               fixture = TestBed.createComponent(TimesheetComponent);
+               component = fixture.componentInstance;
+             });
+         });
+
+         it('should create the component', () => {
+           component.ngOnInit();
+         });
+
+         it('should fetch all employees', () => {
+           const spy = spyOn(component, 'getEmployees')
+             .and
+             .returnValue(Promise.resolve(this.mock.employees));
+
+           component.getEmployees();
+
+           expect(spy).toHaveBeenCalled();
+         });
+
+         it('should fail to fetch all employees', () => {
+           const spy = spyOn(component, 'getEmployees')
+             .and
+             .returnValue(Promise.reject({}));
+
+           component.getEmployees();
+
+           expect(spy).toHaveBeenCalled();
+         })
+
+         it('should get employee by Id', () => {
+           const id: number = 1;
+
+           const employee: object = this.mock.employees.find(f => f.id == id);
+
+           const spy = spyOn(component, 'getEmployees')
+             .withArgs(id)
+             .returnValue(employee);
+
+           component.getEmployee(id);
+
+           expect(employee).not.toBeNull();
+           expect(spy).toHaveBeenCalled();
+         });
+       })
+    #+end_src
+
+*** Service
+
+    #+begin_src typescript
+      import { ApplicationSettingsService } from 'app/shared/application-settings/configuration.service';
+      import { HttpModule } from '@angular/http';
+      import { TimesheetService } from '../timesheet.service';
+
+      describe("timesheet.service.ts", () => {
+        const mock: any = {};
+
+        configureTestSuite(() => {
+          TestBed.configureTestingModule({
+            providers: [
+              TimesheetService,
+              OAuthService,
+              UrlHelperService,
+              OAuthLogger,
+              OAuthService,
+              { provide: FUSE_CONFIG, useValue: {} },
+              { provide: APP_BASE_HREF, useValue: '/' },
+              { provide: ApplicationSettingsService, useClass: ApplicationSettingsServiceScenarioTest }
+            ],
+            imports: [
+              HttpClientTestingModule,
+              HttpModule,
+              BrowserAnimationsModule,
+              NoopAnimationsModule,
+              RouterModule.forRoot([]),
+            ],
+          });
+
+          injector = getTestBed();
+          service = injector.get(TimesheetService);
+          httpMock = injector.get(HttpTestingController);
+
+          mock.error = {
+            message: 'Invalida request parameters',
+            response: {
+              stautus: 404,
+              statusText: 'Bad Request'
+            }
+          }
+        });
+
+        it('should get holidays', async () => {
+          const promise = service.getHolidays(mock);
+          const req = httpMock
+            .expectOne(req => req.method === 'GET' && req.url === service.baseUrl)
+
+          req.flush(dummy);
+
+          expect(await promise).toBeDefined();
+        });
+
+        it('should fail to get holidays', async () => {
+          const promise = service.getHolidays(mock)
+            .catch(error => expect(error).toBeDefined());
+
+          const req = httpMock
+            .expectOne(req => req.method === 'GET' && req.url === service.baseUrl)
+
+          req.flush(mock.error.message, mock.error.response);
+
+          expect(await promise).toBeDefined();
+        });
+      });
+    #+end_src

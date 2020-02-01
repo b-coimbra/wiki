@@ -9,6 +9,7 @@
   | ~!$~         | executes command with the LAST arg passed to the last command  |
   | ~!?keyword?~ | execute a command from history for the first pattern match     |
   | ~!n~         | execute a command from the nth position in the history         |
+  | ~!<command>~ | executes a command with the same flags as before               |
 
 * Permissions
 ** chmod (change mode)
@@ -96,7 +97,6 @@
   | ~find~            | find files in directory (eg. find -name README.md)                                |
   | ~man giteveryday~ | useful minimul set of commands for everyday git                                   |
 
-  
 * Fix typos
   
   Instead of retyping a long list of arguments of a mispelled command,

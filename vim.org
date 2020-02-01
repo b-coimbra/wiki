@@ -2,7 +2,7 @@
 
   | Command         | Description                                           |
   |-----------------+-------------------------------------------------------|
-  | ~ysw"~          | add surroinding word with ="=                         |
+  | ~ysw"~          | add surrounding word with ="=                         |
   | ~cst<~          | change surround tag                                   |
   | ~<V> :sort~     | sort selected lines                                   |
   | ~zt~            | current line goes to top                              |
@@ -81,3 +81,8 @@
   | ~g*~            | match next word under cursor <unlisted>               |
   | ~:grep~         | starts the grep command                               |
   | ~<V> o~         | go to the other end of the highlightext text          |
+  | ~C-j~           | newline                                               |
+
+** Vimdiff
+
+   ~diffget <N> | LO~

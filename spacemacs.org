@@ -1,10 +1,10 @@
-
 * Spacemacs
 
   | Command   | Description                           |
   |-----------+---------------------------------------|
   | ~, s f~   | skewer eval defun                     |
   | ~SPC a r~ | summons ranger                        |
+  | ~SPC f b~ | view ranger bookmarks                 |
   | ~SPC s e~ | summons iedit-mode                    |
   | ~SPC t t~ | treemacs                              |
   | ~C-n~     | evil-mc next match                    |
@@ -47,3 +47,4 @@
   | ~SPC g m~   | display the last commit message of the current line |
   | ~SPC g t~   | launch the git time machine                         |
   | ~SPC g U~   | unstage current file                                |
+  | ~SPC j d~   | dired jump                                          |
