@@ -1,0 +1,79 @@
+#+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t
+#+options: broken-links:nil c:nil creator:nil d:(not "LOGBOOK") date:t e:t
+#+options: email:nil f:t inline:t num:t p:nil pri:nil prop:nil stat:t tags:t
+#+options: tasks:t tex:t timestamp:t title:t toc:t todo:t |:t
+#+title: Async/Await in .NET
+#+date: <2020-02-29 Sat>
+#+author: index
+#+email: nexi@arch
+#+language: en
+#+select_tags: export
+#+exclude_tags: noexport
+#+creator: Emacs 26.3 (Org mode 9.3.1)
+
+* Async/await in .NET
+
+  Notes from Brandon Minnick's [[https://www.youtube.com/watch?v=J0mcYVxJEl0][Correcting Common Async/Await mistakes in .NET]]
+
+** ConfigureAwait(bool)
+
+   By default, all statements marked as =await= have the =ConfigureAwait(true)= flag. By setting the value to =false=, we are explicitly saying that we do not wish to return back to the thread that called us.
+
+   Instead, we find *any* available thread and assign the following tasks to it. This is what the *Context Switch* does.
+
+   This is essential since we don't want to lock the main thread -- which is responsible for dealing with user interactions and the UI.
+
+   #+begin_src csharp
+     async Task GetAllPosts()
+     {
+         List<Posts> posts = await GetPosts().ConfigureAwait(false);
+
+         foreach (var post in posts)
+             Console.WriteLine(post.Name);
+     }
+
+     // thread 1: initializes the post variable
+     // thread 1: encounters await, spawns new thread
+     // thread 2: assigns a new thread to be executed after the current one finishes
+     // thread 2: finishes to GetPosts(), calls thread 3
+     // thread 3: continues with the instructions
+   #+end_src
+   
+*** Why use it?
+    
+    *if we don't need to return back to the calling thread, use it.*
+    
+    We should use it /almost/ always. Unless we're dealing directly with the interface, we use it.
+  
+** Wait()
+   
+   *Never, ever use it.*
+   
+   It locks the calling thread until the current thread is done, which is not ideal.
+   
+   #+begin_src csharp
+     async Task<List<Posts>> GetAllPosts()
+     {
+         List<Posts> posts = await GetAllPosts().Wait();
+
+         if (posts == null || posts.Count() == 0)
+             return new List<Posts>();
+
+         return posts;
+     }
+
+     // thread 1: initializes the posts variables
+     // thread 1: encounters the await keyword
+     // thread 1: spawns another thread: thread 2
+     // thread 2: locks the calling thread (thread 1) until GetAllPosts() is done
+     // thread 2: finishes the GetAllPosts() operation, free thread 1
+     // thread 1: continues with the instructions
+   #+end_src
+
+** Other tips
+  
+   - never use =async void=. When inside a =try/catch= block, the main thread just continues to execute.
+   - never use =.Wait()= or =.Result()=
+   - if synchronous, use =.GetAwaiter().GetResult()=
+   - always use =async=
+

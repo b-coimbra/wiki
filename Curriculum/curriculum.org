@@ -1,0 +1,216 @@
+* [25/28] DEV I
+
+  - [X] [[file:DEV I/dotnet.org::*.NET][.NET Framework]]
+  - [X] Interpretada / compilada ?
+  - [X] [[file:DEV I/il.org::*Intermediate% Language (IL)][Intermediate Language (IL)]]
+  - [X] [[file:DEV I/gac.org::*Global% Assembly Cache%20(GAC)][Global Assembly Cache (GAC)]]
+  - [X] [[file:DEV I/threading.org::*Threading][Threading]]
+  - [X] [[file:DEV I/threading.org::*Task% Parallel][Task Parallel]] / ThreadPool / Desbloqueio UI / [[file:DEV I/async-dotnet.org::*Async/await in .NET][async/await]]
+  - [X] [[file:DEV I/threading.org::*Threading][MultiThread]] - Gerenciamento
+  - [ ] Sincronizar recursos / Bloqueio / Semaforo / Thread Safe
+  - [X] If / switch / for / foreach / colecoes / matriz
+  - [X] Retornos
+  - [X] Eventos / [[file:DEV I/keywords.org::*Interfaces][assinaturas]] (interfaces) / [[file:DEV% I/stack-and-heap.org::*Delegates][delegates]] / lambdas / metodos anomimos
+  - [X] Excessoes
+  - [X] Manipulacao de excessão (SQL, Rede, Comunicacao, Timeout, parametros) try / catch / throw / personalizacao
+  - [X] [[file:DEV I/keywords.org::*Structs][Structs]] / enum / [[file:DEV% I/keywords.org::*ref][ref]] / var / [[file:DEV I/keywords.org::*out][out]] / generics / [[file:DEV%20I/keywords.org::*Named%20and%20Optional%20Parameters][parametros opcionais e nomeados]] / metodos / propriedades / overload / override
+  - [X] [[file:DEV I/types.org::*Types][Tipos]] (null coalescing, null conditional operator)
+  - [X] (Box / unbox / conversão -- basically CASTING) / tipos dinamicos / Interop
+  - [X] Encapsulamento
+  - [X] Hierarquia
+  - [X] [[file:DEV I/reflection.org::*Reflection][Reflection]]
+  - [X] Ciclo de vida de objetos
+  - [X] Alocação de memoria
+  - [X] Construtor
+  - [X] [[file:DEV I/destrutor.org::*Destrutor% (Finalizers)][Destrutor (Finalizers)]]
+  - [X] [[file:DEV I/stack-and-heap.org::*STACK% & HEAP][STACK & HEAP]]
+  - [X] Garbage Collector
+  - [X] Manipulação de caracters ([[file:DEV I/string-builder.org::*StringBuilder][StringBuilder]] / StringWriter / StringReader)
+  - [ ] Arquitetura de nuvem (Google, AWS, Azure)
+  - [ ] Arquitetura de nuvem (Cognitive Services)
+
+* [14/16] DEV-II
+
+  - [X] Clean Code (ref: Uncle Bob)
+  - [X] [[file:DEV II/solid.org::*SOLID][SOLID]]
+  - [ ] Design Patterns
+  - [ ] Service Bus
+  - [X] Teste de integridade
+  - [X] Teste funcional
+  - [X] Teste unitário
+  - [X] Teste de integração
+  - [X] Teste de carga
+  - [X] Teste de stress
+  - [X] Teste de regressão
+  - [X] Teste caixa preta
+  - [X] Teste de segurança
+  - [X] Desenvolvimento de testes (Mock, SpecFlow, Fake)
+  - [X] Metodologias de teste
+
+* [2/7] DEV-III
+
+  - [ ] Depuração / Segurança / Diagnostico
+  - [X] Debugando o codigo
+  - [ ] Indicadores e monitores de desempenho
+  - [ ] Log de Eventos
+  - [ ] Controle de versão de assemblies / Nomes fortes
+  - [ ] Criptografica Simetrica e assimetrica
+  - [X] [[file:DEV III/regex.org::*RegEx][Expressões regulares]]
+
+* [2/8] DEV-IV
+
+  - [ ] Acesso / manipulação de dados (Performance, volume de dados, quantidade dados)
+  - [X] Leitura / Escrita (Arquivos / Rede / Banco de Dados / Servicos)
+  - [ ] Leitura / Escrita banco de dados / XML / Text / Json
+  - [ ] Leitura / Escrita registro Windows
+  - [X] [[file:DEV I/dotnet.org::*LinQ][LINQ]] (Linq2SQL / Linq2XML)
+  - [ ] Transacoes
+  - [ ] Serializacao / Desserializacao (Json / Xml / Binario / Personalizado)
+  - [ ] Leitura / Escrita dicionarios / matrizes / listas / filas / pilhas / personalizacao de colecoes / interfaces de colecoes.
+
+* [1/10] DEV-V
+
+  - [ ] Comunicacao / Interoperabilidade
+  - [ ] Conceito client / server
+  - [ ] Comunicacao TCP / UDP
+  - [ ] Comunicao com struct
+  - [ ] Protocolos
+  - [ ] WebSocket
+  - [ ] WCF
+  - [ ] Web Services
+  - [ ] REST
+  - [X] WebApi / Node.js
+
+* [15/17] DEV-VI
+
+  - [X] [[file:DEV VI/typescript.org::*Typescript][Typescript]]
+  - [X] Web - Conceitos
+  - [X] MVC
+  - [X] [[file:DEV VI/angular.org::*Angular][Angular]]
+  - [X] React
+  - [X] Client - HTML5
+  - [X] Containers / Hosts
+    - [X] [[file:DEV IV/kubernetes.org::*Kubernetes][Kubernetes]]
+    - [X] [[file:DEV VI/docker.org::*Docker][Docker]]
+    - [X] Azure PAAS
+  - [X] CSS (Conceito e organização)
+  - [X] Efeitos graficos CSS
+  - [X] Elementos graficos
+  - [X] Escopo de variaveis
+  - [X] jQuery + Ajax
+  - [ ] Dados (Entrada / Consumo / Serializacao)
+  - [X] Javascript / objetos / chamadas
+  - [X] Bootstrap
+  - [ ] Server
+  - [X] Sessoes / Cache (Session / Application) / Cache Multihost / Cookie
+
+* [4/4] ARQ-I
+
+  - [X] Documentação
+  - [X] UML
+  - [X] Requisitos
+  - [X] Estorias
+
+* [2/9] BD-I
+
+  - [X] Banco de dados
+  - [ ] Tabelas / Procs / Functions / Views
+  - [ ] FullText Catalog
+  - [X] Modelagem
+  - [ ] Tipos de bancos de dados
+  - [ ] Relacional (Caracteristicas e exemplos)
+  - [ ] Hierarquico (Caracteristicas e exemplos)
+  - [ ] OO (Caracteristicas e exemplos)
+  - [ ] Uso de Campos (Quando e como utilizar)
+
+* [/] BD-II
+
+  - [ ] O que é / Como funciona + Exemplos práticos ?
+  - [ ] Data Warehouse
+  - [ ] ETL
+  - [ ] OLAP
+  - [ ] Ferramentas SQL Server
+  - [ ] Performance
+  - [ ] Analise de performance para DEV
+  - [ ] Analise de Plano de execução
+
+* [/] Data Services-I
+
+  - [ ] Power BI
+  - [ ] Power BI Gateway
+  - [ ] Big Data (Data lake, HFS, Hadoop)
+  - [ ] BD Distribuidos (Cassandra)
+  - [ ] Bancos NoSQL
+  - [ ] Analytics (Machine Learning, ADS)
+  - [ ] Inteligencia Artificial
+
+* [/] ALM-I
+
+  - [ ] CI / Automatizacao
+  - [ ] Jenkins
+  - [ ] SpecFlow
+  - [ ] Release Management
+  - [ ] Integração / Automatização de testes
+  - [ ] Source Control (TFVC / [[file:ALM I/git.org::*GIT][GIT]])
+
+* [/] ARQ-II
+
+  - [ ] Analise de software
+  - [ ] Levantamento de requisitos
+  - [ ] Identificação de problemas
+  - [ ] Arquitetura de software
+  - [ ] Estruturação
+  - [ ] Abstração / Modularização
+  - [ ] Componentes / Conectores
+
+* [1/8] INF-I
+
+  - [ ] Infra + Azure
+  - [ ] Virtual machines
+  - [ ] IIS / AD / DNS / Firewall
+  - [ ] Autenticacao / Autorizacao
+  - [ ] NTLM / Basic / Digest / Kerberos / Oauth / Single Sign-On
+  - [ ] Hosts App
+  - [ ] LB
+  - [X] VPN
+
+* [1/4] MOB-I
+
+  - [ ] Mobile
+  - [X] Plataformas (Ionic, Cordova)
+  - [ ] Arquitetura
+  - [ ] Xamarin (Swift, Kotlin, Java)
+
+* [1/5] TOOLS-I
+
+  - [ ] Tools / Language / Integracoes
+  - [ ] APIs (Google / Exchange / O365 / Sharepoint / AD)
+  - [ ] Powershell
+  - [ ] Azure
+  - [X] Python
+
+* [1/5] MET-I
+
+  - [ ] Metodologias
+  - [X] [[file:MET I/scrum.org::*SCRUM% (Agile development)][SCRUM]]
+  - [ ] TDD
+  - [ ] BDD
+  - [ ] ATDD
+
+* [0/6] CLOUD-I
+
+  - [ ] Dev for Azure
+  - [ ] Deploy solutions
+  - [ ] Powershell / APIs / Integracao Visual Studio
+  - [ ] Servicos de Armazenamento
+  - [ ] Planejamento / Arquitetura
+  - [ ] AWS
+
+* [/] CLOUD-II
+
+  - [ ] Cognitive Services - Vision
+  - [ ] Cognitive Services - Speech
+  - [ ] Cognitive Services - Search
+  - [ ] Cognitive Services - Knowledge
+  - [ ] Cognitive Services - Language
+  - [ ] Functions

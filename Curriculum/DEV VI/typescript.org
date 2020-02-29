@@ -1,0 +1,38 @@
+* Typescript
+
+** Generics
+   
+   To define generic types in javascript we can:
+
+   #+BEGIN_SRC typescript
+     // A generic class
+     class Queue<T> {
+         private list: T[] = [];
+
+         push(item: T): void { this.list.push(item); }
+         pop(): T | undefined { return this.list.shift() }
+     }
+
+     let queue = new Queue<number>();
+
+     queue.push(3);
+     queue.push('4'); // error!
+   #+END_SRC
+
+** Currying
+
+   In functional programming we often want to apply a function partially, we can achieve that feat by chaining together multiple fat arrow functions:
+
+   #+BEGIN_SRC typescript
+     // A curried function
+     const add = (x: number) => (y: number) => x + y;
+
+     // Usage
+     add(123)(456);
+
+     // Partially applied
+     let add123 = add(123);
+
+     // fully apply the function
+     add123(456);
+   #+END_SRC

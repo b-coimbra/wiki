@@ -1,0 +1,65 @@
+* StringBuilder
+  
+  A String is immutable, meaning String cannot be changed once created.
+
+  #+BEGIN_SRC csharp
+    StringBuilder sb = new StringBuilder();
+
+    // or
+
+    StringBuilder sb = new StringBuilder("Hello world!!");
+
+    // allocate 50 bytes sequentially onto the memory heap.
+    StringBuilder sb = new StringBuilder("Hello world", 50);
+  #+END_SRC
+
+** Important Methods of StringBuilder
+
+   | Method Name                                   | Description                                                        |
+   |-----------------------------------------------+--------------------------------------------------------------------|
+   | =StringBuilder.Append(valueToAppend)=         | Appends the passed values to the end of the current String         |
+   | =StringBuilder.AppendFormat()=                | Replaces a format specifier passed in a string with formatted text |
+   | =StringBuilder.Insert(index, value)=          | Inserts a string at the specified index of the current object      |
+   | =StringBuilder.Remove(int start, int length)= | Removes the specified number of characters from the given position |
+   | =StringBuilder.Replace(old, new)=             | Replaces characters with new characters                            |
+
+*** Examples
+
+**** Append
+
+     #+BEGIN_SRC csharp
+       StringBuilder sb = new StringBuilder("hello", 50);
+
+       sb.Append("World!");
+       sb.AppendLine("Hello C#");
+       sb.AppendLine("This is a new line.");
+
+       Console.WriteLine(sb);
+     #+END_SRC
+
+**** AppendFormat
+     
+     #+BEGIN_SRC csharp
+       StringBuilder sb = new StringBuilder("Hello world", 50);
+       sb.Insert(5, " C#");
+
+       Console.WriteLine(sb);
+     #+END_SRC
+
+**** Remove 
+     
+     #+BEGIN_SRC csharp
+       StringBuilder sb = new StringBuilder("Hello world", 50);
+       sb.Remove(6, 7);
+
+       Console.WriteLine(sb);
+     #+END_SRC
+
+**** Replace     
+
+     #+BEGIN_SRC csharp
+       StringBuilder sb = new StringBuilder("Hello world", 50);
+       sb.Replace("World", "C#");
+
+       Console.WriteLine(sb);
+     #+END_SRC

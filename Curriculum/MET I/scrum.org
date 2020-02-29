@@ -1,0 +1,119 @@
+* SCRUM (Agile development)
+  
+  O método Scrum da metodoligia ágil é um framework criado para desenvolver, entregar e sustentar produtos complexos.
+  
+* Workflow
+  
+  [[./scrum-cycle.png]]
+
+  *Plan -> Build -> Test -> Review*
+  
+  Repetir este workflow para cada sprint:
+  
+  1. Product Backlog
+  2. Sprint Planning
+  3. Sprint Backlog
+  4. Sprint
+  5. Produto potencialmente pronto a ser entregue
+  6. Sprint Review e Sprint Retrospective
+  
+  *This processs takes up 1 to 3 weeks*
+
+* Scrum Master (Servant-leader to the team)
+  
+  Responsible for protecting the team and the process, running the meetings and keeping things going
+  O papel do Scrum master no time é garantir que o time siga os valores e princípios do desenvolvimento agile
+  
+* The Team
+
+  The team can be composed of testers, developers, writers and anyone else that helps building the product.
+  Team members can play multiple roles (eg. developer becomes tester, or backwards)
+  
+  O tamanho do time deve ser entre 3 e 9 (máximo).
+
+* User Stories
+  
+  É um meio de descrever um conjunto de características
+  User stories são muito menores que UC (Use Cases) 
+  Requisitos não funcionais
+
+  Segue o seguinte formato
+  (para que o PO possa especificar o tamanho certo de detalhes para o time e estimar o tamanho da tarefa):
+
+  Eu como um ___,
+  Preciso de ___,
+  De tal maneira que ___,
+
+** Esforço
+   
+   - É necessário estimar o esforço que levará para implementar tal história:
+     - Atribuir pontos para cada função
+
+** Prioridade
+
+   A prioridade pode ser definida pelos próprios stakeholders, ou determinada pelos desenvolvedores caso contrário
+
+** Identificador único
+
+   Cada história possui um indicador para a user-story, o propósito é para manter um sistema de rastreabilidade para
+   manter o controle.
+  
+* Princípios Agile
+  
+  O Agile valoriza:
+
+  - Indivíduos e a interação entre eles, mais que processos e ferramentas
+  - Software em funcionamento, mais que documentação abrangente
+  - Colaboração com o cliente, mais que negociação de contratos
+  - Responder a mudanças
+  
+* Product Owner (PO)
+  
+  O PO (Product Owner) define o que deve ser entregue no final do produto, além dos items do Product backlog
+  
+* Sprint
+  
+  Sprints are several incremental releases.
+  We keep repeating the sprints until the product is complete.
+
+** Sprint Planning 
+   
+   É onde o PO, Scrum Master e o time se organizam para discutir os user-stories de maior prioridade,
+   e estimam o tamanho deles, e determina o que *pode* ser incluido no próximo sprint.
+
+** Daily Scrum
+   
+   Durante o Sprint:
+
+   É uma reunião breve onde os desenvolvedores discutem o que eles completaram desde a última reunião,
+   o que eles estão trabalhando e seus problemas (algo que está bloqueando, ou necessita de ajuda)
+
+   *Ocorre em no máximo 15 minutos.*
+
+** Sprint Review
+   
+   Ocorre no final da Sprint
+   É onde o time demonstra o projeto completo para o PO, e discutem o que pode ser feito para melhorar
+   a continuação (lifetime) do projeto.
+
+* Backlog
+
+  Há 3 artefatos (documentos) usados no Scrum:
+
+** Product Backlog
+   
+   This is where the PO creates a prioritized list of features and ideas known as user-stories
+   that could go into the product.
+
+** Sprint Backlog
+   
+   É o resultado do Sprint Planning
+   É uma lista de histórias -- as histórias de maior prioridade vão ao Sprint Backlog
+   São então estimados o tamanho e atribuidas ao próximo sprint.
+
+* Burndown Chart
+  
+  [[./burndown-chart.png]]
+
+  Mostra o progresso da sprint na conclusão de tarefas no Sprint Backlog
+  O gráfico deve chegar a 0 pontos assim que o trabalho é concluído.

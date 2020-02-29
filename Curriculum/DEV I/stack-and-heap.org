@@ -1,0 +1,99 @@
+* STACK & HEAP
+  
+  The =stack= is responsible for keeping track on what's executing in our code.
+  The =heap= is more or less responsible for keeping track of our objects (data).
+
+  Essentially, we have four main things we'll be putting in the stack and heap as our code is executing:
+
+  - Value types (~bool, byte, char, float, int~ etc)
+  - Reference Types (~class, interface, [[*Delegates][delegate]], object, string~) -> HEAP
+  - Pointers (reference to a type)
+  - Instructions
+  
+** STACK 
+
+   Considering the following code:
+
+   #+BEGIN_SRC csharp
+     public int AddFive(int pValue)
+     {
+         int result;
+         result = pValue + 5;
+         return result;
+     }
+
+   #+END_SRC
+   
+   1. ~AddFive()~ and
+   2. ~pValue | int~ goes into the stack.
+   3. JIT compiles and executes the first instruction (=AddFive=).
+   4. As the method executes, we need some memory for the =result= variable and it is allocated in the stack.
+   5. The method finished the execution and the result is returned.
+   6. All memory allocated on the stack is cleaned up by moving a pointer to the available memory address.
+
+** HEAP
+   
+   Value Types always go where they are declared,
+   if a value type is declared outside a method, but inside a reference type it will be placed within
+   the Reference Type of the heap.
+   
+   #+BEGIN_SRC csharp
+     public class MyInt
+     {
+         public int MyValue;
+     }
+
+     public MyInt AddFive(int pValue)
+     {
+         MyInt result  new MyInt();
+         result.Myvalue = pValue + 5;
+         return result;
+     }
+   #+END_SRC
+   
+   1. Thread starts executing the method and its parameters are placed on the thread's stack.
+   2. Because ~MyInt~ is a Reference Type, it is placed on the Heap and referenced by a Pointer on the Stack.
+   3. After ~AddFive()~ is finished executing, we clean it up.
+   4. We've left with an orphaned ~MyInt~ in the heap (there is no longer anyone in the stack pointing to ~MyInt~)
+   
+*** Delegates
+    
+    Delegates are types that represent a reference to a method.
+    They are used for passing arguments as reference to other methods.
+    
+    #+BEGIN_SRC csharp
+      class DelegateExample {
+          public void Run()
+          {
+              // using class method
+              InvokeDelegate(WriteToConsole);
+
+              // using anonymous method
+              DelegateInvoker di = delegate (string input)
+                  {
+                      Console.WriteLine(string.Format("di: {0}", input));
+                      return true;
+                  }
+
+              InvokeDelegate(di);
+
+              // using lambda expression;
+              InvokeDelegate(input => true);
+          }
+
+          public delegate bool DelegateInvoker(string input);
+
+          public void InvokeDelegate(DelegateInvoker func)
+          {
+              var ret = func("Hello world");
+              Console.WriteLine("> Delegate returned {ret}");
+          }
+
+          public bool WriteToConsole(string input)
+          {
+              Console.WriteLine($"WriteToConsole: {input}");
+              return true;
+          }
+      }
+    #+END_SRC
+    

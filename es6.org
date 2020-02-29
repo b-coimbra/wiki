@@ -1,4 +1,5 @@
-* Typescript (ES6)
+#+TITLE: Typescript (ES6)
+
 * Static attributes and methods
 
   Static methods can be called on the class directly:

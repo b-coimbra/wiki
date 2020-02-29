@@ -1,0 +1,26 @@
+* GIT
+** Cheatsheet
+
+   | Command                        | Description                        |
+   |--------------------------------+------------------------------------|
+   | ~git checkout -b <new-branch>~ | Creates a new branch               |
+   | ~git branch -a~                | Lists all branches                 |
+   | ~git fetch --all~              | Fetch all branches                 |
+   | ~git branch -d <branch>~       | Delete a local branch (-D forces ) |
+   | ~git push origin :branch-name~ | Delete a remote branch             |
+
+   =HEAD= is a reference to the last commit in hte currently check-out branch
+
+** Rebase
+
+   ~$ git checkout <branch>~
+   followed by:
+   ~$ git rebase <branch>~
+   where =<branch>= can be *master*
+  
+** Merge
+
+   ~$ git checkout master~
+   then:
+   ~$ git merge <branch>~
+  
