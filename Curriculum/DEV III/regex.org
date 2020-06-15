@@ -39,6 +39,12 @@
 | ~^~      | Matching the beginning of a string |
 | ~[]~     | range or "variance" [A-Z]          |
 
+** Passing Options
+   
+   #+begin_src csharp
+     new Regex(pattern, RegexOptions.Compiled, RegexOptions.IgnoreCase);
+   #+end_src
+
 ** Single Match
 
    #+BEGIN_SRC csharp
@@ -69,5 +75,5 @@
 
      foreach (Match match in mLookup)
          found.Add(match.Groups[1].Value);
-
    #+END_SRC
+   
