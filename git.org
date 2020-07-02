@@ -1,0 +1,14 @@
+* General
+
+  | command                              | description                           |
+  |--------------------------------------+---------------------------------------|
+  | ~git rebase -i HEAD~n~               | where *n* is the number of commits    |
+  | ~git commit --amend~                 | modifies the most recent commit       |
+  | ~git push origin <branch> -f~        | ~-f~ forced push                      |
+  | ~git rebase --continue~              | after resolving rebase conflicts      |
+  | ~git reset origin/develop -- <file>~ | subtitute a local file with develop's |
+
+* Remove unwanted commited files
+
+  1. ~git reset origin/develop -- <file>~
+  2. ~git commit --amend~
