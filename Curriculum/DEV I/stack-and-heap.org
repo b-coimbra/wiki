@@ -97,3 +97,24 @@
       }
     #+END_SRC
     
+* Boxing & Unboxing
+
+  It's a process in which the memory is alocated back and forth from the stack and heap.
+  
+  Example: When casting data types.
+
+  All C# data types are inherited from the *Object* type.
+  
+** Check for a type
+   
+   #+BEGIN_SRC csharp
+   x is int // checks if x is int
+   #+END_SRC
+    
+** Attempt to box a data type
+   
+   #+BEGIN_SRC csharp
+  var c = o as string
+   #+END_SRC
+   
+   returns null when it's unable to do so.

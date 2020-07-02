@@ -1,0 +1,15 @@
+* Auth types
+  
+** NTLM (NT Lan Manager)
+
+   Como se comunica o usuário e senha até o servidor.
+   
+   Generates a token for the client.
+   
+** Basic
+
+   O tipo de auth mais inseguro. Se resolve em apenas um usuário e senha.
+   
+** Kerberos
+
+   O mais seguro entre todos.

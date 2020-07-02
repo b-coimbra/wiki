@@ -1,0 +1,25 @@
+* Testes 
+  
+** Teste de integridade/integração
+
+   Quando algo depende de um nó central para funcionar. Por exemplo: Todos microserviços dependem de um módulo
+   de conexão (Identity).
+
+** Teste de carga & stress
+   
+   Testa como uma aplicação lida com múltiplas conexões. Por exemplo, um teste de como o servidor lida
+   com 100+ usuários conectados simultaneamente.
+
+** Teste de regressão
+   
+   Identifica se novas features quebraram funcionalidades já existentes. Por exemplo, os modelos (Models) são mapeados
+   nos testes, qualquer alteração nos mesmos irá quebrar os testes.
+
+** Teste de caixa preta
+   
+   Testes código cujo conteúdo é desconhecido. Código que é visível apenas pelas interfaces disponibilizadas.
+   Exemplo: bibliotecas pagas.
+
+** Teste de segurança
+   
+   Toca no quesito de segurança. Exemplo: políticas de acesso num servidor etc

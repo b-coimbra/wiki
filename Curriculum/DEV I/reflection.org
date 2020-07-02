@@ -1,6 +1,6 @@
 * Reflection
 
-  Reflection is a C# language mechanism for accessing dynamoic object properties on runtime.
+  Reflection is a C# language mechanism for accessing dynamic object properties in runtime.
   Typically, reflection is used to fetch the information about dynamic object type and object attribute values.
 
 ** Get the members of a type
@@ -14,11 +14,11 @@
          public static void Main()
          {
              var members = typeof(object)
-                 .Getmembers(Bindingflags.Public |
+                 .GetMembers(Bindingflags.Public |
                              BindingFlags.Static |
                              BindingFlags.Instance);
 
-             foreach (var member in mebers)
+             foreach (var member in members)
              {
                  bool inherited = member.DeclaringType.Equals(typeof(object).Name);
                  Console.WriteLine($"{member.Name} is a {member.MemberType}," +

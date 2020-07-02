@@ -1,0 +1,10 @@
+* Hosts
+  
+  Responsible for using an .exe, service 
+  Tells what the application needs, and the operating system releases the dependencies.
+
+** Web Hosts
+
+  Kestrel or the IIS: starts asp.net and asp.mvc,
+  they have the the capacity to process WEB requests
+

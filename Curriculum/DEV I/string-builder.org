@@ -63,3 +63,9 @@
 
        Console.WriteLine(sb);
      #+END_SRC
+
+     
+* StringWriter
+
+  #+begin_src csharp
+  #+end_src

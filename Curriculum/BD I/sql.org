@@ -1,0 +1,3 @@
+* Ferramentas SQL Server
+  
+  - =string= accepts /null/ as default, no need to sign it as optional =?=

@@ -1,57 +1,59 @@
-* [25/28] DEV I
+* [27/30] DEV I
 
   - [X] [[file:DEV I/dotnet.org::*.NET][.NET Framework]]
   - [X] Interpretada / compilada ?
-  - [X] [[file:DEV I/il.org::*Intermediate% Language (IL)][Intermediate Language (IL)]]
-  - [X] [[file:DEV I/gac.org::*Global% Assembly Cache%20(GAC)][Global Assembly Cache (GAC)]]
+  - [X] [[file:DEV I/il.org::*Intermediate Language%20(IL)][Intermediate Language (IL)]]
+  - [X] [[file:DEV I/gac.org::*Global Assembly%20Cache%20(GAC)][Global Assembly Cache (GAC)]]
   - [X] [[file:DEV I/threading.org::*Threading][Threading]]
-  - [X] [[file:DEV I/threading.org::*Task% Parallel][Task Parallel]] / ThreadPool / Desbloqueio UI / [[file:DEV I/async-dotnet.org::*Async/await in .NET][async/await]]
+  - [X] [[file:DEV I/threading.org::*Task Parallel][Task Parallel]] / ThreadPool / Desbloqueio UI / async / await
   - [X] [[file:DEV I/threading.org::*Threading][MultiThread]] - Gerenciamento
   - [ ] Sincronizar recursos / Bloqueio / Semaforo / Thread Safe
   - [X] If / switch / for / foreach / colecoes / matriz
   - [X] Retornos
-  - [X] Eventos / [[file:DEV I/keywords.org::*Interfaces][assinaturas]] (interfaces) / [[file:DEV% I/stack-and-heap.org::*Delegates][delegates]] / lambdas / metodos anomimos
+  - [X] Eventos / [[file:DEV I/keywords.org::*Interfaces][assinaturas]] (interfaces) / [[file:DEV I/stack-and-heap.org::*Delegates][delegates]] / lambdas / metodos anomimos
   - [X] Excessoes
   - [X] Manipulacao de excessão (SQL, Rede, Comunicacao, Timeout, parametros) try / catch / throw / personalizacao
-  - [X] [[file:DEV I/keywords.org::*Structs][Structs]] / enum / [[file:DEV% I/keywords.org::*ref][ref]] / var / [[file:DEV I/keywords.org::*out][out]] / generics / [[file:DEV%20I/keywords.org::*Named%20and%20Optional%20Parameters][parametros opcionais e nomeados]] / metodos / propriedades / overload / override
+  - [X] [[file:DEV I/keywords.org::*Structs][Structs]] / enum / [[file:DEV I/keywords.org::*ref][ref]] / var / [[file:DEV%20I/keywords.org::*out][out]] / generics / [[file:DEV%20I/keywords.org::*Named%20and%20Optional%20Parameters][parametros opcionais e nomeados]] / metodos / propriedades / overload / override
   - [X] [[file:DEV I/types.org::*Types][Tipos]] (null coalescing, null conditional operator)
-  - [X] (Box / unbox / conversão -- basically CASTING) / tipos dinamicos / Interop
+  - [X] ([[file:DEV I/stack-and-heap.org::*Boxing &%20Unboxing][Box / unbox]] / conversão -- basically CASTING) / [[file:DEV%20I/dynamic.org::*dynamic%20type][tipos dinamicos]] / Interop
   - [X] Encapsulamento
   - [X] Hierarquia
   - [X] [[file:DEV I/reflection.org::*Reflection][Reflection]]
+  - [X] [[file:DEV I/extension-methods.org::*Extension Methods][Métodos de extensão]]
   - [X] Ciclo de vida de objetos
   - [X] Alocação de memoria
   - [X] Construtor
-  - [X] [[file:DEV I/destrutor.org::*Destrutor% (Finalizers)][Destrutor (Finalizers)]]
-  - [X] [[file:DEV I/stack-and-heap.org::*STACK% & HEAP][STACK & HEAP]]
+  - [X] [[file:DEV I/destrutor.org::*Destrutor (Finalizers)][Destrutor (Finalizers)]]
+  - [X] [[file:DEV I/stack-and-heap.org::*STACK &%20HEAP][STACK & HEAP]]
   - [X] Garbage Collector
   - [X] Manipulação de caracters ([[file:DEV I/string-builder.org::*StringBuilder][StringBuilder]] / StringWriter / StringReader)
+  - [X] [[file:DEV I/type-inference.org::*Type inference][Inferência de tipo]]
   - [ ] Arquitetura de nuvem (Google, AWS, Azure)
   - [ ] Arquitetura de nuvem (Cognitive Services)
 
-* [14/16] DEV-II
+* [12/15] DEV-II
 
   - [X] Clean Code (ref: Uncle Bob)
   - [X] [[file:DEV II/solid.org::*SOLID][SOLID]]
   - [ ] Design Patterns
   - [ ] Service Bus
-  - [X] Teste de integridade
   - [X] Teste funcional
   - [X] Teste unitário
-  - [X] Teste de integração
-  - [X] Teste de carga
-  - [X] Teste de stress
-  - [X] Teste de regressão
-  - [X] Teste caixa preta
-  - [X] Teste de segurança
+  - [X] [[file:DEV II/tests.org::*Teste de integridade/integração][Teste de integridade]]
+  - [X] [[file:DEV II/tests.org::*Teste de integridade/integração][Teste de integração]]
+  - [X] [[file:DEV II/tests.org::*Teste de carga & stress][Teste de carga]]
+  - [X] [[file:DEV II/tests.org::*Teste de carga & stress][Teste de stress]]
+  - [X] [[file:DEV II/tests.org::*Teste de regressão][Teste de regressão]]
+  - [X] [[file:DEV II/tests.org::*Teste de caixa preta][Teste caixa preta]]
+  - [X] [[file:DEV II/tests.org::*Teste de segurança][Teste de segurança]]
   - [X] Desenvolvimento de testes (Mock, SpecFlow, Fake)
-  - [X] Metodologias de teste
+  - [ ] Metodologias de teste
 
-* [2/7] DEV-III
+* [4/7] DEV-III
 
-  - [ ] Depuração / Segurança / Diagnostico
+  - [X] Depuração / Segurança / Diagnostico
   - [X] Debugando o codigo
-  - [ ] Indicadores e monitores de desempenho
+  - [X] Indicadores e monitores de desempenho
   - [ ] Log de Eventos
   - [ ] Controle de versão de assemblies / Nomes fortes
   - [ ] Criptografica Simetrica e assimetrica
@@ -68,7 +70,7 @@
   - [ ] Serializacao / Desserializacao (Json / Xml / Binario / Personalizado)
   - [ ] Leitura / Escrita dicionarios / matrizes / listas / filas / pilhas / personalizacao de colecoes / interfaces de colecoes.
 
-* [1/10] DEV-V
+* [2/10] DEV-V
 
   - [ ] Comunicacao / Interoperabilidade
   - [ ] Conceito client / server
@@ -78,7 +80,7 @@
   - [ ] WebSocket
   - [ ] WCF
   - [ ] Web Services
-  - [ ] REST
+  - [X] REST
   - [X] WebApi / Node.js
 
 * [15/17] DEV-VI
@@ -129,7 +131,7 @@
   - [ ] Data Warehouse
   - [ ] ETL
   - [ ] OLAP
-  - [ ] Ferramentas SQL Server
+  - [ ] [[file:BD I/sql.org::*Ferramentas SQL Server][Ferramentas SQL Server]]
   - [ ] Performance
   - [ ] Analise de performance para DEV
   - [ ] Analise de Plano de execução
@@ -144,14 +146,14 @@
   - [ ] Analytics (Machine Learning, ADS)
   - [ ] Inteligencia Artificial
 
-* [/] ALM-I
+* [1/6] ALM-I
 
   - [ ] CI / Automatizacao
   - [ ] Jenkins
   - [ ] SpecFlow
   - [ ] Release Management
   - [ ] Integração / Automatização de testes
-  - [ ] Source Control (TFVC / [[file:ALM I/git.org::*GIT][GIT]])
+  - [X] Source Control (TFVC / [[file:ALM I/git.org::*GIT][GIT]])
 
 * [/] ARQ-II
 
@@ -163,16 +165,18 @@
   - [ ] Abstração / Modularização
   - [ ] Componentes / Conectores
 
-* [1/8] INF-I
+* [4/10] INF-I
 
   - [ ] Infra + Azure
   - [ ] Virtual machines
   - [ ] IIS / AD / DNS / Firewall
   - [ ] Autenticacao / Autorizacao
-  - [ ] NTLM / Basic / Digest / Kerberos / Oauth / Single Sign-On
-  - [ ] Hosts App
-  - [ ] LB
-  - [X] VPN
+  - [X] [[file:INF I/auth-types.org::*Auth types][NTLM / Basic / Digest / Kerberos / Oauth / Single Sign-On]]
+  - [X] [[file:INF I/hosts.org::*Hosts][Hosts]]
+  - [ ] NAT
+  - [X] [[file:INF I/vpn.org::*LB (Load Ballance)][LB]]
+  - [X] [[file:INF I/vpn.org::*VPN (Virtual%20Private%20Network)][VPN]]
+  - [ ] Proxy
 
 * [1/4] MOB-I
 
@@ -181,23 +185,24 @@
   - [ ] Arquitetura
   - [ ] Xamarin (Swift, Kotlin, Java)
 
-* [1/5] TOOLS-I
+* [2/5] TOOLS-I
 
   - [ ] Tools / Language / Integracoes
   - [ ] APIs (Google / Exchange / O365 / Sharepoint / AD)
-  - [ ] Powershell
+  - [X] Powershell
   - [ ] Azure
   - [X] Python
 
 * [1/5] MET-I
 
   - [ ] Metodologias
-  - [X] [[file:MET I/scrum.org::*SCRUM% (Agile development)][SCRUM]]
+  - [X] [[file:MET I/scrum.org::*SCRUM (Agile%20development)][SCRUM]]
   - [ ] TDD
-  - [ ] BDD
+  - [ ] [[file:MET I/TDD.org::*TDD][DDD]]
+  - [ ] [[file:MET I/bdd.org::*BDD][BDD]]
   - [ ] ATDD
 
-* [0/6] CLOUD-I
+* [/] CLOUD-I
 
   - [ ] Dev for Azure
   - [ ] Deploy solutions
