@@ -24,3 +24,6 @@
   | ~C-a "~                 | split vertically                        |
   | ~C-a %~                 | split horizontally                      |
   | ~C-a x~                 | kill current pane                       |
+  | ~C-a q~                 | jump to pane by index                   |
+  | ~C-a {~                 | swap current pane with the next one     |
+  | ~C-a }~                 | swap current pane with the previous one |
