@@ -86,3 +86,14 @@
 ** Vimdiff
 
    ~diffget <N> | LO~
+** Neovim
+*** COC
+
+  | Command | Description      |
+  |---------+------------------|
+  | ~]g~    | diagnostic next  |
+  | ~[g~    | diagnostic prev  |
+  | ~gd~    | go to definition |
+  | ~gi~    | implementation   |
+  | ~gr~    | references       |
+  | ~gy~    | type definition  |
