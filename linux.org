@@ -178,6 +178,60 @@
   ~echo file-{a..b}.txt~ outputs =file-a.txt file-b.txt file-c.txt file-d.txt=
 
   ~mv program.{c,exe} bin/~
+* IO Redirections
+** Output redirections
+
+  The output from a command normally intended for stdout can be easily diverted to a file.
+
+  #+begin_src sh
+	$ who > users
+
+	$ cat users
+	nexi     tty01    Oct 22 08:58
+	ai       tty02    Oct 22 13:58
+  #+end_src
+
+  The ~>~ operator will always override the contents of the file.
+
+  We can use the ~>>~ operator to *append* the output in a file with existing info:
+
+  #+begin_src sh
+	$ echo lorem ipsum >> users
+
+	$ cat users
+	nexi     tty01    Oct 22 08:58
+	ai       tty02    Oct 22 13:58
+	lorem ipsum
+  #+end_src
+** Input redirection
+
+   Commands that receive input from stdin can have their input redirected from a file.
+
+   #+begin_src sh
+	 $ wc -l < users
+	 3
+   #+end_src
+
+** Here document
+
+   A "here document" redirects input into an interactive shell script or program.
+
+   #+begin_src sh
+	 command << EOF
+		 document
+	 EOF
+   #+end_src
+
+   The ~>>~ command is an instruction to read input until it finds a line containing the delimeted (EOF in this case)
+
+   #+begin_src sh
+	 $ wc -l <<EOF
+	   lorem ipsum
+	   dolor sit
+	   amet
+	 EOF
+	 3
+   #+end_src
 
 * Chaining Operators
   - ~&~ (Ampersand Operator)
