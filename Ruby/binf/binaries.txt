@@ -1,3 +1,0 @@
-E:/binaries/node/node.exe
-E:/binaries/git/git-cmd.exe
-E:/binaries/gen.exe

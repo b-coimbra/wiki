@@ -1,0 +1,329 @@
+* Sha Bang
+
+  | Expression   | Description                                                    |
+  |--------------+----------------------------------------------------------------|
+  | ~#!~         | locate an executable for the specified script                  |
+  | ~!!~         | executes last command                                          |
+  | ~!*~         | executes command with ALL the args passed to the last command  |
+  | ~!^~         | executes command with the FIRST arg passed to the last command |
+  | ~!$~         | executes command with the LAST arg passed to the last command  |
+  | ~!?keyword?~ | execute a command from history for the first pattern match     |
+  | ~!n~         | execute a command from the nth position in the history         |
+  | ~!<command>~ | executes a command with the same flags as before               |
+
+* Permissions
+** chmod (change mode)
+*** Group permissions
+
+    | Group | Description  |
+    |-------+--------------|
+    | u     | user (owner) |
+    | g     | group        |
+    | o     | others       |
+    | a     | all          |
+
+*** Operators
+
+    | Operator | Description         |
+    |----------+---------------------|
+    | +        | add permission      |
+    | -        | remove permission   |
+    | =        | override permission |
+
+*** Octal notation
+
+    | Octal | Description                             |
+    |-------+-----------------------------------------|
+    |     0 | nothing                                 |
+    |     1 | execute                                 |
+    |     2 | write                                   |
+    |     3 | 1 + 2 (wx) write and execute            |
+    |     4 | read                                    |
+    |     5 | 4 + 1 (rx) read and execute             |
+    |     6 | 4 + 3 (rw) read and write               |
+    |     7 | 4 + 2 + 1 (rwx) read, write and execute |
+
+*** Syntax
+
+    | Command                                 | Description                                                     |
+    |-----------------------------------------+-----------------------------------------------------------------|
+    | ~chmod -R <specifications> <directory>~ | changing permissions of the contents of a directory recursively |
+    | ~chmod og=+r~                           | add read permission for the owner and group                     |
+    | ~chmod a +rwx file~                     | allow all user to read, write and execute                       |
+
+** chown (Change Ownership)
+
+   ~chown user1 filename~ changing ownership of a file to =user1=
+
+** su (switch user)
+
+   | Command   | Description                                                |
+   |-----------+------------------------------------------------------------|
+   | ~su -~    | invokes a login shell, reseting most environment variables |
+   | ~su~      | normal shell                                               |
+   | ~sudo su~ | switch to root                                             |
+
+** sudo (superuser do)
+
+  ~sudo~ will run a specific command with root level of permission.
+
+  ~sudo !! (last command)~ for instance
+
+* Other commands
+
+  | Command           | Description                                                                       |
+  |-------------------+-----------------------------------------------------------------------------------|
+  | ~cd -~            | go to the previous working directory                                              |
+  | ~ls \*D~          | pathname expansion, returns all files starting with D                             |
+  | ~ls exe\*~        | all files ending with 'exe'                                                       |
+  | ~less <file>~     | view the contents of a file with a pager                                          |
+  | ~head <file>~     | first several lines of a file (pass -n <numer-of-lines> to see N number of lines) |
+  | ~tail <file>~     | last several lines of a file (pass -n <numer-of-lines> to see N number of lines)  |
+  | ~uname~           | show informations about the system (-a flag shows ALL info)                       |
+  | ~du~              | summarizes the *disk usage* of files                                              |
+  | ~du -sh *~        | summarizes every file in the current directory                                    |
+  | ~df~              | disk space of filesystem                                                          |
+  | ~ps~              | process status                                                                    |
+  | ~ps -C <name>~    | find the PID of a specific program                                                |
+  | ~killall <p>~     | terminates a process                                                              |
+  | ~kill <PID>~      | terminates a process given the PID                                                |
+  | ~which~           | searches for executables specified by the environment variable PATH               |
+  | ~time~            | time the execution of any program (eg. time node script.js)                       |
+  | ~watch -n N~      | runs a command infinitely each N seconds                                          |
+  | ~apropos~         | find a command that I'm unaware of (eg. apropos "list dir")                       |
+  |                   | use in conjuntion with (whatis) command                                           |
+  | ~whereis~         | searches for executables, source files and manual pages                           |
+  | ~diff~            | compares files, and lists their difference                                        |
+  | ~find~            | find files in directory (eg. find -name README.md)                                |
+  | ~man giteveryday~ | useful minimul set of commands for everyday git                                   |
+  | ~curl wttr.in~    | weather forecast                                                                  |
+
+* Fix typos
+
+  Instead of retyping a long list of arguments of a mispelled command,
+  we can correct whatever typo we made with =^typo^correct=
+
+  ~$ dc /tmp~
+
+  ~$ ^dc^cd~
+
+* File Compression
+
+  | Flags             | Description                                                   |
+  |-------------------+---------------------------------------------------------------|
+  | -c --create       | create a new archive                                          |
+  | -x --extract      | extract files from an archive                                 |
+  | -t --list         | list the contents of an archive                               |
+  | -f --file=ARCHIVE | use archive file                                              |
+  | -v --verbose      | list files being processed                                    |
+  | -z                | compress the archive with gzip  (faster, but compresses less) |
+  | -j                | compress the archive with bzip2 (slower, but compresses more) |
+  | --exclude <path>  | ignores subfolder                                             |
+
+** Syntax
+
+   | Command                                                   | Description                                             |
+   |-----------------------------------------------------------+---------------------------------------------------------|
+   | tar -cf ./archive.tar ./folder                            | creates an archive from a folder                        |
+   | tar -lf ./archive.tar                                     | lists the contents of the archive without extracting it |
+   | tar -xvf ./archive.tar                                    | extracts the archive                                    |
+   | tar -cf archive.tar ./folder --exclude "folder/subfolder" | ignores subfolder inside my-folder                      |
+   | tar -czvf archive.tar.gz ./folder                         | creates a gzip archive                                  |
+   | tar -cjvf archive.tar.bz2 ./folder                        | creates a bzip2 archive                                 |
+   | gunzip <filename>                                         | un-compresses files compressed by gzip                  |
+   | gzcat  <filename>                                         | look at a gzipped file without having to gunzip it      |
+   | gzip   <filename>                                         | compresses a file to gzip format                        |
+   | bzip2  <filename>                                         | compresses a file to bzip2 format                       |
+
+* Shell expansion
+
+  We can use shell expansion to:
+  - rename and backup operations
+  - pattern matching
+  - match any string
+
+** The =*= Wildcard
+
+   - The =*= is a greedy operator that matches any string, incuding the null string.
+
+   ~$ echo file*~ returns =file.log file.tex file.txt file.exe=
+   ~$ echo *.tex~ returns =file.tex=
+
+** The =?= Wildcard
+
+   - The =?= matches a single character.
+
+   ~$ echo file?.txt~ returns =file1.txt file2.txt file3.txt ...=
+
+** Inverting Sets
+
+   - The =^= character represents *not*.
+     - =[abc]= means either *a, b* or *c*
+     - =[^abc]= any character that is *not a, b* or *c*
+
+** Brace Expansion
+
+  To backup settings.conf to settings.conf.bak:
+
+  ~cp settings.conf{,.bak}~
+
+  To revert the file from settings.conf.bak to settings.conf:
+
+  ~mv settings.conf{.bak,}~
+
+  Other uses:
+
+  ~echo foo{1,2,3}.txt~ outputs =foo1.txt, foo2.txt, foo3.txt=
+
+  ~echo file-{a..b}.txt~ outputs =file-a.txt file-b.txt file-c.txt file-d.txt=
+
+  ~mv program.{c,exe} bin/~
+* IO Redirections
+** Output redirections
+
+  The output from a command normally intended for stdout can be easily diverted to a file.
+
+  #+begin_src sh
+	$ who > users
+
+	$ cat users
+	nexi     tty01    Oct 22 08:58
+	ai       tty02    Oct 22 13:58
+  #+end_src
+
+  The ~>~ operator will always override the contents of the file.
+
+  We can use the ~>>~ operator to *append* the output in a file with existing info:
+
+  #+begin_src sh
+	$ echo lorem ipsum >> users
+
+	$ cat users
+	nexi     tty01    Oct 22 08:58
+	ai       tty02    Oct 22 13:58
+	lorem ipsum
+  #+end_src
+** Input redirection
+
+   Commands that receive input from stdin can have their input redirected from a file.
+
+   #+begin_src sh
+	 $ wc -l < users
+	 3
+   #+end_src
+
+** Here document
+
+   A "here document" redirects input into an interactive shell script or program.
+
+   #+begin_src sh
+	 command << EOF
+		 document
+	 EOF
+   #+end_src
+
+   The ~>>~ command is an instruction to read input until it finds a line containing the delimeted (EOF in this case)
+
+   #+begin_src sh
+	 $ wc -l <<EOF
+	   lorem ipsum
+	   dolor sit
+	   amet
+	 EOF
+	 3
+   #+end_src
+
+* Chaining Operators
+  - ~&~ (Ampersand Operator)
+
+    run one or more jobs in the background,
+
+    EXAMPLE: ping www.google.com &
+             apt-get update & apt-get upgrade &
+
+    - ~Ctrl-z~ pauses the job
+    - ~jobs~ prints all the jobs
+
+  - ~;~ (Semi-colon operator)
+
+    run several commands at once sequentially, disregarding the exit status of the preceding command
+
+    EXAMPLE: apt-get update ; apt-get upgrade ; mkdir test
+
+  - ~&&~ (AND operator)
+
+    executes a command IF the exit status of the preceding command is 0
+
+    EXAMPLE: ping www.google.com && links www.google.com    (checking the connection before using links command)
+
+  - ~||~ (OR operator)
+
+    much like an 'else' statement, allows to execute the second command only if the execution
+    of the first fails (i.e., the exit status is 1)
+
+    EXAMPLE: apt-get update || links www.google.com
+
+  - ~!~ (NOT operator)
+
+    much like an 'except' statement, this command will execute all except the condition provided
+
+    EXAMPLE: rm -r !(*.html)      removes all files in a folder except .html files
+
+  - ~|~ (PIPE operator)
+
+    passes the output of the first command to the second one
+
+    EXAMPLE: ls -l | less
+
+  - ~{}~ (Command Combination operator)
+
+    combine two or more commands
+
+    [ -d Folder] || { echo creating Folder; mkdir Folder; } && echo Folder exists.
+
+* RegEx Tools
+
+- ~grep~ (Globally search for a Regular Expression and Print)
+  for searching stuff in files, or any STDOUT (eg. 'ls' command)
+
+  EXAMPLE: =ls | grep "\.exe$"=
+
+- ~sed~ (stream editor)
+  for substitituing, deleting or filtering text on a stream
+
+  EXAMPLE: =sed 's/regexp/replacement/g' file > output=
+
+  -r will extend the Regex portability (POSIX)
+
+- ~xargs~ (command args)
+  pass any command to it and it will execute it on a stream.
+
+  EXAMPLE: =find | grep "\.exe$" | xargs ls -lh=
+
+* Bash
+
+  | keybinding | description                    |
+  |------------+--------------------------------|
+  | ~ctrl-u~   | delete entire line             |
+  | ~ctrl-l~   | clear screen                   |
+  | ~ctrl-w~   | delete last word               |
+  | ~ctrl-r~   | search through command history |
+  | ~alt-.~    | cycles through last arguments  |
+  | ~alt-*~    | expands glob                   |
+* File System
+
+  - /etc/: system-wide configuration folder (eg. pacman mirrorlist)
+  - /bin/: common binary files for applications (eg. ls)
+  - /boot/: stores my bootloader
+  - /lib/: shared libraries that applications use
+  - /mnt/: where external drives are mounted (eg. usbstick)
+  - /opt/: manually installed softwares
+  - /proc/: information about system processes and resources, each folder is a process' PID.
+	- also contains other infos such as (/proc/cpuinfo)
+  - /root/: volatile storage
+  - /srv/: service directory, where service data is stored
+  - /sys/: it's a way to interact with the hardware
+  - /tmp/: where files are temporary stored in a session (eg. writing in a libreoffice file)
+  - /usr/: user application's space, where applications will be installed
+  - /var/: contains files that are supposed to grow (eg. logs)
+  - /home/: where you store your own personal files
