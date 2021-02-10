@@ -71,32 +71,33 @@
 
 * Other commands
 
-  | Command           | Description                                                                       |
-  |-------------------+-----------------------------------------------------------------------------------|
-  | ~cd -~            | go to the previous working directory                                              |
-  | ~ls \*D~          | pathname expansion, returns all files starting with D                             |
-  | ~ls exe\*~        | all files ending with 'exe'                                                       |
-  | ~less <file>~     | view the contents of a file with a pager                                          |
-  | ~head <file>~     | first several lines of a file (pass -n <numer-of-lines> to see N number of lines) |
-  | ~tail <file>~     | last several lines of a file (pass -n <numer-of-lines> to see N number of lines)  |
-  | ~uname~           | show informations about the system (-a flag shows ALL info)                       |
-  | ~du~              | summarizes the *disk usage* of files                                              |
-  | ~du -sh *~        | summarizes every file in the current directory                                    |
-  | ~df~              | disk space of filesystem                                                          |
-  | ~ps~              | process status                                                                    |
-  | ~ps -C <name>~    | find the PID of a specific program                                                |
-  | ~killall <p>~     | terminates a process                                                              |
-  | ~kill <PID>~      | terminates a process given the PID                                                |
-  | ~which~           | searches for executables specified by the environment variable PATH               |
-  | ~time~            | time the execution of any program (eg. time node script.js)                       |
-  | ~watch -n N~      | runs a command infinitely each N seconds                                          |
-  | ~apropos~         | find a command that I'm unaware of (eg. apropos "list dir")                       |
-  |                   | use in conjuntion with (whatis) command                                           |
-  | ~whereis~         | searches for executables, source files and manual pages                           |
-  | ~diff~            | compares files, and lists their difference                                        |
-  | ~find~            | find files in directory (eg. find -name README.md)                                |
-  | ~man giteveryday~ | useful minimul set of commands for everyday git                                   |
-  | ~curl wttr.in~    | weather forecast                                                                  |
+  | Command            | Description                                                                       |
+  |--------------------+-----------------------------------------------------------------------------------|
+  | ~cd -~             | go to the previous working directory                                              |
+  | ~ls \*D~           | pathname expansion, returns all files starting with D                             |
+  | ~ls exe\*~         | all files ending with 'exe'                                                       |
+  | ~less <file>~      | view the contents of a file with a pager                                          |
+  | ~head <file>~      | first several lines of a file (pass -n <numer-of-lines> to see N number of lines) |
+  | ~tail <file>~      | last several lines of a file (pass -n <numer-of-lines> to see N number of lines)  |
+  | ~uname~            | show informations about the system (-a flag shows ALL info)                       |
+  | ~du~               | summarizes the *disk usage* of files                                              |
+  | ~du -sh *~         | summarizes every file in the current directory                                    |
+  | ~df~               | disk space of filesystem                                                          |
+  | ~ps~               | process status                                                                    |
+  | ~ps -C <name>~     | find the PID of a specific program                                                |
+  | ~killall <p>~      | terminates a process                                                              |
+  | ~kill <PID>~       | terminates a process given the PID                                                |
+  | ~which~            | searches for executables specified by the environment variable PATH               |
+  | ~time~             | time the execution of any program (eg. time node script.js)                       |
+  | ~watch -n N~       | runs a command infinitely each N seconds                                          |
+  | ~apropos~          | find a command that I'm unaware of (eg. apropos "list dir")                       |
+  |                    | use in conjuntion with (whatis) command                                           |
+  | ~whereis~          | searches for executables, source files and manual pages                           |
+  | ~diff~             | compares files, and lists their difference                                        |
+  | ~find~             | find files in directory (eg. find -name README.md)                                |
+  | ~man giteveryday~  | useful minimul set of commands for everyday git                                   |
+  | ~curl wttr.in~     | weather forecast                                                                  |
+  | ~curl parrot.live~ | rainbow parrot                                                                    |
 
 * Fix typos
 
