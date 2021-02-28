@@ -136,6 +136,15 @@
    | gzip   <filename>                                         | compresses a file to gzip format                        |
    | bzip2  <filename>                                         | compresses a file to bzip2 format                       |
 
+* Encryption
+** GPG (GNU Privacy Guard)
+
+   #+begin_src sh
+	 $ gpg -c --no-sym-key-cache --cipher-algo AES256 <file>
+   #+end_src
+
+   ~-c~ is for symmetric encryption.
+
 * Shell expansion
 
   We can use shell expansion to:
