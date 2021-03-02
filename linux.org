@@ -139,11 +139,41 @@
 * Encryption
 ** GPG (GNU Privacy Guard)
 
+   | Flag                         | Description               |
+   |------------------------------+---------------------------|
+   | ~--list-keys~                | list all keys keyring     |
+   | ~--import <key-path>~        | Add a pubkey into keyring |
+   | ~--delete-key <fingerprint>~ | Del key in keyring        |
+
+*** Import keys from keyserver
+
+	#+begin_src sh
+	  $ gpg --keyserver <server> --recv-keys <hex>
+	#+end_src
+
+	Where =<server>= can be "pgp.mit.edu" for instance.
+
+*** Encrypt message
+
+	Having the receiver's pkey:
+
+	#+begin_src sh
+	  $ gpg --output doc.gpg --encrypt --recipient mail@recipient doc
+	#+end_src
+
+*** Decrypt message
+
+	#+begin_src sh
+	  $ gpg --output doc --decrypt doc.gg
+	#+end_src
+
+*** Symmetric encryption
+
+   ~-c~ is for symmetric encryption (single pkey for encrypting/decrypting).
+
    #+begin_src sh
 	 $ gpg -c --no-sym-key-cache --cipher-algo AES256 <file>
    #+end_src
-
-   ~-c~ is for symmetric encryption.
 
 * Shell expansion
 
