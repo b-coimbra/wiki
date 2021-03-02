@@ -98,6 +98,7 @@
   | ~man giteveryday~  | useful minimul set of commands for everyday git                                   |
   | ~curl wttr.in~     | weather forecast                                                                  |
   | ~curl parrot.live~ | rainbow parrot                                                                    |
+  | ~sha256sum~        | verify file checksum. (or ~sha1sum~, ~md5sum~ depending on the hash)              |
 
 * Fix typos
 
@@ -367,3 +368,18 @@
   - /usr/: user application's space, where applications will be installed
   - /var/: contains files that are supposed to grow (eg. logs)
   - /home/: where you store your own personal files
+
+* Cleanup
+
+  When ~/dev/sda2/~ is almost full:
+
+  1. delete pacman cache:
+
+  =sudo paccache -r= keep at least 3 caches
+  =sudo paccache -rk 1= keep only 1 pkg cache
+
+  2. delete sxiv cache:
+
+  =cd "rm ~/.cache/sxiv/*"=
+
+  3. look into the .cache folder
