@@ -196,7 +196,7 @@
 * [1/5] MET-I
 
   - [ ] Metodologias
-  - [X] [[file:MET I/scrum.org::*SCRUM (Agile%20development)][SCRUM]]
+  - [X] [[file:MET I/scrum.org::*SCRUM][SCRUM]]
   - [ ] TDD
   - [ ] [[file:MET I/TDD.org::*TDD][DDD]]
   - [ ] [[file:MET I/bdd.org::*BDD][BDD]]
