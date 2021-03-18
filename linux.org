@@ -98,6 +98,7 @@
   | ~man giteveryday~  | useful minimul set of commands for everyday git                                   |
   | ~curl wttr.in~     | weather forecast                                                                  |
   | ~curl parrot.live~ | rainbow parrot                                                                    |
+  | ~sha256sum~        | verify file checksum. (or ~sha1sum~, ~md5sum~ depending on the hash)              |
 
 * Fix typos
 
