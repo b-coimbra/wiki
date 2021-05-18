@@ -25,3 +25,14 @@
   By removing that extension, the hook will be executed depending on the action performed (eg. commit/push)
 
   Hooks are essentially shell scripts -- they can either be written in bash, python or ruby.
+
+* Bisect
+
+  Useful for finding a specific faulty commit that introduced a bug somewhere in a project.
+
+  #+begin_src bash
+	$ git bisect start
+	$ git bisect bad   # current version (commit) is bad
+	$ git bisect good  # current version (commit) is good
+	$ git bisect reset # return to commit after bisect star
+  #+end_src

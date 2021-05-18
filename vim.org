@@ -82,6 +82,9 @@
   | ~:grep~         | starts the grep command                               |
   | ~<V> o~         | go to the other end of the highlightext text          |
   | ~C-j~           | newline                                               |
+  | ~gi~            | back to previous insert mode                          |
+  | ~ga~            | show character encoding info                          |
+  | ~gq<Enter>~     | format paragraphs                                    |
 
 ** Neovim
 *** COC
