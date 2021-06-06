@@ -84,7 +84,8 @@
   | ~C-j~           | newline                                               |
   | ~gi~            | back to previous insert mode                          |
   | ~ga~            | show character encoding info                          |
-  | ~gq<Enter>~     | format paragraphs                                    |
+  | ~gq<Enter>~     | format paragraphs                                     |
+  | ~C-r <macro>~   | show contents of macro recording                      |
 
 ** Neovim
 *** COC
