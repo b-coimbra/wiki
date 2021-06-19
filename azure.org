@@ -1,0 +1,31 @@
+* Cognitive search
+** params
+
+   - =queryType= specifies the parser (=full= | =simple= (default))
+   - =highlight= shows what word was matched
+
+** notes
+
+   - In queries containing rare and common terms, TF/IDF promotes results containing the rare term.
+   - Some params become irrelevant if the query is marked as a fuzzy search (eg. ^+)
+
+** Lucene Query
+
+   | symbol | description            | example        | matches                                  |
+   |--------+------------------------+----------------+------------------------------------------|
+   | =~=    | fuzzy search           | =term~=        | team, terms, perms                       |
+   | =^n=   | boost term             | =term^2=       | team, terms                              |
+   | =?=    | wildcard single chr    | =te?t=         | test text tent                           |
+   | =*=    | wildcard multiple chrs | =tes*=         | test testing tester                      |
+   | =:=    | specify column         | =title:text=   | text                                     |
+   | =+=    | required               | =+lorem ipsum= | may or may not contain 'ipsum'           |
+   | =-=    | prohibit               | =-lorem ipsum= | won't match sentences with 'lorem ipsum' |
+   | =/*=   | comment                |                |                                          |
+   | =/=    | regexp                 |                |                                          |
+
+   *Boolean operators are also supported:* and (&&) not (!) or (||)
+
+*** Examples
+
+    santander~||santander^2
+    santander~^2
