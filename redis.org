@@ -1,0 +1,51 @@
+#+NAME: Redis
+
+Redis is an in-memory non-relational database.
+
+- Values are stored as key/value pairs which can be lists, hashes, blob, json etc. They're volatile as they're held in memory.
+- The storage size is restricted by the ammount of RAM available.
+- It's significantly faster than a relational database at fetching data, making it quite useful for cache mechanisms.
+
+A technique for keeping persisent data is often used where you store relevant information after a session ends in a relational database,
+then load it back once another session begins.
+
+Every lang has a redis lib, example with Golang:
+
+#+begin_src go
+  import (
+      "context"
+      "github.com/go-redis/redis/v8"
+  )
+
+  var ctx = context.Background()
+
+  func ExampleClient() {
+      rdb := redis.NewClient(&redis.Options{
+          Addr:     "localhost:6379",
+          Password: "", // no password set
+          DB:       0,  // use default DB
+      })
+
+      err := rdb.Set(ctx, "key", "value", 0).Err()
+      if err != nil {
+          panic(err)
+      }
+
+      val, err := rdb.Get(ctx, "key").Result()
+      if err != nil {
+          panic(err)
+      }
+      fmt.Println("key", val)
+
+      val2, err := rdb.Get(ctx, "key2").Result()
+      if err == redis.Nil {
+          fmt.Println("key2 does not exist")
+      } else if err != nil {
+          panic(err)
+      } else {
+          fmt.Println("key2", val2)
+      }
+      // Output: key value
+      // key2 does not exist
+  }
+#+end_src
