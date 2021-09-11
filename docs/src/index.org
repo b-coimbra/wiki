@@ -8,12 +8,16 @@
 * General
 
   - [[./linux.html][Linux]]
+  - [[./regex.html][Regex]]
 
 * Tools
 
   - [[./ssh.html][SSH]]
   - [[./vim.html][Vim]]
   - [[./git.html][Git]]
+  - [[./tmux.html][Tmux]]
+  - [[./docker.html][Docker]]
+  - [[./spacemacs.html][Spacemacs]]
 
 * Frameworks
 
@@ -21,4 +25,5 @@
 
 * Languages
 
+  - [[./dotnet.html][.NET]]
   - [[./typescript.html][Typescript]]

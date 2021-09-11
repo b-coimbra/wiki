@@ -1,4 +1,11 @@
-* Tmux
+#+TITLE: Tmux
+#+DATE: <2021-09-09 Sat>
+#+AUTHOR: b-coimbra
+#+EMAIL: me@metaphoric.dev
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+#+EXPORT_FILE_NAME: ../tmux.html
+
+* Keybindings
 
   =C-a= is the prefix key (=C-b= is default).
 

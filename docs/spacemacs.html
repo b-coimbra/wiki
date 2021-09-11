@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-11 sáb 16:19 -->
+<!-- 2021-09-11 sáb 16:04 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>My Notes</title>
+<title>Spacemacs</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="b-coimbra" />
 <style type="text/css">
@@ -224,66 +224,246 @@
 </head>
 <body>
 <div id="content">
-<h1 class="title">My Notes</h1>
+<h1 class="title">Spacemacs</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org6bc4b12">1. General</a></li>
-<li><a href="#orgb4854c6">2. Tools</a></li>
-<li><a href="#orga2e6644">3. Frameworks</a></li>
-<li><a href="#org9801425">4. Languages</a></li>
+<li><a href="#org989755a">1. Keybindings</a></li>
+<li><a href="#org1028528">2. Magit commands</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org6bc4b12" class="outline-2">
-<h2 id="org6bc4b12"><span class="section-number-2">1.</span> General</h2>
+<div id="outline-container-org989755a" class="outline-2">
+<h2 id="org989755a"><span class="section-number-2">1.</span> Keybindings</h2>
 <div class="outline-text-2" id="text-1">
-<ul class="org-ul">
-<li><a href="./linux.html">Linux</a></li>
-<li><a href="./regex.html">Regex</a></li>
-</ul>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Command</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>, s f</code></td>
+<td class="org-left">skewer eval defun</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC a r</code></td>
+<td class="org-left">summons ranger</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC f b</code></td>
+<td class="org-left">view ranger bookmarks</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC s e</code></td>
+<td class="org-left">summons iedit-mode</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC t t</code></td>
+<td class="org-left">treemacs</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>C-n</code></td>
+<td class="org-left">evil-mc next match</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>C-p</code></td>
+<td class="org-left">evil-mc previous match</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>M-n</code></td>
+<td class="org-left">evil-mc move cursor to next match</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>M-p</code></td>
+<td class="org-left">evil-mc move cursor to previous match</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>g r q</code></td>
+<td class="org-left">evil-mc remove all cursors</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 
-<div id="outline-container-orgb4854c6" class="outline-2">
-<h2 id="orgb4854c6"><span class="section-number-2">2.</span> Tools</h2>
+<div id="outline-container-org1028528" class="outline-2">
+<h2 id="org1028528"><span class="section-number-2">2.</span> Magit commands</h2>
 <div class="outline-text-2" id="text-2">
-<ul class="org-ul">
-<li><a href="./ssh.html">SSH</a></li>
-<li><a href="./vim.html">Vim</a></li>
-<li><a href="./git.html">Git</a></li>
-<li><a href="./tmux.html">Tmux</a></li>
-<li><a href="./docker.html">Docker</a></li>
-<li><a href="./spacemacs.html">Spacemacs</a></li>
-</ul>
-</div>
-</div>
+<p>
+Git commands (start with <code>g</code>):
+</p>
 
-<div id="outline-container-orga2e6644" class="outline-2">
-<h2 id="orga2e6644"><span class="section-number-2">3.</span> Frameworks</h2>
-<div class="outline-text-2" id="text-3">
 <ul class="org-ul">
-<li><a href="./angular.html">Angular</a></li>
+<li><code>SHIFT</code> for selecting portions of the file to stage.</li>
+<li><code>bb</code> checkout a branch</li>
+<li><code>,,</code> commit a file in the commit buffer</li>
+<li><code>e</code> opens ediff</li>
 </ul>
-</div>
-</div>
 
-<div id="outline-container-org9801425" class="outline-2">
-<h2 id="org9801425"><span class="section-number-2">4.</span> Languages</h2>
-<div class="outline-text-2" id="text-4">
-<ul class="org-ul">
-<li><a href="./dotnet.html">.NET</a></li>
-<li><a href="./typescript.html">Typescript</a></li>
-</ul>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Key Binding</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>SPC g b</code></td>
+<td class="org-left">open a <code>magit</code> blame</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC g B</code></td>
+<td class="org-left">quit <code>magit</code> blame</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC g c</code></td>
+<td class="org-left">commit changes</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC g C</code></td>
+<td class="org-left">checkout branches</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC g d</code></td>
+<td class="org-left">show diff prompt</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC g D</code></td>
+<td class="org-left">show diff against current head</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC g e</code></td>
+<td class="org-left">show ediff comparison</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC g E</code></td>
+<td class="org-left">show ediff against current head</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC g f</code></td>
+<td class="org-left">show fetch prompt</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC g F</code></td>
+<td class="org-left">show pull prompt</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC g H c</code></td>
+<td class="org-left">clear highlights</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC g H h</code></td>
+<td class="org-left">highlight regions by age of commits</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC g H t</code></td>
+<td class="org-left">highlight regions by last updated time</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC g i</code></td>
+<td class="org-left">git init a given directory</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC g I</code></td>
+<td class="org-left">open <code>helm-gitignore</code></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC g l</code></td>
+<td class="org-left">open a <code>magit</code> log</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC g L</code></td>
+<td class="org-left">display the log for a file</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC g P</code></td>
+<td class="org-left">show push prompt</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC g s</code></td>
+<td class="org-left">open a <code>magit</code> status window</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC g S</code></td>
+<td class="org-left">stage current file</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC g m</code></td>
+<td class="org-left">display the last commit message of the current line</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC g t</code></td>
+<td class="org-left">launch the git time machine</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC g U</code></td>
+<td class="org-left">unstage current file</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SPC j d</code></td>
+<td class="org-left">dired jump</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Date: 2021-09-09 qui 00:00</p>
+<p class="date">Date: 2021-09-11 sáb 00:00</p>
 <p class="author">Author: b-coimbra</p>
-<p class="date">Created: 2021-09-11 sáb 16:19</p>
+<p class="date">Created: 2021-09-11 sáb 16:04</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

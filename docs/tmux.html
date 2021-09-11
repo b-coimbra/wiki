@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-11 sáb 16:19 -->
+<!-- 2021-09-11 sáb 16:08 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>My Notes</title>
+<title>Tmux</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="b-coimbra" />
 <style type="text/css">
@@ -224,66 +224,161 @@
 </head>
 <body>
 <div id="content">
-<h1 class="title">My Notes</h1>
+<h1 class="title">Tmux</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org6bc4b12">1. General</a></li>
-<li><a href="#orgb4854c6">2. Tools</a></li>
-<li><a href="#orga2e6644">3. Frameworks</a></li>
-<li><a href="#org9801425">4. Languages</a></li>
+<li><a href="#orge7650d0">1. Keybindings</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org6bc4b12" class="outline-2">
-<h2 id="org6bc4b12"><span class="section-number-2">1.</span> General</h2>
+<div id="outline-container-orge7650d0" class="outline-2">
+<h2 id="orge7650d0"><span class="section-number-2">1.</span> Keybindings</h2>
 <div class="outline-text-2" id="text-1">
-<ul class="org-ul">
-<li><a href="./linux.html">Linux</a></li>
-<li><a href="./regex.html">Regex</a></li>
-</ul>
-</div>
-</div>
+<p>
+<code>C-a</code> is the prefix key (<code>C-b</code> is default).
+</p>
 
-<div id="outline-container-orgb4854c6" class="outline-2">
-<h2 id="orgb4854c6"><span class="section-number-2">2.</span> Tools</h2>
-<div class="outline-text-2" id="text-2">
-<ul class="org-ul">
-<li><a href="./ssh.html">SSH</a></li>
-<li><a href="./vim.html">Vim</a></li>
-<li><a href="./git.html">Git</a></li>
-<li><a href="./tmux.html">Tmux</a></li>
-<li><a href="./docker.html">Docker</a></li>
-<li><a href="./spacemacs.html">Spacemacs</a></li>
-</ul>
-</div>
-</div>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
-<div id="outline-container-orga2e6644" class="outline-2">
-<h2 id="orga2e6644"><span class="section-number-2">3.</span> Frameworks</h2>
-<div class="outline-text-2" id="text-3">
-<ul class="org-ul">
-<li><a href="./angular.html">Angular</a></li>
-</ul>
-</div>
-</div>
 
-<div id="outline-container-org9801425" class="outline-2">
-<h2 id="org9801425"><span class="section-number-2">4.</span> Languages</h2>
-<div class="outline-text-2" id="text-4">
-<ul class="org-ul">
-<li><a href="./dotnet.html">.NET</a></li>
-<li><a href="./typescript.html">Typescript</a></li>
-</ul>
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Command</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>tmux new -s &lt;name&gt;</code></td>
+<td class="org-left">creates a new session</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>tmux attach -t &lt;name&gt;</code></td>
+<td class="org-left">attach to a session</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>C-a :kill-session</code></td>
+<td class="org-left">kills a session</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>tmux ls</code></td>
+<td class="org-left">see which sessions are running</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>C-a &lt;n&gt;</code></td>
+<td class="org-left">goes to a window</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>C-a n</code></td>
+<td class="org-left">next window</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>C-a p</code></td>
+<td class="org-left">previous window</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>C-a d</code></td>
+<td class="org-left">detach from session</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>C-a o</code></td>
+<td class="org-left">go to the other pane</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>C-a z</code></td>
+<td class="org-left">toggle full-screen pane</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>C-a C-&lt;arrow-key&gt;</code></td>
+<td class="org-left">resize pane in the direction of the key</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>C-d</code></td>
+<td class="org-left">remove pane</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>C-a (</code></td>
+<td class="org-left">previous session</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>C-a )</code></td>
+<td class="org-left">next session</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>C-a s</code></td>
+<td class="org-left">choose a session</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>C-a ,</code></td>
+<td class="org-left">rename current window</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>C-a $</code></td>
+<td class="org-left">rename current session</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>C-a "</code></td>
+<td class="org-left">split vertically</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>C-a %</code></td>
+<td class="org-left">split horizontally</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>C-a x</code></td>
+<td class="org-left">kill current pane</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>C-a q</code></td>
+<td class="org-left">jump to pane by index</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>C-a {</code></td>
+<td class="org-left">swap current pane with the next one</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>C-a }</code></td>
+<td class="org-left">swap current pane with the previous one</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="date">Date: 2021-09-09 qui 00:00</p>
 <p class="author">Author: b-coimbra</p>
-<p class="date">Created: 2021-09-11 sáb 16:19</p>
+<p class="date">Created: 2021-09-11 sáb 16:08</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

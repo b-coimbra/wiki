@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-11 sáb 16:19 -->
+<!-- 2021-09-11 sáb 16:05 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>My Notes</title>
+<title>Docker</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="b-coimbra" />
 <style type="text/css">
@@ -224,66 +224,102 @@
 </head>
 <body>
 <div id="content">
-<h1 class="title">My Notes</h1>
+<h1 class="title">Docker</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org6bc4b12">1. General</a></li>
-<li><a href="#orgb4854c6">2. Tools</a></li>
-<li><a href="#orga2e6644">3. Frameworks</a></li>
-<li><a href="#org9801425">4. Languages</a></li>
+<li><a href="#org3e902b9">1. Command line</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org6bc4b12" class="outline-2">
-<h2 id="org6bc4b12"><span class="section-number-2">1.</span> General</h2>
+<div id="outline-container-org3e902b9" class="outline-2">
+<h2 id="org3e902b9"><span class="section-number-2">1.</span> Command line</h2>
 <div class="outline-text-2" id="text-1">
-<ul class="org-ul">
-<li><a href="./linux.html">Linux</a></li>
-<li><a href="./regex.html">Regex</a></li>
-</ul>
-</div>
-</div>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
-<div id="outline-container-orgb4854c6" class="outline-2">
-<h2 id="orgb4854c6"><span class="section-number-2">2.</span> Tools</h2>
-<div class="outline-text-2" id="text-2">
-<ul class="org-ul">
-<li><a href="./ssh.html">SSH</a></li>
-<li><a href="./vim.html">Vim</a></li>
-<li><a href="./git.html">Git</a></li>
-<li><a href="./tmux.html">Tmux</a></li>
-<li><a href="./docker.html">Docker</a></li>
-<li><a href="./spacemacs.html">Spacemacs</a></li>
-</ul>
-</div>
-</div>
 
-<div id="outline-container-orga2e6644" class="outline-2">
-<h2 id="orga2e6644"><span class="section-number-2">3.</span> Frameworks</h2>
-<div class="outline-text-2" id="text-3">
-<ul class="org-ul">
-<li><a href="./angular.html">Angular</a></li>
-</ul>
-</div>
-</div>
+<colgroup>
+<col  class="org-left" />
 
-<div id="outline-container-org9801425" class="outline-2">
-<h2 id="org9801425"><span class="section-number-2">4.</span> Languages</h2>
-<div class="outline-text-2" id="text-4">
-<ul class="org-ul">
-<li><a href="./dotnet.html">.NET</a></li>
-<li><a href="./typescript.html">Typescript</a></li>
-</ul>
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Command</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>docker run &lt;image&gt;</code></td>
+<td class="org-left">Runs a docker image</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>docker image ls</code></td>
+<td class="org-left">Lists all images</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>docker container ls --all</code></td>
+<td class="org-left">Lists all containers</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>docker build --tag=&lt;name&gt;</code></td>
+<td class="org-left">Creates a docker image</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>docker run -p 4000:80 &lt;tagname&gt;</code></td>
+<td class="org-left">Runs the docker image at port 4000.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>docker container stop &lt;id&gt;</code></td>
+<td class="org-left">Stops the container &lt;ID&gt; from running.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>docker push username/respository:tag</code></td>
+<td class="org-left">Uploads the tagged image to the repository.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>docker run -p 4000:80 username/respository:tag</code></td>
+<td class="org-left">Pull and run the image from the remote repository</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>docker-compose up</code></td>
+<td class="org-left">Uploads image.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>docker ps -a</code></td>
+<td class="org-left">Locate the ID or NAME of a specific container</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>docker remove &lt;ID-NAME&gt; &lt;ID-NAME&gt;</code></td>
+<td class="org-left">Remove a container.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>docker rm --rm &lt;image-name&gt;</code></td>
+<td class="org-left">Removes a specific image.</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Date: 2021-09-09 qui 00:00</p>
+<p class="date">Date: 2021-09-11 sáb 00:00</p>
 <p class="author">Author: b-coimbra</p>
-<p class="date">Created: 2021-09-11 sáb 16:19</p>
+<p class="date">Created: 2021-09-11 sáb 16:05</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

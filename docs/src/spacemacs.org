@@ -1,4 +1,11 @@
-* Spacemacs
+#+TITLE: Spacemacs
+#+DATE: <2021-09-11 Sat>
+#+AUTHOR: b-coimbra
+#+EMAIL: me@metaphoric.dev
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+#+EXPORT_FILE_NAME: ../spacemacs.html
+
+* Keybindings
 
   | Command   | Description                           |
   |-----------+---------------------------------------|
@@ -16,7 +23,7 @@
 * Magit commands
 
   Git commands (start with ~g~):
-  
+
   - ~SHIFT~ for selecting portions of the file to stage.
   - ~bb~ checkout a branch
   - ~,,~ commit a file in the commit buffer

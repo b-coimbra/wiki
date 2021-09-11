@@ -1,0 +1,552 @@
+#+TITLE: .NET
+#+DATE: <2021-09-09 Sat>
+#+AUTHOR: b-coimbra
+#+EMAIL: me@metaphoric.dev
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+#+EXPORT_FILE_NAME: ../dotnet.html
+
+* Intermediate Language (IL)
+
+  Code exists on many levels.
+  Abstraction is a ladder.
+  At the highest levels of abstraction, we have C# code.
+  At a lower level, we have an *intermediate language*.
+
+  C# is compiled into that *intermediate language*.
+
+* Async/await
+
+  Notes from Brandon Minnick's [[https://www.youtube.com/watch?v=J0mcYVxJEl0][Correcting Common Async/Await mistakes in .NET]]
+
+** ConfigureAwait(bool)
+
+   By default, all statements marked as =await= have the =ConfigureAwait(true)= flag. By setting the value to =false=, we are explicitly saying that we do not wish to return back to the thread that called us.
+
+   Instead, we find *any* available thread and assign the following tasks to it. This is what the *Context Switch* does.
+
+   This is essential since we don't want to lock the main thread -- which is responsible for dealing with user interactions and the UI.
+
+   #+begin_src csharp
+     async Task GetAllPosts()
+     {
+         List<Posts> posts = await GetPosts().ConfigureAwait(false);
+
+         foreach (var post in posts)
+             Console.WriteLine(post.Name);
+     }
+
+     // thread 1: initializes the post variable
+     // thread 1: encounters await, spawns new thread
+     // thread 2: assigns a new thread to be executed after the current one finishes
+     // thread 2: finishes to GetPosts(), calls thread 3
+     // thread 3: continues with the instructions
+   #+end_src
+
+*** Why use it?
+
+    *if we don't need to return back to the calling thread, use it.*
+
+    We should use it /almost/ always. Unless we're dealing directly with the interface, we use it.
+
+** Wait()
+
+   *Never, ever use it.*
+
+   It locks the calling thread until the current thread is done, which is not ideal.
+
+   #+begin_src csharp
+     async Task<List<Posts>> GetAllPosts()
+     {
+         List<Posts> posts = await GetAllPosts().Wait();
+
+         if (posts == null || posts.Count() == 0)
+             return new List<Posts>();
+
+         return posts;
+     }
+
+     // thread 1: initializes the posts variables
+     // thread 1: encounters the await keyword
+     // thread 1: spawns another thread: thread 2
+     // thread 2: locks the calling thread (thread 1) until GetAllPosts() is done
+     // thread 2: finishes the GetAllPosts() operation, free thread 1
+     // thread 1: continues with the instructions
+   #+end_src
+
+** Other tips
+
+   - never use =async void=. When inside a =try/catch= block, the main thread just continues to execute.
+   - never use =.Wait()= or =.Result()=
+   - if synchronous, use =.GetAwaiter().GetResult()=
+   - always use =async=
+
+* EntityFramework
+** One-to-many relationship
+
+   Using the Generics lib:
+   #+BEGIN_SRC csharp
+     using System.Collections.Generic;
+   #+END_SRC
+
+   We can define a navigation property to store multiple entities (list):
+   #+BEGIN_SRC csharp
+     public virtual ICollection<Enrollment> Enrollments { get; set; }
+   #+END_SRC
+
+   It's defined as =virtual= so they can use the EntityFramework functionality, like slow loading.
+
+* Destructor (Finalizers)
+
+  Finalizers (destructors in general) are used to perform necessary clean-ups when a class instance is being collected by the garbage collector.
+
+  #+BEGIN_SRC csharp
+    class Car {
+        ~Car { // finalizer
+            // cleanup statements
+        }
+    }
+  #+END_SRC
+
+  A finalizer can also be defined as an expression body definition:
+
+  #+BEGIN_SRC csharp
+    public class Destroyer {
+        ~Destroyer() => Console.WriteLine($"The {GetType().Name} destructor is executing.");
+    }
+  #+END_SRC
+
+* Dynamic Type
+
+  *Dynamic binding defers /binding/ - the process of resolving types, members, and operations
+  from compile time to runtime.*
+
+  Dynamic binding is useful when at compile time /you/ know that a certain function, member, or operation
+  exists, but the /compiler/ does not.
+
+  #+BEGIN_SRC csharp
+    dynamic d = GetsomeObject();
+    d.Quack();
+  #+END_SRC
+
+  We expect the runtime type of *d* to have a *Quack* method. We just can't prove it statically.
+  Since *d* is /dynamic/, the compiler deferes binding *Quack* to *d* until runtime.
+
+* Extension Methods
+
+  Extension methods allows for an existing type to be extended with new methods without altering
+  the definition of the original type.
+
+  #+BEGIN_SRC csharp
+    public static class StringHelper
+    {
+        public static void IsCapitalized(this string s)
+        {
+            if (string.IsNullOrEmpty(s)) return false;
+            return char.IsUpper(s[0]);
+        }
+    }
+
+    Console.WriteLine("Perth".IsCapitalized());
+  #+END_SRC
+* Global Assembly Cache (GAC)
+
+  =global= applies to the entire machine
+  =assembly= what .NET calls its code-libraries (DLLs)
+  =cache= a place to store things for common/faster access
+
+  Basically, it's a way to keep DLLs globally accessible without worrying about conflicts.
+  Everything is located at ~C:\\Windows\assembly~
+
+  So the GAC must be a place to store code libraries so they're accessible to all applications running on the machine.
+
+* Interfaces
+
+  Interfaces are "signatures" of an object, they include the behavior from multiple sources in a class.
+
+  #+BEGIN_SRC csharp
+    interface IEquatable<T>
+    {
+        bool Equals(T obj);
+    }
+  #+END_SRC
+
+  #+BEGIN_SRC csharp
+    public class Car : IEquatable<Car>
+    {
+        // implementation of IEquatable<T> interface
+        public bool Equals(Car car)
+        {
+            return true;
+        }
+    }
+  #+END_SRC
+
+* Keywords
+
+** Structs
+
+   1. Follows the same syntax as classes
+   2. Within a =struct= declaration, fields cannot be initialized unless they are declared as =const= or =static=
+   3. A =struct= cannot declare a parameterless constructor
+   4. Unlike classes, =structs= can be initialized without using a =new= operator.
+   5. A =struct= cannot inherit from another =struct= or =class=.
+   6. A =struct= can implement interfaces
+   7. A =struct= cannot be null.
+
+   #+BEGIN_SRC csharp
+
+     public struct TestStruct {
+         // Fields, methods, properties and events ...
+     }
+   #+END_SRC
+
+** Parameters
+
+   #+BEGIN_SRC csharp
+     public class Keywords
+     {
+         public static void Main()
+         {
+             int val1 = 0; // must be assigned a value;
+             int val2; // optional
+
+             Keywords1(ref val1);
+             Console.WriteLine(val1);
+
+             Keywords2(out val2);
+             Console.WriteLine(val2);
+         }
+
+         static void Keywords1(ref int value) => value = 7;
+         static void Keywords2(out int value) => value = 9; // must be defined
+     }
+
+     /* Output
+        7
+        9
+     ,*/
+   #+END_SRC
+
+*** ref
+
+    =Ref= keywords are used to pass an argument as a reference, meaning that when the value of that parameter
+    changes after being passed through the method, the new value is reflected in the new calling method.
+
+*** out
+
+    =Out= keywords is similar to =ref= in that, they are used to pass an argument, but they differ in that
+    arguments passed using =out= keyword can be passed without any value to be assigned to it.
+
+** Named and Optional Parameters
+
+   #+BEGIN_SRC csharp
+     // optional arguments
+     public void ExampleMethod(int required, int optionalStr = "default string") { }
+
+     static void Main()
+     {
+         // named arguments
+         PrintOrderDetails(sellerName: "Gift Shop", 31, productName: "Red Mug");
+     }
+
+     static void PrintOrderDetails(string sellerName, int orderNum, string productName) {}
+   #+END_SRC
+
+* Reflection
+
+  Reflection is a C# language mechanism for accessing dynamic object properties in runtime.
+  Typically, reflection is used to fetch the information about dynamic object type and object attribute values.
+
+** Get the members of a type
+
+   #+BEGIN_SRC csharp
+     using System;
+     using System.Reflection;
+     using System.Reflection.Linq;
+
+     public class Program {
+         public static void Main()
+         {
+             var members = typeof(object)
+                 .GetMembers(Bindingflags.Public |
+                             BindingFlags.Static |
+                             BindingFlags.Instance);
+
+             foreach (var member in members)
+             {
+                 bool inherited = member.DeclaringType.Equals(typeof(object).Name);
+                 Console.WriteLine($"{member.Name} is a {member.MemberType}," +
+                                   $"it has {(inherited ? "" : "not")} been inherited.");
+             }
+         }
+     }
+   #+END_SRC
+
+** Get a method and invoke it
+
+   #+BEGIN_SRC csharp
+     using System;
+
+     public class Program {
+         public static void Main()
+         {
+             var theString = "hello";
+             var method = theString
+                 .GetType()
+                 .GetMethod("Substring",
+                            new [] { typeof(int), typeof(int) }); // the types of the method
+
+             var result = method.Invoke(theString, new object[] { 0, 4 });
+             Console.WriteLine(result);
+         }
+     }
+   #+END_SRC
+
+** Get Static Method and invoke it
+
+   #+BEGIN_SRC csharp
+     var method = typeof(Math).getMethod("Exp");
+     var result = method.Invoke(null, new object[] { 2 }); // pass null as the first argument (no need for an instance)
+
+     Console.WriteLine(result); // e^2
+   #+END_SRC
+
+* Stack and Heap
+
+  The =stack= is responsible for keeping track on what's executing in our code.
+
+  The =heap= is more or less responsible for keeping track of our objects (data).
+
+  Essentially, we have four main things we'll be putting in the stack and heap as our code is executing:
+
+  - Value types (~bool, byte, char, float, int~ etc)
+  - Reference Types (~class, interface, [[*Delegates][delegate]], object, string~) -> HEAP
+  - Pointers (reference to a type)
+  - Instructions
+
+** Stack
+
+   Considering the following code:
+
+   #+BEGIN_SRC csharp
+     public int AddFive(int pValue)
+     {
+         int result;
+         result = pValue + 5;
+         return result;
+     }
+   #+END_SRC
+
+   1. ~AddFive()~ and
+   2. ~pValue | int~ goes into the stack.
+   3. JIT compiles and executes the first instruction (=AddFive=).
+   4. As the method executes, we need some memory for the =result= variable and it is allocated in the stack.
+   5. The method finished the execution and the result is returned.
+   6. All memory allocated on the stack is cleaned up by moving a pointer to the available memory address.
+
+** Heap
+
+   Value Types always go where they are declared,
+   if a value type is declared outside a method, but inside a reference type it will be placed within
+   the Reference Type of the heap.
+
+   #+BEGIN_SRC csharp
+     public class MyInt
+     {
+         public int MyValue;
+     }
+
+     public MyInt AddFive(int pValue)
+     {
+         MyInt result  new MyInt();
+         result.Myvalue = pValue + 5;
+         return result;
+     }
+   #+END_SRC
+
+   1. Thread starts executing the method and its parameters are placed on the thread's stack.
+   2. Because ~MyInt~ is a Reference Type, it is placed on the Heap and referenced by a Pointer on the Stack.
+   3. After ~AddFive()~ is finished executing, we clean it up.
+   4. We've left with an orphaned ~MyInt~ in the heap (there is no longer anyone in the stack pointing to ~MyInt~)
+
+* Delegates
+
+    Delegates are types that represent a reference to a method.
+    They are used for passing arguments as reference to other methods.
+
+    #+BEGIN_SRC csharp
+      class DelegateExample {
+          public void Run()
+          {
+              // using class method
+              InvokeDelegate(WriteToConsole);
+
+              // using anonymous method
+              DelegateInvoker di = delegate (string input)
+                  {
+                      Console.WriteLine(string.Format("di: {0}", input));
+                      return true;
+                  }
+
+              InvokeDelegate(di);
+
+              // using lambda expression;
+              InvokeDelegate(input => true);
+          }
+
+          public delegate bool DelegateInvoker(string input);
+
+          public void InvokeDelegate(DelegateInvoker func)
+          {
+              var ret = func("Hello world");
+              Console.WriteLine("> Delegate returned {ret}");
+          }
+
+          public bool WriteToConsole(string input)
+          {
+              Console.WriteLine($"WriteToConsole: {input}");
+              return true;
+          }
+      }
+    #+END_SRC
+
+* Threading
+
+  Creating and starting a second thread:
+
+  #+BEGIN_SRC csharp
+    using System;
+    using System.Threading;
+
+    class Program {
+        static void Main()
+        {
+            var thread = new Thread(Secondary);
+            thread.Start();
+        }
+
+        static void Secondary() => Console.WriteLine("Hello world");
+    }
+  #+END_SRC
+
+** Parallel.forEach loop
+
+   When the order of the output is not important, we can apply multiple threads to a foreach loop:
+
+   #+BEGIN_SRC csharp
+     using System;
+     using System.Threading;
+     using System.Threading.Tasks;
+
+     public class Program {
+         public static void Main() {
+             int[] Numbers = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+
+             // single-threaded:
+             Console.WriteLine("Normal foreach loop: ");
+
+             foreach (var number in Numbers)
+                 Console.WriteLine(longCalculation(number));
+
+             // This is the Parallel (Multi-threaded solution):
+             Console.WriteLine("Multiple threads: ");
+             Parallel.forEach(Numbers, number =>
+                              Console.WriteLine(longCalculation(number));
+             );
+         }
+
+         private static int longCalculation(int number)
+         {
+             Thread.Sleep(1000); // sleep to simulate a long calculation
+             return number * number;
+         }
+     }
+   #+END_SRC
+* StringBuilder
+
+  A String is immutable, meaning String cannot be changed once created.
+
+  #+BEGIN_SRC csharp
+    StringBuilder sb = new StringBuilder();
+
+    // or
+
+    StringBuilder sb = new StringBuilder("Hello world!!");
+
+    // allocate 50 bytes sequentially onto the memory heap.
+    StringBuilder sb = new StringBuilder("Hello world", 50);
+  #+END_SRC
+
+** Important Methods of StringBuilder
+
+   | Method Name                                   | Description                                                        |
+   |-----------------------------------------------+--------------------------------------------------------------------|
+   | =StringBuilder.Append(valueToAppend)=         | Appends the passed values to the end of the current String         |
+   | =StringBuilder.AppendFormat()=                | Replaces a format specifier passed in a string with formatted text |
+   | =StringBuilder.Insert(index, value)=          | Inserts a string at the specified index of the current object      |
+   | =StringBuilder.Remove(int start, int length)= | Removes the specified number of characters from the given position |
+   | =StringBuilder.Replace(old, new)=             | Replaces characters with new characters                            |
+
+*** Examples
+
+**** Append
+
+     #+BEGIN_SRC csharp
+       StringBuilder sb = new StringBuilder("hello", 50);
+
+       sb.Append("World!");
+       sb.AppendLine("Hello C#");
+       sb.AppendLine("This is a new line.");
+
+       Console.WriteLine(sb);
+     #+END_SRC
+
+**** AppendFormat
+
+     #+BEGIN_SRC csharp
+       StringBuilder sb = new StringBuilder("Hello world", 50);
+       sb.Insert(5, " C#");
+
+       Console.WriteLine(sb);
+     #+END_SRC
+
+**** Remove
+
+     #+BEGIN_SRC csharp
+       StringBuilder sb = new StringBuilder("Hello world", 50);
+       sb.Remove(6, 7);
+
+       Console.WriteLine(sb);
+     #+END_SRC
+
+**** Replace
+
+     #+BEGIN_SRC csharp
+       StringBuilder sb = new StringBuilder("Hello world", 50);
+       sb.Replace("World", "C#");
+
+       Console.WriteLine(sb);
+     #+END_SRC
+
+* Null Coalescing
+
+  The null-coalescing operator is used to set a default value for nullable types or reference types.
+
+  #+BEGIN_SRC csharp
+    // to convert a non-nullable type to a nullable type:
+    int? x = null;
+  #+END_SRC
+
+  #+BEGIN_SRC csharp
+    string name = null;
+    string myname = name ?? "Bruno";
+  #+END_SRC
+
+** Null conditional operator
+
+   Executes the definition on the right-hand side if the left-hand side operation is not null.
+   Returns =0= if people is null.
+
+   #+BEGIN_SRC csharp
+     int length = people?.Length ?? 0;
+   #+END_SRC

@@ -1,18 +1,23 @@
-* Docker
+#+TITLE: Docker
+#+DATE: <2021-09-11 Sat>
+#+AUTHOR: b-coimbra
+#+EMAIL: me@metaphoric.dev
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+#+EXPORT_FILE_NAME: ../docker.html
 
-** Commandline
+* Command line
 
-| Command                                          | Description                                       |
-|--------------------------------------------------+---------------------------------------------------|
-| ~docker run <image>~                             | Runs a docker image                               |
-| ~docker image ls~                                | Lists all images                                  |
-| ~docker container ls --all~                      | Lists all containers                              |
-| ~docker build --tag=<name>~                      | Creates a docker image                            |
-| ~docker run -p 4000:80 <tagname>~                | Runs the docker image at port 4000.               |
-| ~docker container stop <id>~                     | Stops the container <ID> from running.            |
-| ~docker push username/respository:tag~           | Uploads the tagged image to the repository.       |
-| ~docker run -p 4000:80 username/respository:tag~ | Pull and run the image from the remote repository |
-| ~docker-compose up~                              | Uploads image.                                    |
-| ~docker ps -a~                                   | Locate the ID or NAME of a specific container     |
-| ~docker remove <ID-NAME> <ID-NAME>~              | Remove a container.                               |
-| ~docker rm --rm <image-name>~                    | Removes a specific image.                         |
+  | Command                                          | Description                                       |
+  |--------------------------------------------------+---------------------------------------------------|
+  | ~docker run <image>~                             | Runs a docker image                               |
+  | ~docker image ls~                                | Lists all images                                  |
+  | ~docker container ls --all~                      | Lists all containers                              |
+  | ~docker build --tag=<name>~                      | Creates a docker image                            |
+  | ~docker run -p 4000:80 <tagname>~                | Runs the docker image at port 4000.               |
+  | ~docker container stop <id>~                     | Stops the container <ID> from running.            |
+  | ~docker push username/respository:tag~           | Uploads the tagged image to the repository.       |
+  | ~docker run -p 4000:80 username/respository:tag~ | Pull and run the image from the remote repository |
+  | ~docker-compose up~                              | Uploads image.                                    |
+  | ~docker ps -a~                                   | Locate the ID or NAME of a specific container     |
+  | ~docker remove <ID-NAME> <ID-NAME>~              | Remove a container.                               |
+  | ~docker rm --rm <image-name>~                    | Removes a specific image.                         |
