@@ -1,4 +1,9 @@
 #+TITLE: Secure Shell (ssh)
+#+DATE: <2021-09-11 Sat>
+#+AUTHOR: b-coimbra
+#+EMAIL: me@metaphoric.dev
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+#+EXPORT_FILE_NAME: docs/ssh.html
 
 SSH provides a secure connection between the host machine and a remote server.
 

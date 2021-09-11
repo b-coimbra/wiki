@@ -1,20 +1,23 @@
-#+TITLE: Testes unitários com Karma & Jasmine
-#+AUTHOR: index
-#+SETUPFILE: https://fniessen.github.io/org-html-themes/setup/theme-readtheorg.setup
+#+TITLE: Karma & Jasmine
+#+DATE: <2021-09-11 Sat>
+#+AUTHOR: b-coimbra
+#+EMAIL: me@metaphoric.dev
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+#+EXPORT_FILE_NAME: docs/unit-tests.html
 
 * Configuração
 
   Setup necessário antes de rodar os testes.
-  
+
 ** [[https://www.npmjs.com/package/karma-parallel][Karma parallel]]
-   
+
    O *karma-parallel* é um plugin do Karma que acelera a execução dos testes através da invocação de múltiplas instâncias de um navegador, decidindo qual bloco =describe= deve rodar em tal determinado navegador.
-   
+
    Antes de executar os testes, removemos as seções no arquivo de configuração do karma que configuram o =karma-parallel=, visto que só precisamos de um navegador -- e queremos economizar memória:
-   
+
    1. No arquivo de configuração do karma: =ClientApp/src/karma.conf.js=.
    2. Removemos as seguintes seções:
- 
+
       #+begin_src diff
         module.exports = function(config) {
           config.set({
@@ -38,9 +41,9 @@
 * Executando os testes
 
   1. Navegue até a pasta _ClientApp_: ~$ cd ~/ClientApp~
-  
+
   2. Execute os testes: ~$ ng tests --code-coverage~
-     
+
      #+begin_quote
      A flag =--code-coverage= é usada para gerar um relatório de cobertura -- a porcentagem de linhas executadas pelos testes (line coverage)
      e garantir que cada uma das ramificações possíveis de cada ponto de decisão seja executada pelo menos uma vez (branch coverage).
@@ -154,7 +157,7 @@
 
 ***** afterAll(fn: callback, timeout: int)
 
-      Executado no *final* de todas as specs 
+      Executado no *final* de todas as specs
 
       #+begin_src typescript
        describe("timesheet.component.ts", () => {
@@ -167,7 +170,7 @@
 ** SpyOn
 
    Observa o retorno de um método de um objeto
-    
+
    #+begin_src typescript
       class Math {
         constructor() { }

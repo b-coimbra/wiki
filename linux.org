@@ -1,3 +1,10 @@
+#+TITLE: Linux
+#+DATE: <2021-09-11 Sat>
+#+AUTHOR: b-coimbra
+#+EMAIL: me@metaphoric.dev
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+#+EXPORT_FILE_NAME: docs/linux.html
+
 * Sha Bang
 
   | Expression   | Description                                                    |
@@ -164,8 +171,8 @@
 
 *** Decrypt message
 
-	#+begin_src sh
-	  $ gpg --output doc --decrypt doc.gg
+    #+begin_src sh
+      $ gpg --output doc --decrypt doc.gg
 	#+end_src
 
 *** Symmetric encryption
@@ -360,7 +367,6 @@
   - /mnt/: where external drives are mounted (eg. usbstick)
   - /opt/: manually installed softwares
   - /proc/: information about system processes and resources, each folder is a process' PID.
-	- also contains other infos such as (/proc/cpuinfo)
   - /root/: volatile storage
   - /srv/: service directory, where service data is stored
   - /sys/: it's a way to interact with the hardware

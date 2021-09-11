@@ -1,4 +1,11 @@
-* Vim
+#+TITLE: Vim
+#+DATE: <2021-09-11 Sat>
+#+AUTHOR: b-coimbra
+#+EMAIL: me@metaphoric.dev
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+#+EXPORT_FILE_NAME: docs/vim.html
+
+* Keybindings
 
   | Command       | Description                                           |
   |---------------+-------------------------------------------------------|
@@ -87,14 +94,14 @@
   | ~gq<Enter>~     | format paragraphs                                     |
   | ~C-r <macro>~   | show contents of macro recording                      |
 
-** Neovim
-*** COC
+* Neovim
+** COC
 
-  | Command | Description      |
-  |---------+------------------|
-  | ~]g~    | diagnostic next  |
-  | ~[g~    | diagnostic prev  |
-  | ~gd~    | go to definition |
-  | ~gi~    | implementation   |
-  | ~gr~    | references       |
-  | ~gy~    | type definition  |
+   | Command | Description      |
+   |---------+------------------|
+   | ~]g~    | diagnostic next  |
+   | ~[g~    | diagnostic prev  |
+   | ~gd~    | go to definition |
+   | ~gi~    | implementation   |
+   | ~gr~    | references       |
+   | ~gy~    | type definition  |

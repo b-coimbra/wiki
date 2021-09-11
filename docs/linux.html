@@ -1,0 +1,1413 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-09-11 sáb 15:26 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Linux</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="b-coimbra" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Linux</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgb935341">1. Sha Bang</a></li>
+<li><a href="#org0ef75ee">2. Permissions</a>
+<ul>
+<li><a href="#org97655c0">2.1. chmod (change mode)</a></li>
+<li><a href="#org6e25e23">2.2. Group permissions</a></li>
+<li><a href="#orgca73ef6">2.3. Operators</a></li>
+<li><a href="#orga3218a4">2.4. Octal notation</a></li>
+<li><a href="#org606fc98">2.5. Syntax</a></li>
+<li><a href="#org0a0068b">2.6. chown (Change Ownership)</a></li>
+<li><a href="#orgc4a30a4">2.7. su (switch user)</a></li>
+<li><a href="#org4e578ca">2.8. sudo (superuser do)</a></li>
+</ul>
+</li>
+<li><a href="#org98c7167">3. Other commands</a></li>
+<li><a href="#org274881d">4. Fix typos</a></li>
+<li><a href="#orgd3dc828">5. File Compression</a>
+<ul>
+<li><a href="#orgc8673b7">5.1. Syntax</a></li>
+</ul>
+</li>
+<li><a href="#orgda1a6fc">6. Encryption</a>
+<ul>
+<li><a href="#orgcde6c9b">6.1. GPG (GNU Privacy Guard)</a></li>
+<li><a href="#org0823af1">6.2. Import keys from keyserver</a></li>
+<li><a href="#org43f5e7f">6.3. Encrypt message</a></li>
+<li><a href="#orgaa0c9f1">6.4. Decrypt message</a></li>
+<li><a href="#org16808f5">6.5. Symmetric encryption</a></li>
+</ul>
+</li>
+<li><a href="#org2ca54a8">7. Shell expansion</a>
+<ul>
+<li><a href="#orgafaadde">7.1. The <code>*</code> Wildcard</a></li>
+<li><a href="#orga9f012d">7.2. The <code>?</code> Wildcard</a></li>
+<li><a href="#orgcca47fe">7.3. Inverting Sets</a></li>
+<li><a href="#orgf7f09dd">7.4. Brace Expansion</a></li>
+</ul>
+</li>
+<li><a href="#org286f3e5">8. IO Redirections</a>
+<ul>
+<li><a href="#org0575ef3">8.1. Output redirections</a></li>
+<li><a href="#org06617a5">8.2. Input redirection</a></li>
+<li><a href="#org22900a4">8.3. Here document</a></li>
+</ul>
+</li>
+<li><a href="#org4ced02e">9. Chaining Operators</a></li>
+<li><a href="#org5019293">10. RegEx Tools</a></li>
+<li><a href="#org7014d90">11. Bash</a></li>
+<li><a href="#orgd6acd0d">12. File System</a></li>
+<li><a href="#org08f034b">13. Cleanup</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgb935341" class="outline-2">
+<h2 id="orgb935341"><span class="section-number-2">1.</span> Sha Bang</h2>
+<div class="outline-text-2" id="text-1">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Expression</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>#!</code></td>
+<td class="org-left">locate an executable for the specified script</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>!!</code></td>
+<td class="org-left">executes last command</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>!*</code></td>
+<td class="org-left">executes command with ALL the args passed to the last command</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>!^</code></td>
+<td class="org-left">executes command with the FIRST arg passed to the last command</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>!$</code></td>
+<td class="org-left">executes command with the LAST arg passed to the last command</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>!?keyword?</code></td>
+<td class="org-left">execute a command from history for the first pattern match</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>!n</code></td>
+<td class="org-left">execute a command from the nth position in the history</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>!&lt;command&gt;</code></td>
+<td class="org-left">executes a command with the same flags as before</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org0ef75ee" class="outline-2">
+<h2 id="org0ef75ee"><span class="section-number-2">2.</span> Permissions</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org97655c0" class="outline-3">
+<h3 id="org97655c0"><span class="section-number-3">2.1.</span> chmod (change mode)</h3>
+<div class="outline-text-3" id="text-2-1">
+</div>
+<div id="outline-container-org6e25e23" class="outline-3">
+<h3 id="org6e25e23"><span class="section-number-3">2.2.</span> Group permissions</h3>
+<div class="outline-text-3" id="text-2-2">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Group</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">u</td>
+<td class="org-left">user (owner)</td>
+</tr>
+
+<tr>
+<td class="org-left">g</td>
+<td class="org-left">group</td>
+</tr>
+
+<tr>
+<td class="org-left">o</td>
+<td class="org-left">others</td>
+</tr>
+
+<tr>
+<td class="org-left">a</td>
+<td class="org-left">all</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgca73ef6" class="outline-3">
+<h3 id="orgca73ef6"><span class="section-number-3">2.3.</span> Operators</h3>
+<div class="outline-text-3" id="text-2-3">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Operator</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">+</td>
+<td class="org-left">add permission</td>
+</tr>
+
+<tr>
+<td class="org-left">-</td>
+<td class="org-left">remove permission</td>
+</tr>
+
+<tr>
+<td class="org-left">=</td>
+<td class="org-left">override permission</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orga3218a4" class="outline-3">
+<h3 id="orga3218a4"><span class="section-number-3">2.4.</span> Octal notation</h3>
+<div class="outline-text-3" id="text-2-4">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">Octal</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">0</td>
+<td class="org-left">nothing</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-left">execute</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-left">write</td>
+</tr>
+
+<tr>
+<td class="org-right">3</td>
+<td class="org-left">1 + 2 (wx) write and execute</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-left">read</td>
+</tr>
+
+<tr>
+<td class="org-right">5</td>
+<td class="org-left">4 + 1 (rx) read and execute</td>
+</tr>
+
+<tr>
+<td class="org-right">6</td>
+<td class="org-left">4 + 3 (rw) read and write</td>
+</tr>
+
+<tr>
+<td class="org-right">7</td>
+<td class="org-left">4 + 2 + 1 (rwx) read, write and execute</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org606fc98" class="outline-3">
+<h3 id="org606fc98"><span class="section-number-3">2.5.</span> Syntax</h3>
+<div class="outline-text-3" id="text-2-5">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Command</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>chmod -R &lt;specifications&gt; &lt;directory&gt;</code></td>
+<td class="org-left">changing permissions of the contents of a directory recursively</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>chmod og=+r</code></td>
+<td class="org-left">add read permission for the owner and group</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>chmod a +rwx file</code></td>
+<td class="org-left">allow all user to read, write and execute</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0a0068b" class="outline-3">
+<h3 id="org0a0068b"><span class="section-number-3">2.6.</span> chown (Change Ownership)</h3>
+<div class="outline-text-3" id="text-2-6">
+<p>
+<code>chown user1 filename</code> changing ownership of a file to <code>user1</code>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc4a30a4" class="outline-3">
+<h3 id="orgc4a30a4"><span class="section-number-3">2.7.</span> su (switch user)</h3>
+<div class="outline-text-3" id="text-2-7">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Command</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>su -</code></td>
+<td class="org-left">invokes a login shell, reseting most environment variables</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>su</code></td>
+<td class="org-left">normal shell</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>sudo su</code></td>
+<td class="org-left">switch to root</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org4e578ca" class="outline-3">
+<h3 id="org4e578ca"><span class="section-number-3">2.8.</span> sudo (superuser do)</h3>
+<div class="outline-text-3" id="text-2-8">
+<p>
+<code>sudo</code> will run a specific command with root level of permission.
+</p>
+
+<p>
+<code>sudo !! (last command)</code> for instance
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org98c7167" class="outline-2">
+<h2 id="org98c7167"><span class="section-number-2">3.</span> Other commands</h2>
+<div class="outline-text-2" id="text-3">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Command</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>cd -</code></td>
+<td class="org-left">go to the previous working directory</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>ls \*D</code></td>
+<td class="org-left">pathname expansion, returns all files starting with D</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>ls exe\*</code></td>
+<td class="org-left">all files ending with 'exe'</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>less &lt;file&gt;</code></td>
+<td class="org-left">view the contents of a file with a pager</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>head &lt;file&gt;</code></td>
+<td class="org-left">first several lines of a file (pass -n &lt;numer-of-lines&gt; to see N number of lines)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>tail &lt;file&gt;</code></td>
+<td class="org-left">last several lines of a file (pass -n &lt;numer-of-lines&gt; to see N number of lines)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>uname</code></td>
+<td class="org-left">show informations about the system (-a flag shows ALL info)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>du</code></td>
+<td class="org-left">summarizes the <b>disk usage</b> of files</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>du -sh *</code></td>
+<td class="org-left">summarizes every file in the current directory</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>df</code></td>
+<td class="org-left">disk space of filesystem</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>ps</code></td>
+<td class="org-left">process status</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>ps -C &lt;name&gt;</code></td>
+<td class="org-left">find the PID of a specific program</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>killall &lt;p&gt;</code></td>
+<td class="org-left">terminates a process</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>kill &lt;PID&gt;</code></td>
+<td class="org-left">terminates a process given the PID</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>which</code></td>
+<td class="org-left">searches for executables specified by the environment variable PATH</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>time</code></td>
+<td class="org-left">time the execution of any program (eg. time node script.js)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>watch -n N</code></td>
+<td class="org-left">runs a command infinitely each N seconds</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>apropos</code></td>
+<td class="org-left">find a command that I'm unaware of (eg. apropos "list dir")</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">use in conjuntion with (whatis) command</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>whereis</code></td>
+<td class="org-left">searches for executables, source files and manual pages</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>diff</code></td>
+<td class="org-left">compares files, and lists their difference</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>find</code></td>
+<td class="org-left">find files in directory (eg. find -name README.md)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>man giteveryday</code></td>
+<td class="org-left">useful minimul set of commands for everyday git</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>curl wttr.in</code></td>
+<td class="org-left">weather forecast</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>curl parrot.live</code></td>
+<td class="org-left">rainbow parrot</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>sha256sum</code></td>
+<td class="org-left">verify file checksum. (or <code>sha1sum</code>, <code>md5sum</code> depending on the hash)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org274881d" class="outline-2">
+<h2 id="org274881d"><span class="section-number-2">4.</span> Fix typos</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+Instead of retyping a long list of arguments of a mispelled command,
+we can correct whatever typo we made with <code>^typo^correct</code>
+</p>
+
+<p>
+<code>$ dc /tmp</code>
+</p>
+
+<p>
+<code>$ ^dc^cd</code>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd3dc828" class="outline-2">
+<h2 id="orgd3dc828"><span class="section-number-2">5.</span> File Compression</h2>
+<div class="outline-text-2" id="text-5">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Flags</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">-c &#x2013;create</td>
+<td class="org-left">create a new archive</td>
+</tr>
+
+<tr>
+<td class="org-left">-x &#x2013;extract</td>
+<td class="org-left">extract files from an archive</td>
+</tr>
+
+<tr>
+<td class="org-left">-t &#x2013;list</td>
+<td class="org-left">list the contents of an archive</td>
+</tr>
+
+<tr>
+<td class="org-left">-f &#x2013;file=ARCHIVE</td>
+<td class="org-left">use archive file</td>
+</tr>
+
+<tr>
+<td class="org-left">-v &#x2013;verbose</td>
+<td class="org-left">list files being processed</td>
+</tr>
+
+<tr>
+<td class="org-left">-z</td>
+<td class="org-left">compress the archive with gzip  (faster, but compresses less)</td>
+</tr>
+
+<tr>
+<td class="org-left">-j</td>
+<td class="org-left">compress the archive with bzip2 (slower, but compresses more)</td>
+</tr>
+
+<tr>
+<td class="org-left">&#x2013;exclude &lt;path&gt;</td>
+<td class="org-left">ignores subfolder</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div id="outline-container-orgc8673b7" class="outline-3">
+<h3 id="orgc8673b7"><span class="section-number-3">5.1.</span> Syntax</h3>
+<div class="outline-text-3" id="text-5-1">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Command</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">tar -cf ./archive.tar ./folder</td>
+<td class="org-left">creates an archive from a folder</td>
+</tr>
+
+<tr>
+<td class="org-left">tar -lf ./archive.tar</td>
+<td class="org-left">lists the contents of the archive without extracting it</td>
+</tr>
+
+<tr>
+<td class="org-left">tar -xvf ./archive.tar</td>
+<td class="org-left">extracts the archive</td>
+</tr>
+
+<tr>
+<td class="org-left">tar -cf archive.tar ./folder &#x2013;exclude "folder/subfolder"</td>
+<td class="org-left">ignores subfolder inside my-folder</td>
+</tr>
+
+<tr>
+<td class="org-left">tar -czvf archive.tar.gz ./folder</td>
+<td class="org-left">creates a gzip archive</td>
+</tr>
+
+<tr>
+<td class="org-left">tar -cjvf archive.tar.bz2 ./folder</td>
+<td class="org-left">creates a bzip2 archive</td>
+</tr>
+
+<tr>
+<td class="org-left">gunzip &lt;filename&gt;</td>
+<td class="org-left">un-compresses files compressed by gzip</td>
+</tr>
+
+<tr>
+<td class="org-left">gzcat  &lt;filename&gt;</td>
+<td class="org-left">look at a gzipped file without having to gunzip it</td>
+</tr>
+
+<tr>
+<td class="org-left">gzip   &lt;filename&gt;</td>
+<td class="org-left">compresses a file to gzip format</td>
+</tr>
+
+<tr>
+<td class="org-left">bzip2  &lt;filename&gt;</td>
+<td class="org-left">compresses a file to bzip2 format</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgda1a6fc" class="outline-2">
+<h2 id="orgda1a6fc"><span class="section-number-2">6.</span> Encryption</h2>
+<div class="outline-text-2" id="text-6">
+</div>
+<div id="outline-container-orgcde6c9b" class="outline-3">
+<h3 id="orgcde6c9b"><span class="section-number-3">6.1.</span> GPG (GNU Privacy Guard)</h3>
+<div class="outline-text-3" id="text-6-1">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Flag</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>--list-keys</code></td>
+<td class="org-left">list all keys keyring</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>--import &lt;key-path&gt;</code></td>
+<td class="org-left">Add a pubkey into keyring</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>--delete-key &lt;fingerprint&gt;</code></td>
+<td class="org-left">Del key in keyring</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div id="outline-container-org0823af1" class="outline-3">
+<h3 id="org0823af1"><span class="section-number-3">6.2.</span> Import keys from keyserver</h3>
+<div class="outline-text-3" id="text-6-2">
+<div class="org-src-container">
+<pre class="src src-sh">$ gpg --keyserver &lt;server&gt; --recv-keys &lt;hex&gt;
+</pre>
+</div>
+
+<p>
+Where <code>&lt;server&gt;</code> can be "pgp.mit.edu" for instance.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org43f5e7f" class="outline-3">
+<h3 id="org43f5e7f"><span class="section-number-3">6.3.</span> Encrypt message</h3>
+<div class="outline-text-3" id="text-6-3">
+<p>
+Having the receiver's pkey:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">$ gpg --output doc.gpg --encrypt --recipient mail@recipient doc
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgaa0c9f1" class="outline-3">
+<h3 id="orgaa0c9f1"><span class="section-number-3">6.4.</span> Decrypt message</h3>
+<div class="outline-text-3" id="text-6-4">
+<div class="org-src-container">
+<pre class="src src-sh">$ gpg --output doc --decrypt doc.gg
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org16808f5" class="outline-3">
+<h3 id="org16808f5"><span class="section-number-3">6.5.</span> Symmetric encryption</h3>
+<div class="outline-text-3" id="text-6-5">
+<p>
+<code>-c</code> is for symmetric encryption (single pkey for encrypting/decrypting).
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">$ gpg -c --no-sym-key-cache --cipher-algo AES256 &lt;file&gt;
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2ca54a8" class="outline-2">
+<h2 id="org2ca54a8"><span class="section-number-2">7.</span> Shell expansion</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+We can use shell expansion to:
+</p>
+<ul class="org-ul">
+<li>rename and backup operations</li>
+<li>pattern matching</li>
+<li>match any string</li>
+</ul>
+</div>
+
+<div id="outline-container-orgafaadde" class="outline-3">
+<h3 id="orgafaadde"><span class="section-number-3">7.1.</span> The <code>*</code> Wildcard</h3>
+<div class="outline-text-3" id="text-7-1">
+<ul class="org-ul">
+<li>The <code>*</code> is a greedy operator that matches any string, incuding the null string.</li>
+</ul>
+
+<p>
+<code>$ echo file*</code> returns <code>file.log file.tex file.txt file.exe</code>
+<code>$ echo *.tex</code> returns <code>file.tex</code>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga9f012d" class="outline-3">
+<h3 id="orga9f012d"><span class="section-number-3">7.2.</span> The <code>?</code> Wildcard</h3>
+<div class="outline-text-3" id="text-7-2">
+<ul class="org-ul">
+<li>The <code>?</code> matches a single character.</li>
+</ul>
+
+<p>
+<code>$ echo file?.txt</code> returns <code>file1.txt file2.txt file3.txt ...</code>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgcca47fe" class="outline-3">
+<h3 id="orgcca47fe"><span class="section-number-3">7.3.</span> Inverting Sets</h3>
+<div class="outline-text-3" id="text-7-3">
+<ul class="org-ul">
+<li>The <code>^</code> character represents <b>not</b>.
+<ul class="org-ul">
+<li><code>[abc]</code> means either <b>a, b</b> or <b>c</b></li>
+<li><code>[^abc]</code> any character that is <b>not a, b</b> or <b>c</b></li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgf7f09dd" class="outline-3">
+<h3 id="orgf7f09dd"><span class="section-number-3">7.4.</span> Brace Expansion</h3>
+<div class="outline-text-3" id="text-7-4">
+<p>
+To backup settings.conf to settings.conf.bak:
+</p>
+
+<p>
+<code>cp settings.conf{,.bak}</code>
+</p>
+
+<p>
+To revert the file from settings.conf.bak to settings.conf:
+</p>
+
+<p>
+<code>mv settings.conf{.bak,}</code>
+</p>
+
+<p>
+Other uses:
+</p>
+
+<p>
+<code>echo foo{1,2,3}.txt</code> outputs <code>foo1.txt, foo2.txt, foo3.txt</code>
+</p>
+
+<p>
+<code>echo file-{a..b}.txt</code> outputs <code>file-a.txt file-b.txt file-c.txt file-d.txt</code>
+</p>
+
+<p>
+<code>mv program.{c,exe} bin/</code>
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org286f3e5" class="outline-2">
+<h2 id="org286f3e5"><span class="section-number-2">8.</span> IO Redirections</h2>
+<div class="outline-text-2" id="text-8">
+</div>
+<div id="outline-container-org0575ef3" class="outline-3">
+<h3 id="org0575ef3"><span class="section-number-3">8.1.</span> Output redirections</h3>
+<div class="outline-text-3" id="text-8-1">
+<p>
+The output from a command normally intended for stdout can be easily diverted to a file.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">$ who &gt; users
+
+$ cat users
+nexi     tty01    Oct 22 08:58
+ai       tty02    Oct 22 13:58
+</pre>
+</div>
+
+<p>
+The <code>&gt;</code> operator will always override the contents of the file.
+</p>
+
+<p>
+We can use the <code>&gt;&gt;</code> operator to <b>append</b> the output in a file with existing info:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">$ echo lorem ipsum &gt;&gt; users
+
+$ cat users
+nexi     tty01    Oct 22 08:58
+ai       tty02    Oct 22 13:58
+lorem ipsum
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org06617a5" class="outline-3">
+<h3 id="org06617a5"><span class="section-number-3">8.2.</span> Input redirection</h3>
+<div class="outline-text-3" id="text-8-2">
+<p>
+Commands that receive input from stdin can have their input redirected from a file.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">$ wc -l &lt; users
+3
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org22900a4" class="outline-3">
+<h3 id="org22900a4"><span class="section-number-3">8.3.</span> Here document</h3>
+<div class="outline-text-3" id="text-8-3">
+<p>
+A "here document" redirects input into an interactive shell script or program.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">command &lt;&lt; EOF
+<span style="color: #A3BE8C;">    document</span>
+<span style="color: #A3BE8C;">EOF</span>
+</pre>
+</div>
+
+<p>
+The <code>&gt;&gt;</code> command is an instruction to read input until it finds a line containing the delimeted (EOF in this case)
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">$ wc -l &lt;&lt;EOF
+<span style="color: #A3BE8C;">  lorem ipsum</span>
+<span style="color: #A3BE8C;">  dolor sit</span>
+<span style="color: #A3BE8C;">  amet</span>
+<span style="color: #A3BE8C;">EOF</span>
+3
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4ced02e" class="outline-2">
+<h2 id="org4ced02e"><span class="section-number-2">9.</span> Chaining Operators</h2>
+<div class="outline-text-2" id="text-9">
+<ul class="org-ul">
+<li><p>
+<code>&amp;</code> (Ampersand Operator)
+</p>
+
+<p>
+run one or more jobs in the background,
+</p>
+
+<p>
+EXAMPLE: ping www.google.com &amp;
+         apt-get update &amp; apt-get upgrade &amp;
+</p>
+
+<ul class="org-ul">
+<li><code>Ctrl-z</code> pauses the job</li>
+<li><code>jobs</code> prints all the jobs</li>
+</ul></li>
+
+<li><p>
+<code>;</code> (Semi-colon operator)
+</p>
+
+<p>
+run several commands at once sequentially, disregarding the exit status of the preceding command
+</p>
+
+<p>
+EXAMPLE: apt-get update ; apt-get upgrade ; mkdir test
+</p></li>
+
+<li><p>
+<code>&amp;&amp;</code> (AND operator)
+</p>
+
+<p>
+executes a command IF the exit status of the preceding command is 0
+</p>
+
+<p>
+EXAMPLE: ping www.google.com &amp;&amp; links www.google.com    (checking the connection before using links command)
+</p></li>
+
+<li><p>
+<code>||</code> (OR operator)
+</p>
+
+<p>
+much like an 'else' statement, allows to execute the second command only if the execution
+of the first fails (i.e., the exit status is 1)
+</p>
+
+<p>
+EXAMPLE: apt-get update || links www.google.com
+</p></li>
+
+<li><p>
+<code>!</code> (NOT operator)
+</p>
+
+<p>
+much like an 'except' statement, this command will execute all except the condition provided
+</p>
+
+<p>
+EXAMPLE: rm -r !(*.html)      removes all files in a folder except .html files
+</p></li>
+
+<li><p>
+<code>|</code> (PIPE operator)
+</p>
+
+<p>
+passes the output of the first command to the second one
+</p>
+
+<p>
+EXAMPLE: ls -l | less
+</p></li>
+
+<li><p>
+<code>{}</code> (Command Combination operator)
+</p>
+
+<p>
+combine two or more commands
+</p>
+
+<p>
+[ -d Folder] || { echo creating Folder; mkdir Folder; } &amp;&amp; echo Folder exists.
+</p></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org5019293" class="outline-2">
+<h2 id="org5019293"><span class="section-number-2">10.</span> RegEx Tools</h2>
+<div class="outline-text-2" id="text-10">
+<ul class="org-ul">
+<li><p>
+<code>grep</code> (Globally search for a Regular Expression and Print)
+for searching stuff in files, or any STDOUT (eg. 'ls' command)
+</p>
+
+<p>
+EXAMPLE: <code>ls | grep "\.exe$"</code>
+</p></li>
+
+<li><p>
+<code>sed</code> (stream editor)
+for substitituing, deleting or filtering text on a stream
+</p>
+
+<p>
+EXAMPLE: <code>sed 's/regexp/replacement/g' file &gt; output</code>
+</p>
+
+<p>
+-r will extend the Regex portability (POSIX)
+</p></li>
+
+<li><p>
+<code>xargs</code> (command args)
+pass any command to it and it will execute it on a stream.
+</p>
+
+<p>
+EXAMPLE: <code>find | grep "\.exe$" | xargs ls -lh</code>
+</p></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org7014d90" class="outline-2">
+<h2 id="org7014d90"><span class="section-number-2">11.</span> Bash</h2>
+<div class="outline-text-2" id="text-11">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">keybinding</th>
+<th scope="col" class="org-left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>ctrl-u</code></td>
+<td class="org-left">delete entire line</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>ctrl-l</code></td>
+<td class="org-left">clear screen</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>ctrl-w</code></td>
+<td class="org-left">delete last word</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>ctrl-r</code></td>
+<td class="org-left">search through command history</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>alt-.</code></td>
+<td class="org-left">cycles through last arguments</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>alt-*</code></td>
+<td class="org-left">expands glob</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-orgd6acd0d" class="outline-2">
+<h2 id="orgd6acd0d"><span class="section-number-2">12.</span> File System</h2>
+<div class="outline-text-2" id="text-12">
+<ul class="org-ul">
+<li><i>etc</i>: system-wide configuration folder (eg. pacman mirrorlist)</li>
+<li><i>bin</i>: common binary files for applications (eg. ls)</li>
+<li><i>boot</i>: stores my bootloader</li>
+<li><i>lib</i>: shared libraries that applications use</li>
+<li><i>mnt</i>: where external drives are mounted (eg. usbstick)</li>
+<li><i>opt</i>: manually installed softwares</li>
+<li><i>proc</i>: information about system processes and resources, each folder is a process' PID.</li>
+<li><i>root</i>: volatile storage</li>
+<li><i>srv</i>: service directory, where service data is stored</li>
+<li><i>sys</i>: it's a way to interact with the hardware</li>
+<li><i>tmp</i>: where files are temporary stored in a session (eg. writing in a libreoffice file)</li>
+<li><i>usr</i>: user application's space, where applications will be installed</li>
+<li><i>var</i>: contains files that are supposed to grow (eg. logs)</li>
+<li><i>home</i>: where you store your own personal files</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org08f034b" class="outline-2">
+<h2 id="org08f034b"><span class="section-number-2">13.</span> Cleanup</h2>
+<div class="outline-text-2" id="text-13">
+<p>
+When <code>/dev/sda2/</code> is almost full:
+</p>
+
+<ol class="org-ol">
+<li>delete pacman cache:</li>
+</ol>
+
+<p>
+<code>sudo paccache -r</code> keep at least 3 caches
+<code>sudo paccache -rk 1</code> keep only 1 pkg cache
+</p>
+
+<ol class="org-ol">
+<li>delete sxiv cache:</li>
+</ol>
+
+<p>
+<code>cd "rm ~/.cache/sxiv/*"</code>
+</p>
+
+<ol class="org-ol">
+<li>look into the .cache folder</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2021-09-11 sáb 00:00</p>
+<p class="author">Author: b-coimbra</p>
+<p class="date">Created: 2021-09-11 sáb 15:26</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

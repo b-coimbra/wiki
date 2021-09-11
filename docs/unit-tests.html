@@ -1,0 +1,751 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-09-11 sáb 15:30 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Karma &amp; Jasmine</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="b-coimbra" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Karma &amp; Jasmine</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org880cd42">1. Configuração</a>
+<ul>
+<li><a href="#org9c93f5a">1.1. Karma parallel</a></li>
+</ul>
+</li>
+<li><a href="#org8de7dec">2. Executando os testes</a></li>
+<li><a href="#org58ea52f">3. Jasmine</a>
+<ul>
+<li><a href="#orgb02379c">3.1. Matchers</a></li>
+<li><a href="#orgcc8ce72">3.2. toBe</a></li>
+<li><a href="#org03f4002">3.3. ToBeTruthy/ToBeFalsy</a></li>
+<li><a href="#orgb73a483">3.4. Métodos Globais</a></li>
+<li><a href="#orge1c8cc4">3.5. it(description: string, fn: callback, timeout: int)</a></li>
+<li><a href="#orgb0f4a4e">3.6. describe(description: string)</a></li>
+<li><a href="#orgbc30b78">3.7. Setup</a>
+<ul>
+<li><a href="#org818bac5">3.7.1. beforeAll(fn: callback, timeout: int)</a></li>
+<li><a href="#org8449fa3">3.7.2. beforeEach(fn: callback, timeout: int)</a></li>
+</ul>
+</li>
+<li><a href="#org9e60ecb">3.8. Teardown</a>
+<ul>
+<li><a href="#org74d0041">3.8.1. afterEach(fn: callback, timeout: int)</a></li>
+<li><a href="#org4e25b0d">3.8.2. afterAll(fn: callback, timeout: int)</a></li>
+</ul>
+</li>
+<li><a href="#orgd4ec403">3.9. SpyOn</a></li>
+</ul>
+</li>
+<li><a href="#orgec8cdd8">4. Testes</a>
+<ul>
+<li><a href="#org5d52b88">4.1. Component</a></li>
+<li><a href="#orgfb9dd64">4.2. Setup</a></li>
+<li><a href="#org23a81f2">4.3. Testar métodos</a></li>
+<li><a href="#org5f64e9f">4.4. Service</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org880cd42" class="outline-2">
+<h2 id="org880cd42"><span class="section-number-2">1.</span> Configuração</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Setup necessário antes de rodar os testes.
+</p>
+</div>
+
+<div id="outline-container-org9c93f5a" class="outline-3">
+<h3 id="org9c93f5a"><span class="section-number-3">1.1.</span> <a href="https://www.npmjs.com/package/karma-parallel">Karma parallel</a></h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+O <b>karma-parallel</b> é um plugin do Karma que acelera a execução dos testes através da invocação de múltiplas instâncias de um navegador, decidindo qual bloco <code>describe</code> deve rodar em tal determinado navegador.
+</p>
+
+<p>
+Antes de executar os testes, removemos as seções no arquivo de configuração do karma que configuram o <code>karma-parallel</code>, visto que só precisamos de um navegador &#x2013; e queremos economizar memória:
+</p>
+
+<ol class="org-ol">
+<li>No arquivo de configuração do karma: <code>ClientApp/src/karma.conf.js</code>.</li>
+<li><p>
+Removemos as seguintes seções:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-diff"><span style="color: #a8adb5;">module.exports = function(config) {</span>
+<span style="color: #a8adb5;">  config.set({</span>
+<span style="color: #a8adb5;">    // NOTE: 'parallel' must be the first framework in the list</span>
+<span style="color: #aa2222; background-color: #2F3237;">-</span><span style="color: #BF616A; background-color: #2F3237;">    frameworks: ['mocha' /* or 'jasmine' */],</span>
+<span style="color: #22aa22; background-color: #232830;">+</span><span style="color: #A3BE8C; background-color: #232830;">    frameworks: ['parallel', 'mocha' /* or 'jasmine' */],</span>
+<span style="color: #a8adb5;">    plugins: [</span>
+<span style="color: #aa2222; background-color: #2F3237;">-</span><span style="color: #BF616A; background-color: #2F3237;">        require('karma-parallel'),</span>
+<span style="color: #a8adb5;">        ...</span>
+<span style="color: #a8adb5;">    ],</span>
+<span style="color: #aa2222; background-color: #2F3237;">-</span><span style="color: #BF616A; background-color: #2F3237;">    parallelOptions: {</span>
+<span style="color: #aa2222; background-color: #2F3237;">-</span><span style="color: #BF616A; background-color: #2F3237;">         executors: 4, // Defaults to cpu-count - 1</span>
+<span style="color: #aa2222; background-color: #2F3237;">-</span><span style="color: #BF616A; background-color: #2F3237;">         shardStrategy: 'round-robin'</span>
+<span style="color: #aa2222; background-color: #2F3237;">-</span><span style="color: #BF616A; background-color: #2F3237;">      }</span>
+<span style="color: #a8adb5;">      }</span>
+<span style="color: #a8adb5;">    }</span>
+<span style="color: #a8adb5;">  });</span>
+};
+</pre>
+</div></li>
+</ol>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8de7dec" class="outline-2">
+<h2 id="org8de7dec"><span class="section-number-2">2.</span> Executando os testes</h2>
+<div class="outline-text-2" id="text-2">
+<ol class="org-ol">
+<li>Navegue até a pasta <span class="underline">ClientApp</span>: <code>$ cd ~/ClientApp</code></li>
+
+<li><p>
+Execute os testes: <code>$ ng tests --code-coverage</code>
+</p>
+
+<blockquote>
+<p>
+A flag <code>--code-coverage</code> é usada para gerar um relatório de cobertura &#x2013; a porcentagem de linhas executadas pelos testes (line coverage)
+e garantir que cada uma das ramificações possíveis de cada ponto de decisão seja executada pelo menos uma vez (branch coverage).
+</p>
+</blockquote></li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org58ea52f" class="outline-2">
+<h2 id="org58ea52f"><span class="section-number-2">3.</span> Jasmine</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-orgb02379c" class="outline-3">
+<h3 id="orgb02379c"><span class="section-number-3">3.1.</span> Matchers</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+Exemplos de <i>matchers</i> mais utilizados. O restante se encontra em: <a href="https://jasmine.github.io/api/2.7/matchers.html">Jasmine Matchers</a>
+</p>
+</div>
+
+<div id="outline-container-orgcc8ce72" class="outline-3">
+<h3 id="orgcc8ce72"><span class="section-number-3">3.2.</span> toBe</h3>
+<div class="outline-text-3" id="text-3-2">
+<div class="org-src-container">
+<pre class="src src-typescript"><span style="color: #b48ead; font-weight: bold;">const</span> <span style="color: #BF616A;">deuMolinho</span>: <span style="color: #b48ead; font-weight: bold;">boolean</span> = <span style="color: #D08770;">true</span>;
+
+<span style="color: #8FA1B3;">expect</span>(deuMolinho).<span style="color: #8FA1B3;">toBe</span>(<span style="color: #D08770;">true</span>);
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org03f4002" class="outline-3">
+<h3 id="org03f4002"><span class="section-number-3">3.3.</span> ToBeTruthy/ToBeFalsy</h3>
+<div class="outline-text-3" id="text-3-3">
+<div class="org-src-container">
+<pre class="src src-typescript"><span style="color: #b48ead; font-weight: bold;">const</span> <span style="color: #BF616A;">deuMolinho</span>: <span style="color: #b48ead; font-weight: bold;">boolean</span> = <span style="color: #D08770;">true</span>;
+
+<span style="color: #8FA1B3;">expect</span>(deuMolinho).<span style="color: #8FA1B3;">toBeTruthy</span>(<span style="color: #D08770;">true</span>);
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb73a483" class="outline-3">
+<h3 id="orgb73a483"><span class="section-number-3">3.4.</span> Métodos Globais</h3>
+<div class="outline-text-3" id="text-3-4">
+</div>
+<div id="outline-container-orge1c8cc4" class="outline-3">
+<h3 id="orge1c8cc4"><span class="section-number-3">3.5.</span> it(description: string, fn: callback, timeout: int)</h3>
+<div class="outline-text-3" id="text-3-5">
+<div class="org-src-container">
+<pre class="src src-typescript"><span style="color: #8FA1B3;">it</span>(<span style="color: #A3BE8C;">'should sum 1 and 2'</span>, () <span style="color: #b48ead; font-weight: bold;">=&gt;</span> {
+  <span style="color: #b48ead; font-weight: bold;">const</span> <span style="color: #BF616A;">sum</span>: <span style="color: #b48ead; font-weight: bold;">number</span> = 1 + 2;
+
+  <span style="color: #8FA1B3;">expect</span>(sum).<span style="color: #8FA1B3;">toBe</span>(3);    <span style="color: #65737E;">// </span><span style="color: #65737E;">===</span>
+  <span style="color: #8FA1B3;">expect</span>(sum).<span style="color: #8FA1B3;">toEqual</span>(3); <span style="color: #65737E;">// </span><span style="color: #65737E;">==</span>
+
+  <span style="color: #8FA1B3;">expect</span>(sum == 3).<span style="color: #8FA1B3;">toBe</span>(<span style="color: #D08770;">true</span>);
+
+  <span style="color: #8FA1B3;">expect</span>(sum).<span style="color: #8FA1B3;">toBeGreaterThan</span>(1);
+  <span style="color: #8FA1B3;">expect</span>(sum).<span style="color: #8FA1B3;">toBeGreaterThanOrEqual</span>(2);
+  <span style="color: #8FA1B3;">expect</span>(sum).<span style="color: #8FA1B3;">toBeLessThan</span>(4);
+  <span style="color: #8FA1B3;">expect</span>(sum).<span style="color: #8FA1B3;">toBeDefined</span>();
+  <span style="color: #8FA1B3;">expect</span>(sum).<span style="color: #8FA1B3;">toBeInstanceOf</span>(<span style="color: #b48ead; font-weight: bold;">number</span>);
+});
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb0f4a4e" class="outline-3">
+<h3 id="orgb0f4a4e"><span class="section-number-3">3.6.</span> describe(description: string)</h3>
+<div class="outline-text-3" id="text-3-6">
+<div class="org-src-container">
+<pre class="src src-typescript"><span style="color: #8FA1B3;">describe</span>(<span style="color: #A3BE8C;">"timesheet.component.ts"</span>, () <span style="color: #b48ead; font-weight: bold;">=&gt;</span> {
+  <span style="color: #8FA1B3;">it</span>(<span style="color: #A3BE8C;">"should add a new time entry"</span>);
+  <span style="color: #8FA1B3;">it</span>(<span style="color: #A3BE8C;">"should fail to add a time entry"</span>);
+});
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbc30b78" class="outline-3">
+<h3 id="orgbc30b78"><span class="section-number-3">3.7.</span> Setup</h3>
+<div class="outline-text-3" id="text-3-7">
+</div>
+<div id="outline-container-org818bac5" class="outline-4">
+<h4 id="org818bac5"><span class="section-number-4">3.7.1.</span> beforeAll(fn: callback, timeout: int)</h4>
+<div class="outline-text-4" id="text-3-7-1">
+<p>
+Executa <b>antes</b> de todos os specs dentro de um <code>describe</code>
+</p>
+
+<div class="org-src-container">
+<pre class="src src-typescript"><span style="color: #8FA1B3;">describe</span>(<span style="color: #A3BE8C;">"timesheet.component.ts"</span>, () <span style="color: #b48ead; font-weight: bold;">=&gt;</span> {
+  <span style="color: #b48ead; font-weight: bold;">let</span> <span style="color: #BF616A;">mock</span>: <span style="color: #b48ead; font-weight: bold;">any</span>;
+
+  <span style="color: #8FA1B3;">beforeAll</span>(() <span style="color: #b48ead; font-weight: bold;">=&gt;</span> {
+    <span style="color: #b48ead; font-weight: bold;">this</span>.mock = {
+      employees: {
+        employee: {
+          id: 1,
+          name: <span style="color: #A3BE8C;">'Bruno'</span>
+        },
+        employee: {
+          id: 2,
+          name: <span style="color: #A3BE8C;">'Eduardo'</span>
+        }
+      }
+    };
+  });
+});
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8449fa3" class="outline-4">
+<h4 id="org8449fa3"><span class="section-number-4">3.7.2.</span> beforeEach(fn: callback, timeout: int)</h4>
+<div class="outline-text-4" id="text-3-7-2">
+<p>
+Executa para <b>cada</b> spec dentro de um <code>describe</code>
+</p>
+
+<div class="org-src-container">
+<pre class="src src-typescript"><span style="color: #8FA1B3;">describe</span>(<span style="color: #A3BE8C;">"timesheet.component.ts"</span>, () <span style="color: #b48ead; font-weight: bold;">=&gt;</span> {
+  <span style="color: #b48ead; font-weight: bold;">let</span> <span style="color: #BF616A;">mock</span>: <span style="color: #b48ead; font-weight: bold;">any</span>;
+
+  <span style="color: #8FA1B3;">afterEach</span>(() <span style="color: #b48ead; font-weight: bold;">=&gt;</span> {
+    <span style="color: #b48ead; font-weight: bold;">this</span>.mock
+      .employees
+      .<span style="color: #8FA1B3;">map</span>(employee <span style="color: #b48ead; font-weight: bold;">=&gt;</span> employee.updatedOn = <span style="color: #b48ead; font-weight: bold;">new</span> <span style="color: #ECBE7B;">Date</span>());
+  });
+});
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9e60ecb" class="outline-3">
+<h3 id="org9e60ecb"><span class="section-number-3">3.8.</span> Teardown</h3>
+<div class="outline-text-3" id="text-3-8">
+</div>
+<div id="outline-container-org74d0041" class="outline-4">
+<h4 id="org74d0041"><span class="section-number-4">3.8.1.</span> afterEach(fn: callback, timeout: int)</h4>
+<div class="outline-text-4" id="text-3-8-1">
+<p>
+No <b>final</b> de cada spec, executar uma ação destrutiva
+</p>
+
+<div class="org-src-container">
+<pre class="src src-typescript"><span style="color: #8FA1B3;">afterEach</span>(() <span style="color: #b48ead; font-weight: bold;">=&gt;</span> {
+  <span style="color: #b48ead; font-weight: bold;">this</span>.<span style="color: #8FA1B3;">cleanup</span>();
+});
+
+<span style="color: #b48ead; font-weight: bold;">const</span> <span style="color: #BF616A;">cleanup</span> = (): <span style="color: #b48ead; font-weight: bold;">void</span> <span style="color: #b48ead; font-weight: bold;">=&gt;</span>
+  <span style="color: #b48ead; font-weight: bold;">delete</span> <span style="color: #b48ead; font-weight: bold;">this</span>.mock.employees;
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4e25b0d" class="outline-4">
+<h4 id="org4e25b0d"><span class="section-number-4">3.8.2.</span> afterAll(fn: callback, timeout: int)</h4>
+<div class="outline-text-4" id="text-3-8-2">
+<p>
+Executado no <b>final</b> de todas as specs
+</p>
+
+<div class="org-src-container">
+<pre class="src src-typescript"><span style="color: #8FA1B3;">describe</span>(<span style="color: #A3BE8C;">"timesheet.component.ts"</span>, () <span style="color: #b48ead; font-weight: bold;">=&gt;</span> {
+  <span style="color: #8FA1B3;">afterAll</span>(() <span style="color: #b48ead; font-weight: bold;">=&gt;</span> {
+    <span style="color: #b48ead; font-weight: bold;">this</span>.<span style="color: #8FA1B3;">cleanup</span>();
+  });
+})
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd4ec403" class="outline-3">
+<h3 id="orgd4ec403"><span class="section-number-3">3.9.</span> SpyOn</h3>
+<div class="outline-text-3" id="text-3-9">
+<p>
+Observa o retorno de um método de um objeto
+</p>
+
+<div class="org-src-container">
+<pre class="src src-typescript"><span style="color: #b48ead; font-weight: bold;">class</span> <span style="color: #ECBE7B;">Math</span> {
+  <span style="color: #b48ead; font-weight: bold;">constructor</span>() { }
+
+  <span style="color: #8FA1B3;">increment</span>(num: <span style="color: #b48ead; font-weight: bold;">number</span>): <span style="color: #b48ead; font-weight: bold;">number</span> {
+    <span style="color: #b48ead; font-weight: bold;">return</span> ++num;
+  }
+}
+
+<span style="color: #8FA1B3;">describe</span>(<span style="color: #A3BE8C;">"timesheet.component.spec.ts"</span>, () <span style="color: #b48ead; font-weight: bold;">=&gt;</span> {
+  <span style="color: #b48ead; font-weight: bold;">const</span> <span style="color: #BF616A;">math</span>: <span style="color: #ECBE7B;">Math</span>;
+
+  <span style="color: #8FA1B3;">beforeAll</span>(() <span style="color: #b48ead; font-weight: bold;">=&gt;</span> {
+    <span style="color: #b48ead; font-weight: bold;">this</span>.math = <span style="color: #b48ead; font-weight: bold;">new</span> <span style="color: #ECBE7B;">Math</span>();
+  })
+
+  <span style="color: #8FA1B3;">it</span>(<span style="color: #A3BE8C;">'should increment by one'</span>, () <span style="color: #b48ead; font-weight: bold;">=&gt;</span> {
+    <span style="color: #b48ead; font-weight: bold;">const</span> <span style="color: #BF616A;">num</span>: <span style="color: #b48ead; font-weight: bold;">number</span> = 4;
+
+    <span style="color: #b48ead; font-weight: bold;">let</span> <span style="color: #BF616A;">spy</span> = <span style="color: #8FA1B3;">spyOn</span>(math, <span style="color: #A3BE8C;">'increment'</span>)
+      .<span style="color: #8FA1B3;">withArgs</span>(num)
+      .and
+      .<span style="color: #8FA1B3;">returnValue</span>(5);
+
+    math.<span style="color: #8FA1B3;">increment</span>(num);
+
+    <span style="color: #8FA1B3;">expect</span>(spy).<span style="color: #8FA1B3;">toHaveBeenCalled</span>();
+  });
+});
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgec8cdd8" class="outline-2">
+<h2 id="orgec8cdd8"><span class="section-number-2">4.</span> Testes</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-org5d52b88" class="outline-3">
+<h3 id="org5d52b88"><span class="section-number-3">4.1.</span> Component</h3>
+<div class="outline-text-3" id="text-4-1">
+</div>
+<div id="outline-container-orgfb9dd64" class="outline-3">
+<h3 id="orgfb9dd64"><span class="section-number-3">4.2.</span> Setup</h3>
+<div class="outline-text-3" id="text-4-2">
+<div class="org-src-container">
+<pre class="src src-typescript"><span style="color: #b48ead; font-weight: bold;">import</span> {
+  TestBed,
+  ComponentFixture
+} <span style="color: #b48ead; font-weight: bold;">from</span> <span style="color: #A3BE8C;">'@angular/core/testing'</span>;
+
+<span style="color: #8FA1B3;">describe</span>(<span style="color: #A3BE8C;">"timesheet.component.ts"</span>, () <span style="color: #b48ead; font-weight: bold;">=&gt;</span> {
+  <span style="color: #8FA1B3;">beforeEach</span>(() <span style="color: #b48ead; font-weight: bold;">=&gt;</span> {
+    TestBed.<span style="color: #8FA1B3;">configureTestingModule</span>({
+      declarations: [
+        TimesheetComponent
+      ],
+      imports: [
+        BrowserModule,
+      ]
+    }).<span style="color: #8FA1B3;">compileComponents</span>()
+      .<span style="color: #8FA1B3;">then</span>(() <span style="color: #b48ead; font-weight: bold;">=&gt;</span> {
+        fixture = TestBed.<span style="color: #8FA1B3;">createComponent</span>(TimesheetComponent);
+        component = fixture.componentInstance;
+      });
+  });
+})
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org23a81f2" class="outline-3">
+<h3 id="org23a81f2"><span class="section-number-3">4.3.</span> Testar métodos</h3>
+<div class="outline-text-3" id="text-4-3">
+<div class="org-src-container">
+<pre class="src src-typescript"><span style="color: #b48ead; font-weight: bold;">import</span> {
+  TestBed,
+  ComponentFixture
+} <span style="color: #b48ead; font-weight: bold;">from</span> <span style="color: #A3BE8C;">'@angular/core/testing'</span>;
+
+<span style="color: #8FA1B3;">describe</span>(<span style="color: #A3BE8C;">"timesheet.component.ts"</span>, () <span style="color: #b48ead; font-weight: bold;">=&gt;</span> {
+  <span style="color: #8FA1B3;">beforeEach</span>(() <span style="color: #b48ead; font-weight: bold;">=&gt;</span> {
+    TestBed.<span style="color: #8FA1B3;">configureTestingModule</span>({
+      declarations: [
+        TimesheetComponent
+      ],
+      imports: [
+        BrowserModule,
+      ]
+    }).<span style="color: #8FA1B3;">compileComponents</span>()
+      .<span style="color: #8FA1B3;">then</span>(() <span style="color: #b48ead; font-weight: bold;">=&gt;</span> {
+        fixture = TestBed.<span style="color: #8FA1B3;">createComponent</span>(TimesheetComponent);
+        component = fixture.componentInstance;
+      });
+  });
+
+  <span style="color: #8FA1B3;">it</span>(<span style="color: #A3BE8C;">'should create the component'</span>, () <span style="color: #b48ead; font-weight: bold;">=&gt;</span> {
+    component.<span style="color: #8FA1B3;">ngOnInit</span>();
+  });
+
+  <span style="color: #8FA1B3;">it</span>(<span style="color: #A3BE8C;">'should fetch all employees'</span>, () <span style="color: #b48ead; font-weight: bold;">=&gt;</span> {
+    <span style="color: #b48ead; font-weight: bold;">const</span> <span style="color: #BF616A;">spy</span> = <span style="color: #8FA1B3;">spyOn</span>(component, <span style="color: #A3BE8C;">'getEmployees'</span>)
+      .and
+      .<span style="color: #8FA1B3;">returnValue</span>(Promise.<span style="color: #8FA1B3;">resolve</span>(<span style="color: #b48ead; font-weight: bold;">this</span>.mock.employees));
+
+    component.<span style="color: #8FA1B3;">getEmployees</span>();
+
+    <span style="color: #8FA1B3;">expect</span>(spy).<span style="color: #8FA1B3;">toHaveBeenCalled</span>();
+  });
+
+  <span style="color: #8FA1B3;">it</span>(<span style="color: #A3BE8C;">'should fail to fetch all employees'</span>, () <span style="color: #b48ead; font-weight: bold;">=&gt;</span> {
+    <span style="color: #b48ead; font-weight: bold;">const</span> <span style="color: #BF616A;">spy</span> = <span style="color: #8FA1B3;">spyOn</span>(component, <span style="color: #A3BE8C;">'getEmployees'</span>)
+      .and
+      .<span style="color: #8FA1B3;">returnValue</span>(Promise.<span style="color: #8FA1B3;">reject</span>({}));
+
+    component.<span style="color: #8FA1B3;">getEmployees</span>();
+
+    <span style="color: #8FA1B3;">expect</span>(spy).<span style="color: #8FA1B3;">toHaveBeenCalled</span>();
+  })
+
+  <span style="color: #8FA1B3;">it</span>(<span style="color: #A3BE8C;">'should get employee by Id'</span>, () <span style="color: #b48ead; font-weight: bold;">=&gt;</span> {
+    <span style="color: #b48ead; font-weight: bold;">const</span> <span style="color: #BF616A;">id</span>: <span style="color: #b48ead; font-weight: bold;">number</span> = 1;
+
+    <span style="color: #b48ead; font-weight: bold;">const</span> <span style="color: #BF616A;">employee</span>: <span style="color: #b48ead; font-weight: bold;">object</span> = <span style="color: #b48ead; font-weight: bold;">this</span>.mock.employees.<span style="color: #8FA1B3;">find</span>(f <span style="color: #b48ead; font-weight: bold;">=&gt;</span> f.id == id);
+
+    <span style="color: #b48ead; font-weight: bold;">const</span> <span style="color: #BF616A;">spy</span> = <span style="color: #8FA1B3;">spyOn</span>(component, <span style="color: #A3BE8C;">'getEmployees'</span>)
+      .<span style="color: #8FA1B3;">withArgs</span>(id)
+      .<span style="color: #8FA1B3;">returnValue</span>(employee);
+
+    component.<span style="color: #8FA1B3;">getEmployee</span>(id);
+
+    <span style="color: #8FA1B3;">expect</span>(employee).not.<span style="color: #8FA1B3;">toBeNull</span>();
+    <span style="color: #8FA1B3;">expect</span>(spy).<span style="color: #8FA1B3;">toHaveBeenCalled</span>();
+  });
+})
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5f64e9f" class="outline-3">
+<h3 id="org5f64e9f"><span class="section-number-3">4.4.</span> Service</h3>
+<div class="outline-text-3" id="text-4-4">
+<div class="org-src-container">
+<pre class="src src-typescript"><span style="color: #b48ead; font-weight: bold;">import</span> { ApplicationSettingsService } <span style="color: #b48ead; font-weight: bold;">from</span> <span style="color: #A3BE8C;">'app/shared/application-settings/configuration.service'</span>;
+<span style="color: #b48ead; font-weight: bold;">import</span> { HttpModule } <span style="color: #b48ead; font-weight: bold;">from</span> <span style="color: #A3BE8C;">'@angular/http'</span>;
+<span style="color: #b48ead; font-weight: bold;">import</span> { TimesheetService } <span style="color: #b48ead; font-weight: bold;">from</span> <span style="color: #A3BE8C;">'../timesheet.service'</span>;
+
+<span style="color: #8FA1B3;">describe</span>(<span style="color: #A3BE8C;">"timesheet.service.ts"</span>, () <span style="color: #b48ead; font-weight: bold;">=&gt;</span> {
+  <span style="color: #b48ead; font-weight: bold;">const</span> <span style="color: #BF616A;">mock</span>: <span style="color: #b48ead; font-weight: bold;">any</span> = {};
+
+  <span style="color: #8FA1B3;">configureTestSuite</span>(() <span style="color: #b48ead; font-weight: bold;">=&gt;</span> {
+    TestBed.<span style="color: #8FA1B3;">configureTestingModule</span>({
+      providers: [
+        TimesheetService,
+        OAuthService,
+        UrlHelperService,
+        OAuthLogger,
+        OAuthService,
+        { provide: <span style="color: #ECBE7B;">FUSE</span>_CONFIG, useValue: {} },
+        { provide: <span style="color: #ECBE7B;">APP</span>_BASE_HREF, useValue: <span style="color: #A3BE8C;">'/'</span> },
+        { provide: <span style="color: #ECBE7B;">ApplicationSettingsService</span>, useClass: <span style="color: #ECBE7B;">ApplicationSettingsServiceScenarioTest</span> }
+      ],
+      imports: [
+        HttpClientTestingModule,
+        HttpModule,
+        BrowserAnimationsModule,
+        NoopAnimationsModule,
+        RouterModule.<span style="color: #8FA1B3;">forRoot</span>([]),
+      ],
+    });
+
+    injector = <span style="color: #8FA1B3;">getTestBed</span>();
+    service = injector.<span style="color: #b48ead; font-weight: bold;">get</span>(TimesheetService);
+    httpMock = injector.<span style="color: #b48ead; font-weight: bold;">get</span>(HttpTestingController);
+
+    mock.error = {
+      message: <span style="color: #A3BE8C;">'Invalida request parameters'</span>,
+      response: {
+        stautus: 404,
+        statusText: <span style="color: #A3BE8C;">'Bad Request'</span>
+      }
+    }
+  });
+
+  <span style="color: #8FA1B3;">it</span>(<span style="color: #A3BE8C;">'should get holidays'</span>, <span style="color: #b48ead; font-weight: bold;">async</span> () <span style="color: #b48ead; font-weight: bold;">=&gt;</span> {
+    <span style="color: #b48ead; font-weight: bold;">const</span> <span style="color: #BF616A;">promise</span> = service.<span style="color: #8FA1B3;">getHolidays</span>(mock);
+    <span style="color: #b48ead; font-weight: bold;">const</span> <span style="color: #BF616A;">req</span> = httpMock
+      .<span style="color: #8FA1B3;">expectOne</span>(req <span style="color: #b48ead; font-weight: bold;">=&gt;</span> req.method === <span style="color: #A3BE8C;">'GET'</span> &amp;&amp; req.url === service.baseUrl)
+
+    req.<span style="color: #8FA1B3;">flush</span>(dummy);
+
+    <span style="color: #8FA1B3;">expect</span>(<span style="color: #b48ead; font-weight: bold;">await</span> promise).<span style="color: #8FA1B3;">toBeDefined</span>();
+  });
+
+  <span style="color: #8FA1B3;">it</span>(<span style="color: #A3BE8C;">'should fail to get holidays'</span>, <span style="color: #b48ead; font-weight: bold;">async</span> () <span style="color: #b48ead; font-weight: bold;">=&gt;</span> {
+    <span style="color: #b48ead; font-weight: bold;">const</span> <span style="color: #BF616A;">promise</span> = service.<span style="color: #8FA1B3;">getHolidays</span>(mock)
+      .<span style="color: #b48ead; font-weight: bold;">catch</span>(error <span style="color: #b48ead; font-weight: bold;">=&gt;</span> <span style="color: #8FA1B3;">expect</span>(error).<span style="color: #8FA1B3;">toBeDefined</span>());
+
+    <span style="color: #b48ead; font-weight: bold;">const</span> <span style="color: #BF616A;">req</span> = httpMock
+      .<span style="color: #8FA1B3;">expectOne</span>(req <span style="color: #b48ead; font-weight: bold;">=&gt;</span> req.method === <span style="color: #A3BE8C;">'GET'</span> &amp;&amp; req.url === service.baseUrl)
+
+    req.<span style="color: #8FA1B3;">flush</span>(mock.error.message, mock.error.response);
+
+    <span style="color: #8FA1B3;">expect</span>(<span style="color: #b48ead; font-weight: bold;">await</span> promise).<span style="color: #8FA1B3;">toBeDefined</span>();
+  });
+});
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2021-09-11 sáb 00:00</p>
+<p class="author">Author: b-coimbra</p>
+<p class="date">Created: 2021-09-11 sáb 15:30</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
