@@ -19,44 +19,43 @@
   | ~!<command>~ | executes a command with the same flags as before               |
 
 * Permissions
-** chmod (change mode)
-*** Group permissions
+** Group permissions
 
-    | Group | Description  |
-    |-------+--------------|
-    | u     | user (owner) |
-    | g     | group        |
-    | o     | others       |
-    | a     | all          |
+   | Group | Description  |
+   |-------+--------------|
+   | u     | user (owner) |
+   | g     | group        |
+   | o     | others       |
+   | a     | all          |
 
-*** Operators
+** Operators
 
-    | Operator | Description         |
-    |----------+---------------------|
-    | +        | add permission      |
-    | -        | remove permission   |
-    | =        | override permission |
+   | Operator | Description         |
+   |----------+---------------------|
+   | +        | add permission      |
+   | -        | remove permission   |
+   | =        | override permission |
 
-*** Octal notation
+** Octal notation
 
-    | Octal | Description                             |
-    |-------+-----------------------------------------|
-    |     0 | nothing                                 |
-    |     1 | execute                                 |
-    |     2 | write                                   |
-    |     3 | 1 + 2 (wx) write and execute            |
-    |     4 | read                                    |
-    |     5 | 4 + 1 (rx) read and execute             |
-    |     6 | 4 + 3 (rw) read and write               |
-    |     7 | 4 + 2 + 1 (rwx) read, write and execute |
+   | Octal | Description                             |
+   |-------+-----------------------------------------|
+   |     0 | nothing                                 |
+   |     1 | execute                                 |
+   |     2 | write                                   |
+   |     3 | 1 + 2 (wx) write and execute            |
+   |     4 | read                                    |
+   |     5 | 4 + 1 (rx) read and execute             |
+   |     6 | 4 + 3 (rw) read and write               |
+   |     7 | 4 + 2 + 1 (rwx) read, write and execute |
 
-*** Syntax
+** chmod (Change Mode)
 
-    | Command                                 | Description                                                     |
-    |-----------------------------------------+-----------------------------------------------------------------|
-    | ~chmod -R <specifications> <directory>~ | changing permissions of the contents of a directory recursively |
-    | ~chmod og=+r~                           | add read permission for the owner and group                     |
-    | ~chmod a +rwx file~                     | allow all user to read, write and execute                       |
+   | Command                                 | Description                                                     |
+   |-----------------------------------------+-----------------------------------------------------------------|
+   | ~chmod -R <specifications> <directory>~ | changing permissions of the contents of a directory recursively |
+   | ~chmod og=+r~                           | add read permission for the owner and group                     |
+   | ~chmod a +rwx file~                     | allow all user to read, write and execute                       |
 
 ** chown (Change Ownership)
 
@@ -72,40 +71,41 @@
 
 ** sudo (superuser do)
 
-  ~sudo~ will run a specific command with root level of permission.
+   ~sudo~ will run a specific command with root level of permission.
 
-  ~sudo !! (last command)~ for instance
+   ~sudo !! (last command)~ for instance
 
 * Other commands
 
-  | Command            | Description                                                                       |
-  |--------------------+-----------------------------------------------------------------------------------|
-  | ~cd -~             | go to the previous working directory                                              |
-  | ~ls \*D~           | pathname expansion, returns all files starting with D                             |
-  | ~ls exe\*~         | all files ending with 'exe'                                                       |
-  | ~less <file>~      | view the contents of a file with a pager                                          |
-  | ~head <file>~      | first several lines of a file (pass -n <numer-of-lines> to see N number of lines) |
-  | ~tail <file>~      | last several lines of a file (pass -n <numer-of-lines> to see N number of lines)  |
-  | ~uname~            | show informations about the system (-a flag shows ALL info)                       |
-  | ~du~               | summarizes the *disk usage* of files                                              |
-  | ~du -sh *~         | summarizes every file in the current directory                                    |
-  | ~df~               | disk space of filesystem                                                          |
-  | ~ps~               | process status                                                                    |
-  | ~ps -C <name>~     | find the PID of a specific program                                                |
-  | ~killall <p>~      | terminates a process                                                              |
-  | ~kill <PID>~       | terminates a process given the PID                                                |
-  | ~which~            | searches for executables specified by the environment variable PATH               |
-  | ~time~             | time the execution of any program (eg. time node script.js)                       |
-  | ~watch -n N~       | runs a command infinitely each N seconds                                          |
-  | ~apropos~          | find a command that I'm unaware of (eg. apropos "list dir")                       |
-  |                    | use in conjuntion with (whatis) command                                           |
-  | ~whereis~          | searches for executables, source files and manual pages                           |
-  | ~diff~             | compares files, and lists their difference                                        |
-  | ~find~             | find files in directory (eg. find -name README.md)                                |
-  | ~man giteveryday~  | useful minimul set of commands for everyday git                                   |
-  | ~curl wttr.in~     | weather forecast                                                                  |
-  | ~curl parrot.live~ | rainbow parrot                                                                    |
-  | ~sha256sum~        | verify file checksum. (or ~sha1sum~, ~md5sum~ depending on the hash)              |
+  | Command                  | Description                                                                       |
+  |--------------------------+-----------------------------------------------------------------------------------|
+  | ~cd -~                     | go to the previous working directory                                              |
+  | ~ls \*D~                   | pathname expansion, returns all files starting with D                             |
+  | ~ls exe\*~                 | all files ending with 'exe'                                                       |
+  | ~less <file>~              | view the contents of a file with a pager                                          |
+  | ~head <file>~              | first several lines of a file (pass -n <numer-of-lines> to see N number of lines) |
+  | ~tail <file>~              | last several lines of a file (pass -n <numer-of-lines> to see N number of lines)  |
+  | ~uname~                    | show informations about the system (-a flag shows ALL info)                       |
+  | ~du~                       | summarizes the *disk usage* of files                                                |
+  | ~du -sh *~                 | summarizes every file in the current directory                                    |
+  | ~df~                       | disk space of filesystem                                                          |
+  | ~ps~                       | process status                                                                    |
+  | ~ps -C <name>~             | find the PID of a specific program                                                |
+  | ~killall <p>~              | terminates a process                                                              |
+  | ~kill <PID>~               | terminates a process given the PID                                                |
+  | ~which~                    | searches for executables specified by the environment variable PATH               |
+  | ~time~                     | time the execution of any program (eg. time node script.js)                       |
+  | ~watch -n N~               | runs a command infinitely each N seconds                                          |
+  | ~apropos~                  | find a command that I'm unaware of (eg. apropos "list dir")                       |
+  |                          | use in conjuntion with (whatis) command                                           |
+  | ~whereis~                  | searches for executables, source files and manual pages                           |
+  | ~diff~                     | compares files, and lists their difference                                        |
+  | ~find~                     | find files in directory (eg. find -name README.md)                                |
+  | ~man giteveryday~          | useful minimul set of commands for everyday git                                   |
+  | ~curl wttr.in~             | weather forecast                                                                  |
+  | ~curl parrot.live~         | rainbow parrot                                                                    |
+  | ~sha256sum~                | verify file checksum. (or ~sha1sum~, ~md5sum~ depending on the hash)                  |
+  | ~curl cheat.sh/<command>/~ | get a cheatsheet about a particular command                                       |
 
 * Fix typos
 
@@ -155,33 +155,33 @@
 
 *** Import keys from keyserver
 
-	#+begin_src sh
-	  $ gpg --keyserver <server> --recv-keys <hex>
-	#+end_src
+    #+begin_src sh
+      $ gpg --keyserver <server> --recv-keys <hex>
+    #+end_src
 
-	Where =<server>= can be "pgp.mit.edu" for instance.
+    Where =<server>= can be "pgp.mit.edu" for instance.
 
 *** Encrypt message
 
-	Having the receiver's pkey:
+    Having the receiver's pkey:
 
-	#+begin_src sh
-	  $ gpg --output doc.gpg --encrypt --recipient mail@recipient doc
-	#+end_src
+    #+begin_src sh
+      $ gpg --output doc.gpg --encrypt --recipient mail@recipient doc
+    #+end_src
 
 *** Decrypt message
 
     #+begin_src sh
       $ gpg --output doc --decrypt doc.gg
-	#+end_src
+    #+end_src
 
 *** Symmetric encryption
 
-   ~-c~ is for symmetric encryption (single pkey for encrypting/decrypting).
+    ~-c~ is for symmetric encryption (single pkey for encrypting/decrypting).
 
-   #+begin_src sh
-	 $ gpg -c --no-sym-key-cache --cipher-algo AES256 <file>
-   #+end_src
+    #+begin_src sh
+      $ gpg -c --no-sym-key-cache --cipher-algo AES256 <file>
+    #+end_src
 
 * Shell expansion
 
@@ -211,53 +211,53 @@
 
 ** Brace Expansion
 
-  To backup settings.conf to settings.conf.bak:
+   To backup settings.conf to settings.conf.bak:
 
-  ~cp settings.conf{,.bak}~
+   ~cp settings.conf{,.bak}~
 
-  To revert the file from settings.conf.bak to settings.conf:
+   To revert the file from settings.conf.bak to settings.conf:
 
-  ~mv settings.conf{.bak,}~
+   ~mv settings.conf{.bak,}~
 
-  Other uses:
+   Other uses:
 
-  ~echo foo{1,2,3}.txt~ outputs =foo1.txt, foo2.txt, foo3.txt=
+   ~echo foo{1,2,3}.txt~ outputs =foo1.txt, foo2.txt, foo3.txt=
 
-  ~echo file-{a..b}.txt~ outputs =file-a.txt file-b.txt file-c.txt file-d.txt=
+   ~echo file-{a..b}.txt~ outputs =file-a.txt file-b.txt file-c.txt file-d.txt=
 
-  ~mv program.{c,exe} bin/~
+   ~mv program.{c,exe} bin/~
 * IO Redirections
 ** Output redirections
 
-  The output from a command normally intended for stdout can be easily diverted to a file.
+   The output from a command normally intended for stdout can be easily diverted to a file.
 
-  #+begin_src sh
-	$ who > users
+   #+begin_src sh
+     $ who > users
 
-	$ cat users
-	nexi     tty01    Oct 22 08:58
-	ai       tty02    Oct 22 13:58
-  #+end_src
+     $ cat users
+     nexi     tty01    Oct 22 08:58
+     ai       tty02    Oct 22 13:58
+   #+end_src
 
-  The ~>~ operator will always override the contents of the file.
+   The ~>~ operator will always override the contents of the file.
 
-  We can use the ~>>~ operator to *append* the output in a file with existing info:
+   We can use the ~>>~ operator to *append* the output in a file with existing info:
 
-  #+begin_src sh
-	$ echo lorem ipsum >> users
+   #+begin_src sh
+     $ echo lorem ipsum >> users
 
-	$ cat users
-	nexi     tty01    Oct 22 08:58
-	ai       tty02    Oct 22 13:58
-	lorem ipsum
-  #+end_src
+     $ cat users
+     nexi     tty01    Oct 22 08:58
+     ai       tty02    Oct 22 13:58
+     lorem ipsum
+   #+end_src
 ** Input redirection
 
    Commands that receive input from stdin can have their input redirected from a file.
 
    #+begin_src sh
-	 $ wc -l < users
-	 3
+     $ wc -l < users
+     3
    #+end_src
 
 ** Here document
@@ -265,20 +265,20 @@
    A "here document" redirects input into an interactive shell script or program.
 
    #+begin_src sh
-	 command << EOF
-		 document
-	 EOF
+     command << EOF
+         document
+     EOF
    #+end_src
 
    The ~>>~ command is an instruction to read input until it finds a line containing the delimeted (EOF in this case)
 
    #+begin_src sh
-	 $ wc -l <<EOF
-	   lorem ipsum
-	   dolor sit
-	   amet
-	 EOF
-	 3
+     $ wc -l <<EOF
+       lorem ipsum
+       dolor sit
+       amet
+     EOF
+     3
    #+end_src
 
 * Chaining Operators
@@ -287,7 +287,7 @@
     run one or more jobs in the background,
 
     EXAMPLE: ping www.google.com &
-             apt-get update & apt-get upgrade &
+    apt-get update & apt-get upgrade &
 
     - ~Ctrl-z~ pauses the job
     - ~jobs~ prints all the jobs
@@ -331,22 +331,22 @@
 
 * RegEx Tools
 
-- ~grep~ (Globally search for a Regular Expression and Print)
-  for searching stuff in files, or any STDOUT (eg. 'ls' command)
+  - ~grep~ (Globally search for a Regular Expression and Print)
+    for searching stuff in files, or any STDOUT (eg. 'ls' command)
 
-  EXAMPLE: =ls | grep "\.exe$"=
+    EXAMPLE: =ls | grep "\.exe$"=
 
-- ~sed~ (stream editor)
-  for substitituing, deleting or filtering text on a stream
+  - ~sed~ (stream editor)
+    for substitituing, deleting or filtering text on a stream
 
-  EXAMPLE: =sed 's/regexp/replacement/g' file > output=
+    EXAMPLE: =sed 's/regexp/replacement/g' file > output=
 
-  -r will extend the Regex portability (POSIX)
+    -r will extend the Regex portability (POSIX)
 
-- ~xargs~ (command args)
-  pass any command to it and it will execute it on a stream.
+  - ~xargs~ (command args)
+    pass any command to it and it will execute it on a stream.
 
-  EXAMPLE: =find | grep "\.exe$" | xargs ls -lh=
+    EXAMPLE: =find | grep "\.exe$" | xargs ls -lh=
 
 * Bash
 
@@ -377,15 +377,10 @@
 
 * Cleanup
 
-  When ~/dev/sda2/~ is almost full:
+  Steps to free disk space on your Linux machine:
 
-  1. delete pacman cache:
+  1. Check directories disk space: =cd / && sudo du -h --max-depth=1=
+  2. Delete pacman cache:
 
-  =sudo paccache -r= keep at least 3 caches
-  =sudo paccache -rk 1= keep only 1 pkg cache
-
-  2. delete sxiv cache:
-
-  =cd "rm ~/.cache/sxiv/*"=
-
-  3. look into the .cache folder
+     - =sudo paccache -r= keep at least 3 caches
+     - =sudo paccache -rk 1= keep only 1 pkg cache
