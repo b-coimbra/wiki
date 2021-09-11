@@ -5,6 +5,10 @@
 #+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
 #+EXPORT_FILE_NAME: ../index.html
 
+Various annotations/cheatsheets neatly organized for the sake of knowledge retention.
+
+Source can be found [[https://github.com/b-coimbra/notes][here]].
+
 * General
 
   - [[./linux.html][Linux]]
