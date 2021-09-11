@@ -1,0 +1,5 @@
+#+TITLE: My Notes
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+#+EXPORT_FILE_NAME: docs/index.html
+
+- [[./linux.html][Linux]]
