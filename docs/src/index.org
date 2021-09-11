@@ -2,9 +2,20 @@
 #+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
 #+EXPORT_FILE_NAME: ../index.html
 
-- [[./linux.html][Linux]]
-- [[./git.html][Git]]
-- [[./ssh.html][SSH]]
-- [[./vim.html][Vim]]
-- [[./angular.html][Angular]]
-- [[./typescript.html][Typescript]]
+* General
+
+  - [[./linux.html][Linux]]
+
+* Tools
+
+  - [[./ssh.html][SSH]]
+  - [[./vim.html][Vim]]
+  - [[./git.html][Git]]
+
+* Frameworks
+
+  - [[./angular.html][Angular]]
+
+* Languages
+
+  - [[./typescript.html][Typescript]]
