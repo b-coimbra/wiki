@@ -1,0 +1,88 @@
+* Threading
+
+  Creating and starting a second thread:
+
+  #+BEGIN_SRC csharp
+    using System;
+    using System.Threading;
+
+    class Program {
+        static void Main()
+        {
+            var thread = new Thread(Secondary);
+            thread.Start();
+        }
+
+        static void Secondary() => Console.WriteLine("Hello world");
+    }
+  #+END_SRC
+  
+** Parallel.forEach loop
+
+   When the order of the output is not important, we can apply multiple threads to a foreach loop:
+
+   #+BEGIN_SRC csharp
+     using System;
+     using System.Threading;
+     using System.Threading.Tasks;
+
+     public class Program {
+         public static void Main() {
+             int[] Numbers = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+
+             // single-threaded:
+             Console.WriteLine("Normal foreach loop: ");
+
+             foreach (var number in Numbers)
+                 Console.WriteLine(longCalculation(number));
+
+             // This is the Parallel (Multi-threaded solution):
+             Console.WriteLine("Multiple threads: ");
+             Parallel.forEach(Numbers, number =>
+                              Console.WriteLine(longCalculation(number));
+     );
+         }
+
+         private static int longCalculation(int number)
+         {
+             Thread.Sleep(1000); // sleep to simulate a long calculation
+             return number * number;
+         }
+     }
+   #+END_SRC
+
+* Task Parallel
+  
+  #+BEGIN_SRC csharp
+    public static void explicitTaskParallelism()
+    {
+        Thread.CurrentThread.Name = "Main";
+
+        Task taskA = new Task(() => Console.WriteLine($"Hello from task {nameof(taskA)}."));
+        Task taskB = new Task(() => Console.WriteLine($"Hello from task {nameof(taskB)}."));
+
+        taskA.Start();
+        taskB.Start();
+
+        Console.WriteLine("Hello from thread '{0}'", Thread.CurrentThread.Name);
+
+        taskA.Wait();
+        taskB.Wait();
+
+        Console.Read();
+    }
+  #+END_SRC
+  
+
+** Implicit Task Parallelism
+
+   #+BEGIN_SRC csharp
+     public static void Main()
+     {
+         var a = new A();
+         var b = new B();
+
+         Parallel.Invoke(() => a.DoSomeWork(),
+                         () => b.DoSomeWork());
+     }
+   #+END_SRC

@@ -1,8 +1,0 @@
-* Intermediate Language (IL)
-
-  Code exists on many levels.
-  Abstraction is a ladder.
-  At the highest levels of abstraction, we have C# code.
-  At a lower level, we have an *intermediate language*.
-  
-  C# is compiled into that *intermediate language*.

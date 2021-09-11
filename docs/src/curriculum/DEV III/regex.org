@@ -1,0 +1,73 @@
+* RegEx
+
+** Misc 
+
+   | Expression    | Description                                                            |
+   |---------------+------------------------------------------------------------------------|
+   | ~^~           | negates a character class (eg: =/[^g-f]/= -- NOT between g and f)      |
+   | ~\W~          | =[^\w]=                                                                |
+   | ~\D~          | =[^\d]=                                                                |
+   | ~\S~          | =[^\s]=                                                                |
+   | ~(?:ABC)~     | won't capture the group                                                |
+   | ~AB(?=C)~     | lookahead, will match when AB is followed by C, but C won't be matched |
+   | ~(?<name>.*)~ | gives a group a name                                                   |
+
+** Identifiers
+
+   | Identifier | Description                         |
+   |------------+-------------------------------------|
+   | ~\d~       | any number                          |
+   | ~\D~       | anything but a number               |
+   | ~\s~       | space                               |
+   | ~\S~       | anything but a space                |
+   | ~\w~       | any character                       |
+   | ~\W~       | anything but a character            |
+   | ~\b~       | the whitespace around words         |
+   | ~.~        | any character expect for a new line |
+   | ~\.~       | a period                            |
+
+** Modifiers
+
+   | Modifier | Description                        |
+   |----------+------------------------------------|
+   | ~{1, 3}~ | we're expecting 1-3 ex: \d{1, 3}   |
+   | ~{x}~    | expecting "x" ammount              |
+   | ~+~      | Match 1 or more                    |
+   | ~?~      | Match 0 or 1                       |
+   | ~*~      | Match 0 or more                    |
+   | ~$~      | Match the end of a string          |
+   | ~^~      | Matching the beginning of a string |
+   | ~[]~     | range or "variance" [A-Z]          |
+
+** Single Match
+
+   #+BEGIN_SRC csharp
+     string pattern = ":(.*?):";
+     string lookup = "--:text in here:--";
+
+     // instanciate your regex object and pass a pattern to it
+     Regex rgxLookup = new Regex(pattern, RegexOptions.Singleline, timeSpan.FromSeconds(1));
+     // Get the match from your regex-object
+     Match mLookup = rgxLookup.Match(lookup);
+
+     // the group-index 0 always covers the full pattern.
+     // Matches inside parentheses will be accessed through the index 1 and above.
+     string found = mLookup.Groups[1].Value;
+
+   #+END_SRC
+
+** Multiple Matches
+
+   #+BEGIN_SRC csharp
+     List<string> found = new List<string>();
+     string pattern = ":(.*?):";
+     string lookup = "--:text in here:--:another one:-:third one:---!123:fourth:";
+
+     // Instanciate your regex object and pass a pattern to it
+     Regex rgxLookup = new Regex(pattern, RegexOptions.SingleLine, TimeSpan.FromSeconds(1));
+     MatchCollection mLookup = rgxLookup.matches(lookup);
+
+     foreach (Match match in mLookup)
+         found.Add(match.Groups[1].Value);
+
+   #+END_SRC

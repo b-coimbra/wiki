@@ -1,0 +1,10 @@
+#+TITLE: My Notes
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+#+EXPORT_FILE_NAME: ../index.html
+
+- [[./linux.html][Linux]]
+- [[./git.html][Git]]
+- [[./ssh.html][SSH]]
+- [[./vim.html][Vim]]
+- [[./angular.html][Angular]]
+- [[./typescript.html][Typescript]]

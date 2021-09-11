@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-11 sáb 15:29 -->
+<!-- 2021-09-11 sáb 15:46 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Secure Shell (ssh)</title>
@@ -229,14 +229,14 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgebaddb1">1. Authentication key pairs</a>
+<li><a href="#orgd413dbb">1. Authentication key pairs</a>
 <ul>
-<li><a href="#org925e250">1.1. Algorithms and key size</a></li>
+<li><a href="#org6c55b9c">1.1. Algorithms and key size</a></li>
 </ul>
 </li>
-<li><a href="#org9ecef5b">2. Copy pubkey to server</a></li>
-<li><a href="#orgb8e7af9">3. File tranfer</a></li>
-<li><a href="#org52dd023">4. Configuration file</a></li>
+<li><a href="#orgea90f45">2. Copy pubkey to server</a></li>
+<li><a href="#orgeadf126">3. File tranfer</a></li>
+<li><a href="#org16a9497">4. Configuration file</a></li>
 </ul>
 </div>
 </div>
@@ -248,12 +248,12 @@ SSH provides a secure connection between the host machine and a remote server.
 <code>ssh -i &lt;path-to-private-key&gt; &lt;host&gt;</code> where <code>&lt;path-to-private-key&gt;</code> can be <code>~/.ssh/id_rsa</code> for instance.
 </p>
 
-<div id="outline-container-orgebaddb1" class="outline-2">
-<h2 id="orgebaddb1"><span class="section-number-2">1.</span> Authentication key pairs</h2>
+<div id="outline-container-orgd413dbb" class="outline-2">
+<h2 id="orgd413dbb"><span class="section-number-2">1.</span> Authentication key pairs</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org925e250" class="outline-3">
-<h3 id="org925e250"><span class="section-number-3">1.1.</span> Algorithms and key size</h3>
+<div id="outline-container-org6c55b9c" class="outline-3">
+<h3 id="org6c55b9c"><span class="section-number-3">1.1.</span> Algorithms and key size</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 Currently, the relevant algorithms are <b>rsa</b> and <b>ed25519</b>.
@@ -271,8 +271,8 @@ The algorithm is selected using the <code>-t</code> flag and key size using the 
 </div>
 </div>
 
-<div id="outline-container-org9ecef5b" class="outline-2">
-<h2 id="org9ecef5b"><span class="section-number-2">2.</span> Copy pubkey to server</h2>
+<div id="outline-container-orgea90f45" class="outline-2">
+<h2 id="orgea90f45"><span class="section-number-2">2.</span> Copy pubkey to server</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 To use public key authentication, the public key must be copied to a server and installed in an authorized<sub>keys</sub> file.
@@ -285,8 +285,8 @@ This can be conveniently done using the <code>ssh-copy-id</code> tool.
 </div>
 </div>
 
-<div id="outline-container-orgb8e7af9" class="outline-2">
-<h2 id="orgb8e7af9"><span class="section-number-2">3.</span> File tranfer</h2>
+<div id="outline-container-orgeadf126" class="outline-2">
+<h2 id="orgeadf126"><span class="section-number-2">3.</span> File tranfer</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 Copy a file from/to the remote host and vice-versa.
@@ -299,8 +299,8 @@ Copy a file from/to the remote host and vice-versa.
 </div>
 </div>
 
-<div id="outline-container-org52dd023" class="outline-2">
-<h2 id="org52dd023"><span class="section-number-2">4.</span> Configuration file</h2>
+<div id="outline-container-org16a9497" class="outline-2">
+<h2 id="org16a9497"><span class="section-number-2">4.</span> Configuration file</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 When connecting to multiple remote systems over SSH, it can be difficult to remember all of the remote IP addresses,
@@ -349,7 +349,7 @@ Then we can simply do <code>ssh targaryen</code> to remotely connect to the <cod
 <div id="postamble" class="status">
 <p class="date">Date: 2021-09-11 sáb 00:00</p>
 <p class="author">Author: b-coimbra</p>
-<p class="date">Created: 2021-09-11 sáb 15:29</p>
+<p class="date">Created: 2021-09-11 sáb 15:46</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

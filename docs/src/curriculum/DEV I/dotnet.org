@@ -1,0 +1,94 @@
+* .NET
+
+  *LinQ -> DbSet -> SQL -> Database*
+  
+** DbContext
+   
+   Encapsula uma sessão com o banco de dados para um determinado modelo de dados (representado por DbSet's).
+
+   - É usado para consultar e salvar entidades no banco de dados
+   - Define quais entidades farão parte do modelo de dados do sistema
+   - Pode definir várias configurações
+
+** DbSet<TEntity>
+
+   Representa a coleção de entidades de um dado tipo em um contexto.
+   Tipicamente corresponde a uma tabela do banco de dados.
+
+* LinQ
+  
+* EntityFramework
+** Relação de um-pra-muitos
+   
+   Using the Generics lib:
+   #+BEGIN_SRC csharp
+     using System.Collections.Generic;
+   #+END_SRC
+   
+   We can define a navigation property to store multiple entities (list):
+   #+BEGIN_SRC csharp
+     public virtual ICollection<Enrollment> Enrollments { get; set; }
+   #+END_SRC
+
+   It's defined as =virtual= so they can use the EntityFramework functionality, like slow loading.
+   
+** Return multiple items (as JSON)
+   
+   #+BEGIN_SRC csharp
+     [HttpGet("[action]")]
+     public IEnumerable<Temp> Temperature() {
+         return Enumerable.Range(2, 5).Select(i => new Temp
+         {
+             Celsius = i
+         });
+     }
+
+     public class Temp {
+         public int Celsius { get; set; }
+     }
+   #+END_SRC
+   
+   #+BEGIN_SRC typescript
+
+     export function baseUrl() {
+         return document.getElementsByTagName('base')[0].href;
+     }
+
+     export class TemperatureComponent implements OnInit {
+         public temp: Temp[];
+
+         constructor (http: HttpClient, baseUrl) {
+             return http.get<Temp[]>(baseUrl + 'api/Controller/Temp').subscribe(val => {
+                 this.temp = val;
+             }, err => console.error(err));
+         }
+     }
+   #+END_SRC
+
+* Miscs
+  
+** Dictionaries
+
+   #+BEGIN_SRC csharp
+   Dictionary<int, string> employee = new Dictionary<int, string>() { { 44, "John" }, { 45, "Bob" }, {47, "James" } };
+   #+END_SRC
+
+** Creating an extension
+
+   Declaring the =forEach= extension:
+
+   #+BEGIN_SRC csharp
+     public static void forEach<T>(this IEnumerable<T> enumeration, Action<T> action)
+     {
+         foreach (T item in enumeration)
+             action(item);
+     }
+   #+END_SRC
+   
+   Usage:
+  
+   #+BEGIN_SRC csharp
+     IEnumerable<Customer> customers = new List<Customer>();
+
+     customers.forEach(c => c.SendEmail);
+   #+END_SRC

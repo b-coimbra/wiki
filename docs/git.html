@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-11 sáb 15:49 -->
+<!-- 2021-09-11 sáb 15:47 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Typescript</title>
+<title>Git</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="b-coimbra" />
 <style type="text/css">
@@ -224,238 +224,299 @@
 </head>
 <body>
 <div id="content">
-<h1 class="title">Typescript</h1>
+<h1 class="title">Git</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgc7f4b92">1. Static attributes and methods</a></li>
-<li><a href="#orgf371670">2. Promises</a></li>
-<li><a href="#org6113485">3. Union</a></li>
-<li><a href="#org32c9aba">4. Enums</a></li>
-<li><a href="#org7cd7d45">5. Return type</a></li>
-<li><a href="#orgeff2b76">6. Interfaces</a></li>
-<li><a href="#orgd588b2b">7. Optional Arguments</a></li>
-<li><a href="#org0a6a9fe">8. Assert functions</a></li>
-<li><a href="#org165786d">9. Utility types</a></li>
-<li><a href="#org8608867">10. Brand types</a></li>
-<li><a href="#org2e1c871">11. Declaration files</a></li>
+<li><a href="#orgcc51c52">1. General</a></li>
+<li><a href="#orgc66741e">2. Remove unwanted commited files</a></li>
+<li><a href="#org5d991e2">3. Hooks</a></li>
+<li><a href="#orgd91f514">4. Bisect</a></li>
+<li><a href="#orgc3e523a">5. Commit messages</a>
+<ul>
+<li><a href="#org7587280">5.1. Structural elements</a></li>
+<li><a href="#org2040ef2">5.2. Type with scope</a></li>
+<li><a href="#orgf4887ac">5.3. <code>!</code> to draw attention</a></li>
+</ul>
+</li>
+<li><a href="#org65f9410">6. Working with a team</a>
+<ul>
+<li><a href="#orgf7d95e1">6.1. Stashing</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgc7f4b92" class="outline-2">
-<h2 id="orgc7f4b92"><span class="section-number-2">1.</span> Static attributes and methods</h2>
+<div id="outline-container-orgcc51c52" class="outline-2">
+<h2 id="orgcc51c52"><span class="section-number-2">1.</span> General</h2>
 <div class="outline-text-2" id="text-1">
-<p>
-Static methods can be called on the class directly:
-</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
-<div class="org-src-container">
-<pre class="src src-js"><span style="color: #b48ead; font-weight: bold;">class</span> Pony {
-  <span style="color: #b48ead; font-weight: bold;">static</span> defaultSpeed() {
-    <span style="color: #b48ead; font-weight: bold;">return</span> 10;
-  }
-}
 
-<span style="color: #b48ead; font-weight: bold;">const</span> <span style="color: #BF616A;">speed</span> = Pony.defaultSpeed();
-</pre>
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">command</th>
+<th scope="col" class="org-left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>git rebase -i HEAD~n</code></td>
+<td class="org-left">where <b>n</b> is the number of commits</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>git commit --amend</code></td>
+<td class="org-left">modifies the most recent commit</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>git push origin &lt;branch&gt; -f</code></td>
+<td class="org-left"><code>-f</code> forced push</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>git rebase --continue</code></td>
+<td class="org-left">after resolving rebase conflicts</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>git rebase -i</code></td>
+<td class="org-left">interactive rebase for rewriting history</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>git reset origin/develop -- &lt;file&gt;</code></td>
+<td class="org-left">subtitute a local file with develop's</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>git add -i</code></td>
+<td class="org-left">interactive git add</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>git add -p</code></td>
+<td class="org-left">stage specified chunks</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>git gc</code></td>
+<td class="org-left">manually clean git's mess</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>git branch -m &lt;oldname&gt; &lt;newname&gt;</code></td>
+<td class="org-left">rename branch</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>git diff</code></td>
+<td class="org-left">view uncommited changes</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
-</div>
 
-<div id="outline-container-orgf371670" class="outline-2">
-<h2 id="orgf371670"><span class="section-number-2">2.</span> Promises</h2>
+<div id="outline-container-orgc66741e" class="outline-2">
+<h2 id="orgc66741e"><span class="section-number-2">2.</span> Remove unwanted commited files</h2>
 <div class="outline-text-2" id="text-2">
-<div class="org-src-container">
-<pre class="src src-js"><span style="color: #b48ead; font-weight: bold;">const</span> <span style="color: #BF616A;">getUser</span> = (login) =&gt; {
-  <span style="color: #b48ead; font-weight: bold;">return</span> <span style="color: #b48ead; font-weight: bold;">new</span> <span style="color: #ECBE7B;">Promise</span>((resolve, reject) =&gt; {
-    <span style="color: #b48ead; font-weight: bold;">if</span> (response.status === 200)
-      resolve(response.data);
-    <span style="color: #b48ead; font-weight: bold;">else</span>
-      reject(<span style="color: #A3BE8C;">'No user'</span>);
-  });
-};
-
-getUser(login)
-  .then(user =&gt; console.log(user));
-</pre>
-</div>
+<ol class="org-ol">
+<li><code>git reset origin/develop -- &lt;file&gt;</code></li>
+<li><code>git commit --amend</code></li>
+</ol>
 </div>
 </div>
 
-<div id="outline-container-org6113485" class="outline-2">
-<h2 id="org6113485"><span class="section-number-2">3.</span> Union</h2>
+<div id="outline-container-org5d991e2" class="outline-2">
+<h2 id="org5d991e2"><span class="section-number-2">3.</span> Hooks</h2>
 <div class="outline-text-2" id="text-3">
 <p>
-If a variable is require to have multiple types exclusively.
+Git hooks are stored inside <code>.git/hooks</code> and have a <code>sample</code> extension on them.
+By removing that extension, the hook will be executed depending on the action performed (eg. commit/push)
 </p>
 
-<div class="org-src-container">
-<pre class="src src-js"><span style="color: #b48ead; font-weight: bold;">let</span> <span style="color: #BF616A;">changing</span>: number | <span style="color: #ECBE7B;">boolean</span> = 2;
-changing = <span style="color: #D08770;">true</span>;
-</pre>
-</div>
+<p>
+Hooks are essentially shell scripts &#x2013; they can either be written in bash, python or ruby.
+</p>
 </div>
 </div>
 
-<div id="outline-container-org32c9aba" class="outline-2">
-<h2 id="org32c9aba"><span class="section-number-2">4.</span> Enums</h2>
+<div id="outline-container-orgd91f514" class="outline-2">
+<h2 id="orgd91f514"><span class="section-number-2">4.</span> Bisect</h2>
 <div class="outline-text-2" id="text-4">
 <p>
-By default enum starts with 0.
+Useful for finding a specific faulty commit that introduced a bug somewhere in a project.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-js"><span style="color: #b48ead; font-weight: bold;">enum</span> Status { Ready, Started, Done }
-<span style="color: #b48ead; font-weight: bold;">const</span> <span style="color: #BF616A;">progress</span> = Status.Started;
-</pre>
-</div>
-
-<p>
-But custom values can also be set.
-</p>
-
-<div class="org-src-container">
-<pre class="src src-js"><span style="color: #b48ead; font-weight: bold;">enum</span> Medal { Gold = 1, Silver, Bronze }
+<pre class="src src-bash">$ git bisect start
+$ git bisect bad   <span style="color: #65737E;"># </span><span style="color: #65737E;">current version (commit) is bad</span>
+$ git bisect good  <span style="color: #65737E;"># </span><span style="color: #65737E;">current version (commit) is good</span>
+$ git bisect reset <span style="color: #65737E;"># </span><span style="color: #65737E;">return to commit after bisect star</span>
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org7cd7d45" class="outline-2">
-<h2 id="org7cd7d45"><span class="section-number-2">5.</span> Return type</h2>
+<div id="outline-container-orgc3e523a" class="outline-2">
+<h2 id="orgc3e523a"><span class="section-number-2">5.</span> Commit messages</h2>
 <div class="outline-text-2" id="text-5">
 <p>
-We can set the return type of a function like so:
+Reference: <a href="https://www.conventionalcommits.org/en/v1.0.0/">conventional commits</a>.
 </p>
 
-<div class="org-src-container">
-<pre class="src src-js"><span style="color: #b48ead; font-weight: bold;">function</span> <span style="color: #8FA1B3;">startRace</span>(<span style="color: #BF616A;">race</span>: <span style="color: #BF616A;">Race</span>): Race {
-  race.status = Status.Started;
-  <span style="color: #b48ead; font-weight: bold;">return</span> race;
-}
-</pre>
-</div>
-
+<blockquote>
 <p>
-If the function returns nothing, return <code>void</code>.
-</p>
-</div>
-</div>
-
-<div id="outline-container-orgeff2b76" class="outline-2">
-<h2 id="orgeff2b76"><span class="section-number-2">6.</span> Interfaces</h2>
-<div class="outline-text-2" id="text-6">
-<p>
-When a function has an arguments that require a specific property, we can use interfaces to define the "shape" of that object.
-</p>
-
-<div class="org-src-container">
-<pre class="src src-js"><span style="color: #b48ead; font-weight: bold;">function</span> <span style="color: #8FA1B3;">addPointsToScore</span>(<span style="color: #BF616A;">player</span>: { <span style="color: #BF616A;">score</span>: <span style="color: #BF616A;">number</span>; }, <span style="color: #BF616A;">points</span>: <span style="color: #BF616A;">number</span>): <span style="color: #b48ead; font-weight: bold;">void</span> {
-  player.score += points;
-}
-</pre>
-</div>
-
-<p>
-It means that the parameter must have a propert called <code>score</code> of the type <code>number</code>. We can name these interfaces like so:
-</p>
-
-<div class="org-src-container">
-<pre class="src src-js"><span style="color: #b48ead; font-weight: bold;">interface</span> HasScore {
-  score: number;
-}
-
-<span style="color: #b48ead; font-weight: bold;">function</span> <span style="color: #8FA1B3;">addPointsToScore</span>(<span style="color: #BF616A;">player</span>: <span style="color: #BF616A;">HasScore</span>, <span style="color: #BF616A;">points</span>: <span style="color: #BF616A;">number</span>): <span style="color: #b48ead; font-weight: bold;">void</span> {
-  player.score += points;
-}
-</pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-orgd588b2b" class="outline-2">
-<h2 id="orgd588b2b"><span class="section-number-2">7.</span> Optional Arguments</h2>
-<div class="outline-text-2" id="text-7">
-<p>
-JS arguments are optional, but in TypeScript the compiler will complain if parameters with types are forgotten.
+&lt;type&gt;[optional scope]: &lt;description&gt;
 </p>
 
 <p>
-We can add a <code>?</code> after the parameter to make it optional.
+[optional body]
 </p>
 
-<div class="org-src-container">
-<pre class="src src-js"><span style="color: #b48ead; font-weight: bold;">function</span> <span style="color: #8FA1B3;">addPointsToScore</span>(<span style="color: #BF616A;">player</span>: <span style="color: #BF616A;">HasScore</span>, <span style="color: #BF616A;">points</span>?: <span style="color: #BF616A;">number</span>): <span style="color: #b48ead; font-weight: bold;">void</span> {
-  points = points || 0;
-  player.score += points;
-}
-</pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org0a6a9fe" class="outline-2">
-<h2 id="org0a6a9fe"><span class="section-number-2">8.</span> Assert functions</h2>
-<div class="outline-text-2" id="text-8">
-<div class="org-src-container">
-<pre class="src src-typescript"><span style="color: #b48ead; font-weight: bold;">type</span> <span style="color: #ECBE7B;">Email</span>: <span style="color: #b48ead; font-weight: bold;">string</span>;
-
-<span style="color: #b48ead; font-weight: bold;">const</span> <span style="color: #BF616A;">assertValidEmail</span> = (email: <span style="color: #b48ead; font-weight: bold;">string</span>): asserts email is Email {
-    <span style="color: #b48ead; font-weight: bold;">if</span> (!email.<span style="color: #8FA1B3;">includes</span>(<span style="color: #A3BE8C;">'@'</span>))
-        <span style="color: #b48ead; font-weight: bold;">throw</span> <span style="color: #b48ead; font-weight: bold;">new</span> <span style="color: #ECBE7B;">Error</span>(<span style="color: #A3BE8C;">'Not a valid email.'</span>);
-}
-</pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org165786d" class="outline-2">
-<h2 id="org165786d"><span class="section-number-2">9.</span> Utility types</h2>
-<div class="outline-text-2" id="text-9">
 <p>
-Utility types are useful generic constructs to perform type transformations, more specifically, on an object.
-Most used utility types are:
+[optional footer(s)]
+</p>
+</blockquote>
+</div>
+
+<div id="outline-container-org7587280" class="outline-3">
+<h3 id="org7587280"><span class="section-number-3">5.1.</span> Structural elements</h3>
+<div class="outline-text-3" id="text-5-1">
+<p>
+Structural elements, to better communicate intent:
 </p>
 
 <ul class="org-ul">
-<li><code>Partial&lt;T&gt;</code> which transforms all members of T into optional</li>
-<li><p>
-<code>Readonly&lt;T&gt;</code> which, well&#x2026; makes all fields read-only
+<li><b>fix</b>: patches a bug in your codebase</li>
+<li><b>feat</b>: introduces a new feature to the codebase</li>
+</ul>
+
+<p>
+Other types are also allowed, such as <b>build: *chore:</b> <b>docs: *ci:</b> <b>refactor:</b> <b>test:</b>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2040ef2" class="outline-3">
+<h3 id="org2040ef2"><span class="section-number-3">5.2.</span> Type with scope</h3>
+<div class="outline-text-3" id="text-5-2">
+<p>
+Commit message with scope:
+</p>
+
+<blockquote>
+<p>
+feat(lang): add polish language
+docs(roadmap): move roadmap out of readme
+chore(ci): remove ci for 4.x and 5.x
+docs(CHANGELOG): update metadata
+chore(.gitignore): ignores more files/folders
+</p>
+</blockquote>
+</div>
+</div>
+
+<div id="outline-container-orgf4887ac" class="outline-3">
+<h3 id="orgf4887ac"><span class="section-number-3">5.3.</span> <code>!</code> to draw attention</h3>
+<div class="outline-text-3" id="text-5-3">
+<p>
+Commit message with ! to draw attention to breaking change:
+</p>
+
+<blockquote>
+<p>
+refactor!: drop support for Node 6
+</p>
+</blockquote>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org65f9410" class="outline-2">
+<h2 id="org65f9410"><span class="section-number-2">6.</span> Working with a team</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+Create a master branch for the feature:
+</p>
+
+<ol class="org-ol">
+<li>Starting at the <code>develop/</code> branch, create a new branch: <code>$ git checkout -b users/bruno.coimbra/UpdateRDESP</code></li>
+</ol>
+</div>
+
+<div id="outline-container-orgf7d95e1" class="outline-3">
+<h3 id="orgf7d95e1"><span class="section-number-3">6.1.</span> <a href="https://git-scm.com/book/pt-br/v2/Git-Tools-Stashing-and-Cleaning">Stashing</a></h3>
+<div class="outline-text-3" id="text-6-1">
+<p>
+Often, we might want to switch to a different branch and save our changes before doing so. But the issue is, if we have unfinished
+work on our branch, we don't want to create another commit just to save our dirty, half-done work. <code>git stash</code> comes to the rescue
+to solve this particular problem:
 </p>
 
 <p>
-&#x2026;and many more such as <code>Record&lt;K,T&gt;</code>, <code>Pick&lt;T,K&gt;</code>, <code>Omit&lt;T,K&gt;</code> etc. which I already know the behaviour of.
-</p></li>
-</ul>
-</div>
+To push a new stash onto your stack, run <code>git stash</code> or <code>git stash save</code>:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">$ git stash
+Saved working directory and index state <span style="color: #A3BE8C;">\</span>
+      <span style="color: #A3BE8C;">"WIP on master: 049d078 added the index file"</span>
+HEAD is now at 049d078 added the index file
+(To restore them type <span style="color: #A3BE8C;">"git stash apply"</span>)
+</pre>
 </div>
 
-<div id="outline-container-org8608867" class="outline-2">
-<h2 id="org8608867"><span class="section-number-2">10.</span> Brand types</h2>
-<div class="outline-text-2" id="text-10">
+<p>
+At this point, you can easily switch branches and do work elsewhere; your changes are stored on your stack.
+To see which stashes you’ve stored, you can use <code>git stash list</code>:
+</p>
+
 <div class="org-src-container">
-<pre class="src src-typescript"><span style="color: #b48ead; font-weight: bold;">type</span> <span style="color: #ECBE7B;">Brand</span>&lt;<span style="color: #ECBE7B;">K</span>, <span style="color: #ECBE7B;">T</span>&gt; = K &amp; { __brand: T };
+<pre class="src src-sh">$ git stash list
+stash@{0}: WIP on master: 049d078 added the index file
+stash@{1}: WIP on master: c264051 Revert <span style="color: #A3BE8C;">"added file_size"</span>
+stash@{2}: WIP on master: 21d80a5 added number to log
+</pre>
+</div>
+
+<p>
+In this case, two stashes were done previously, so you have access to three different stashed works.
+You can reapply the one you just stashed by using the command shown in the help output of the original stash command: <code>git stash apply</code>.
+If you want to apply one of the older stashes, you can specify it by naming it, like this: <code>git stash apply stash@{2}</code>.
+If you don’t specify a stash, Git assumes the most recent stash and tries to apply it:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">$ git stash apply
+On branch master
+Changes not staged for commit:
+(use <span style="color: #A3BE8C;">"git add &lt;file&gt;..."</span> to update what will be committed)
+(use <span style="color: #A3BE8C;">"git checkout -- &lt;file&gt;..."</span> to discard changes<span style="color: #b48ead; font-weight: bold;"> in</span> working directory)
+
+modified:   index.html
+modified:   lib/simplegit.rb
+
+no changes added to commit (use <span style="color: #A3BE8C;">"git add"</span> and/or <span style="color: #A3BE8C;">"git commit -a"</span>)
 </pre>
 </div>
 </div>
-</div>
-
-<div id="outline-container-org2e1c871" class="outline-2">
-<h2 id="org2e1c871"><span class="section-number-2">11.</span> Declaration files</h2>
-<div class="outline-text-2" id="text-11">
-<p>
-Afaik, declaration files are used to define what the types of a javascript file are.
-This is useful for prividing intelisense in your text editor.
-</p>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="date">Date: 2021-09-11 sáb 00:00</p>
 <p class="author">Author: b-coimbra</p>
-<p class="date">Created: 2021-09-11 sáb 15:49</p>
+<p class="date">Created: 2021-09-11 sáb 15:47</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

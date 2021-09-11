@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-11 sáb 15:26 -->
+<!-- 2021-09-11 sáb 15:46 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Linux</title>
@@ -229,61 +229,61 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgb935341">1. Sha Bang</a></li>
-<li><a href="#org0ef75ee">2. Permissions</a>
+<li><a href="#orga964ea7">1. Sha Bang</a></li>
+<li><a href="#orgfcb58f6">2. Permissions</a>
 <ul>
-<li><a href="#org97655c0">2.1. chmod (change mode)</a></li>
-<li><a href="#org6e25e23">2.2. Group permissions</a></li>
-<li><a href="#orgca73ef6">2.3. Operators</a></li>
-<li><a href="#orga3218a4">2.4. Octal notation</a></li>
-<li><a href="#org606fc98">2.5. Syntax</a></li>
-<li><a href="#org0a0068b">2.6. chown (Change Ownership)</a></li>
-<li><a href="#orgc4a30a4">2.7. su (switch user)</a></li>
-<li><a href="#org4e578ca">2.8. sudo (superuser do)</a></li>
+<li><a href="#orgd1d4aa3">2.1. chmod (change mode)</a></li>
+<li><a href="#org9d2eea0">2.2. Group permissions</a></li>
+<li><a href="#org53def97">2.3. Operators</a></li>
+<li><a href="#orge124e3b">2.4. Octal notation</a></li>
+<li><a href="#org9368633">2.5. Syntax</a></li>
+<li><a href="#org1dbfdfe">2.6. chown (Change Ownership)</a></li>
+<li><a href="#orgca841ea">2.7. su (switch user)</a></li>
+<li><a href="#org92f36f7">2.8. sudo (superuser do)</a></li>
 </ul>
 </li>
-<li><a href="#org98c7167">3. Other commands</a></li>
-<li><a href="#org274881d">4. Fix typos</a></li>
-<li><a href="#orgd3dc828">5. File Compression</a>
+<li><a href="#org2a7d808">3. Other commands</a></li>
+<li><a href="#orgd5723a1">4. Fix typos</a></li>
+<li><a href="#org9c8f4a6">5. File Compression</a>
 <ul>
-<li><a href="#orgc8673b7">5.1. Syntax</a></li>
+<li><a href="#orgb880709">5.1. Syntax</a></li>
 </ul>
 </li>
-<li><a href="#orgda1a6fc">6. Encryption</a>
+<li><a href="#orgfe6e49d">6. Encryption</a>
 <ul>
-<li><a href="#orgcde6c9b">6.1. GPG (GNU Privacy Guard)</a></li>
-<li><a href="#org0823af1">6.2. Import keys from keyserver</a></li>
-<li><a href="#org43f5e7f">6.3. Encrypt message</a></li>
-<li><a href="#orgaa0c9f1">6.4. Decrypt message</a></li>
-<li><a href="#org16808f5">6.5. Symmetric encryption</a></li>
+<li><a href="#org7f4ce46">6.1. GPG (GNU Privacy Guard)</a></li>
+<li><a href="#org2129ca9">6.2. Import keys from keyserver</a></li>
+<li><a href="#org28de911">6.3. Encrypt message</a></li>
+<li><a href="#orgd91c993">6.4. Decrypt message</a></li>
+<li><a href="#org36397a8">6.5. Symmetric encryption</a></li>
 </ul>
 </li>
-<li><a href="#org2ca54a8">7. Shell expansion</a>
+<li><a href="#org8237928">7. Shell expansion</a>
 <ul>
-<li><a href="#orgafaadde">7.1. The <code>*</code> Wildcard</a></li>
-<li><a href="#orga9f012d">7.2. The <code>?</code> Wildcard</a></li>
-<li><a href="#orgcca47fe">7.3. Inverting Sets</a></li>
-<li><a href="#orgf7f09dd">7.4. Brace Expansion</a></li>
+<li><a href="#org02d9581">7.1. The <code>*</code> Wildcard</a></li>
+<li><a href="#orgf14fcc2">7.2. The <code>?</code> Wildcard</a></li>
+<li><a href="#org812cb69">7.3. Inverting Sets</a></li>
+<li><a href="#org50fda87">7.4. Brace Expansion</a></li>
 </ul>
 </li>
-<li><a href="#org286f3e5">8. IO Redirections</a>
+<li><a href="#org84c31bf">8. IO Redirections</a>
 <ul>
-<li><a href="#org0575ef3">8.1. Output redirections</a></li>
-<li><a href="#org06617a5">8.2. Input redirection</a></li>
-<li><a href="#org22900a4">8.3. Here document</a></li>
+<li><a href="#org8d0c599">8.1. Output redirections</a></li>
+<li><a href="#org23ce374">8.2. Input redirection</a></li>
+<li><a href="#org6af2530">8.3. Here document</a></li>
 </ul>
 </li>
-<li><a href="#org4ced02e">9. Chaining Operators</a></li>
-<li><a href="#org5019293">10. RegEx Tools</a></li>
-<li><a href="#org7014d90">11. Bash</a></li>
-<li><a href="#orgd6acd0d">12. File System</a></li>
-<li><a href="#org08f034b">13. Cleanup</a></li>
+<li><a href="#org6b6f9a2">9. Chaining Operators</a></li>
+<li><a href="#org2c548df">10. RegEx Tools</a></li>
+<li><a href="#org4358ae9">11. Bash</a></li>
+<li><a href="#orga20d9fe">12. File System</a></li>
+<li><a href="#orgcc94c34">13. Cleanup</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgb935341" class="outline-2">
-<h2 id="orgb935341"><span class="section-number-2">1.</span> Sha Bang</h2>
+<div id="outline-container-orga964ea7" class="outline-2">
+<h2 id="orga964ea7"><span class="section-number-2">1.</span> Sha Bang</h2>
 <div class="outline-text-2" id="text-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -344,16 +344,16 @@
 </div>
 </div>
 
-<div id="outline-container-org0ef75ee" class="outline-2">
-<h2 id="org0ef75ee"><span class="section-number-2">2.</span> Permissions</h2>
+<div id="outline-container-orgfcb58f6" class="outline-2">
+<h2 id="orgfcb58f6"><span class="section-number-2">2.</span> Permissions</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org97655c0" class="outline-3">
-<h3 id="org97655c0"><span class="section-number-3">2.1.</span> chmod (change mode)</h3>
+<div id="outline-container-orgd1d4aa3" class="outline-3">
+<h3 id="orgd1d4aa3"><span class="section-number-3">2.1.</span> chmod (change mode)</h3>
 <div class="outline-text-3" id="text-2-1">
 </div>
-<div id="outline-container-org6e25e23" class="outline-3">
-<h3 id="org6e25e23"><span class="section-number-3">2.2.</span> Group permissions</h3>
+<div id="outline-container-org9d2eea0" class="outline-3">
+<h3 id="org9d2eea0"><span class="section-number-3">2.2.</span> Group permissions</h3>
 <div class="outline-text-3" id="text-2-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -394,8 +394,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgca73ef6" class="outline-3">
-<h3 id="orgca73ef6"><span class="section-number-3">2.3.</span> Operators</h3>
+<div id="outline-container-org53def97" class="outline-3">
+<h3 id="org53def97"><span class="section-number-3">2.3.</span> Operators</h3>
 <div class="outline-text-3" id="text-2-3">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -431,8 +431,8 @@
 </div>
 </div>
 
-<div id="outline-container-orga3218a4" class="outline-3">
-<h3 id="orga3218a4"><span class="section-number-3">2.4.</span> Octal notation</h3>
+<div id="outline-container-orge124e3b" class="outline-3">
+<h3 id="orge124e3b"><span class="section-number-3">2.4.</span> Octal notation</h3>
 <div class="outline-text-3" id="text-2-4">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -493,8 +493,8 @@
 </div>
 </div>
 
-<div id="outline-container-org606fc98" class="outline-3">
-<h3 id="org606fc98"><span class="section-number-3">2.5.</span> Syntax</h3>
+<div id="outline-container-org9368633" class="outline-3">
+<h3 id="org9368633"><span class="section-number-3">2.5.</span> Syntax</h3>
 <div class="outline-text-3" id="text-2-5">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -531,8 +531,8 @@
 </div>
 </div>
 
-<div id="outline-container-org0a0068b" class="outline-3">
-<h3 id="org0a0068b"><span class="section-number-3">2.6.</span> chown (Change Ownership)</h3>
+<div id="outline-container-org1dbfdfe" class="outline-3">
+<h3 id="org1dbfdfe"><span class="section-number-3">2.6.</span> chown (Change Ownership)</h3>
 <div class="outline-text-3" id="text-2-6">
 <p>
 <code>chown user1 filename</code> changing ownership of a file to <code>user1</code>
@@ -540,8 +540,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgc4a30a4" class="outline-3">
-<h3 id="orgc4a30a4"><span class="section-number-3">2.7.</span> su (switch user)</h3>
+<div id="outline-container-orgca841ea" class="outline-3">
+<h3 id="orgca841ea"><span class="section-number-3">2.7.</span> su (switch user)</h3>
 <div class="outline-text-3" id="text-2-7">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -577,8 +577,8 @@
 </div>
 </div>
 
-<div id="outline-container-org4e578ca" class="outline-3">
-<h3 id="org4e578ca"><span class="section-number-3">2.8.</span> sudo (superuser do)</h3>
+<div id="outline-container-org92f36f7" class="outline-3">
+<h3 id="org92f36f7"><span class="section-number-3">2.8.</span> sudo (superuser do)</h3>
 <div class="outline-text-3" id="text-2-8">
 <p>
 <code>sudo</code> will run a specific command with root level of permission.
@@ -591,8 +591,8 @@
 </div>
 </div>
 
-<div id="outline-container-org98c7167" class="outline-2">
-<h2 id="org98c7167"><span class="section-number-2">3.</span> Other commands</h2>
+<div id="outline-container-org2a7d808" class="outline-2">
+<h2 id="org2a7d808"><span class="section-number-2">3.</span> Other commands</h2>
 <div class="outline-text-2" id="text-3">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -743,8 +743,8 @@
 </div>
 </div>
 
-<div id="outline-container-org274881d" class="outline-2">
-<h2 id="org274881d"><span class="section-number-2">4.</span> Fix typos</h2>
+<div id="outline-container-orgd5723a1" class="outline-2">
+<h2 id="orgd5723a1"><span class="section-number-2">4.</span> Fix typos</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 Instead of retyping a long list of arguments of a mispelled command,
@@ -761,8 +761,8 @@ we can correct whatever typo we made with <code>^typo^correct</code>
 </div>
 </div>
 
-<div id="outline-container-orgd3dc828" class="outline-2">
-<h2 id="orgd3dc828"><span class="section-number-2">5.</span> File Compression</h2>
+<div id="outline-container-org9c8f4a6" class="outline-2">
+<h2 id="org9c8f4a6"><span class="section-number-2">5.</span> File Compression</h2>
 <div class="outline-text-2" id="text-5">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -822,8 +822,8 @@ we can correct whatever typo we made with <code>^typo^correct</code>
 </table>
 </div>
 
-<div id="outline-container-orgc8673b7" class="outline-3">
-<h3 id="orgc8673b7"><span class="section-number-3">5.1.</span> Syntax</h3>
+<div id="outline-container-orgb880709" class="outline-3">
+<h3 id="orgb880709"><span class="section-number-3">5.1.</span> Syntax</h3>
 <div class="outline-text-3" id="text-5-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -895,12 +895,12 @@ we can correct whatever typo we made with <code>^typo^correct</code>
 </div>
 </div>
 
-<div id="outline-container-orgda1a6fc" class="outline-2">
-<h2 id="orgda1a6fc"><span class="section-number-2">6.</span> Encryption</h2>
+<div id="outline-container-orgfe6e49d" class="outline-2">
+<h2 id="orgfe6e49d"><span class="section-number-2">6.</span> Encryption</h2>
 <div class="outline-text-2" id="text-6">
 </div>
-<div id="outline-container-orgcde6c9b" class="outline-3">
-<h3 id="orgcde6c9b"><span class="section-number-3">6.1.</span> GPG (GNU Privacy Guard)</h3>
+<div id="outline-container-org7f4ce46" class="outline-3">
+<h3 id="org7f4ce46"><span class="section-number-3">6.1.</span> GPG (GNU Privacy Guard)</h3>
 <div class="outline-text-3" id="text-6-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -935,8 +935,8 @@ we can correct whatever typo we made with <code>^typo^correct</code>
 </table>
 </div>
 
-<div id="outline-container-org0823af1" class="outline-3">
-<h3 id="org0823af1"><span class="section-number-3">6.2.</span> Import keys from keyserver</h3>
+<div id="outline-container-org2129ca9" class="outline-3">
+<h3 id="org2129ca9"><span class="section-number-3">6.2.</span> Import keys from keyserver</h3>
 <div class="outline-text-3" id="text-6-2">
 <div class="org-src-container">
 <pre class="src src-sh">$ gpg --keyserver &lt;server&gt; --recv-keys &lt;hex&gt;
@@ -949,8 +949,8 @@ Where <code>&lt;server&gt;</code> can be "pgp.mit.edu" for instance.
 </div>
 </div>
 
-<div id="outline-container-org43f5e7f" class="outline-3">
-<h3 id="org43f5e7f"><span class="section-number-3">6.3.</span> Encrypt message</h3>
+<div id="outline-container-org28de911" class="outline-3">
+<h3 id="org28de911"><span class="section-number-3">6.3.</span> Encrypt message</h3>
 <div class="outline-text-3" id="text-6-3">
 <p>
 Having the receiver's pkey:
@@ -963,8 +963,8 @@ Having the receiver's pkey:
 </div>
 </div>
 
-<div id="outline-container-orgaa0c9f1" class="outline-3">
-<h3 id="orgaa0c9f1"><span class="section-number-3">6.4.</span> Decrypt message</h3>
+<div id="outline-container-orgd91c993" class="outline-3">
+<h3 id="orgd91c993"><span class="section-number-3">6.4.</span> Decrypt message</h3>
 <div class="outline-text-3" id="text-6-4">
 <div class="org-src-container">
 <pre class="src src-sh">$ gpg --output doc --decrypt doc.gg
@@ -973,8 +973,8 @@ Having the receiver's pkey:
 </div>
 </div>
 
-<div id="outline-container-org16808f5" class="outline-3">
-<h3 id="org16808f5"><span class="section-number-3">6.5.</span> Symmetric encryption</h3>
+<div id="outline-container-org36397a8" class="outline-3">
+<h3 id="org36397a8"><span class="section-number-3">6.5.</span> Symmetric encryption</h3>
 <div class="outline-text-3" id="text-6-5">
 <p>
 <code>-c</code> is for symmetric encryption (single pkey for encrypting/decrypting).
@@ -989,8 +989,8 @@ Having the receiver's pkey:
 </div>
 </div>
 
-<div id="outline-container-org2ca54a8" class="outline-2">
-<h2 id="org2ca54a8"><span class="section-number-2">7.</span> Shell expansion</h2>
+<div id="outline-container-org8237928" class="outline-2">
+<h2 id="org8237928"><span class="section-number-2">7.</span> Shell expansion</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 We can use shell expansion to:
@@ -1002,8 +1002,8 @@ We can use shell expansion to:
 </ul>
 </div>
 
-<div id="outline-container-orgafaadde" class="outline-3">
-<h3 id="orgafaadde"><span class="section-number-3">7.1.</span> The <code>*</code> Wildcard</h3>
+<div id="outline-container-org02d9581" class="outline-3">
+<h3 id="org02d9581"><span class="section-number-3">7.1.</span> The <code>*</code> Wildcard</h3>
 <div class="outline-text-3" id="text-7-1">
 <ul class="org-ul">
 <li>The <code>*</code> is a greedy operator that matches any string, incuding the null string.</li>
@@ -1016,8 +1016,8 @@ We can use shell expansion to:
 </div>
 </div>
 
-<div id="outline-container-orga9f012d" class="outline-3">
-<h3 id="orga9f012d"><span class="section-number-3">7.2.</span> The <code>?</code> Wildcard</h3>
+<div id="outline-container-orgf14fcc2" class="outline-3">
+<h3 id="orgf14fcc2"><span class="section-number-3">7.2.</span> The <code>?</code> Wildcard</h3>
 <div class="outline-text-3" id="text-7-2">
 <ul class="org-ul">
 <li>The <code>?</code> matches a single character.</li>
@@ -1029,8 +1029,8 @@ We can use shell expansion to:
 </div>
 </div>
 
-<div id="outline-container-orgcca47fe" class="outline-3">
-<h3 id="orgcca47fe"><span class="section-number-3">7.3.</span> Inverting Sets</h3>
+<div id="outline-container-org812cb69" class="outline-3">
+<h3 id="org812cb69"><span class="section-number-3">7.3.</span> Inverting Sets</h3>
 <div class="outline-text-3" id="text-7-3">
 <ul class="org-ul">
 <li>The <code>^</code> character represents <b>not</b>.
@@ -1042,8 +1042,8 @@ We can use shell expansion to:
 </div>
 </div>
 
-<div id="outline-container-orgf7f09dd" class="outline-3">
-<h3 id="orgf7f09dd"><span class="section-number-3">7.4.</span> Brace Expansion</h3>
+<div id="outline-container-org50fda87" class="outline-3">
+<h3 id="org50fda87"><span class="section-number-3">7.4.</span> Brace Expansion</h3>
 <div class="outline-text-3" id="text-7-4">
 <p>
 To backup settings.conf to settings.conf.bak:
@@ -1079,12 +1079,12 @@ Other uses:
 </div>
 </div>
 </div>
-<div id="outline-container-org286f3e5" class="outline-2">
-<h2 id="org286f3e5"><span class="section-number-2">8.</span> IO Redirections</h2>
+<div id="outline-container-org84c31bf" class="outline-2">
+<h2 id="org84c31bf"><span class="section-number-2">8.</span> IO Redirections</h2>
 <div class="outline-text-2" id="text-8">
 </div>
-<div id="outline-container-org0575ef3" class="outline-3">
-<h3 id="org0575ef3"><span class="section-number-3">8.1.</span> Output redirections</h3>
+<div id="outline-container-org8d0c599" class="outline-3">
+<h3 id="org8d0c599"><span class="section-number-3">8.1.</span> Output redirections</h3>
 <div class="outline-text-3" id="text-8-1">
 <p>
 The output from a command normally intended for stdout can be easily diverted to a file.
@@ -1118,8 +1118,8 @@ lorem ipsum
 </div>
 </div>
 </div>
-<div id="outline-container-org06617a5" class="outline-3">
-<h3 id="org06617a5"><span class="section-number-3">8.2.</span> Input redirection</h3>
+<div id="outline-container-org23ce374" class="outline-3">
+<h3 id="org23ce374"><span class="section-number-3">8.2.</span> Input redirection</h3>
 <div class="outline-text-3" id="text-8-2">
 <p>
 Commands that receive input from stdin can have their input redirected from a file.
@@ -1133,8 +1133,8 @@ Commands that receive input from stdin can have their input redirected from a fi
 </div>
 </div>
 
-<div id="outline-container-org22900a4" class="outline-3">
-<h3 id="org22900a4"><span class="section-number-3">8.3.</span> Here document</h3>
+<div id="outline-container-org6af2530" class="outline-3">
+<h3 id="org6af2530"><span class="section-number-3">8.3.</span> Here document</h3>
 <div class="outline-text-3" id="text-8-3">
 <p>
 A "here document" redirects input into an interactive shell script or program.
@@ -1164,8 +1164,8 @@ The <code>&gt;&gt;</code> command is an instruction to read input until it finds
 </div>
 </div>
 
-<div id="outline-container-org4ced02e" class="outline-2">
-<h2 id="org4ced02e"><span class="section-number-2">9.</span> Chaining Operators</h2>
+<div id="outline-container-org6b6f9a2" class="outline-2">
+<h2 id="org6b6f9a2"><span class="section-number-2">9.</span> Chaining Operators</h2>
 <div class="outline-text-2" id="text-9">
 <ul class="org-ul">
 <li><p>
@@ -1262,8 +1262,8 @@ combine two or more commands
 </div>
 </div>
 
-<div id="outline-container-org5019293" class="outline-2">
-<h2 id="org5019293"><span class="section-number-2">10.</span> RegEx Tools</h2>
+<div id="outline-container-org2c548df" class="outline-2">
+<h2 id="org2c548df"><span class="section-number-2">10.</span> RegEx Tools</h2>
 <div class="outline-text-2" id="text-10">
 <ul class="org-ul">
 <li><p>
@@ -1300,8 +1300,8 @@ EXAMPLE: <code>find | grep "\.exe$" | xargs ls -lh</code>
 </div>
 </div>
 
-<div id="outline-container-org7014d90" class="outline-2">
-<h2 id="org7014d90"><span class="section-number-2">11.</span> Bash</h2>
+<div id="outline-container-org4358ae9" class="outline-2">
+<h2 id="org4358ae9"><span class="section-number-2">11.</span> Bash</h2>
 <div class="outline-text-2" id="text-11">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1351,8 +1351,8 @@ EXAMPLE: <code>find | grep "\.exe$" | xargs ls -lh</code>
 </table>
 </div>
 </div>
-<div id="outline-container-orgd6acd0d" class="outline-2">
-<h2 id="orgd6acd0d"><span class="section-number-2">12.</span> File System</h2>
+<div id="outline-container-orga20d9fe" class="outline-2">
+<h2 id="orga20d9fe"><span class="section-number-2">12.</span> File System</h2>
 <div class="outline-text-2" id="text-12">
 <ul class="org-ul">
 <li><i>etc</i>: system-wide configuration folder (eg. pacman mirrorlist)</li>
@@ -1373,8 +1373,8 @@ EXAMPLE: <code>find | grep "\.exe$" | xargs ls -lh</code>
 </div>
 </div>
 
-<div id="outline-container-org08f034b" class="outline-2">
-<h2 id="org08f034b"><span class="section-number-2">13.</span> Cleanup</h2>
+<div id="outline-container-orgcc94c34" class="outline-2">
+<h2 id="orgcc94c34"><span class="section-number-2">13.</span> Cleanup</h2>
 <div class="outline-text-2" id="text-13">
 <p>
 When <code>/dev/sda2/</code> is almost full:
@@ -1406,7 +1406,7 @@ When <code>/dev/sda2/</code> is almost full:
 <div id="postamble" class="status">
 <p class="date">Date: 2021-09-11 sáb 00:00</p>
 <p class="author">Author: b-coimbra</p>
-<p class="date">Created: 2021-09-11 sáb 15:26</p>
+<p class="date">Created: 2021-09-11 sáb 15:46</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
