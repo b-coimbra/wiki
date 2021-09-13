@@ -1,0 +1,95 @@
+#+TITLE: Design Patterns
+#+DATE: <2021-09-13 Mon>
+#+AUTHOR: b-coimbra
+#+EMAIL: me@metaphoric.dev
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+#+EXPORT_FILE_NAME: docs/design-patterns.html
+
+Design patterns are typical solutions to common problems in software design.
+
+Each pattern is like a blueprint that you can customize to solve a particular design problem in your code.
+
+* Creational Patterns
+** Factory Method
+
+   This creates a set of related objects or dependent objects.
+
+   - An abstract factory pattern acts as a super-factory that creates other factories.
+   - An abstract factory interface is responsible for creating a set of related objects or dependent objects
+     without specifying their concrete classes.
+
+     *Basically, think in terms of abstracting the methods and properties of a UML diagram*
+
+** Abstract Factory
+
+   #+begin_src typescript
+     interface Door {
+         getDescription(): void;
+     }
+
+     class WoodenDoor implements Door
+     {
+         public function getDescription() {
+             console.log("I am a wooden door");
+         }
+     }
+   #+end_src
+
+** Builder
+
+** Prototype
+
+** Singleton
+
+   #+begin_src typescript
+     public Analytics {
+         private static _instance: Analytics;
+
+         private Analytics() { }
+
+         public static getInstance(): Analytics {
+             if (!Analytics._instance)
+                 Analytics._instance = new Analytics();
+
+             return Analytics._instance;
+         }
+     }
+   #+end_src
+
+* Structural Patterns
+** Adaptive
+
+** Bridge
+
+** Composite
+
+** Decorator
+
+** Facade
+
+** Flyweight
+
+** Proxy
+
+* Behavioral Patterns
+** Chain of Responsibility
+
+** Command
+
+** Interpreter
+
+** Iterator
+
+** Mediator
+
+** Memento
+
+** Observer
+
+** State
+
+** Strategy
+
+** Visitor
+
+** Template Method

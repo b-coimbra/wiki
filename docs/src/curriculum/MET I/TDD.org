@@ -1,8 +1,0 @@
-* TDD (Domain Driven Design)
-
-  O construtor vazio existe p/ o EntityFramework, através de Reflection, extrair os atributos de uma model e
-  relacioná-los com o banco.
-
-** Domain
-
-   É uma regra de negócio

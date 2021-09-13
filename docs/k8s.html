@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-13 Mon 10:13 -->
+<!-- 2021-09-13 Mon 10:05 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>My Notes</title>
+<title>Kubernetes</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="b-coimbra" />
 <style type="text/css">
@@ -224,76 +224,61 @@
 </head>
 <body>
 <div id="content">
-<h1 class="title">My Notes</h1>
+<h1 class="title">Kubernetes</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org67201df">1. General</a></li>
-<li><a href="#orgf2f4940">2. Tools</a></li>
-<li><a href="#orge74f4ae">3. Frameworks</a></li>
-<li><a href="#orgd5b5190">4. Languages</a></li>
+<li><a href="#org63ea190">1. Pods</a></li>
+<li><a href="#orgd1f2f5a">2. Master</a></li>
+<li><a href="#org3a2d366">3. Minion</a></li>
 </ul>
 </div>
 </div>
 <p>
-Various annotations/cheatsheets neatly organized for the sake of knowledge retention.
+Kubernetes was built to manage both long-running service and batch jobs.
 </p>
 
-<p>
-Source can be found <a href="https://github.com/b-coimbra/notes">here</a>.
-</p>
 
-<div id="outline-container-org67201df" class="outline-2">
-<h2 id="org67201df"><span class="section-number-2">1</span> General</h2>
+<div id="orgc5a78a1" class="figure">
+<p><img src="./res/k8s/key-concepts.png" alt="key-concepts.png" />
+</p>
+</div>
+
+<div id="outline-container-org63ea190" class="outline-2">
+<h2 id="org63ea190"><span class="section-number-2">1</span> Pods</h2>
 <div class="outline-text-2" id="text-1">
-<ul class="org-ul">
-<li><a href="./linux.html">Linux</a></li>
-<li><a href="./regex.html">Regex</a></li>
-<li><a href="./design-patterns.html">Design Patterns</a></li>
-<li><a href="./SOLID.html">SOLID</a></li>
-</ul>
+<p>
+Pods are the smallest deployable units that can be created, scheduled and managed.
+It's a logical collection of containers that belong to an application.
+</p>
 </div>
 </div>
 
-<div id="outline-container-orgf2f4940" class="outline-2">
-<h2 id="orgf2f4940"><span class="section-number-2">2</span> Tools</h2>
+<div id="outline-container-orgd1f2f5a" class="outline-2">
+<h2 id="orgd1f2f5a"><span class="section-number-2">2</span> Master</h2>
 <div class="outline-text-2" id="text-2">
-<ul class="org-ul">
-<li><a href="./ssh.html">SSH</a></li>
-<li><a href="./vim.html">Vim</a></li>
-<li><a href="./git.html">Git</a></li>
-<li><a href="./tmux.html">Tmux</a></li>
-<li><a href="./docker.html">Docker</a></li>
-<li><a href="./k8s.html">Kubernetes</a></li>
-<li><a href="./spacemacs.html">Spacemacs</a></li>
-</ul>
+<p>
+Master is the central point that provides a unified view of the cluster.
+There is a single master node that controls multiple minions.
+</p>
 </div>
 </div>
 
-<div id="outline-container-orge74f4ae" class="outline-2">
-<h2 id="orge74f4ae"><span class="section-number-2">3</span> Frameworks</h2>
+<div id="outline-container-org3a2d366" class="outline-2">
+<h2 id="org3a2d366"><span class="section-number-2">3</span> Minion</h2>
 <div class="outline-text-2" id="text-3">
-<ul class="org-ul">
-<li><a href="./angular.html">Angular</a></li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-orgd5b5190" class="outline-2">
-<h2 id="orgd5b5190"><span class="section-number-2">4</span> Languages</h2>
-<div class="outline-text-2" id="text-4">
-<ul class="org-ul">
-<li><a href="./dotnet.html">.NET</a></li>
-<li><a href="./typescript.html">Typescript</a></li>
-</ul>
+<p>
+Minion is a worker node that run tasks as delegated by master.
+Minions can run one or more pods. It provides an application-specific "virtual host" in a containerized environment.
+</p>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Date: 2021-09-09 Thu 00:00</p>
+<p class="date">Date: 2021-09-13 Mon 00:00</p>
 <p class="author">Author: b-coimbra</p>
-<p class="date">Created: 2021-09-13 Mon 10:13</p>
+<p class="date">Created: 2021-09-13 Mon 10:05</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

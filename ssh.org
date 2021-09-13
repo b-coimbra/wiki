@@ -1,0 +1,69 @@
+#+TITLE: Secure Shell (ssh)
+#+DATE: <2021-09-11 Sat>
+#+AUTHOR: b-coimbra
+#+EMAIL: me@metaphoric.dev
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+#+EXPORT_FILE_NAME: docs/ssh.html
+
+SSH provides a secure connection between the host machine and a remote server.
+
+~ssh -i <path-to-private-key> <host>~ where =<path-to-private-key>= can be =~/.ssh/id_rsa= for instance.
+
+* Authentication key pairs
+** Algorithms and key size
+
+   Currently, the relevant algorithms are *rsa* and *ed25519*.
+
+   The algorithm is selected using the =-t= flag and key size using the =-b= option:
+
+   - ~ssh-keygen -t rsa -b 4096~
+   - ~ssh-keygen -t ed25519~ size is fixed for this algorithm, no need to specify it.
+
+* Copy pubkey to server
+
+  To use public key authentication, the public key must be copied to a server and installed in an authorized_keys file.
+  This can be conveniently done using the =ssh-copy-id= tool.
+
+  ~ssh-copy-id -i ~/.ssh/id_rsa user@host~
+
+* File tranfer
+
+  Copy a file from/to the remote host and vice-versa.
+
+  - Local to host: ~scp file host:path~
+  - Host to local: ~scp host:path file~
+
+* Configuration file
+
+  When connecting to multiple remote systems over SSH, it can be difficult to remember all of the remote IP addresses,
+  different usernames and ports.
+
+  To better manage those connections, we can create a config file at ~/.ssh/config~ to shorten the connection command.
+
+  Example:
+
+  #+begin_src bash
+    Host targaryen
+        HostName 192.168.1.10
+        User daenerys
+        Port 7654
+        IdentityFile ~/.ssh/targaryen.key
+
+    Host tyrell
+        HostName 192.168.10.20
+
+    Host martell
+        HostName 192.168.10.50
+
+    Host *ell
+        user oberyn
+
+    Host * !martell
+        LogLevel INFO
+
+    Host *
+        User root
+        Compression yes
+  #+end_src
+
+  Then we can simply do ~ssh targaryen~ to remotely connect to the =192.168.1.10= host.

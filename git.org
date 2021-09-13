@@ -1,0 +1,136 @@
+#+TITLE: Git
+#+DATE: <2021-09-11 Sat>
+#+AUTHOR: b-coimbra
+#+EMAIL: me@metaphoric.dev
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+#+EXPORT_FILE_NAME: docs/git.html
+
+* General
+
+  | command                              | description                              |
+  |--------------------------------------+------------------------------------------|
+  | ~git rebase -i HEAD~n~               | where *n* is the number of commits       |
+  | ~git commit --amend~                 | modifies the most recent commit          |
+  | ~git push origin <branch> -f~        | ~-f~ forced push                         |
+  | ~git rebase --continue~              | after resolving rebase conflicts         |
+  | ~git rebase -i~                      | interactive rebase for rewriting history |
+  | ~git reset origin/develop -- <file>~ | subtitute a local file with develop's    |
+  | ~git add -i~                         | interactive git add                      |
+  | ~git add -p~                         | stage specified chunks                   |
+  | ~git gc~                             | manually clean git's mess                |
+  | ~git branch -m <oldname> <newname>~  | rename branch                            |
+  | ~git diff~                           | view uncommited changes                  |
+
+* Remove unwanted commited files
+
+  1. ~git reset origin/develop -- <file>~
+  2. ~git commit --amend~
+
+* Hooks
+
+  Git hooks are stored inside =.git/hooks= and have a =sample= extension on them.
+  By removing that extension, the hook will be executed depending on the action performed (eg. commit/push)
+
+  Hooks are essentially shell scripts -- they can either be written in bash, python or ruby.
+
+* Bisect
+
+  Useful for finding a specific faulty commit that introduced a bug somewhere in a project.
+
+  #+begin_src bash
+	$ git bisect start
+	$ git bisect bad   # current version (commit) is bad
+	$ git bisect good  # current version (commit) is good
+	$ git bisect reset # return to commit after bisect star
+  #+end_src
+
+* Commit messages
+
+  Reference: [[https://www.conventionalcommits.org/en/v1.0.0/][conventional commits]].
+
+  #+begin_quote
+  <type>[optional scope]: <description>
+
+  [optional body]
+
+  [optional footer(s)]
+  #+end_quote
+
+** Structural elements
+
+   Structural elements, to better communicate intent:
+
+   - *fix*: patches a bug in your codebase
+   - *feat*: introduces a new feature to the codebase
+
+   Other types are also allowed, such as *build: *chore:* *docs: *ci:* *refactor:* *test:*
+
+** Type with scope
+
+   Commit message with scope:
+
+   #+begin_quote
+   feat(lang): add polish language
+   docs(roadmap): move roadmap out of readme
+   chore(ci): remove ci for 4.x and 5.x
+   docs(CHANGELOG): update metadata
+   chore(.gitignore): ignores more files/folders
+   #+end_quote
+
+** =!= to draw attention
+
+   Commit message with ! to draw attention to breaking change:
+
+   #+begin_quote
+   refactor!: drop support for Node 6
+   #+end_quote
+
+* Working with a team
+
+  Create a master branch for the feature:
+
+  1. Starting at the =develop/= branch, create a new branch: ~$ git checkout -b users/bruno.coimbra/UpdateRDESP~
+
+** [[https://git-scm.com/book/pt-br/v2/Git-Tools-Stashing-and-Cleaning][Stashing]]
+
+   Often, we might want to switch to a different branch and save our changes before doing so. But the issue is, if we have unfinished
+   work on our branch, we don't want to create another commit just to save our dirty, half-done work. =git stash= comes to the rescue
+   to solve this particular problem:
+
+   To push a new stash onto your stack, run =git stash= or =git stash save=:
+
+   #+begin_src sh
+     $ git stash
+     Saved working directory and index state \
+           "WIP on master: 049d078 added the index file"
+     HEAD is now at 049d078 added the index file
+     (To restore them type "git stash apply")
+   #+end_src
+
+   At this point, you can easily switch branches and do work elsewhere; your changes are stored on your stack.
+   To see which stashes you’ve stored, you can use =git stash list=:
+
+   #+begin_src sh
+     $ git stash list
+     stash@{0}: WIP on master: 049d078 added the index file
+     stash@{1}: WIP on master: c264051 Revert "added file_size"
+     stash@{2}: WIP on master: 21d80a5 added number to log
+   #+end_src
+
+   In this case, two stashes were done previously, so you have access to three different stashed works.
+   You can reapply the one you just stashed by using the command shown in the help output of the original stash command: =git stash apply=.
+   If you want to apply one of the older stashes, you can specify it by naming it, like this: =git stash apply stash@{2}=.
+   If you don’t specify a stash, Git assumes the most recent stash and tries to apply it:
+
+   #+begin_src sh
+     $ git stash apply
+     On branch master
+     Changes not staged for commit:
+     (use "git add <file>..." to update what will be committed)
+     (use "git checkout -- <file>..." to discard changes in working directory)
+
+     modified:   index.html
+     modified:   lib/simplegit.rb
+
+     no changes added to commit (use "git add" and/or "git commit -a")
+   #+end_src

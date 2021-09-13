@@ -1,0 +1,199 @@
+#+TITLE: SOLID
+#+DATE: <2021-09-13 Mon>
+#+AUTHOR: b-coimbra
+#+EMAIL: me@metaphoric.dev
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+#+EXPORT_FILE_NAME: docs/SOLID.html
+
+* SRP (Single Reponsibility Principle)
+
+  /A module should only have one, and only one reason to change./
+
+  Not to be mistaken by the principle usually applied to functions: /A function should only do one thing, and one thing only./
+
+  A class should not handle operations that goes out of the objective of the class.
+
+  #+BEGIN_SRC typescript
+    class AreaCalculator {
+        constructor (shapes: number[]) {
+            this.shapes = shapes;
+        }
+
+        sum (): number {
+            // logic to sum the area
+        }
+    }
+  #+END_SRC
+
+  We'd simply instantiate the class and pass an array of shapes, then display the output:
+
+  #+BEGIN_SRC typescript
+    areas = AreaCalculator.new([2, 5, 6])
+
+    console.log(areas.sum());
+  #+END_SRC
+
+  But what if we wanted to return the result as JSON, or another format?
+
+  *SRP frowns upon letting the Area class handle this logic. The Area class should only sum the areas, it should not care whether the user wants JSON or HTML.*
+
+  Instead, we create a new class, *AreaCalculatorOutputter* to handle the conversion:
+
+  #+BEGIN_SRC typescript
+    areas  = AreaCalculator.new([2, 5, 6])
+    output = SumCalculatorOutputter(areas);
+
+    console.log(output.json());
+    console.log(output.html());
+    console.log(output.haml());
+  #+END_SRC
+
+  When this principle is broken, the following issues arise:
+
+  - Class loses its cohesion: it has more than one responsibility.
+  - High coupling: due to the many entangled dependencies, the class will depend on a lot of low-level modules.
+
+* OCP (Open Closed Principle)
+
+  /A module should be open to extension, but closed for modification./
+
+  Open to extension means that a class should be easy to add new functionality without changing already existing code (and breaking it).
+
+  A class should be easily extensible without modifying the class itself.
+
+  Looking at the AreaCalculator class, the *sum* method:
+
+  #+BEGIN_SRC typescript
+    sum (): number {
+        let area: number;
+
+        for (let shape of shapes) {
+            if (shape == 'Square')
+                area = pow(shape.length, 2);
+            else if (shape == 'Circle')
+                area = Math.PI * pow(Math.radius(shape), 2);
+        }
+
+        return Math.sum(shape);
+    }
+  #+END_SRC
+
+  If we wanted the sum to be able to handle more shapes, we would add more *if/else* blocks, and that goes against the Open-closed Principle.
+
+  One way to handle this is to remove the logic of the sum in the AreaCalculator class and assign it to each shape class:
+
+  #+BEGIN_SRC typescript
+    class Square {
+        constructor (length: number) {
+            this.length = length;
+        }
+
+        area (): number {
+            return pow(this.length, 2);
+        }
+    }
+  #+END_SRC
+
+  The same thing should be done for the Circle, or any other shape class.
+
+  *A problem arises: how do we know that the object passed into the AreaCalculator is actually a shape and it has a method named area?*
+
+  We create *interfaces* for it, that every shape implements:
+
+  #+BEGIN_SRC typescript
+    interface ShapeInterface {
+        area (): void;
+    }
+
+    class Circle implements ShapeInterface {
+        // ...
+    }
+  #+END_SRC
+
+* LSP (Liskov Substitution Principle)
+
+  /A superclass module should be replaceable by its subclass modules/
+
+  In other words, every derived class can be used as if it were the base class.
+
+* ISP (Interface Segregation Principle)
+
+  /A client should never be forced to implement an interface that it doesn't use or clients shouldn't be forced to depend on methods they do not use/
+
+  If we wanted to calculate the volume of the shape, we'd simply modify the ShapeInterface:
+
+  #+BEGIN_SRC typescript
+    interface ShapeInterface {
+        area(): number;
+        volume(): number;
+    }
+  #+END_SRC
+
+  Now any shape must implement the volume method.
+
+  However, we know that squares are flat and do not have volumes, so we are forcing the *Square* class to implement a method that it has no use of.
+
+  ISP says no to this, instead we could create another interface called SolidShapeInterface that has the volume contract, and solid shapes like cubes etc. can implement this interface:
+
+  #+BEGIN_SRC typescript
+    interface ShapeInterface {
+        area(): number;
+    }
+
+    interface SolidShapeInterface {
+        volume(): number;
+    }
+
+    class Cuboid implements ShapeInterface, SolidShapeInterface {
+        area (): number {
+            // calculate the area of the cuboid
+        }
+
+        volume (): number {
+            // calculate the volume of the cuboid
+        }
+    }
+  #+END_SRC
+
+* DIP (Dependency Inversion Principle)
+
+  /Entities must depend on abstractions not on concretions. It states that the high level module must not depend on the low level module, but they should depend on abstractions./
+
+  Assuming we have a class *PasswordReminder* that connects to the database:
+
+  #+BEGIN_SRC typescript
+    class PasswordReminder {
+        constructor (dbConnection: MySQLConnection) {
+            this.dbConnection = dbConnection;
+        }
+    }
+  #+END_SRC
+
+  The *MySQLConnection* is the low level module while the *PasswordReminder* class is high level, this violates the dependency principle because the *PasswordReminder* class is being forced to depend on the *MySQLConnection* class.
+
+  If we were to change the database engine, we'd have to edit the *PasswordReminder* class, thus violating the OCP.
+
+  The *PasswordReminder* class should not care what database my application uses.
+  To fix this, we create yet another interface.
+
+  #+BEGIN_SRC typescript
+    interface DBConnectionInterface {
+        connect (): void;
+    }
+  #+END_SRC
+
+  The interface has a connect method and the *MySQLConnection* implements this interface.
+
+  #+BEGIN_SRC typescript
+    class MySQLConnection implements DBConnectionInterface {
+        connect (): void {
+            // connects to a database
+        }
+    }
+
+    class PasswordReminder {
+        constructor (dbConnection: DBConnectionInterface) {
+            this.dbConnection = dbConnection;
+        }
+    }
+  #+END_SRC

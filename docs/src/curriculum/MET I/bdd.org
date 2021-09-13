@@ -1,5 +1,0 @@
-* BDD
-  
-  - Deriva de TDD
-
-  Observa o lado de usabilidade. Exemplo: Testes de UI

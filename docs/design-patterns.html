@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-13 Mon 10:13 -->
+<!-- 2021-09-13 Mon 10:16 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>My Notes</title>
+<title>Design Patterns</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="b-coimbra" />
 <style type="text/css">
@@ -224,76 +224,217 @@
 </head>
 <body>
 <div id="content">
-<h1 class="title">My Notes</h1>
+<h1 class="title">Design Patterns</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org67201df">1. General</a></li>
-<li><a href="#orgf2f4940">2. Tools</a></li>
-<li><a href="#orge74f4ae">3. Frameworks</a></li>
-<li><a href="#orgd5b5190">4. Languages</a></li>
+<li><a href="#org227f355">1. Creational Patterns</a>
+<ul>
+<li><a href="#org693fbf3">1.1. Factory Method</a></li>
+<li><a href="#org13d4d1b">1.2. Abstract Factory</a></li>
+<li><a href="#org4ddba31">1.3. Builder</a></li>
+<li><a href="#orgcc47065">1.4. Prototype</a></li>
+<li><a href="#orgc850147">1.5. Singleton</a></li>
+</ul>
+</li>
+<li><a href="#orge06ea40">2. Structural Patterns</a>
+<ul>
+<li><a href="#org29b3090">2.1. Adaptive</a></li>
+<li><a href="#org5b30610">2.2. Bridge</a></li>
+<li><a href="#orge270336">2.3. Composite</a></li>
+<li><a href="#org4c70934">2.4. Decorator</a></li>
+<li><a href="#org3664725">2.5. Facade</a></li>
+<li><a href="#orgddcbe0d">2.6. Flyweight</a></li>
+<li><a href="#org3d7476b">2.7. Proxy</a></li>
+</ul>
+</li>
+<li><a href="#orgdafb3bc">3. Behavioral Patterns</a>
+<ul>
+<li><a href="#orgf677e9f">3.1. Chain of Responsibility</a></li>
+<li><a href="#org264660b">3.2. Command</a></li>
+<li><a href="#org4343691">3.3. Interpreter</a></li>
+<li><a href="#org2d40ab8">3.4. Iterator</a></li>
+<li><a href="#org79feed3">3.5. Mediator</a></li>
+<li><a href="#orgaa2a1fd">3.6. Memento</a></li>
+<li><a href="#orgc65097b">3.7. Observer</a></li>
+<li><a href="#org2954eeb">3.8. State</a></li>
+<li><a href="#org4dabaf0">3.9. Strategy</a></li>
+<li><a href="#orgb4189ee">3.10. Visitor</a></li>
+<li><a href="#org7bf5f08">3.11. Template Method</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
 <p>
-Various annotations/cheatsheets neatly organized for the sake of knowledge retention.
+Design patterns are typical solutions to common problems in software design.
 </p>
 
 <p>
-Source can be found <a href="https://github.com/b-coimbra/notes">here</a>.
+Each pattern is like a blueprint that you can customize to solve a particular design problem in your code.
 </p>
 
-<div id="outline-container-org67201df" class="outline-2">
-<h2 id="org67201df"><span class="section-number-2">1</span> General</h2>
+<div id="outline-container-org227f355" class="outline-2">
+<h2 id="org227f355"><span class="section-number-2">1</span> Creational Patterns</h2>
 <div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org693fbf3" class="outline-3">
+<h3 id="org693fbf3"><span class="section-number-3">1.1</span> Factory Method</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+This creates a set of related objects or dependent objects.
+</p>
+
 <ul class="org-ul">
-<li><a href="./linux.html">Linux</a></li>
-<li><a href="./regex.html">Regex</a></li>
-<li><a href="./design-patterns.html">Design Patterns</a></li>
-<li><a href="./SOLID.html">SOLID</a></li>
+<li>An abstract factory pattern acts as a super-factory that creates other factories.</li>
+<li><p>
+An abstract factory interface is responsible for creating a set of related objects or dependent objects
+without specifying their concrete classes.
+</p>
+
+<p>
+<b>Basically, think in terms of abstracting the methods and properties of a UML diagram</b>
+</p></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgf2f4940" class="outline-2">
-<h2 id="orgf2f4940"><span class="section-number-2">2</span> Tools</h2>
+<div id="outline-container-org13d4d1b" class="outline-3">
+<h3 id="org13d4d1b"><span class="section-number-3">1.2</span> Abstract Factory</h3>
+<div class="outline-text-3" id="text-1-2">
+<div class="org-src-container">
+<pre class="src src-typescript"><span style="color: #cc6666;">interface</span> <span style="color: #d3869b;">Door</span> {
+    <span style="color: #777777;">getDescription</span>(): <span style="color: #cc6666;">void</span>;
+}
+
+<span style="color: #cc6666;">class</span> <span style="color: #d3869b;">WoodenDoor</span> <span style="color: #cc6666;">implements</span> <span style="color: #d3869b;">Door</span>
+{
+    <span style="color: #cc6666;">public</span> <span style="color: #cc6666;">function</span> <span style="color: #777777;">getDescription</span>() {
+        <span style="color: #d3869b;">console</span>.<span style="color: #777777;">log</span>(<span style="color: #476562;">"I am a wooden door"</span>);
+    }
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4ddba31" class="outline-3">
+<h3 id="org4ddba31"><span class="section-number-3">1.3</span> Builder</h3>
+</div>
+
+<div id="outline-container-orgcc47065" class="outline-3">
+<h3 id="orgcc47065"><span class="section-number-3">1.4</span> Prototype</h3>
+</div>
+
+<div id="outline-container-orgc850147" class="outline-3">
+<h3 id="orgc850147"><span class="section-number-3">1.5</span> Singleton</h3>
+<div class="outline-text-3" id="text-1-5">
+<div class="org-src-container">
+<pre class="src src-typescript"><span style="color: #cc6666;">public</span> Analytics {
+    <span style="color: #cc6666;">private</span> <span style="color: #cc6666;">static</span> _instance: <span style="color: #d3869b;">Analytics</span>;
+
+    <span style="color: #cc6666;">private</span> <span style="color: #777777;">Analytics</span>() { }
+
+    <span style="color: #cc6666;">public</span> <span style="color: #cc6666;">static</span> <span style="color: #777777;">getInstance</span>(): <span style="color: #d3869b;">Analytics</span> {
+        <span style="color: #cc6666;">if</span> (!Analytics._instance)
+            Analytics._instance = <span style="color: #cc6666;">new</span> <span style="color: #d3869b;">Analytics</span>();
+
+        <span style="color: #cc6666;">return</span> Analytics._instance;
+    }
+}
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge06ea40" class="outline-2">
+<h2 id="orge06ea40"><span class="section-number-2">2</span> Structural Patterns</h2>
 <div class="outline-text-2" id="text-2">
-<ul class="org-ul">
-<li><a href="./ssh.html">SSH</a></li>
-<li><a href="./vim.html">Vim</a></li>
-<li><a href="./git.html">Git</a></li>
-<li><a href="./tmux.html">Tmux</a></li>
-<li><a href="./docker.html">Docker</a></li>
-<li><a href="./k8s.html">Kubernetes</a></li>
-<li><a href="./spacemacs.html">Spacemacs</a></li>
-</ul>
+</div>
+<div id="outline-container-org29b3090" class="outline-3">
+<h3 id="org29b3090"><span class="section-number-3">2.1</span> Adaptive</h3>
+</div>
+
+<div id="outline-container-org5b30610" class="outline-3">
+<h3 id="org5b30610"><span class="section-number-3">2.2</span> Bridge</h3>
+</div>
+
+<div id="outline-container-orge270336" class="outline-3">
+<h3 id="orge270336"><span class="section-number-3">2.3</span> Composite</h3>
+</div>
+
+<div id="outline-container-org4c70934" class="outline-3">
+<h3 id="org4c70934"><span class="section-number-3">2.4</span> Decorator</h3>
+</div>
+
+<div id="outline-container-org3664725" class="outline-3">
+<h3 id="org3664725"><span class="section-number-3">2.5</span> Facade</h3>
+</div>
+
+<div id="outline-container-orgddcbe0d" class="outline-3">
+<h3 id="orgddcbe0d"><span class="section-number-3">2.6</span> Flyweight</h3>
+</div>
+
+<div id="outline-container-org3d7476b" class="outline-3">
+<h3 id="org3d7476b"><span class="section-number-3">2.7</span> Proxy</h3>
 </div>
 </div>
 
-<div id="outline-container-orge74f4ae" class="outline-2">
-<h2 id="orge74f4ae"><span class="section-number-2">3</span> Frameworks</h2>
+<div id="outline-container-orgdafb3bc" class="outline-2">
+<h2 id="orgdafb3bc"><span class="section-number-2">3</span> Behavioral Patterns</h2>
 <div class="outline-text-2" id="text-3">
-<ul class="org-ul">
-<li><a href="./angular.html">Angular</a></li>
-</ul>
 </div>
+<div id="outline-container-orgf677e9f" class="outline-3">
+<h3 id="orgf677e9f"><span class="section-number-3">3.1</span> Chain of Responsibility</h3>
 </div>
 
-<div id="outline-container-orgd5b5190" class="outline-2">
-<h2 id="orgd5b5190"><span class="section-number-2">4</span> Languages</h2>
-<div class="outline-text-2" id="text-4">
-<ul class="org-ul">
-<li><a href="./dotnet.html">.NET</a></li>
-<li><a href="./typescript.html">Typescript</a></li>
-</ul>
+<div id="outline-container-org264660b" class="outline-3">
+<h3 id="org264660b"><span class="section-number-3">3.2</span> Command</h3>
+</div>
+
+<div id="outline-container-org4343691" class="outline-3">
+<h3 id="org4343691"><span class="section-number-3">3.3</span> Interpreter</h3>
+</div>
+
+<div id="outline-container-org2d40ab8" class="outline-3">
+<h3 id="org2d40ab8"><span class="section-number-3">3.4</span> Iterator</h3>
+</div>
+
+<div id="outline-container-org79feed3" class="outline-3">
+<h3 id="org79feed3"><span class="section-number-3">3.5</span> Mediator</h3>
+</div>
+
+<div id="outline-container-orgaa2a1fd" class="outline-3">
+<h3 id="orgaa2a1fd"><span class="section-number-3">3.6</span> Memento</h3>
+</div>
+
+<div id="outline-container-orgc65097b" class="outline-3">
+<h3 id="orgc65097b"><span class="section-number-3">3.7</span> Observer</h3>
+</div>
+
+<div id="outline-container-org2954eeb" class="outline-3">
+<h3 id="org2954eeb"><span class="section-number-3">3.8</span> State</h3>
+</div>
+
+<div id="outline-container-org4dabaf0" class="outline-3">
+<h3 id="org4dabaf0"><span class="section-number-3">3.9</span> Strategy</h3>
+</div>
+
+<div id="outline-container-orgb4189ee" class="outline-3">
+<h3 id="orgb4189ee"><span class="section-number-3">3.10</span> Visitor</h3>
+</div>
+
+<div id="outline-container-org7bf5f08" class="outline-3">
+<h3 id="org7bf5f08"><span class="section-number-3">3.11</span> Template Method</h3>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Date: 2021-09-09 Thu 00:00</p>
+<p class="date">Date: 2021-09-13 Mon 00:00</p>
 <p class="author">Author: b-coimbra</p>
-<p class="date">Created: 2021-09-13 Mon 10:13</p>
+<p class="date">Created: 2021-09-13 Mon 10:16</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

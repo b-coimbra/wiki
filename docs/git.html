@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-11 sáb 15:47 -->
+<!-- 2021-09-13 Mon 09:51 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Git</title>
@@ -52,7 +52,7 @@
     padding: 3px;
     border: 1px solid black;
   }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
+  pre.src:hover:before { display: inline;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
@@ -200,7 +200,7 @@
 <script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
 <script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
 <script type="text/javascript">
-// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
      function CodeHighlightOn(elem, id)
      {
@@ -229,28 +229,28 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgcc51c52">1. General</a></li>
-<li><a href="#orgc66741e">2. Remove unwanted commited files</a></li>
-<li><a href="#org5d991e2">3. Hooks</a></li>
-<li><a href="#orgd91f514">4. Bisect</a></li>
-<li><a href="#orgc3e523a">5. Commit messages</a>
+<li><a href="#orgcdcb863">1. General</a></li>
+<li><a href="#org26fcbef">2. Remove unwanted commited files</a></li>
+<li><a href="#orgc8880c5">3. Hooks</a></li>
+<li><a href="#org6dc908e">4. Bisect</a></li>
+<li><a href="#orgf8da119">5. Commit messages</a>
 <ul>
-<li><a href="#org7587280">5.1. Structural elements</a></li>
-<li><a href="#org2040ef2">5.2. Type with scope</a></li>
-<li><a href="#orgf4887ac">5.3. <code>!</code> to draw attention</a></li>
+<li><a href="#orgc3a054a">5.1. Structural elements</a></li>
+<li><a href="#org3e585a7">5.2. Type with scope</a></li>
+<li><a href="#orgf3251f0">5.3. <code>!</code> to draw attention</a></li>
 </ul>
 </li>
-<li><a href="#org65f9410">6. Working with a team</a>
+<li><a href="#org2ba4cd7">6. Working with a team</a>
 <ul>
-<li><a href="#orgf7d95e1">6.1. Stashing</a></li>
+<li><a href="#orgdf92202">6.1. Stashing</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgcc51c52" class="outline-2">
-<h2 id="orgcc51c52"><span class="section-number-2">1.</span> General</h2>
+<div id="outline-container-orgcdcb863" class="outline-2">
+<h2 id="orgcdcb863"><span class="section-number-2">1</span> General</h2>
 <div class="outline-text-2" id="text-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -326,8 +326,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgc66741e" class="outline-2">
-<h2 id="orgc66741e"><span class="section-number-2">2.</span> Remove unwanted commited files</h2>
+<div id="outline-container-org26fcbef" class="outline-2">
+<h2 id="org26fcbef"><span class="section-number-2">2</span> Remove unwanted commited files</h2>
 <div class="outline-text-2" id="text-2">
 <ol class="org-ol">
 <li><code>git reset origin/develop -- &lt;file&gt;</code></li>
@@ -336,8 +336,8 @@
 </div>
 </div>
 
-<div id="outline-container-org5d991e2" class="outline-2">
-<h2 id="org5d991e2"><span class="section-number-2">3.</span> Hooks</h2>
+<div id="outline-container-orgc8880c5" class="outline-2">
+<h2 id="orgc8880c5"><span class="section-number-2">3</span> Hooks</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 Git hooks are stored inside <code>.git/hooks</code> and have a <code>sample</code> extension on them.
@@ -350,8 +350,8 @@ Hooks are essentially shell scripts &#x2013; they can either be written in bash,
 </div>
 </div>
 
-<div id="outline-container-orgd91f514" class="outline-2">
-<h2 id="orgd91f514"><span class="section-number-2">4.</span> Bisect</h2>
+<div id="outline-container-org6dc908e" class="outline-2">
+<h2 id="org6dc908e"><span class="section-number-2">4</span> Bisect</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 Useful for finding a specific faulty commit that introduced a bug somewhere in a project.
@@ -359,16 +359,16 @@ Useful for finding a specific faulty commit that introduced a bug somewhere in a
 
 <div class="org-src-container">
 <pre class="src src-bash">$ git bisect start
-$ git bisect bad   <span style="color: #65737E;"># </span><span style="color: #65737E;">current version (commit) is bad</span>
-$ git bisect good  <span style="color: #65737E;"># </span><span style="color: #65737E;">current version (commit) is good</span>
-$ git bisect reset <span style="color: #65737E;"># </span><span style="color: #65737E;">return to commit after bisect star</span>
+$ git bisect bad   <span style="color: #686858;"># </span><span style="color: #686858;">current version (commit) is bad</span>
+$ git bisect good  <span style="color: #686858;"># </span><span style="color: #686858;">current version (commit) is good</span>
+$ git bisect reset <span style="color: #686858;"># </span><span style="color: #686858;">return to commit after bisect star</span>
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgc3e523a" class="outline-2">
-<h2 id="orgc3e523a"><span class="section-number-2">5.</span> Commit messages</h2>
+<div id="outline-container-orgf8da119" class="outline-2">
+<h2 id="orgf8da119"><span class="section-number-2">5</span> Commit messages</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 Reference: <a href="https://www.conventionalcommits.org/en/v1.0.0/">conventional commits</a>.
@@ -389,8 +389,8 @@ Reference: <a href="https://www.conventionalcommits.org/en/v1.0.0/">conventional
 </blockquote>
 </div>
 
-<div id="outline-container-org7587280" class="outline-3">
-<h3 id="org7587280"><span class="section-number-3">5.1.</span> Structural elements</h3>
+<div id="outline-container-orgc3a054a" class="outline-3">
+<h3 id="orgc3a054a"><span class="section-number-3">5.1</span> Structural elements</h3>
 <div class="outline-text-3" id="text-5-1">
 <p>
 Structural elements, to better communicate intent:
@@ -407,8 +407,8 @@ Other types are also allowed, such as <b>build: *chore:</b> <b>docs: *ci:</b> <b
 </div>
 </div>
 
-<div id="outline-container-org2040ef2" class="outline-3">
-<h3 id="org2040ef2"><span class="section-number-3">5.2.</span> Type with scope</h3>
+<div id="outline-container-org3e585a7" class="outline-3">
+<h3 id="org3e585a7"><span class="section-number-3">5.2</span> Type with scope</h3>
 <div class="outline-text-3" id="text-5-2">
 <p>
 Commit message with scope:
@@ -426,8 +426,8 @@ chore(.gitignore): ignores more files/folders
 </div>
 </div>
 
-<div id="outline-container-orgf4887ac" class="outline-3">
-<h3 id="orgf4887ac"><span class="section-number-3">5.3.</span> <code>!</code> to draw attention</h3>
+<div id="outline-container-orgf3251f0" class="outline-3">
+<h3 id="orgf3251f0"><span class="section-number-3">5.3</span> <code>!</code> to draw attention</h3>
 <div class="outline-text-3" id="text-5-3">
 <p>
 Commit message with ! to draw attention to breaking change:
@@ -442,8 +442,8 @@ refactor!: drop support for Node 6
 </div>
 </div>
 
-<div id="outline-container-org65f9410" class="outline-2">
-<h2 id="org65f9410"><span class="section-number-2">6.</span> Working with a team</h2>
+<div id="outline-container-org2ba4cd7" class="outline-2">
+<h2 id="org2ba4cd7"><span class="section-number-2">6</span> Working with a team</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 Create a master branch for the feature:
@@ -454,8 +454,8 @@ Create a master branch for the feature:
 </ol>
 </div>
 
-<div id="outline-container-orgf7d95e1" class="outline-3">
-<h3 id="orgf7d95e1"><span class="section-number-3">6.1.</span> <a href="https://git-scm.com/book/pt-br/v2/Git-Tools-Stashing-and-Cleaning">Stashing</a></h3>
+<div id="outline-container-orgdf92202" class="outline-3">
+<h3 id="orgdf92202"><span class="section-number-3">6.1</span> <a href="https://git-scm.com/book/pt-br/v2/Git-Tools-Stashing-and-Cleaning">Stashing</a></h3>
 <div class="outline-text-3" id="text-6-1">
 <p>
 Often, we might want to switch to a different branch and save our changes before doing so. But the issue is, if we have unfinished
@@ -469,10 +469,10 @@ To push a new stash onto your stack, run <code>git stash</code> or <code>git sta
 
 <div class="org-src-container">
 <pre class="src src-sh">$ git stash
-Saved working directory and index state <span style="color: #A3BE8C;">\</span>
-      <span style="color: #A3BE8C;">"WIP on master: 049d078 added the index file"</span>
+Saved working directory and index state <span style="color: #87875f;">\</span>
+      <span style="color: #87875f;">"WIP on master: 049d078 added the index file"</span>
 HEAD is now at 049d078 added the index file
-(To restore them type <span style="color: #A3BE8C;">"git stash apply"</span>)
+(To restore them type <span style="color: #87875f;">"git stash apply"</span>)
 </pre>
 </div>
 
@@ -484,7 +484,7 @@ To see which stashes you’ve stored, you can use <code>git stash list</code>:
 <div class="org-src-container">
 <pre class="src src-sh">$ git stash list
 stash@{0}: WIP on master: 049d078 added the index file
-stash@{1}: WIP on master: c264051 Revert <span style="color: #A3BE8C;">"added file_size"</span>
+stash@{1}: WIP on master: c264051 Revert <span style="color: #87875f;">"added file_size"</span>
 stash@{2}: WIP on master: 21d80a5 added number to log
 </pre>
 </div>
@@ -500,13 +500,13 @@ If you don’t specify a stash, Git assumes the most recent stash and tries to a
 <pre class="src src-sh">$ git stash apply
 On branch master
 Changes not staged for commit:
-(use <span style="color: #A3BE8C;">"git add &lt;file&gt;..."</span> to update what will be committed)
-(use <span style="color: #A3BE8C;">"git checkout -- &lt;file&gt;..."</span> to discard changes<span style="color: #b48ead; font-weight: bold;"> in</span> working directory)
+(use <span style="color: #87875f;">"git add &lt;file&gt;..."</span> to update what will be committed)
+(use <span style="color: #87875f;">"git checkout -- &lt;file&gt;..."</span> to discard changes<span style="color: #87AFD7; font-weight: bold;"> in</span> working directory)
 
 modified:   index.html
 modified:   lib/simplegit.rb
 
-no changes added to commit (use <span style="color: #A3BE8C;">"git add"</span> and/or <span style="color: #A3BE8C;">"git commit -a"</span>)
+no changes added to commit (use <span style="color: #87875f;">"git add"</span> and/or <span style="color: #87875f;">"git commit -a"</span>)
 </pre>
 </div>
 </div>
@@ -514,9 +514,9 @@ no changes added to commit (use <span style="color: #A3BE8C;">"git add"</span> a
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Date: 2021-09-11 sáb 00:00</p>
+<p class="date">Date: 2021-09-11 Sat 00:00</p>
 <p class="author">Author: b-coimbra</p>
-<p class="date">Created: 2021-09-11 sáb 15:47</p>
+<p class="date">Created: 2021-09-13 Mon 09:51</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

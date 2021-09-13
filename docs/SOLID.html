@@ -1,0 +1,529 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-09-13 Mon 10:15 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>SOLID</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="b-coimbra" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">SOLID</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org7fcef07">1. SRP (Single Reponsibility Principle)</a></li>
+<li><a href="#org1d47a34">2. OCP (Open Closed Principle)</a></li>
+<li><a href="#org265dfdd">3. LSP (Liskov Substitution Principle)</a></li>
+<li><a href="#org7e825d7">4. ISP (Interface Segregation Principle)</a></li>
+<li><a href="#org5bd9758">5. DIP (Dependency Inversion Principle)</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org7fcef07" class="outline-2">
+<h2 id="org7fcef07"><span class="section-number-2">1</span> SRP (Single Reponsibility Principle)</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+<i>A module should only have one, and only one reason to change.</i>
+</p>
+
+<p>
+Not to be mistaken by the principle usually applied to functions: <i>A function should only do one thing, and one thing only.</i>
+</p>
+
+<p>
+A class should not handle operations that goes out of the objective of the class.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-typescript"><span style="color: #cc6666;">class</span> <span style="color: #d3869b;">AreaCalculator</span> {
+    <span style="color: #cc6666;">constructor</span> (shapes: <span style="color: #cc6666;">number</span>[]) {
+        <span style="color: #cc6666;">this</span>.shapes = shapes;
+    }
+
+    <span style="color: #777777;">sum</span> (): <span style="color: #cc6666;">number</span> {
+        <span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">logic to sum the area</span>
+    }
+}
+</pre>
+</div>
+
+<p>
+We'd simply instantiate the class and pass an array of shapes, then display the output:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-typescript">areas = AreaCalculator.<span style="color: #cc6666;">new</span>([2, 5, 6])
+
+<span style="color: #d3869b;">console</span>.<span style="color: #777777;">log</span>(areas.<span style="color: #777777;">sum</span>());
+</pre>
+</div>
+
+<p>
+But what if we wanted to return the result as JSON, or another format?
+</p>
+
+<p>
+<b>SRP frowns upon letting the Area class handle this logic. The Area class should only sum the areas, it should not care whether the user wants JSON or HTML.</b>
+</p>
+
+<p>
+Instead, we create a new class, <b>AreaCalculatorOutputter</b> to handle the conversion:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-typescript">areas  = AreaCalculator.<span style="color: #cc6666;">new</span>([2, 5, 6])
+output = <span style="color: #777777;">SumCalculatorOutputter</span>(areas);
+
+<span style="color: #d3869b;">console</span>.<span style="color: #777777;">log</span>(output.<span style="color: #777777;">json</span>());
+<span style="color: #d3869b;">console</span>.<span style="color: #777777;">log</span>(output.<span style="color: #777777;">html</span>());
+<span style="color: #d3869b;">console</span>.<span style="color: #777777;">log</span>(output.<span style="color: #777777;">haml</span>());
+</pre>
+</div>
+
+<p>
+When this principle is broken, the following issues arise:
+</p>
+
+<ul class="org-ul">
+<li>Class loses its cohesion: it has more than one responsibility.</li>
+<li>High coupling: due to the many entangled dependencies, the class will depend on a lot of low-level modules.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org1d47a34" class="outline-2">
+<h2 id="org1d47a34"><span class="section-number-2">2</span> OCP (Open Closed Principle)</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+<i>A module should be open to extension, but closed for modification.</i>
+</p>
+
+<p>
+Open to extension means that a class should be easy to add new functionality without changing already existing code (and breaking it).
+</p>
+
+<p>
+A class should be easily extensible without modifying the class itself.
+</p>
+
+<p>
+Looking at the AreaCalculator class, the <b>sum</b> method:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-typescript"><span style="color: #777777;">sum</span> (): <span style="color: #cc6666;">number</span> {
+    <span style="color: #cc6666;">let</span> <span style="color: #83a598;">area</span>: <span style="color: #cc6666;">number</span>;
+
+    <span style="color: #cc6666;">for</span> (<span style="color: #cc6666;">let</span> <span style="color: #83a598;">shape</span> <span style="color: #cc6666;">of</span> shapes) {
+        <span style="color: #cc6666;">if</span> (shape == <span style="color: #476562;">'Square'</span>)
+            area = <span style="color: #777777;">pow</span>(shape.length, 2);
+        <span style="color: #cc6666;">else</span> <span style="color: #cc6666;">if</span> (shape == <span style="color: #476562;">'Circle'</span>)
+            area = Math.PI * <span style="color: #777777;">pow</span>(Math.<span style="color: #777777;">radius</span>(shape), 2);
+    }
+
+    <span style="color: #cc6666;">return</span> Math.<span style="color: #777777;">sum</span>(shape);
+}
+</pre>
+</div>
+
+<p>
+If we wanted the sum to be able to handle more shapes, we would add more <b>if/else</b> blocks, and that goes against the Open-closed Principle.
+</p>
+
+<p>
+One way to handle this is to remove the logic of the sum in the AreaCalculator class and assign it to each shape class:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-typescript"><span style="color: #cc6666;">class</span> <span style="color: #d3869b;">Square</span> {
+    <span style="color: #cc6666;">constructor</span> (length: <span style="color: #cc6666;">number</span>) {
+        <span style="color: #cc6666;">this</span>.length = length;
+    }
+
+    <span style="color: #777777;">area</span> (): <span style="color: #cc6666;">number</span> {
+        <span style="color: #cc6666;">return</span> <span style="color: #777777;">pow</span>(<span style="color: #cc6666;">this</span>.length, 2);
+    }
+}
+</pre>
+</div>
+
+<p>
+The same thing should be done for the Circle, or any other shape class.
+</p>
+
+<p>
+<b>A problem arises: how do we know that the object passed into the AreaCalculator is actually a shape and it has a method named area?</b>
+</p>
+
+<p>
+We create <b>interfaces</b> for it, that every shape implements:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-typescript"><span style="color: #cc6666;">interface</span> <span style="color: #d3869b;">ShapeInterface</span> {
+    <span style="color: #777777;">area</span> (): <span style="color: #cc6666;">void</span>;
+}
+
+<span style="color: #cc6666;">class</span> <span style="color: #d3869b;">Circle</span> <span style="color: #cc6666;">implements</span> <span style="color: #d3869b;">ShapeInterface</span> {
+    <span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">...</span>
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org265dfdd" class="outline-2">
+<h2 id="org265dfdd"><span class="section-number-2">3</span> LSP (Liskov Substitution Principle)</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+<i>A superclass module should be replaceable by its subclass modules</i>
+</p>
+
+<p>
+In other words, every derived class can be used as if it were the base class.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7e825d7" class="outline-2">
+<h2 id="org7e825d7"><span class="section-number-2">4</span> ISP (Interface Segregation Principle)</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+<i>A client should never be forced to implement an interface that it doesn't use or clients shouldn't be forced to depend on methods they do not use</i>
+</p>
+
+<p>
+If we wanted to calculate the volume of the shape, we'd simply modify the ShapeInterface:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-typescript"><span style="color: #cc6666;">interface</span> <span style="color: #d3869b;">ShapeInterface</span> {
+    <span style="color: #777777;">area</span>(): <span style="color: #cc6666;">number</span>;
+    <span style="color: #777777;">volume</span>(): <span style="color: #cc6666;">number</span>;
+}
+</pre>
+</div>
+
+<p>
+Now any shape must implement the volume method.
+</p>
+
+<p>
+However, we know that squares are flat and do not have volumes, so we are forcing the <b>Square</b> class to implement a method that it has no use of.
+</p>
+
+<p>
+ISP says no to this, instead we could create another interface called SolidShapeInterface that has the volume contract, and solid shapes like cubes etc. can implement this interface:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-typescript"><span style="color: #cc6666;">interface</span> <span style="color: #d3869b;">ShapeInterface</span> {
+    <span style="color: #777777;">area</span>(): <span style="color: #cc6666;">number</span>;
+}
+
+<span style="color: #cc6666;">interface</span> <span style="color: #d3869b;">SolidShapeInterface</span> {
+    <span style="color: #777777;">volume</span>(): <span style="color: #cc6666;">number</span>;
+}
+
+<span style="color: #cc6666;">class</span> <span style="color: #d3869b;">Cuboid</span> <span style="color: #cc6666;">implements</span> <span style="color: #d3869b;">ShapeInterface</span>, <span style="color: #d3869b;">SolidShapeInterface</span> {
+    <span style="color: #777777;">area</span> (): <span style="color: #cc6666;">number</span> {
+        <span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">calculate the area of the cuboid</span>
+    }
+
+    <span style="color: #777777;">volume</span> (): <span style="color: #cc6666;">number</span> {
+        <span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">calculate the volume of the cuboid</span>
+    }
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5bd9758" class="outline-2">
+<h2 id="org5bd9758"><span class="section-number-2">5</span> DIP (Dependency Inversion Principle)</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+<i>Entities must depend on abstractions not on concretions. It states that the high level module must not depend on the low level module, but they should depend on abstractions.</i>
+</p>
+
+<p>
+Assuming we have a class <b>PasswordReminder</b> that connects to the database:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-typescript"><span style="color: #cc6666;">class</span> <span style="color: #d3869b;">PasswordReminder</span> {
+    <span style="color: #cc6666;">constructor</span> (dbConnection: <span style="color: #d3869b;">MySQLConnection</span>) {
+        <span style="color: #cc6666;">this</span>.dbConnection = dbConnection;
+    }
+}
+</pre>
+</div>
+
+<p>
+The <b>MySQLConnection</b> is the low level module while the <b>PasswordReminder</b> class is high level, this violates the dependency principle because the <b>PasswordReminder</b> class is being forced to depend on the <b>MySQLConnection</b> class.
+</p>
+
+<p>
+If we were to change the database engine, we'd have to edit the <b>PasswordReminder</b> class, thus violating the OCP.
+</p>
+
+<p>
+The <b>PasswordReminder</b> class should not care what database my application uses.
+To fix this, we create yet another interface.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-typescript"><span style="color: #cc6666;">interface</span> <span style="color: #d3869b;">DBConnectionInterface</span> {
+    <span style="color: #777777;">connect</span> (): <span style="color: #cc6666;">void</span>;
+}
+</pre>
+</div>
+
+<p>
+The interface has a connect method and the <b>MySQLConnection</b> implements this interface.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-typescript"><span style="color: #cc6666;">class</span> <span style="color: #d3869b;">MySQLConnection</span> <span style="color: #cc6666;">implements</span> <span style="color: #d3869b;">DBConnectionInterface</span> {
+    <span style="color: #777777;">connect</span> (): <span style="color: #cc6666;">void</span> {
+        <span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">connects to a database</span>
+    }
+}
+
+<span style="color: #cc6666;">class</span> <span style="color: #d3869b;">PasswordReminder</span> {
+    <span style="color: #cc6666;">constructor</span> (dbConnection: <span style="color: #d3869b;">DBConnectionInterface</span>) {
+        <span style="color: #cc6666;">this</span>.dbConnection = dbConnection;
+    }
+}
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2021-09-13 Mon 00:00</p>
+<p class="author">Author: b-coimbra</p>
+<p class="date">Created: 2021-09-13 Mon 10:15</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
