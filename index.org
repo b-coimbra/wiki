@@ -13,8 +13,9 @@ Source can be found [[https://github.com/b-coimbra/notes][here]].
 
   - [[./linux.html][Linux]]
   - [[./regex.html][Regex]]
-  - [[./design-patterns.html][Design Patterns]]
   - [[./SOLID.html][SOLID]]
+  - [[./design-patterns.html][Design Patterns]]
+  - [[./dorks.html][Google Dorks]]
 
 * Tools
 

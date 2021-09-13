@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-13 Mon 10:42 -->
+<!-- 2021-09-13 Mon 10:41 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>My Notes</title>
+<title>Dorks</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="b-coimbra" />
 <style type="text/css">
@@ -224,77 +224,103 @@
 </head>
 <body>
 <div id="content">
-<h1 class="title">My Notes</h1>
-<div id="table-of-contents">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents">
-<ul>
-<li><a href="#org5428e6d">1. General</a></li>
-<li><a href="#org5feffd2">2. Tools</a></li>
-<li><a href="#org3ab229e">3. Frameworks</a></li>
-<li><a href="#org0847ea1">4. Languages</a></li>
-</ul>
-</div>
-</div>
-<p>
-Various annotations/cheatsheets neatly organized for the sake of knowledge retention.
-</p>
+<h1 class="title">Dorks</h1>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
-<p>
-Source can be found <a href="https://github.com/b-coimbra/notes">here</a>.
-</p>
 
-<div id="outline-container-org5428e6d" class="outline-2">
-<h2 id="org5428e6d"><span class="section-number-2">1</span> General</h2>
-<div class="outline-text-2" id="text-1">
-<ul class="org-ul">
-<li><a href="./linux.html">Linux</a></li>
-<li><a href="./regex.html">Regex</a></li>
-<li><a href="./SOLID.html">SOLID</a></li>
-<li><a href="./design-patterns.html">Design Patterns</a></li>
-<li><a href="./dorks.html">Google Dorks</a></li>
-</ul>
-</div>
-</div>
+<colgroup>
+<col  class="org-left" />
 
-<div id="outline-container-org5feffd2" class="outline-2">
-<h2 id="org5feffd2"><span class="section-number-2">2</span> Tools</h2>
-<div class="outline-text-2" id="text-2">
-<ul class="org-ul">
-<li><a href="./ssh.html">SSH</a></li>
-<li><a href="./vim.html">Vim</a></li>
-<li><a href="./git.html">Git</a></li>
-<li><a href="./tmux.html">Tmux</a></li>
-<li><a href="./docker.html">Docker</a></li>
-<li><a href="./k8s.html">Kubernetes</a></li>
-<li><a href="./spacemacs.html">Spacemacs</a></li>
-</ul>
-</div>
-</div>
+<col  class="org-left" />
 
-<div id="outline-container-org3ab229e" class="outline-2">
-<h2 id="org3ab229e"><span class="section-number-2">3</span> Frameworks</h2>
-<div class="outline-text-2" id="text-3">
-<ul class="org-ul">
-<li><a href="./angular.html">Angular</a></li>
-</ul>
-</div>
-</div>
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Query</th>
+<th scope="col" class="org-left">Description</th>
+<th scope="col" class="org-left">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>inurl</code></td>
+<td class="org-left">the URL of a site you want to query</td>
+<td class="org-left"><code>inurl: domain/</code></td>
+</tr>
 
-<div id="outline-container-org0847ea1" class="outline-2">
-<h2 id="org0847ea1"><span class="section-number-2">4</span> Languages</h2>
-<div class="outline-text-2" id="text-4">
-<ul class="org-ul">
-<li><a href="./dotnet.html">.NET</a></li>
-<li><a href="./typescript.html">Typescript</a></li>
-</ul>
-</div>
-</div>
+<tr>
+<td class="org-left"><code>intitle</code></td>
+<td class="org-left">search for content inside a website's &lt;title&gt;</td>
+<td class="org-left"><code>intitle: abc</code></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>intext</code></td>
+<td class="org-left">any arbitraty text within a website</td>
+<td class="org-left"><code>intext: abc</code></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>define</code></td>
+<td class="org-left">search for the definitions of something</td>
+<td class="org-left"><code>define: abc</code></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>site</code></td>
+<td class="org-left">content in a specific domain</td>
+<td class="org-left"><code>site: domain/</code></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>phonebook</code></td>
+<td class="org-left">search for phonebooks, if available</td>
+<td class="org-left"><code>phonebook: 55239999999</code></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>maps</code></td>
+<td class="org-left">addres information</td>
+<td class="org-left"><code>maps: address</code></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>book</code></td>
+<td class="org-left">search for book in book-specific websites</td>
+<td class="org-left"><code>book: harry potter</code></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>movie</code></td>
+<td class="org-left">search for a movie title specifically</td>
+<td class="org-left"><code>movie: harry potter</code></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>weather</code></td>
+<td class="org-left">weather of a certain location</td>
+<td class="org-left"><code>weather: london</code></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>related</code></td>
+<td class="org-left">something related with keyword</td>
+<td class="org-left"><code>related: keyword</code></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>link</code></td>
+<td class="org-left">search for a specific link</td>
+<td class="org-left"><code>link: link</code></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="postamble" class="status">
-<p class="date">Date: 2021-09-09 Thu 00:00</p>
+<p class="date">Date: 2021-09-13 Mon 00:00</p>
 <p class="author">Author: b-coimbra</p>
-<p class="date">Created: 2021-09-13 Mon 10:42</p>
+<p class="date">Created: 2021-09-13 Mon 10:41</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
