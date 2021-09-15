@@ -3,12 +3,12 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-13 Mon 09:52 -->
+<!-- 2021-09-14 ter 21:19 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Angular</title>
 <meta name="generator" content="Org mode" />
-<meta name="author" content="b-coimbra" />
+<meta name="author" content="b-coimbra b-coimbra (Bruno Coimbra, index)" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -52,7 +52,7 @@
     padding: 3px;
     border: 1px solid black;
   }
-  pre.src:hover:before { display: inline;}
+  pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
@@ -193,14 +193,10 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
-<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
-<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
-<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
+<link rel="stylesheet" type="text/css" href="https://b-coimbra.github.io/org-scribbler-theme/src/css/style.css" />
+<script src="https://b-coimbra.github.io/org-scribbler-theme/src/js/script.js" />
 <script type="text/javascript">
-// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
 <!--/*--><![CDATA[/*><!--*/
      function CodeHighlightOn(elem, id)
      {
@@ -224,51 +220,44 @@
 </head>
 <body>
 <div id="content">
-<h1 class="title">Angular</h1>
+<h1 class="title">Angular
+<br />
+<span class="subtitle">Angular is a platform for building mobile and desktop web applications.</span>
+</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org520a957">1. Usage</a></li>
-<li><a href="#org8fc0739">2. Shell commands</a></li>
-<li><a href="#org935351e">3. Modules</a></li>
-<li><a href="#org96fca56">4. Components</a></li>
-<li><a href="#orgc2af495">5. Services</a>
+<li><a href="#org34c22ea">Shell commands</a></li>
+<li><a href="#org2d88c73">Modules</a></li>
+<li><a href="#org6f2505f">Components</a></li>
+<li><a href="#orgf3f7b5d">Services</a>
 <ul>
-<li><a href="#org4ece201">5.1. @Injectable()</a></li>
+<li><a href="#org2287243">@Injectable()</a></li>
 </ul>
 </li>
-<li><a href="#orgfdac73f">6. Miscs</a>
+<li><a href="#orgd07ebad">Miscs</a>
 <ul>
-<li><a href="#orgd69d9b9">6.1. ngOnInit()</a></li>
-<li><a href="#org8741f01">6.2. [(ngModel)]="hero.name"</a></li>
-<li><a href="#orgeb02222">6.3. *ngFor</a></li>
-<li><a href="#orgaf90866">6.4. (click)="event(movie)"</a></li>
-<li><a href="#org95c1d92">6.5. *ngIf="property"</a></li>
-<li><a href="#org25c5304">6.6. [class.selected]="condition"</a></li>
-<li><a href="#org41fc601">6.7. @Input() decorator</a></li>
-<li><a href="#org7069f61">6.8. Observables</a></li>
-<li><a href="#orga148ff5">6.9. Subscriber function</a></li>
+<li><a href="#org502fc9a">ngOnInit()</a></li>
+<li><a href="#org2998827">[(ngModel)]="hero.name"</a></li>
+<li><a href="#orga883199">*ngFor</a></li>
+<li><a href="#org6af50fc">(click)="event(movie)"</a></li>
+<li><a href="#org52dddba">*ngIf="property"</a></li>
+<li><a href="#orgc70de78">[class.selected]="condition"</a></li>
+<li><a href="#orgfeece97">@Input() decorator</a></li>
+<li><a href="#orgfd2462d">Observables</a></li>
+<li><a href="#org2ec5dbe">Subscriber function</a></li>
 </ul>
 </li>
-<li><a href="#org9a4c4ea">7. Routing</a></li>
-<li><a href="#org991a6b8">8. Http</a></li>
+<li><a href="#org51b038f">Routing</a></li>
+<li><a href="#orgb90fbe8">Http</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org520a957" class="outline-2">
-<h2 id="org520a957"><span class="section-number-2">1</span> Usage</h2>
-<div class="outline-text-2" id="text-1">
-<p>
-Angular is a platform for building applications with the web (mobile too) using declarative templates.
-</p>
-</div>
-</div>
-
-<div id="outline-container-org8fc0739" class="outline-2">
-<h2 id="org8fc0739"><span class="section-number-2">2</span> Shell commands</h2>
-<div class="outline-text-2" id="text-2">
+<div id="outline-container-org34c22ea" class="outline-2">
+<h2 id="org34c22ea">Shell commands</h2>
+<div class="outline-text-2" id="text-org34c22ea">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -313,9 +302,9 @@ Angular is a platform for building applications with the web (mobile too) using 
 </div>
 </div>
 
-<div id="outline-container-org935351e" class="outline-2">
-<h2 id="org935351e"><span class="section-number-2">3</span> Modules</h2>
-<div class="outline-text-2" id="text-3">
+<div id="outline-container-org2d88c73" class="outline-2">
+<h2 id="org2d88c73">Modules</h2>
+<div class="outline-text-2" id="text-org2d88c73">
 <p>
 A module is a collection of services, it's the building block of an application.
 Each application has at least one root module, and it's by default defined in the <code>app.module.ts</code>
@@ -327,9 +316,9 @@ Each application has at least one root module, and it's by default defined in th
 </div>
 </div>
 
-<div id="outline-container-org96fca56" class="outline-2">
-<h2 id="org96fca56"><span class="section-number-2">4</span> Components</h2>
-<div class="outline-text-2" id="text-4">
+<div id="outline-container-org6f2505f" class="outline-2">
+<h2 id="org6f2505f">Components</h2>
+<div class="outline-text-2" id="text-org6f2505f">
 <p>
 <code>ng generate component</code>
 </p>
@@ -360,9 +349,9 @@ The component defined in the router are loaded in to a special placeholder:
 </div>
 </div>
 
-<div id="outline-container-orgc2af495" class="outline-2">
-<h2 id="orgc2af495"><span class="section-number-2">5</span> Services</h2>
-<div class="outline-text-2" id="text-5">
+<div id="outline-container-orgf3f7b5d" class="outline-2">
+<h2 id="orgf3f7b5d">Services</h2>
+<div class="outline-text-2" id="text-orgf3f7b5d">
 <p>
 Services are a great way to share information among classes that don't know each other.
 </p>
@@ -377,9 +366,9 @@ they allow easy reuse of parts of the application logic across multiple applicat
 </p>
 </div>
 
-<div id="outline-container-org4ece201" class="outline-3">
-<h3 id="org4ece201"><span class="section-number-3">5.1</span> @Injectable()</h3>
-<div class="outline-text-3" id="text-5-1">
+<div id="outline-container-org2287243" class="outline-3">
+<h3 id="org2287243">@Injectable()</h3>
+<div class="outline-text-3" id="text-org2287243">
 <p>
 This marks the class as one that participates int he dependency injection system.
 It accepts a metadata object for the service, the same way the <code>@Component</code> decorator did.
@@ -388,13 +377,13 @@ It accepts a metadata object for the service, the same way the <code>@Component<
 </div>
 </div>
 
-<div id="outline-container-orgfdac73f" class="outline-2">
-<h2 id="orgfdac73f"><span class="section-number-2">6</span> Miscs</h2>
-<div class="outline-text-2" id="text-6">
+<div id="outline-container-orgd07ebad" class="outline-2">
+<h2 id="orgd07ebad">Miscs</h2>
+<div class="outline-text-2" id="text-orgd07ebad">
 </div>
-<div id="outline-container-orgd69d9b9" class="outline-3">
-<h3 id="orgd69d9b9"><span class="section-number-3">6.1</span> ngOnInit()</h3>
-<div class="outline-text-3" id="text-6-1">
+<div id="outline-container-org502fc9a" class="outline-3">
+<h3 id="org502fc9a">ngOnInit()</h3>
+<div class="outline-text-3" id="text-org502fc9a">
 <p>
 Different than a constructor, it's a cycle hook called by Angular to indicate that it's done creating the component.
 It's a good place to put initialization logic.
@@ -406,9 +395,9 @@ It's a good place to put initialization logic.
 </div>
 </div>
 
-<div id="outline-container-org8741f01" class="outline-3">
-<h3 id="org8741f01"><span class="section-number-3">6.2</span> [(ngModel)]="hero.name"</h3>
-<div class="outline-text-3" id="text-6-2">
+<div id="outline-container-org2998827" class="outline-3">
+<h3 id="org2998827">[(ngModel)]="hero.name"</h3>
+<div class="outline-text-3" id="text-org2998827">
 <p>
 <b>Not available by default, we need to import the FormsModule module</b>
 </p>
@@ -425,36 +414,36 @@ Two-way data binding syntax, it binds the property to the HTML textbox so that d
 </div>
 </div>
 
-<div id="outline-container-orgeb02222" class="outline-3">
-<h3 id="orgeb02222"><span class="section-number-3">6.3</span> *ngFor</h3>
-<div class="outline-text-3" id="text-6-3">
+<div id="outline-container-orga883199" class="outline-3">
+<h3 id="orga883199">*ngFor</h3>
+<div class="outline-text-3" id="text-orga883199">
 <p>
 <code>*ngFor</code> is a repeater directive, it repeats the host element for each element in a list.
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgaf90866" class="outline-3">
-<h3 id="orgaf90866"><span class="section-number-3">6.4</span> (click)="event(movie)"</h3>
-<div class="outline-text-3" id="text-6-4">
+<div id="outline-container-org6af50fc" class="outline-3">
+<h3 id="org6af50fc">(click)="event(movie)"</h3>
+<div class="outline-text-3" id="text-org6af50fc">
 <p>
 Listens for a click event.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org95c1d92" class="outline-3">
-<h3 id="org95c1d92"><span class="section-number-3">6.5</span> *ngIf="property"</h3>
-<div class="outline-text-3" id="text-6-5">
+<div id="outline-container-org52dddba" class="outline-3">
+<h3 id="org52dddba">*ngIf="property"</h3>
+<div class="outline-text-3" id="text-org52dddba">
 <p>
 <code>*ngIf</code> hides empty details.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org25c5304" class="outline-3">
-<h3 id="org25c5304"><span class="section-number-3">6.6</span> [class.selected]="condition"</h3>
-<div class="outline-text-3" id="text-6-6">
+<div id="outline-container-orgc70de78" class="outline-3">
+<h3 id="orgc70de78">[class.selected]="condition"</h3>
+<div class="outline-text-3" id="text-orgc70de78">
 <p>
 <code>[class.selected]</code> is an angular binding that makes it easy to add a CSS class.
 Just type <code>[class.some-css-class]="some-condition"</code> to the elemtn you want to style.
@@ -463,15 +452,15 @@ Just type <code>[class.some-css-class]="some-condition"</code> to the elemtn you
 </div>
 
 
-<div id="outline-container-org41fc601" class="outline-3">
-<h3 id="org41fc601"><span class="section-number-3">6.7</span> @Input() decorator</h3>
-<div class="outline-text-3" id="text-6-7">
+<div id="outline-container-orgfeece97" class="outline-3">
+<h3 id="orgfeece97">@Input() decorator</h3>
+<div class="outline-text-3" id="text-orgfeece97">
 <p>
 To bind an external component such as:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-typescript">&lt;app-hero-detail [hero]=<span style="color: #87875f;">"selectedHero"</span>&gt;&lt;/app-hero-detail&gt;
+<pre class="src src-typescript">&lt;app-hero-detail [hero]=<span style="color: #A3BE8C;">"selectedHero"</span>&gt;&lt;/app-hero-detail&gt;
 </pre>
 </div>
 
@@ -480,15 +469,15 @@ It's necessary to bind the property to the @Input decorator like so:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-typescript"><span style="color: #faf4c6;">@Input</span>() hero: <span style="color: #8181a6;">Hero</span>;
+<pre class="src src-typescript"><span style="color: #8FA1B3;">@Input</span>() hero: <span style="color: #ECBE7B;">Hero</span>;
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org7069f61" class="outline-3">
-<h3 id="org7069f61"><span class="section-number-3">6.8</span> Observables</h3>
-<div class="outline-text-3" id="text-6-8">
+<div id="outline-container-orgfd2462d" class="outline-3">
+<h3 id="orgfd2462d">Observables</h3>
+<div class="outline-text-3" id="text-orgfd2462d">
 <p>
 An Observable allows to pass zero or more events where the callback is called for each event.
 </p>
@@ -503,27 +492,27 @@ and others like <code>retry()</code> and <code>replay()</code> that are quite ha
 </p>
 </div>
 
-<div id="outline-container-orga148ff5" class="outline-3">
-<h3 id="orga148ff5"><span class="section-number-3">6.9</span> Subscriber function</h3>
-<div class="outline-text-3" id="text-6-9">
+<div id="outline-container-org2ec5dbe" class="outline-3">
+<h3 id="org2ec5dbe">Subscriber function</h3>
+<div class="outline-text-3" id="text-org2ec5dbe">
 <p>
 We define a subscribe function &#x2013; it's executed when the customer calls the <code>subscriber()</code> method.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-typescript"><span style="color: #87AFD7; font-weight: bold;">const</span> <span style="color: #faf4c6;">locations</span> = <span style="color: #87AFD7; font-weight: bold;">new</span> <span style="color: #8181a6;">Observable</span>(observer <span style="color: #87AFD7; font-weight: bold;">=&gt;</span> {
-    <span style="color: #686858;">// </span><span style="color: #686858;">get the next error callbacks.</span>
-    <span style="color: #87AFD7; font-weight: bold;">const</span> { next, error } = observer;
-    <span style="color: #87AFD7; font-weight: bold;">let</span> <span style="color: #faf4c6;">watchId</span>;
+<pre class="src src-typescript"><span style="color: #b48ead; font-weight: bold;">const</span> <span style="color: #BF616A;">locations</span> = <span style="color: #b48ead; font-weight: bold;">new</span> <span style="color: #ECBE7B;">Observable</span>(observer <span style="color: #b48ead; font-weight: bold;">=&gt;</span> {
+    <span style="color: #65737E;">// </span><span style="color: #65737E;">get the next error callbacks.</span>
+    <span style="color: #b48ead; font-weight: bold;">const</span> { next, error } = observer;
+    <span style="color: #b48ead; font-weight: bold;">let</span> <span style="color: #BF616A;">watchId</span>;
 
-    <span style="color: #686858;">// </span><span style="color: #686858;">geolocation API</span>
-    <span style="color: #87AFD7; font-weight: bold;">if</span> (<span style="color: #87875f;">'geolocation'</span> <span style="color: #87AFD7; font-weight: bold;">in</span> navigator)
-        watchId = navigator.geolocation.<span style="color: #faf4c6;">watchPosition</span>(next, error);
-    <span style="color: #87AFD7; font-weight: bold;">else</span>
-        <span style="color: #faf4c6;">error</span>(<span style="color: #87875f;">'Geolocation not available'</span>);
+    <span style="color: #65737E;">// </span><span style="color: #65737E;">geolocation API</span>
+    <span style="color: #b48ead; font-weight: bold;">if</span> (<span style="color: #A3BE8C;">'geolocation'</span> <span style="color: #b48ead; font-weight: bold;">in</span> navigator)
+        watchId = navigator.geolocation.<span style="color: #8FA1B3;">watchPosition</span>(next, error);
+    <span style="color: #b48ead; font-weight: bold;">else</span>
+        <span style="color: #8FA1B3;">error</span>(<span style="color: #A3BE8C;">'Geolocation not available'</span>);
 
-    <span style="color: #686858;">// </span><span style="color: #686858;">clean up data when unsubscribe() is called</span>
-    <span style="color: #87AFD7; font-weight: bold;">return</span> { <span style="color: #faf4c6;">unsubscribe</span>() { navigator.geolocation.<span style="color: #faf4c6;">clearWatch</span>(watchId) } };
+    <span style="color: #65737E;">// </span><span style="color: #65737E;">clean up data when unsubscribe() is called</span>
+    <span style="color: #b48ead; font-weight: bold;">return</span> { <span style="color: #8FA1B3;">unsubscribe</span>() { navigator.geolocation.<span style="color: #8FA1B3;">clearWatch</span>(watchId) } };
 });
 </pre>
 </div>
@@ -534,14 +523,14 @@ Call <code>subscribe()</code> and starts listening for updates. It's the equival
 
 <div class="org-src-container">
 <pre class="src src-typescript">
-<span style="color: #87AFD7; font-weight: bold;">const</span> <span style="color: #faf4c6;">locationSubscription</span> = locations.<span style="color: #faf4c6;">subscribe</span>({
-    <span style="color: #faf4c6;">next</span>(position) { <span style="color: #8181a6;">console</span>.<span style="color: #faf4c6;">log</span>(position); }
-    <span style="color: #faf4c6;">error</span>(msg) { <span style="color: #8181a6;">console</span>.<span style="color: #faf4c6;">log</span>(msg); }
+<span style="color: #b48ead; font-weight: bold;">const</span> <span style="color: #BF616A;">locationSubscription</span> = locations.<span style="color: #8FA1B3;">subscribe</span>({
+    <span style="color: #8FA1B3;">next</span>(position) { <span style="color: #ECBE7B;">console</span>.<span style="color: #8FA1B3;">log</span>(position); }
+    <span style="color: #8FA1B3;">error</span>(msg) { <span style="color: #ECBE7B;">console</span>.<span style="color: #8FA1B3;">log</span>(msg); }
 });
 
-<span style="color: #686858;">// </span><span style="color: #686858;">stop listening for location after 10 seconds</span>
+<span style="color: #65737E;">// </span><span style="color: #65737E;">stop listening for location after 10 seconds</span>
 
-<span style="color: #faf4c6;">setTimeout</span>(() <span style="color: #87AFD7; font-weight: bold;">=&gt;</span> locationSubscription.<span style="color: #faf4c6;">unsubscribe</span>(), 1000);
+<span style="color: #8FA1B3;">setTimeout</span>(() <span style="color: #b48ead; font-weight: bold;">=&gt;</span> locationSubscription.<span style="color: #8FA1B3;">unsubscribe</span>(), 1000);
 </pre>
 </div>
 </div>
@@ -549,9 +538,9 @@ Call <code>subscribe()</code> and starts listening for updates. It's the equival
 </div>
 </div>
 
-<div id="outline-container-org9a4c4ea" class="outline-2">
-<h2 id="org9a4c4ea"><span class="section-number-2">7</span> Routing</h2>
-<div class="outline-text-2" id="text-7">
+<div id="outline-container-org51b038f" class="outline-2">
+<h2 id="org51b038f">Routing</h2>
+<div class="outline-text-2" id="text-org51b038f">
 <p>
 <code>ng generate module &lt;name&gt; --flat --module=&lt;name&gt;</code>
 </p>
@@ -572,20 +561,20 @@ Call <code>subscribe()</code> and starts listening for updates. It's the equival
 </div>
 </div>
 
-<div id="outline-container-org991a6b8" class="outline-2">
-<h2 id="org991a6b8"><span class="section-number-2">8</span> Http</h2>
-<div class="outline-text-2" id="text-8">
+<div id="outline-container-orgb90fbe8" class="outline-2">
+<h2 id="orgb90fbe8">Http</h2>
+<div class="outline-text-2" id="text-orgb90fbe8">
 <div class="org-src-container">
-<pre class="src src-typescript"><span style="color: #87AFD7; font-weight: bold;">import</span> { HttlClientModule } <span style="color: #87AFD7; font-weight: bold;">from</span> <span style="color: #87875f;">'@angular/common/http'</span>;
+<pre class="src src-typescript"><span style="color: #b48ead; font-weight: bold;">import</span> { HttlClientModule } <span style="color: #b48ead; font-weight: bold;">from</span> <span style="color: #A3BE8C;">'@angular/common/http'</span>;
 </pre>
 </div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Date: 2021-09-11 Sat 00:00</p>
-<p class="author">Author: b-coimbra</p>
-<p class="date">Created: 2021-09-13 Mon 09:52</p>
+<p class="date">Date: 2021-09-11 sáb 00:00</p>
+<p class="author">Author: b-coimbra b-coimbra (Bruno Coimbra, index)</p>
+<p class="date">Created: 2021-09-14 ter 21:19</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

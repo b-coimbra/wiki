@@ -3,12 +3,12 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-13 Mon 09:51 -->
+<!-- 2021-09-14 ter 21:35 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Secure Shell (ssh)</title>
 <meta name="generator" content="Org mode" />
-<meta name="author" content="b-coimbra" />
+<meta name="author" content="b-coimbra b-coimbra (Bruno Coimbra, index)" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -52,7 +52,7 @@
     padding: 3px;
     border: 1px solid black;
   }
-  pre.src:hover:before { display: inline;}
+  pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
@@ -193,14 +193,10 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
-<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
-<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
-<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
+<link rel="stylesheet" type="text/css" href="https://b-coimbra.github.io/org-scribbler-theme/src/css/style.css" />
+<script src="https://b-coimbra.github.io/org-scribbler-theme/src/js/script.js" />
 <script type="text/javascript">
-// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
 <!--/*--><![CDATA[/*><!--*/
      function CodeHighlightOn(elem, id)
      {
@@ -224,19 +220,22 @@
 </head>
 <body>
 <div id="content">
-<h1 class="title">Secure Shell (ssh)</h1>
+<h1 class="title">Secure Shell (ssh)
+<br />
+<span class="subtitle">Secure Shell is a cryptographic network protocol for operating network services securely over an unsecured network.</span>
+</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org826c08a">1. Authentication key pairs</a>
+<li><a href="#orgcc4421a">Authentication key pairs</a>
 <ul>
-<li><a href="#orgf68dd02">1.1. Algorithms and key size</a></li>
+<li><a href="#org19b4945">Algorithms and key size</a></li>
 </ul>
 </li>
-<li><a href="#orge5f68b1">2. Copy pubkey to server</a></li>
-<li><a href="#orgae5badc">3. File tranfer</a></li>
-<li><a href="#orga65692b">4. Configuration file</a></li>
+<li><a href="#org8c8bb29">Copy pubkey to server</a></li>
+<li><a href="#org5a74afd">File tranfer</a></li>
+<li><a href="#org4de754e">Configuration file</a></li>
 </ul>
 </div>
 </div>
@@ -248,13 +247,13 @@ SSH provides a secure connection between the host machine and a remote server.
 <code>ssh -i &lt;path-to-private-key&gt; &lt;host&gt;</code> where <code>&lt;path-to-private-key&gt;</code> can be <code>~/.ssh/id_rsa</code> for instance.
 </p>
 
-<div id="outline-container-org826c08a" class="outline-2">
-<h2 id="org826c08a"><span class="section-number-2">1</span> Authentication key pairs</h2>
-<div class="outline-text-2" id="text-1">
+<div id="outline-container-orgcc4421a" class="outline-2">
+<h2 id="orgcc4421a">Authentication key pairs</h2>
+<div class="outline-text-2" id="text-orgcc4421a">
 </div>
-<div id="outline-container-orgf68dd02" class="outline-3">
-<h3 id="orgf68dd02"><span class="section-number-3">1.1</span> Algorithms and key size</h3>
-<div class="outline-text-3" id="text-1-1">
+<div id="outline-container-org19b4945" class="outline-3">
+<h3 id="org19b4945">Algorithms and key size</h3>
+<div class="outline-text-3" id="text-org19b4945">
 <p>
 Currently, the relevant algorithms are <b>rsa</b> and <b>ed25519</b>.
 </p>
@@ -271,9 +270,9 @@ The algorithm is selected using the <code>-t</code> flag and key size using the 
 </div>
 </div>
 
-<div id="outline-container-orge5f68b1" class="outline-2">
-<h2 id="orge5f68b1"><span class="section-number-2">2</span> Copy pubkey to server</h2>
-<div class="outline-text-2" id="text-2">
+<div id="outline-container-org8c8bb29" class="outline-2">
+<h2 id="org8c8bb29">Copy pubkey to server</h2>
+<div class="outline-text-2" id="text-org8c8bb29">
 <p>
 To use public key authentication, the public key must be copied to a server and installed in an authorized<sub>keys</sub> file.
 This can be conveniently done using the <code>ssh-copy-id</code> tool.
@@ -285,9 +284,9 @@ This can be conveniently done using the <code>ssh-copy-id</code> tool.
 </div>
 </div>
 
-<div id="outline-container-orgae5badc" class="outline-2">
-<h2 id="orgae5badc"><span class="section-number-2">3</span> File tranfer</h2>
-<div class="outline-text-2" id="text-3">
+<div id="outline-container-org5a74afd" class="outline-2">
+<h2 id="org5a74afd">File tranfer</h2>
+<div class="outline-text-2" id="text-org5a74afd">
 <p>
 Copy a file from/to the remote host and vice-versa.
 </p>
@@ -299,9 +298,9 @@ Copy a file from/to the remote host and vice-versa.
 </div>
 </div>
 
-<div id="outline-container-orga65692b" class="outline-2">
-<h2 id="orga65692b"><span class="section-number-2">4</span> Configuration file</h2>
-<div class="outline-text-2" id="text-4">
+<div id="outline-container-org4de754e" class="outline-2">
+<h2 id="org4de754e">Configuration file</h2>
+<div class="outline-text-2" id="text-org4de754e">
 <p>
 When connecting to multiple remote systems over SSH, it can be difficult to remember all of the remote IP addresses,
 different usernames and ports.
@@ -347,9 +346,9 @@ Then we can simply do <code>ssh targaryen</code> to remotely connect to the <cod
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Date: 2021-09-11 Sat 00:00</p>
-<p class="author">Author: b-coimbra</p>
-<p class="date">Created: 2021-09-13 Mon 09:51</p>
+<p class="date">Date: 2021-09-11 sáb 00:00</p>
+<p class="author">Author: b-coimbra b-coimbra (Bruno Coimbra, index)</p>
+<p class="date">Created: 2021-09-14 ter 21:35</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

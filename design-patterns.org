@@ -1,11 +1,10 @@
 #+TITLE: Design Patterns
+#+SUBTITLE: Design patterns are typical solutions to common problems in software design.
 #+DATE: <2021-09-13 Mon>
 #+AUTHOR: b-coimbra
 #+EMAIL: me@metaphoric.dev
-#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+#+SETUPFILE: https://b-coimbra.github.io/org-scribbler-theme/scribbler.setup
 #+EXPORT_FILE_NAME: docs/design-patterns.html
-
-Design patterns are typical solutions to common problems in software design.
 
 Each pattern is like a blueprint that you can customize to solve a particular design problem in your code.
 

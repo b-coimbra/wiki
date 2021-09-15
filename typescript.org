@@ -1,8 +1,9 @@
 #+TITLE: Typescript
+#+SUBTITLE: TypeScript is a strongly typed programming language which builds on JavaScript giving you better tooling at any scale.
 #+DATE: <2021-09-11 Sat>
 #+AUTHOR: b-coimbra
 #+EMAIL: me@metaphoric.dev
-#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+#+SETUPFILE: https://b-coimbra.github.io/org-scribbler-theme/scribbler.setup
 #+EXPORT_FILE_NAME: docs/typescript.html
 
 * Static attributes and methods

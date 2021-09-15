@@ -1,8 +1,9 @@
 #+TITLE: Docker
+#+SUBTITLE: Docker is a set of platform as a service products that use OS-level virtualization to deliver software in packages called containers.
 #+DATE: <2021-09-11 Sat>
 #+AUTHOR: b-coimbra
 #+EMAIL: me@metaphoric.dev
-#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+#+SETUPFILE: https://b-coimbra.github.io/org-scribbler-theme/scribbler.setup
 #+EXPORT_FILE_NAME: docs/docker.html
 
 * Command line

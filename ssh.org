@@ -1,8 +1,9 @@
 #+TITLE: Secure Shell (ssh)
+#+SUBTITLE: Secure Shell is a cryptographic network protocol for operating network services securely over an unsecured network.
 #+DATE: <2021-09-11 Sat>
 #+AUTHOR: b-coimbra
 #+EMAIL: me@metaphoric.dev
-#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+#+SETUPFILE: https://b-coimbra.github.io/org-scribbler-theme/scribbler.setup
 #+EXPORT_FILE_NAME: docs/ssh.html
 
 SSH provides a secure connection between the host machine and a remote server.

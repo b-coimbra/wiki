@@ -1,13 +1,10 @@
 #+TITLE: Angular
+#+SUBTITLE: Angular is a platform for building mobile and desktop web applications.
 #+DATE: <2021-09-11 Sat>
 #+AUTHOR: b-coimbra
 #+EMAIL: me@metaphoric.dev
-#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+#+SETUPFILE: https://b-coimbra.github.io/org-scribbler-theme/scribbler.setup
 #+EXPORT_FILE_NAME: docs/angular.html
-
-* Usage
-
-  Angular is a platform for building applications with the web (mobile too) using declarative templates.
 
 * Shell commands
 

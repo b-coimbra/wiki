@@ -1,13 +1,12 @@
 #+TITLE: Kubernetes
+#+SUBTITLE: Also known as K8s, is an open-source system for automating deployment, scaling, and management of containerized applications
 #+DATE: <2021-09-13 Mon>
 #+AUTHOR: b-coimbra
 #+EMAIL: me@metaphoric.dev
-#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+#+SETUPFILE: https://b-coimbra.github.io/org-scribbler-theme/scribbler.setup
 #+EXPORT_FILE_NAME: docs/k8s.html
 
 Kubernetes was built to manage both long-running service and batch jobs.
-
-[[./res/k8s/key-concepts.png]]
 
 ** Pods
 
