@@ -1,7 +1,7 @@
 #+TITLE: .NET
 #+SUBTITLE: NET is a developer platform with tools and libraries for building any type of app, including web, mobile, desktop, games, IoT, cloud, and microservices.
 #+DATE: <2021-09-09 Sat>
-#+AUTHOR: b-coimbra
+#+AUTHOR: Bruno Coimbra (b-coimbra)
 #+EMAIL: me@metaphoric.dev
 #+SETUPFILE: https://b-coimbra.github.io/org-scribbler-theme/scribbler.setup
 #+EXPORT_FILE_NAME: docs/dotnet.html

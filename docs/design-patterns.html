@@ -3,12 +3,12 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-14 ter 21:18 -->
+<!-- 2021-09-17 sex 15:13 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Design Patterns</title>
 <meta name="generator" content="Org mode" />
-<meta name="author" content="b-coimbra b-coimbra (Bruno Coimbra, index)" />
+<meta name="author" content="Bruno Coimbra (b-coimbra)" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -228,39 +228,39 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org1001633">Creational Patterns</a>
+<li><a href="#orga7cb021">Creational Patterns</a>
 <ul>
-<li><a href="#org090a1da">Factory Method</a></li>
-<li><a href="#orgbc2788f">Abstract Factory</a></li>
-<li><a href="#orgfa931a3">Builder</a></li>
-<li><a href="#org24af49f">Prototype</a></li>
-<li><a href="#orgb3adebe">Singleton</a></li>
+<li><a href="#org2c775f2">Factory Method</a></li>
+<li><a href="#org8789c91">Abstract Factory</a></li>
+<li><a href="#org1077743"><span class="todo TODO">TODO</span> Builder</a></li>
+<li><a href="#orgc5ec680"><span class="todo TODO">TODO</span> Prototype</a></li>
+<li><a href="#org6e47bfb">Singleton</a></li>
 </ul>
 </li>
-<li><a href="#org5bef362">Structural Patterns</a>
+<li><a href="#orgb8891d8"><span class="todo TODO">TODO</span> Structural Patterns</a>
 <ul>
-<li><a href="#org6c761a6">Adaptive</a></li>
-<li><a href="#org82bf75f">Bridge</a></li>
-<li><a href="#orgaf64b75">Composite</a></li>
-<li><a href="#org395e6be">Decorator</a></li>
-<li><a href="#org5677578">Facade</a></li>
-<li><a href="#org0f276b1">Flyweight</a></li>
-<li><a href="#orga373d89">Proxy</a></li>
+<li><a href="#org6e9275f">Adaptive</a></li>
+<li><a href="#orgab12c22">Bridge</a></li>
+<li><a href="#org7c6dad2">Composite</a></li>
+<li><a href="#org1c7818d">Decorator</a></li>
+<li><a href="#org3cad8c5">Facade</a></li>
+<li><a href="#org96dd88c">Flyweight</a></li>
+<li><a href="#org2f85793">Proxy</a></li>
 </ul>
 </li>
-<li><a href="#orgfcaaab5">Behavioral Patterns</a>
+<li><a href="#org20052f6"><span class="todo TODO">TODO</span> Behavioral Patterns</a>
 <ul>
-<li><a href="#org942aa69">Chain of Responsibility</a></li>
-<li><a href="#orgddae691">Command</a></li>
-<li><a href="#org03e5c43">Interpreter</a></li>
-<li><a href="#orge48667d">Iterator</a></li>
-<li><a href="#org50a762d">Mediator</a></li>
-<li><a href="#orgd9b9e1c">Memento</a></li>
-<li><a href="#orgf8f8a0d">Observer</a></li>
-<li><a href="#org8218675">State</a></li>
-<li><a href="#org03141fc">Strategy</a></li>
-<li><a href="#org2450567">Visitor</a></li>
-<li><a href="#org8fe6eff">Template Method</a></li>
+<li><a href="#org5e7367e">Chain of Responsibility</a></li>
+<li><a href="#org16258e2">Command</a></li>
+<li><a href="#org9caedd6">Interpreter</a></li>
+<li><a href="#org7e55da6">Iterator</a></li>
+<li><a href="#org71b85f6">Mediator</a></li>
+<li><a href="#org9632477">Memento</a></li>
+<li><a href="#org30e17d6">Observer</a></li>
+<li><a href="#orga78142a">State</a></li>
+<li><a href="#org5c00f8f">Strategy</a></li>
+<li><a href="#org58520d4">Visitor</a></li>
+<li><a href="#orgdde0d35">Template Method</a></li>
 </ul>
 </li>
 </ul>
@@ -270,13 +270,13 @@
 Each pattern is like a blueprint that you can customize to solve a particular design problem in your code.
 </p>
 
-<div id="outline-container-org1001633" class="outline-2">
-<h2 id="org1001633">Creational Patterns</h2>
-<div class="outline-text-2" id="text-org1001633">
+<div id="outline-container-orga7cb021" class="outline-2">
+<h2 id="orga7cb021">Creational Patterns</h2>
+<div class="outline-text-2" id="text-orga7cb021">
 </div>
-<div id="outline-container-org090a1da" class="outline-3">
-<h3 id="org090a1da">Factory Method</h3>
-<div class="outline-text-3" id="text-org090a1da">
+<div id="outline-container-org2c775f2" class="outline-3">
+<h3 id="org2c775f2">Factory Method</h3>
+<div class="outline-text-3" id="text-org2c775f2">
 <p>
 This creates a set of related objects or dependent objects.
 </p>
@@ -295,18 +295,18 @@ without specifying their concrete classes.
 </div>
 </div>
 
-<div id="outline-container-orgbc2788f" class="outline-3">
-<h3 id="orgbc2788f">Abstract Factory</h3>
-<div class="outline-text-3" id="text-orgbc2788f">
+<div id="outline-container-org8789c91" class="outline-3">
+<h3 id="org8789c91">Abstract Factory</h3>
+<div class="outline-text-3" id="text-org8789c91">
 <div class="org-src-container">
-<pre class="src src-typescript"><span style="color: #b48ead; font-weight: bold;">interface</span> <span style="color: #ECBE7B;">Door</span> {
-    <span style="color: #8FA1B3;">getDescription</span>(): <span style="color: #b48ead; font-weight: bold;">void</span>;
+<pre class="src src-typescript"><span style="color: #cc6666; font-weight: bold;">interface</span> <span style="color: #d3869b;">Door</span> {
+    <span style="color: #777777;">getDescription</span>(): <span style="color: #cc6666; font-weight: bold;">void</span>;
 }
 
-<span style="color: #b48ead; font-weight: bold;">class</span> <span style="color: #ECBE7B;">WoodenDoor</span> <span style="color: #b48ead; font-weight: bold;">implements</span> <span style="color: #ECBE7B;">Door</span>
+<span style="color: #cc6666; font-weight: bold;">class</span> <span style="color: #d3869b;">WoodenDoor</span> <span style="color: #cc6666; font-weight: bold;">implements</span> <span style="color: #d3869b;">Door</span>
 {
-    <span style="color: #b48ead; font-weight: bold;">public</span> <span style="color: #b48ead; font-weight: bold;">function</span> <span style="color: #8FA1B3;">getDescription</span>() {
-        <span style="color: #ECBE7B;">console</span>.<span style="color: #8FA1B3;">log</span>(<span style="color: #A3BE8C;">"I am a wooden door"</span>);
+    <span style="color: #cc6666; font-weight: bold;">public</span> <span style="color: #cc6666; font-weight: bold;">function</span> <span style="color: #777777;">getDescription</span>() {
+        <span style="color: #d3869b;">console</span>.<span style="color: #777777;">log</span>(<span style="color: #476562;">"I am a wooden door"</span>);
     }
 }
 </pre>
@@ -314,28 +314,28 @@ without specifying their concrete classes.
 </div>
 </div>
 
-<div id="outline-container-orgfa931a3" class="outline-3">
-<h3 id="orgfa931a3">Builder</h3>
+<div id="outline-container-org1077743" class="outline-3">
+<h3 id="org1077743"><span class="todo TODO">TODO</span> Builder</h3>
 </div>
 
-<div id="outline-container-org24af49f" class="outline-3">
-<h3 id="org24af49f">Prototype</h3>
+<div id="outline-container-orgc5ec680" class="outline-3">
+<h3 id="orgc5ec680"><span class="todo TODO">TODO</span> Prototype</h3>
 </div>
 
-<div id="outline-container-orgb3adebe" class="outline-3">
-<h3 id="orgb3adebe">Singleton</h3>
-<div class="outline-text-3" id="text-orgb3adebe">
+<div id="outline-container-org6e47bfb" class="outline-3">
+<h3 id="org6e47bfb">Singleton</h3>
+<div class="outline-text-3" id="text-org6e47bfb">
 <div class="org-src-container">
-<pre class="src src-typescript"><span style="color: #b48ead; font-weight: bold;">public</span> Analytics {
-    <span style="color: #b48ead; font-weight: bold;">private</span> <span style="color: #b48ead; font-weight: bold;">static</span> _instance: <span style="color: #ECBE7B;">Analytics</span>;
+<pre class="src src-typescript"><span style="color: #cc6666; font-weight: bold;">public</span> Analytics {
+    <span style="color: #cc6666; font-weight: bold;">private</span> <span style="color: #cc6666; font-weight: bold;">static</span> _instance: <span style="color: #d3869b;">Analytics</span>;
 
-    <span style="color: #b48ead; font-weight: bold;">private</span> <span style="color: #8FA1B3;">Analytics</span>() { }
+    <span style="color: #cc6666; font-weight: bold;">private</span> <span style="color: #777777;">Analytics</span>() { }
 
-    <span style="color: #b48ead; font-weight: bold;">public</span> <span style="color: #b48ead; font-weight: bold;">static</span> <span style="color: #8FA1B3;">getInstance</span>(): <span style="color: #ECBE7B;">Analytics</span> {
-        <span style="color: #b48ead; font-weight: bold;">if</span> (!Analytics._instance)
-            Analytics._instance = <span style="color: #b48ead; font-weight: bold;">new</span> <span style="color: #ECBE7B;">Analytics</span>();
+    <span style="color: #cc6666; font-weight: bold;">public</span> <span style="color: #cc6666; font-weight: bold;">static</span> <span style="color: #777777;">getInstance</span>(): <span style="color: #d3869b;">Analytics</span> {
+        <span style="color: #cc6666; font-weight: bold;">if</span> (!Analytics._instance)
+            Analytics._instance = <span style="color: #cc6666; font-weight: bold;">new</span> <span style="color: #d3869b;">Analytics</span>();
 
-        <span style="color: #b48ead; font-weight: bold;">return</span> Analytics._instance;
+        <span style="color: #cc6666; font-weight: bold;">return</span> Analytics._instance;
     }
 }
 </pre>
@@ -344,92 +344,92 @@ without specifying their concrete classes.
 </div>
 </div>
 
-<div id="outline-container-org5bef362" class="outline-2">
-<h2 id="org5bef362">Structural Patterns</h2>
-<div class="outline-text-2" id="text-org5bef362">
+<div id="outline-container-orgb8891d8" class="outline-2">
+<h2 id="orgb8891d8"><span class="todo TODO">TODO</span> Structural Patterns</h2>
+<div class="outline-text-2" id="text-orgb8891d8">
 </div>
-<div id="outline-container-org6c761a6" class="outline-3">
-<h3 id="org6c761a6">Adaptive</h3>
-</div>
-
-<div id="outline-container-org82bf75f" class="outline-3">
-<h3 id="org82bf75f">Bridge</h3>
+<div id="outline-container-org6e9275f" class="outline-3">
+<h3 id="org6e9275f">Adaptive</h3>
 </div>
 
-<div id="outline-container-orgaf64b75" class="outline-3">
-<h3 id="orgaf64b75">Composite</h3>
+<div id="outline-container-orgab12c22" class="outline-3">
+<h3 id="orgab12c22">Bridge</h3>
 </div>
 
-<div id="outline-container-org395e6be" class="outline-3">
-<h3 id="org395e6be">Decorator</h3>
+<div id="outline-container-org7c6dad2" class="outline-3">
+<h3 id="org7c6dad2">Composite</h3>
 </div>
 
-<div id="outline-container-org5677578" class="outline-3">
-<h3 id="org5677578">Facade</h3>
+<div id="outline-container-org1c7818d" class="outline-3">
+<h3 id="org1c7818d">Decorator</h3>
 </div>
 
-<div id="outline-container-org0f276b1" class="outline-3">
-<h3 id="org0f276b1">Flyweight</h3>
+<div id="outline-container-org3cad8c5" class="outline-3">
+<h3 id="org3cad8c5">Facade</h3>
 </div>
 
-<div id="outline-container-orga373d89" class="outline-3">
-<h3 id="orga373d89">Proxy</h3>
+<div id="outline-container-org96dd88c" class="outline-3">
+<h3 id="org96dd88c">Flyweight</h3>
+</div>
+
+<div id="outline-container-org2f85793" class="outline-3">
+<h3 id="org2f85793">Proxy</h3>
 </div>
 </div>
 
-<div id="outline-container-orgfcaaab5" class="outline-2">
-<h2 id="orgfcaaab5">Behavioral Patterns</h2>
-<div class="outline-text-2" id="text-orgfcaaab5">
+<div id="outline-container-org20052f6" class="outline-2">
+<h2 id="org20052f6"><span class="todo TODO">TODO</span> Behavioral Patterns</h2>
+<div class="outline-text-2" id="text-org20052f6">
 </div>
-<div id="outline-container-org942aa69" class="outline-3">
-<h3 id="org942aa69">Chain of Responsibility</h3>
-</div>
-
-<div id="outline-container-orgddae691" class="outline-3">
-<h3 id="orgddae691">Command</h3>
+<div id="outline-container-org5e7367e" class="outline-3">
+<h3 id="org5e7367e">Chain of Responsibility</h3>
 </div>
 
-<div id="outline-container-org03e5c43" class="outline-3">
-<h3 id="org03e5c43">Interpreter</h3>
+<div id="outline-container-org16258e2" class="outline-3">
+<h3 id="org16258e2">Command</h3>
 </div>
 
-<div id="outline-container-orge48667d" class="outline-3">
-<h3 id="orge48667d">Iterator</h3>
+<div id="outline-container-org9caedd6" class="outline-3">
+<h3 id="org9caedd6">Interpreter</h3>
 </div>
 
-<div id="outline-container-org50a762d" class="outline-3">
-<h3 id="org50a762d">Mediator</h3>
+<div id="outline-container-org7e55da6" class="outline-3">
+<h3 id="org7e55da6">Iterator</h3>
 </div>
 
-<div id="outline-container-orgd9b9e1c" class="outline-3">
-<h3 id="orgd9b9e1c">Memento</h3>
+<div id="outline-container-org71b85f6" class="outline-3">
+<h3 id="org71b85f6">Mediator</h3>
 </div>
 
-<div id="outline-container-orgf8f8a0d" class="outline-3">
-<h3 id="orgf8f8a0d">Observer</h3>
+<div id="outline-container-org9632477" class="outline-3">
+<h3 id="org9632477">Memento</h3>
 </div>
 
-<div id="outline-container-org8218675" class="outline-3">
-<h3 id="org8218675">State</h3>
+<div id="outline-container-org30e17d6" class="outline-3">
+<h3 id="org30e17d6">Observer</h3>
 </div>
 
-<div id="outline-container-org03141fc" class="outline-3">
-<h3 id="org03141fc">Strategy</h3>
+<div id="outline-container-orga78142a" class="outline-3">
+<h3 id="orga78142a">State</h3>
 </div>
 
-<div id="outline-container-org2450567" class="outline-3">
-<h3 id="org2450567">Visitor</h3>
+<div id="outline-container-org5c00f8f" class="outline-3">
+<h3 id="org5c00f8f">Strategy</h3>
 </div>
 
-<div id="outline-container-org8fe6eff" class="outline-3">
-<h3 id="org8fe6eff">Template Method</h3>
+<div id="outline-container-org58520d4" class="outline-3">
+<h3 id="org58520d4">Visitor</h3>
+</div>
+
+<div id="outline-container-orgdde0d35" class="outline-3">
+<h3 id="orgdde0d35">Template Method</h3>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="date">Date: 2021-09-13 seg 00:00</p>
-<p class="author">Author: b-coimbra b-coimbra (Bruno Coimbra, index)</p>
-<p class="date">Created: 2021-09-14 ter 21:18</p>
+<p class="author">Author: Bruno Coimbra (b-coimbra)</p>
+<p class="date">Created: 2021-09-17 sex 15:13</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

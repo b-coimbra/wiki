@@ -1,7 +1,7 @@
 #+TITLE: Spacemacs
 #+SUBTITLE: A community-driven Emacs distribution.
 #+DATE: <2021-09-11 Sat>
-#+AUTHOR: b-coimbra
+#+AUTHOR: Bruno Coimbra (b-coimbra)
 #+EMAIL: me@metaphoric.dev
 #+SETUPFILE: https://b-coimbra.github.io/org-scribbler-theme/scribbler.setup
 #+EXPORT_FILE_NAME: docs/spacemacs.html

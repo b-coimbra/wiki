@@ -1,7 +1,7 @@
 #+TITLE: Dorks
 #+SUBTITLE: The GHDB is an index of search queries (we call them dorks) used to find publicly available information, intended for pentesters and security researchers.
 #+DATE: <2021-09-13 Mon>
-#+AUTHOR: b-coimbra
+#+AUTHOR: Bruno Coimbra (b-coimbra)
 #+EMAIL: me@metaphoric.dev
 #+SETUPFILE: https://b-coimbra.github.io/org-scribbler-theme/scribbler.setup
 #+EXPORT_FILE_NAME: docs/dorks.html

@@ -1,7 +1,7 @@
 #+TITLE: SOLID
 #+SUBTITLE: In software engineering, SOLID is a mnemonic acronym for five design principles intended to make software designs more understandable, flexible, and maintainable.
 #+DATE: <2021-09-13 Mon>
-#+AUTHOR: b-coimbra
+#+AUTHOR: Bruno Coimbra (b-coimbra)
 #+EMAIL: me@metaphoric.dev
 #+SETUPFILE: https://b-coimbra.github.io/org-scribbler-theme/scribbler.setup
 #+EXPORT_FILE_NAME: docs/SOLID.html

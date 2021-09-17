@@ -3,12 +3,12 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-14 ter 21:33 -->
+<!-- 2021-09-17 sex 15:26 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>SOLID</title>
 <meta name="generator" content="Org mode" />
-<meta name="author" content="b-coimbra b-coimbra (Bruno Coimbra, index)" />
+<meta name="author" content="Bruno Coimbra (b-coimbra)" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -228,18 +228,18 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org78f3ff7">SRP (Single Reponsibility Principle)</a></li>
-<li><a href="#org99e5ec4">OCP (Open Closed Principle)</a></li>
-<li><a href="#org511a2be">LSP (Liskov Substitution Principle)</a></li>
-<li><a href="#org7666953">ISP (Interface Segregation Principle)</a></li>
-<li><a href="#orgb74cf0d">DIP (Dependency Inversion Principle)</a></li>
+<li><a href="#orgd705ca5">SRP (Single Reponsibility Principle)</a></li>
+<li><a href="#org77c0feb">OCP (Open Closed Principle)</a></li>
+<li><a href="#orgbde07ea">LSP (Liskov Substitution Principle)</a></li>
+<li><a href="#orgb8b11c0">ISP (Interface Segregation Principle)</a></li>
+<li><a href="#orgd92a529">DIP (Dependency Inversion Principle)</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org78f3ff7" class="outline-2">
-<h2 id="org78f3ff7">SRP (Single Reponsibility Principle)</h2>
-<div class="outline-text-2" id="text-org78f3ff7">
+<div id="outline-container-orgd705ca5" class="outline-2">
+<h2 id="orgd705ca5">SRP (Single Reponsibility Principle)</h2>
+<div class="outline-text-2" id="text-orgd705ca5">
 <p>
 <i>A module should only have one, and only one reason to change.</i>
 </p>
@@ -253,13 +253,13 @@ A class should not handle operations that goes out of the objective of the class
 </p>
 
 <div class="org-src-container">
-<pre class="src src-typescript"><span style="color: #b48ead; font-weight: bold;">class</span> <span style="color: #ECBE7B;">AreaCalculator</span> {
-    <span style="color: #b48ead; font-weight: bold;">constructor</span> (shapes: <span style="color: #b48ead; font-weight: bold;">number</span>[]) {
-        <span style="color: #b48ead; font-weight: bold;">this</span>.shapes = shapes;
+<pre class="src src-typescript"><span style="color: #cc6666; font-weight: bold;">class</span> <span style="color: #d3869b;">AreaCalculator</span> {
+    <span style="color: #cc6666; font-weight: bold;">constructor</span> (shapes: <span style="color: #cc6666; font-weight: bold;">number</span>[]) {
+        <span style="color: #cc6666; font-weight: bold;">this</span>.shapes = shapes;
     }
 
-    <span style="color: #8FA1B3;">sum</span> (): <span style="color: #b48ead; font-weight: bold;">number</span> {
-        <span style="color: #65737E;">// </span><span style="color: #65737E;">logic to sum the area</span>
+    <span style="color: #777777;">sum</span> (): <span style="color: #cc6666; font-weight: bold;">number</span> {
+        <span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">logic to sum the area</span>
     }
 }
 </pre>
@@ -270,9 +270,9 @@ We'd simply instantiate the class and pass an array of shapes, then display the 
 </p>
 
 <div class="org-src-container">
-<pre class="src src-typescript">areas = AreaCalculator.<span style="color: #b48ead; font-weight: bold;">new</span>([2, 5, 6])
+<pre class="src src-typescript">areas = AreaCalculator.<span style="color: #cc6666; font-weight: bold;">new</span>([2, 5, 6])
 
-<span style="color: #ECBE7B;">console</span>.<span style="color: #8FA1B3;">log</span>(areas.<span style="color: #8FA1B3;">sum</span>());
+<span style="color: #d3869b;">console</span>.<span style="color: #777777;">log</span>(areas.<span style="color: #777777;">sum</span>());
 </pre>
 </div>
 
@@ -289,12 +289,12 @@ Instead, we create a new class, <b>AreaCalculatorOutputter</b> to handle the con
 </p>
 
 <div class="org-src-container">
-<pre class="src src-typescript">areas  = AreaCalculator.<span style="color: #b48ead; font-weight: bold;">new</span>([2, 5, 6])
-output = <span style="color: #8FA1B3;">SumCalculatorOutputter</span>(areas);
+<pre class="src src-typescript">areas  = AreaCalculator.<span style="color: #cc6666; font-weight: bold;">new</span>([2, 5, 6])
+output = <span style="color: #777777;">SumCalculatorOutputter</span>(areas);
 
-<span style="color: #ECBE7B;">console</span>.<span style="color: #8FA1B3;">log</span>(output.<span style="color: #8FA1B3;">json</span>());
-<span style="color: #ECBE7B;">console</span>.<span style="color: #8FA1B3;">log</span>(output.<span style="color: #8FA1B3;">html</span>());
-<span style="color: #ECBE7B;">console</span>.<span style="color: #8FA1B3;">log</span>(output.<span style="color: #8FA1B3;">haml</span>());
+<span style="color: #d3869b;">console</span>.<span style="color: #777777;">log</span>(output.<span style="color: #777777;">json</span>());
+<span style="color: #d3869b;">console</span>.<span style="color: #777777;">log</span>(output.<span style="color: #777777;">html</span>());
+<span style="color: #d3869b;">console</span>.<span style="color: #777777;">log</span>(output.<span style="color: #777777;">haml</span>());
 </pre>
 </div>
 
@@ -309,9 +309,9 @@ When this principle is broken, the following issues arise:
 </div>
 </div>
 
-<div id="outline-container-org99e5ec4" class="outline-2">
-<h2 id="org99e5ec4">OCP (Open Closed Principle)</h2>
-<div class="outline-text-2" id="text-org99e5ec4">
+<div id="outline-container-org77c0feb" class="outline-2">
+<h2 id="org77c0feb">OCP (Open Closed Principle)</h2>
+<div class="outline-text-2" id="text-org77c0feb">
 <p>
 <i>A module should be open to extension, but closed for modification.</i>
 </p>
@@ -329,17 +329,17 @@ Looking at the AreaCalculator class, the <b>sum</b> method:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-typescript"><span style="color: #8FA1B3;">sum</span> (): <span style="color: #b48ead; font-weight: bold;">number</span> {
-    <span style="color: #b48ead; font-weight: bold;">let</span> <span style="color: #BF616A;">area</span>: <span style="color: #b48ead; font-weight: bold;">number</span>;
+<pre class="src src-typescript"><span style="color: #777777;">sum</span> (): <span style="color: #cc6666; font-weight: bold;">number</span> {
+    <span style="color: #cc6666; font-weight: bold;">let</span> <span style="color: #83a598;">area</span>: <span style="color: #cc6666; font-weight: bold;">number</span>;
 
-    <span style="color: #b48ead; font-weight: bold;">for</span> (<span style="color: #b48ead; font-weight: bold;">let</span> <span style="color: #BF616A;">shape</span> <span style="color: #b48ead; font-weight: bold;">of</span> shapes) {
-        <span style="color: #b48ead; font-weight: bold;">if</span> (shape == <span style="color: #A3BE8C;">'Square'</span>)
-            area = <span style="color: #8FA1B3;">pow</span>(shape.length, 2);
-        <span style="color: #b48ead; font-weight: bold;">else</span> <span style="color: #b48ead; font-weight: bold;">if</span> (shape == <span style="color: #A3BE8C;">'Circle'</span>)
-            area = Math.PI * <span style="color: #8FA1B3;">pow</span>(Math.<span style="color: #8FA1B3;">radius</span>(shape), 2);
+    <span style="color: #cc6666; font-weight: bold;">for</span> (<span style="color: #cc6666; font-weight: bold;">let</span> <span style="color: #83a598;">shape</span> <span style="color: #cc6666; font-weight: bold;">of</span> shapes) {
+        <span style="color: #cc6666; font-weight: bold;">if</span> (shape == <span style="color: #476562;">'Square'</span>)
+            area = <span style="color: #777777;">pow</span>(shape.length, 2);
+        <span style="color: #cc6666; font-weight: bold;">else</span> <span style="color: #cc6666; font-weight: bold;">if</span> (shape == <span style="color: #476562;">'Circle'</span>)
+            area = Math.PI * <span style="color: #777777;">pow</span>(Math.<span style="color: #777777;">radius</span>(shape), 2);
     }
 
-    <span style="color: #b48ead; font-weight: bold;">return</span> Math.<span style="color: #8FA1B3;">sum</span>(shape);
+    <span style="color: #cc6666; font-weight: bold;">return</span> Math.<span style="color: #777777;">sum</span>(shape);
 }
 </pre>
 </div>
@@ -353,13 +353,13 @@ One way to handle this is to remove the logic of the sum in the AreaCalculator c
 </p>
 
 <div class="org-src-container">
-<pre class="src src-typescript"><span style="color: #b48ead; font-weight: bold;">class</span> <span style="color: #ECBE7B;">Square</span> {
-    <span style="color: #b48ead; font-weight: bold;">constructor</span> (length: <span style="color: #b48ead; font-weight: bold;">number</span>) {
-        <span style="color: #b48ead; font-weight: bold;">this</span>.length = length;
+<pre class="src src-typescript"><span style="color: #cc6666; font-weight: bold;">class</span> <span style="color: #d3869b;">Square</span> {
+    <span style="color: #cc6666; font-weight: bold;">constructor</span> (length: <span style="color: #cc6666; font-weight: bold;">number</span>) {
+        <span style="color: #cc6666; font-weight: bold;">this</span>.length = length;
     }
 
-    <span style="color: #8FA1B3;">area</span> (): <span style="color: #b48ead; font-weight: bold;">number</span> {
-        <span style="color: #b48ead; font-weight: bold;">return</span> <span style="color: #8FA1B3;">pow</span>(<span style="color: #b48ead; font-weight: bold;">this</span>.length, 2);
+    <span style="color: #777777;">area</span> (): <span style="color: #cc6666; font-weight: bold;">number</span> {
+        <span style="color: #cc6666; font-weight: bold;">return</span> <span style="color: #777777;">pow</span>(<span style="color: #cc6666; font-weight: bold;">this</span>.length, 2);
     }
 }
 </pre>
@@ -378,21 +378,21 @@ We create <b>interfaces</b> for it, that every shape implements:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-typescript"><span style="color: #b48ead; font-weight: bold;">interface</span> <span style="color: #ECBE7B;">ShapeInterface</span> {
-    <span style="color: #8FA1B3;">area</span> (): <span style="color: #b48ead; font-weight: bold;">void</span>;
+<pre class="src src-typescript"><span style="color: #cc6666; font-weight: bold;">interface</span> <span style="color: #d3869b;">ShapeInterface</span> {
+    <span style="color: #777777;">area</span> (): <span style="color: #cc6666; font-weight: bold;">void</span>;
 }
 
-<span style="color: #b48ead; font-weight: bold;">class</span> <span style="color: #ECBE7B;">Circle</span> <span style="color: #b48ead; font-weight: bold;">implements</span> <span style="color: #ECBE7B;">ShapeInterface</span> {
-    <span style="color: #65737E;">// </span><span style="color: #65737E;">...</span>
+<span style="color: #cc6666; font-weight: bold;">class</span> <span style="color: #d3869b;">Circle</span> <span style="color: #cc6666; font-weight: bold;">implements</span> <span style="color: #d3869b;">ShapeInterface</span> {
+    <span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">...</span>
 }
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org511a2be" class="outline-2">
-<h2 id="org511a2be">LSP (Liskov Substitution Principle)</h2>
-<div class="outline-text-2" id="text-org511a2be">
+<div id="outline-container-orgbde07ea" class="outline-2">
+<h2 id="orgbde07ea">LSP (Liskov Substitution Principle)</h2>
+<div class="outline-text-2" id="text-orgbde07ea">
 <p>
 <i>A superclass module should be replaceable by its subclass modules</i>
 </p>
@@ -403,9 +403,9 @@ In other words, every derived class can be used as if it were the base class.
 </div>
 </div>
 
-<div id="outline-container-org7666953" class="outline-2">
-<h2 id="org7666953">ISP (Interface Segregation Principle)</h2>
-<div class="outline-text-2" id="text-org7666953">
+<div id="outline-container-orgb8b11c0" class="outline-2">
+<h2 id="orgb8b11c0">ISP (Interface Segregation Principle)</h2>
+<div class="outline-text-2" id="text-orgb8b11c0">
 <p>
 <i>A client should never be forced to implement an interface that it doesn't use or clients shouldn't be forced to depend on methods they do not use</i>
 </p>
@@ -415,9 +415,9 @@ If we wanted to calculate the volume of the shape, we'd simply modify the ShapeI
 </p>
 
 <div class="org-src-container">
-<pre class="src src-typescript"><span style="color: #b48ead; font-weight: bold;">interface</span> <span style="color: #ECBE7B;">ShapeInterface</span> {
-    <span style="color: #8FA1B3;">area</span>(): <span style="color: #b48ead; font-weight: bold;">number</span>;
-    <span style="color: #8FA1B3;">volume</span>(): <span style="color: #b48ead; font-weight: bold;">number</span>;
+<pre class="src src-typescript"><span style="color: #cc6666; font-weight: bold;">interface</span> <span style="color: #d3869b;">ShapeInterface</span> {
+    <span style="color: #777777;">area</span>(): <span style="color: #cc6666; font-weight: bold;">number</span>;
+    <span style="color: #777777;">volume</span>(): <span style="color: #cc6666; font-weight: bold;">number</span>;
 }
 </pre>
 </div>
@@ -435,21 +435,21 @@ ISP says no to this, instead we could create another interface called SolidShape
 </p>
 
 <div class="org-src-container">
-<pre class="src src-typescript"><span style="color: #b48ead; font-weight: bold;">interface</span> <span style="color: #ECBE7B;">ShapeInterface</span> {
-    <span style="color: #8FA1B3;">area</span>(): <span style="color: #b48ead; font-weight: bold;">number</span>;
+<pre class="src src-typescript"><span style="color: #cc6666; font-weight: bold;">interface</span> <span style="color: #d3869b;">ShapeInterface</span> {
+    <span style="color: #777777;">area</span>(): <span style="color: #cc6666; font-weight: bold;">number</span>;
 }
 
-<span style="color: #b48ead; font-weight: bold;">interface</span> <span style="color: #ECBE7B;">SolidShapeInterface</span> {
-    <span style="color: #8FA1B3;">volume</span>(): <span style="color: #b48ead; font-weight: bold;">number</span>;
+<span style="color: #cc6666; font-weight: bold;">interface</span> <span style="color: #d3869b;">SolidShapeInterface</span> {
+    <span style="color: #777777;">volume</span>(): <span style="color: #cc6666; font-weight: bold;">number</span>;
 }
 
-<span style="color: #b48ead; font-weight: bold;">class</span> <span style="color: #ECBE7B;">Cuboid</span> <span style="color: #b48ead; font-weight: bold;">implements</span> <span style="color: #ECBE7B;">ShapeInterface</span>, <span style="color: #ECBE7B;">SolidShapeInterface</span> {
-    <span style="color: #8FA1B3;">area</span> (): <span style="color: #b48ead; font-weight: bold;">number</span> {
-        <span style="color: #65737E;">// </span><span style="color: #65737E;">calculate the area of the cuboid</span>
+<span style="color: #cc6666; font-weight: bold;">class</span> <span style="color: #d3869b;">Cuboid</span> <span style="color: #cc6666; font-weight: bold;">implements</span> <span style="color: #d3869b;">ShapeInterface</span>, <span style="color: #d3869b;">SolidShapeInterface</span> {
+    <span style="color: #777777;">area</span> (): <span style="color: #cc6666; font-weight: bold;">number</span> {
+        <span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">calculate the area of the cuboid</span>
     }
 
-    <span style="color: #8FA1B3;">volume</span> (): <span style="color: #b48ead; font-weight: bold;">number</span> {
-        <span style="color: #65737E;">// </span><span style="color: #65737E;">calculate the volume of the cuboid</span>
+    <span style="color: #777777;">volume</span> (): <span style="color: #cc6666; font-weight: bold;">number</span> {
+        <span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">calculate the volume of the cuboid</span>
     }
 }
 </pre>
@@ -457,9 +457,9 @@ ISP says no to this, instead we could create another interface called SolidShape
 </div>
 </div>
 
-<div id="outline-container-orgb74cf0d" class="outline-2">
-<h2 id="orgb74cf0d">DIP (Dependency Inversion Principle)</h2>
-<div class="outline-text-2" id="text-orgb74cf0d">
+<div id="outline-container-orgd92a529" class="outline-2">
+<h2 id="orgd92a529">DIP (Dependency Inversion Principle)</h2>
+<div class="outline-text-2" id="text-orgd92a529">
 <p>
 <i>Entities must depend on abstractions not on concretions. It states that the high level module must not depend on the low level module, but they should depend on abstractions.</i>
 </p>
@@ -469,9 +469,9 @@ Assuming we have a class <b>PasswordReminder</b> that connects to the database:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-typescript"><span style="color: #b48ead; font-weight: bold;">class</span> <span style="color: #ECBE7B;">PasswordReminder</span> {
-    <span style="color: #b48ead; font-weight: bold;">constructor</span> (dbConnection: <span style="color: #ECBE7B;">MySQLConnection</span>) {
-        <span style="color: #b48ead; font-weight: bold;">this</span>.dbConnection = dbConnection;
+<pre class="src src-typescript"><span style="color: #cc6666; font-weight: bold;">class</span> <span style="color: #d3869b;">PasswordReminder</span> {
+    <span style="color: #cc6666; font-weight: bold;">constructor</span> (dbConnection: <span style="color: #d3869b;">MySQLConnection</span>) {
+        <span style="color: #cc6666; font-weight: bold;">this</span>.dbConnection = dbConnection;
     }
 }
 </pre>
@@ -491,8 +491,8 @@ To fix this, we create yet another interface.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-typescript"><span style="color: #b48ead; font-weight: bold;">interface</span> <span style="color: #ECBE7B;">DBConnectionInterface</span> {
-    <span style="color: #8FA1B3;">connect</span> (): <span style="color: #b48ead; font-weight: bold;">void</span>;
+<pre class="src src-typescript"><span style="color: #cc6666; font-weight: bold;">interface</span> <span style="color: #d3869b;">DBConnectionInterface</span> {
+    <span style="color: #777777;">connect</span> (): <span style="color: #cc6666; font-weight: bold;">void</span>;
 }
 </pre>
 </div>
@@ -502,15 +502,15 @@ The interface has a connect method and the <b>MySQLConnection</b> implements thi
 </p>
 
 <div class="org-src-container">
-<pre class="src src-typescript"><span style="color: #b48ead; font-weight: bold;">class</span> <span style="color: #ECBE7B;">MySQLConnection</span> <span style="color: #b48ead; font-weight: bold;">implements</span> <span style="color: #ECBE7B;">DBConnectionInterface</span> {
-    <span style="color: #8FA1B3;">connect</span> (): <span style="color: #b48ead; font-weight: bold;">void</span> {
-        <span style="color: #65737E;">// </span><span style="color: #65737E;">connects to a database</span>
+<pre class="src src-typescript"><span style="color: #cc6666; font-weight: bold;">class</span> <span style="color: #d3869b;">MySQLConnection</span> <span style="color: #cc6666; font-weight: bold;">implements</span> <span style="color: #d3869b;">DBConnectionInterface</span> {
+    <span style="color: #777777;">connect</span> (): <span style="color: #cc6666; font-weight: bold;">void</span> {
+        <span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">connects to a database</span>
     }
 }
 
-<span style="color: #b48ead; font-weight: bold;">class</span> <span style="color: #ECBE7B;">PasswordReminder</span> {
-    <span style="color: #b48ead; font-weight: bold;">constructor</span> (dbConnection: <span style="color: #ECBE7B;">DBConnectionInterface</span>) {
-        <span style="color: #b48ead; font-weight: bold;">this</span>.dbConnection = dbConnection;
+<span style="color: #cc6666; font-weight: bold;">class</span> <span style="color: #d3869b;">PasswordReminder</span> {
+    <span style="color: #cc6666; font-weight: bold;">constructor</span> (dbConnection: <span style="color: #d3869b;">DBConnectionInterface</span>) {
+        <span style="color: #cc6666; font-weight: bold;">this</span>.dbConnection = dbConnection;
     }
 }
 </pre>
@@ -520,8 +520,8 @@ The interface has a connect method and the <b>MySQLConnection</b> implements thi
 </div>
 <div id="postamble" class="status">
 <p class="date">Date: 2021-09-13 seg 00:00</p>
-<p class="author">Author: b-coimbra b-coimbra (Bruno Coimbra, index)</p>
-<p class="date">Created: 2021-09-14 ter 21:33</p>
+<p class="author">Author: Bruno Coimbra (b-coimbra)</p>
+<p class="date">Created: 2021-09-17 sex 15:26</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

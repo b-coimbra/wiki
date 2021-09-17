@@ -3,12 +3,12 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-14 ter 21:35 -->
+<!-- 2021-09-17 sex 15:26 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Secure Shell (ssh)</title>
 <meta name="generator" content="Org mode" />
-<meta name="author" content="b-coimbra b-coimbra (Bruno Coimbra, index)" />
+<meta name="author" content="Bruno Coimbra (b-coimbra)" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -228,14 +228,14 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgcc4421a">Authentication key pairs</a>
+<li><a href="#orge6209a8">Authentication key pairs</a>
 <ul>
-<li><a href="#org19b4945">Algorithms and key size</a></li>
+<li><a href="#org3ba92bb">Algorithms and key size</a></li>
 </ul>
 </li>
-<li><a href="#org8c8bb29">Copy pubkey to server</a></li>
-<li><a href="#org5a74afd">File tranfer</a></li>
-<li><a href="#org4de754e">Configuration file</a></li>
+<li><a href="#orgf42c0d6">Copy pubkey to server</a></li>
+<li><a href="#orgcef59e9">File tranfer</a></li>
+<li><a href="#orgfa4f624">Configuration file</a></li>
 </ul>
 </div>
 </div>
@@ -247,13 +247,13 @@ SSH provides a secure connection between the host machine and a remote server.
 <code>ssh -i &lt;path-to-private-key&gt; &lt;host&gt;</code> where <code>&lt;path-to-private-key&gt;</code> can be <code>~/.ssh/id_rsa</code> for instance.
 </p>
 
-<div id="outline-container-orgcc4421a" class="outline-2">
-<h2 id="orgcc4421a">Authentication key pairs</h2>
-<div class="outline-text-2" id="text-orgcc4421a">
+<div id="outline-container-orge6209a8" class="outline-2">
+<h2 id="orge6209a8">Authentication key pairs</h2>
+<div class="outline-text-2" id="text-orge6209a8">
 </div>
-<div id="outline-container-org19b4945" class="outline-3">
-<h3 id="org19b4945">Algorithms and key size</h3>
-<div class="outline-text-3" id="text-org19b4945">
+<div id="outline-container-org3ba92bb" class="outline-3">
+<h3 id="org3ba92bb">Algorithms and key size</h3>
+<div class="outline-text-3" id="text-org3ba92bb">
 <p>
 Currently, the relevant algorithms are <b>rsa</b> and <b>ed25519</b>.
 </p>
@@ -270,9 +270,9 @@ The algorithm is selected using the <code>-t</code> flag and key size using the 
 </div>
 </div>
 
-<div id="outline-container-org8c8bb29" class="outline-2">
-<h2 id="org8c8bb29">Copy pubkey to server</h2>
-<div class="outline-text-2" id="text-org8c8bb29">
+<div id="outline-container-orgf42c0d6" class="outline-2">
+<h2 id="orgf42c0d6">Copy pubkey to server</h2>
+<div class="outline-text-2" id="text-orgf42c0d6">
 <p>
 To use public key authentication, the public key must be copied to a server and installed in an authorized<sub>keys</sub> file.
 This can be conveniently done using the <code>ssh-copy-id</code> tool.
@@ -284,9 +284,9 @@ This can be conveniently done using the <code>ssh-copy-id</code> tool.
 </div>
 </div>
 
-<div id="outline-container-org5a74afd" class="outline-2">
-<h2 id="org5a74afd">File tranfer</h2>
-<div class="outline-text-2" id="text-org5a74afd">
+<div id="outline-container-orgcef59e9" class="outline-2">
+<h2 id="orgcef59e9">File tranfer</h2>
+<div class="outline-text-2" id="text-orgcef59e9">
 <p>
 Copy a file from/to the remote host and vice-versa.
 </p>
@@ -298,9 +298,9 @@ Copy a file from/to the remote host and vice-versa.
 </div>
 </div>
 
-<div id="outline-container-org4de754e" class="outline-2">
-<h2 id="org4de754e">Configuration file</h2>
-<div class="outline-text-2" id="text-org4de754e">
+<div id="outline-container-orgfa4f624" class="outline-2">
+<h2 id="orgfa4f624">Configuration file</h2>
+<div class="outline-text-2" id="text-orgfa4f624">
 <p>
 When connecting to multiple remote systems over SSH, it can be difficult to remember all of the remote IP addresses,
 different usernames and ports.
@@ -347,8 +347,8 @@ Then we can simply do <code>ssh targaryen</code> to remotely connect to the <cod
 </div>
 <div id="postamble" class="status">
 <p class="date">Date: 2021-09-11 sáb 00:00</p>
-<p class="author">Author: b-coimbra b-coimbra (Bruno Coimbra, index)</p>
-<p class="date">Created: 2021-09-14 ter 21:35</p>
+<p class="author">Author: Bruno Coimbra (b-coimbra)</p>
+<p class="date">Created: 2021-09-17 sex 15:26</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

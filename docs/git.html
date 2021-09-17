@@ -3,12 +3,12 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-14 ter 21:25 -->
+<!-- 2021-09-17 sex 15:25 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Git</title>
 <meta name="generator" content="Org mode" />
-<meta name="author" content="b-coimbra b-coimbra (Bruno Coimbra, index)" />
+<meta name="author" content="Bruno Coimbra (b-coimbra)" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -228,29 +228,29 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org2d9425d">General</a></li>
-<li><a href="#orgdef667b">Remove unwanted commited files</a></li>
-<li><a href="#org3929d1c">Hooks</a></li>
-<li><a href="#orga99f818">Bisect</a></li>
-<li><a href="#org439bcbe">Commit messages</a>
+<li><a href="#org1c9ee6e">General</a></li>
+<li><a href="#orgf0b6d42">Remove unwanted commited files</a></li>
+<li><a href="#org3778878">Hooks</a></li>
+<li><a href="#org6f0085c">Bisect</a></li>
+<li><a href="#org15f9dc6">Commit messages</a>
 <ul>
-<li><a href="#orgef7f282">Structural elements</a></li>
-<li><a href="#orge162e34">Type with scope</a></li>
-<li><a href="#org5dd5641"><code>!</code> to draw attention</a></li>
+<li><a href="#orgcd6425c">Structural elements</a></li>
+<li><a href="#org9f30b99">Type with scope</a></li>
+<li><a href="#org6ffbf18"><code>!</code> to draw attention</a></li>
 </ul>
 </li>
-<li><a href="#orgde2a678">Working with a team</a>
+<li><a href="#orgf18e4bb">Working with a team</a>
 <ul>
-<li><a href="#org4c49a05">Stashing</a></li>
+<li><a href="#orga215fa2">Stashing</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org2d9425d" class="outline-2">
-<h2 id="org2d9425d">General</h2>
-<div class="outline-text-2" id="text-org2d9425d">
+<div id="outline-container-org1c9ee6e" class="outline-2">
+<h2 id="org1c9ee6e">General</h2>
+<div class="outline-text-2" id="text-org1c9ee6e">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -325,9 +325,9 @@
 </div>
 </div>
 
-<div id="outline-container-orgdef667b" class="outline-2">
-<h2 id="orgdef667b">Remove unwanted commited files</h2>
-<div class="outline-text-2" id="text-orgdef667b">
+<div id="outline-container-orgf0b6d42" class="outline-2">
+<h2 id="orgf0b6d42">Remove unwanted commited files</h2>
+<div class="outline-text-2" id="text-orgf0b6d42">
 <ol class="org-ol">
 <li><code>git reset origin/develop -- &lt;file&gt;</code></li>
 <li><code>git commit --amend</code></li>
@@ -335,9 +335,9 @@
 </div>
 </div>
 
-<div id="outline-container-org3929d1c" class="outline-2">
-<h2 id="org3929d1c">Hooks</h2>
-<div class="outline-text-2" id="text-org3929d1c">
+<div id="outline-container-org3778878" class="outline-2">
+<h2 id="org3778878">Hooks</h2>
+<div class="outline-text-2" id="text-org3778878">
 <p>
 Git hooks are stored inside <code>.git/hooks</code> and have a <code>sample</code> extension on them.
 By removing that extension, the hook will be executed depending on the action performed (eg. commit/push)
@@ -349,26 +349,26 @@ Hooks are essentially shell scripts &#x2013; they can either be written in bash,
 </div>
 </div>
 
-<div id="outline-container-orga99f818" class="outline-2">
-<h2 id="orga99f818">Bisect</h2>
-<div class="outline-text-2" id="text-orga99f818">
+<div id="outline-container-org6f0085c" class="outline-2">
+<h2 id="org6f0085c">Bisect</h2>
+<div class="outline-text-2" id="text-org6f0085c">
 <p>
 Useful for finding a specific faulty commit that introduced a bug somewhere in a project.
 </p>
 
 <div class="org-src-container">
 <pre class="src src-bash">$ git bisect start
-$ git bisect bad   <span style="color: #65737E;"># </span><span style="color: #65737E;">current version (commit) is bad</span>
-$ git bisect good  <span style="color: #65737E;"># </span><span style="color: #65737E;">current version (commit) is good</span>
-$ git bisect reset <span style="color: #65737E;"># </span><span style="color: #65737E;">return to commit after bisect star</span>
+$ git bisect bad   <span style="color: #7c6f64;"># </span><span style="color: #7c6f64;">current version (commit) is bad</span>
+$ git bisect good  <span style="color: #7c6f64;"># </span><span style="color: #7c6f64;">current version (commit) is good</span>
+$ git bisect reset <span style="color: #7c6f64;"># </span><span style="color: #7c6f64;">return to commit after bisect star</span>
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org439bcbe" class="outline-2">
-<h2 id="org439bcbe">Commit messages</h2>
-<div class="outline-text-2" id="text-org439bcbe">
+<div id="outline-container-org15f9dc6" class="outline-2">
+<h2 id="org15f9dc6">Commit messages</h2>
+<div class="outline-text-2" id="text-org15f9dc6">
 <p>
 Reference: <a href="https://www.conventionalcommits.org/en/v1.0.0/">conventional commits</a>.
 </p>
@@ -388,9 +388,9 @@ Reference: <a href="https://www.conventionalcommits.org/en/v1.0.0/">conventional
 </blockquote>
 </div>
 
-<div id="outline-container-orgef7f282" class="outline-3">
-<h3 id="orgef7f282">Structural elements</h3>
-<div class="outline-text-3" id="text-orgef7f282">
+<div id="outline-container-orgcd6425c" class="outline-3">
+<h3 id="orgcd6425c">Structural elements</h3>
+<div class="outline-text-3" id="text-orgcd6425c">
 <p>
 Structural elements, to better communicate intent:
 </p>
@@ -406,9 +406,9 @@ Other types are also allowed, such as <b>build: *chore:</b> <b>docs: *ci:</b> <b
 </div>
 </div>
 
-<div id="outline-container-orge162e34" class="outline-3">
-<h3 id="orge162e34">Type with scope</h3>
-<div class="outline-text-3" id="text-orge162e34">
+<div id="outline-container-org9f30b99" class="outline-3">
+<h3 id="org9f30b99">Type with scope</h3>
+<div class="outline-text-3" id="text-org9f30b99">
 <p>
 Commit message with scope:
 </p>
@@ -425,9 +425,9 @@ chore(.gitignore): ignores more files/folders
 </div>
 </div>
 
-<div id="outline-container-org5dd5641" class="outline-3">
-<h3 id="org5dd5641"><code>!</code> to draw attention</h3>
-<div class="outline-text-3" id="text-org5dd5641">
+<div id="outline-container-org6ffbf18" class="outline-3">
+<h3 id="org6ffbf18"><code>!</code> to draw attention</h3>
+<div class="outline-text-3" id="text-org6ffbf18">
 <p>
 Commit message with ! to draw attention to breaking change:
 </p>
@@ -441,9 +441,9 @@ refactor!: drop support for Node 6
 </div>
 </div>
 
-<div id="outline-container-orgde2a678" class="outline-2">
-<h2 id="orgde2a678">Working with a team</h2>
-<div class="outline-text-2" id="text-orgde2a678">
+<div id="outline-container-orgf18e4bb" class="outline-2">
+<h2 id="orgf18e4bb">Working with a team</h2>
+<div class="outline-text-2" id="text-orgf18e4bb">
 <p>
 Create a master branch for the feature:
 </p>
@@ -453,9 +453,9 @@ Create a master branch for the feature:
 </ol>
 </div>
 
-<div id="outline-container-org4c49a05" class="outline-3">
-<h3 id="org4c49a05"><a href="https://git-scm.com/book/pt-br/v2/Git-Tools-Stashing-and-Cleaning">Stashing</a></h3>
-<div class="outline-text-3" id="text-org4c49a05">
+<div id="outline-container-orga215fa2" class="outline-3">
+<h3 id="orga215fa2"><a href="https://git-scm.com/book/pt-br/v2/Git-Tools-Stashing-and-Cleaning">Stashing</a></h3>
+<div class="outline-text-3" id="text-orga215fa2">
 <p>
 Often, we might want to switch to a different branch and save our changes before doing so. But the issue is, if we have unfinished
 work on our branch, we don't want to create another commit just to save our dirty, half-done work. <code>git stash</code> comes to the rescue
@@ -468,10 +468,10 @@ To push a new stash onto your stack, run <code>git stash</code> or <code>git sta
 
 <div class="org-src-container">
 <pre class="src src-sh">$ git stash
-Saved working directory and index state <span style="color: #A3BE8C;">\</span>
-      <span style="color: #A3BE8C;">"WIP on master: 049d078 added the index file"</span>
+Saved working directory and index state <span style="color: #476562;">\</span>
+      <span style="color: #476562;">"WIP on master: 049d078 added the index file"</span>
 HEAD is now at 049d078 added the index file
-(To restore them type <span style="color: #A3BE8C;">"git stash apply"</span>)
+(To restore them type <span style="color: #476562;">"git stash apply"</span>)
 </pre>
 </div>
 
@@ -483,7 +483,7 @@ To see which stashes you’ve stored, you can use <code>git stash list</code>:
 <div class="org-src-container">
 <pre class="src src-sh">$ git stash list
 stash@{0}: WIP on master: 049d078 added the index file
-stash@{1}: WIP on master: c264051 Revert <span style="color: #A3BE8C;">"added file_size"</span>
+stash@{1}: WIP on master: c264051 Revert <span style="color: #476562;">"added file_size"</span>
 stash@{2}: WIP on master: 21d80a5 added number to log
 </pre>
 </div>
@@ -499,13 +499,13 @@ If you don’t specify a stash, Git assumes the most recent stash and tries to a
 <pre class="src src-sh">$ git stash apply
 On branch master
 Changes not staged for commit:
-(use <span style="color: #A3BE8C;">"git add &lt;file&gt;..."</span> to update what will be committed)
-(use <span style="color: #A3BE8C;">"git checkout -- &lt;file&gt;..."</span> to discard changes<span style="color: #b48ead; font-weight: bold;"> in</span> working directory)
+(use <span style="color: #476562;">"git add &lt;file&gt;..."</span> to update what will be committed)
+(use <span style="color: #476562;">"git checkout -- &lt;file&gt;..."</span> to discard changes<span style="color: #cc6666; font-weight: bold;"> in</span> working directory)
 
 modified:   index.html
 modified:   lib/simplegit.rb
 
-no changes added to commit (use <span style="color: #A3BE8C;">"git add"</span> and/or <span style="color: #A3BE8C;">"git commit -a"</span>)
+no changes added to commit (use <span style="color: #476562;">"git add"</span> and/or <span style="color: #476562;">"git commit -a"</span>)
 </pre>
 </div>
 </div>
@@ -514,8 +514,8 @@ no changes added to commit (use <span style="color: #A3BE8C;">"git add"</span> a
 </div>
 <div id="postamble" class="status">
 <p class="date">Date: 2021-09-11 sáb 00:00</p>
-<p class="author">Author: b-coimbra b-coimbra (Bruno Coimbra, index)</p>
-<p class="date">Created: 2021-09-14 ter 21:25</p>
+<p class="author">Author: Bruno Coimbra (b-coimbra)</p>
+<p class="date">Created: 2021-09-17 sex 15:25</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

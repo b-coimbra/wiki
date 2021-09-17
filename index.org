@@ -1,7 +1,7 @@
 #+TITLE: My Notes
 #+SUBTITLE: Various annotations/cheatsheets neatly organized for the sake of knowledge retention. Source can be found [[https://github.com/b-coimbra/notes][here]].
 #+DATE: <2021-09-09 Sat>
-#+AUTHOR: b-coimbra
+#+AUTHOR: Bruno Coimbra (b-coimbra)
 #+EMAIL: me@metaphoric.dev
 #+SETUPFILE: https://b-coimbra.github.io/org-scribbler-theme/scribbler.setup
 #+EXPORT_FILE_NAME: docs/index.html

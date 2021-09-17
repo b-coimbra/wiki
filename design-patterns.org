@@ -1,7 +1,7 @@
 #+TITLE: Design Patterns
 #+SUBTITLE: Design patterns are typical solutions to common problems in software design.
 #+DATE: <2021-09-13 Mon>
-#+AUTHOR: b-coimbra
+#+AUTHOR: Bruno Coimbra (b-coimbra)
 #+EMAIL: me@metaphoric.dev
 #+SETUPFILE: https://b-coimbra.github.io/org-scribbler-theme/scribbler.setup
 #+EXPORT_FILE_NAME: docs/design-patterns.html
@@ -34,9 +34,9 @@ Each pattern is like a blueprint that you can customize to solve a particular de
      }
    #+end_src
 
-** Builder
+** TODO Builder
 
-** Prototype
+** TODO Prototype
 
 ** Singleton
 
@@ -55,7 +55,7 @@ Each pattern is like a blueprint that you can customize to solve a particular de
      }
    #+end_src
 
-* Structural Patterns
+* TODO Structural Patterns
 ** Adaptive
 
 ** Bridge
@@ -70,7 +70,7 @@ Each pattern is like a blueprint that you can customize to solve a particular de
 
 ** Proxy
 
-* Behavioral Patterns
+* TODO Behavioral Patterns
 ** Chain of Responsibility
 
 ** Command

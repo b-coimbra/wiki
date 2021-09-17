@@ -3,12 +3,12 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-14 ter 21:36 -->
+<!-- 2021-09-17 sex 15:26 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Typescript</title>
 <meta name="generator" content="Org mode" />
-<meta name="author" content="b-coimbra b-coimbra (Bruno Coimbra, index)" />
+<meta name="author" content="Bruno Coimbra (b-coimbra)" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -228,53 +228,53 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org21d9fd4">Static attributes and methods</a></li>
-<li><a href="#orgadbe97c">Promises</a></li>
-<li><a href="#orgf052520">Union</a></li>
-<li><a href="#orgc30efcd">Enums</a></li>
-<li><a href="#org7770fa1">Generics</a></li>
-<li><a href="#org9cfdd68">Currying</a></li>
-<li><a href="#orgc42c738">Return type</a></li>
-<li><a href="#org1a6f138">Interfaces</a></li>
-<li><a href="#org42d5ac4">Optional Arguments</a></li>
-<li><a href="#orga458bd7">Assert functions</a></li>
-<li><a href="#org95ce343">Utility types</a></li>
-<li><a href="#orgd2c052a">Brand types</a></li>
-<li><a href="#org6a36eef">Declaration files</a></li>
+<li><a href="#org25cc87a">Static attributes and methods</a></li>
+<li><a href="#org8a6a1c6">Promises</a></li>
+<li><a href="#orgcde5980">Union</a></li>
+<li><a href="#org9c1e813">Enums</a></li>
+<li><a href="#orgb39445d">Generics</a></li>
+<li><a href="#org2c3a30f">Currying</a></li>
+<li><a href="#org799a00c">Return type</a></li>
+<li><a href="#orgdddafd6">Interfaces</a></li>
+<li><a href="#org978bb91">Optional Arguments</a></li>
+<li><a href="#orga12889e">Assert functions</a></li>
+<li><a href="#org9961f60">Utility types</a></li>
+<li><a href="#orgac9e872">Brand types</a></li>
+<li><a href="#org618b5f8">Declaration files</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org21d9fd4" class="outline-2">
-<h2 id="org21d9fd4">Static attributes and methods</h2>
-<div class="outline-text-2" id="text-org21d9fd4">
+<div id="outline-container-org25cc87a" class="outline-2">
+<h2 id="org25cc87a">Static attributes and methods</h2>
+<div class="outline-text-2" id="text-org25cc87a">
 <p>
 Static methods can be called on the class directly:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-js"><span style="color: #b48ead; font-weight: bold;">class</span> Pony {
-  <span style="color: #b48ead; font-weight: bold;">static</span> defaultSpeed() {
-    <span style="color: #b48ead; font-weight: bold;">return</span> 10;
+<pre class="src src-js"><span style="color: #cc6666; font-weight: bold;">class</span> Pony {
+  <span style="color: #cc6666; font-weight: bold;">static</span> defaultSpeed() {
+    <span style="color: #cc6666; font-weight: bold;">return</span> 10;
   }
 }
 
-<span style="color: #b48ead; font-weight: bold;">const</span> <span style="color: #BF616A;">speed</span> = Pony.defaultSpeed();
+<span style="color: #cc6666; font-weight: bold;">const</span> <span style="color: #83a598;">speed</span> = Pony.defaultSpeed();
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgadbe97c" class="outline-2">
-<h2 id="orgadbe97c">Promises</h2>
-<div class="outline-text-2" id="text-orgadbe97c">
+<div id="outline-container-org8a6a1c6" class="outline-2">
+<h2 id="org8a6a1c6">Promises</h2>
+<div class="outline-text-2" id="text-org8a6a1c6">
 <div class="org-src-container">
-<pre class="src src-js"><span style="color: #b48ead; font-weight: bold;">const</span> <span style="color: #BF616A;">getUser</span> = (login) =&gt; {
-  <span style="color: #b48ead; font-weight: bold;">return</span> <span style="color: #b48ead; font-weight: bold;">new</span> <span style="color: #ECBE7B;">Promise</span>((resolve, reject) =&gt; {
-    <span style="color: #b48ead; font-weight: bold;">if</span> (response.status === 200)
+<pre class="src src-js"><span style="color: #cc6666; font-weight: bold;">const</span> <span style="color: #83a598;">getUser</span> = (login) =&gt; {
+  <span style="color: #cc6666; font-weight: bold;">return</span> <span style="color: #cc6666; font-weight: bold;">new</span> <span style="color: #d3869b;">Promise</span>((resolve, reject) =&gt; {
+    <span style="color: #cc6666; font-weight: bold;">if</span> (response.status === 200)
       resolve(response.data);
-    <span style="color: #b48ead; font-weight: bold;">else</span>
-      reject(<span style="color: #A3BE8C;">'No user'</span>);
+    <span style="color: #cc6666; font-weight: bold;">else</span>
+      reject(<span style="color: #476562;">'No user'</span>);
   });
 };
 
@@ -285,31 +285,31 @@ getUser(login)
 </div>
 </div>
 
-<div id="outline-container-orgf052520" class="outline-2">
-<h2 id="orgf052520">Union</h2>
-<div class="outline-text-2" id="text-orgf052520">
+<div id="outline-container-orgcde5980" class="outline-2">
+<h2 id="orgcde5980">Union</h2>
+<div class="outline-text-2" id="text-orgcde5980">
 <p>
 If a variable is require to have multiple types exclusively.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-js"><span style="color: #b48ead; font-weight: bold;">let</span> <span style="color: #BF616A;">changing</span>: number | <span style="color: #ECBE7B;">boolean</span> = 2;
-changing = <span style="color: #D08770;">true</span>;
+<pre class="src src-js"><span style="color: #cc6666; font-weight: bold;">let</span> <span style="color: #83a598;">changing</span>: number | <span style="color: #d3869b;">boolean</span> = 2;
+changing = <span style="color: #d3869b;">true</span>;
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgc30efcd" class="outline-2">
-<h2 id="orgc30efcd">Enums</h2>
-<div class="outline-text-2" id="text-orgc30efcd">
+<div id="outline-container-org9c1e813" class="outline-2">
+<h2 id="org9c1e813">Enums</h2>
+<div class="outline-text-2" id="text-org9c1e813">
 <p>
 By default enum starts with 0.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-js"><span style="color: #b48ead; font-weight: bold;">enum</span> Status { Ready, Started, Done }
-<span style="color: #b48ead; font-weight: bold;">const</span> <span style="color: #BF616A;">progress</span> = Status.Started;
+<pre class="src src-js"><span style="color: #cc6666; font-weight: bold;">enum</span> Status { Ready, Started, Done }
+<span style="color: #cc6666; font-weight: bold;">const</span> <span style="color: #83a598;">progress</span> = Status.Started;
 </pre>
 </div>
 
@@ -318,71 +318,71 @@ But custom values can also be set.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-js"><span style="color: #b48ead; font-weight: bold;">enum</span> Medal { Gold = 1, Silver, Bronze }
+<pre class="src src-js"><span style="color: #cc6666; font-weight: bold;">enum</span> Medal { Gold = 1, Silver, Bronze }
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org7770fa1" class="outline-2">
-<h2 id="org7770fa1">Generics</h2>
-<div class="outline-text-2" id="text-org7770fa1">
+<div id="outline-container-orgb39445d" class="outline-2">
+<h2 id="orgb39445d">Generics</h2>
+<div class="outline-text-2" id="text-orgb39445d">
 <p>
 To define generic types in javascript we can:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-typescript"><span style="color: #65737E;">// </span><span style="color: #65737E;">A generic class</span>
-<span style="color: #b48ead; font-weight: bold;">class</span> <span style="color: #ECBE7B;">Queue</span>&lt;<span style="color: #ECBE7B;">T</span>&gt; {
-    <span style="color: #b48ead; font-weight: bold;">private</span> list: T[] = [];
+<pre class="src src-typescript"><span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">A generic class</span>
+<span style="color: #cc6666; font-weight: bold;">class</span> <span style="color: #d3869b;">Queue</span>&lt;<span style="color: #d3869b;">T</span>&gt; {
+    <span style="color: #cc6666; font-weight: bold;">private</span> list: T[] = [];
 
-    <span style="color: #8FA1B3;">push</span>(item: T): <span style="color: #b48ead; font-weight: bold;">void</span> { <span style="color: #b48ead; font-weight: bold;">this</span>.list.<span style="color: #8FA1B3;">push</span>(item); }
-    <span style="color: #8FA1B3;">pop</span>(): T | <span style="color: #D08770;">undefined</span> { <span style="color: #b48ead; font-weight: bold;">return</span> <span style="color: #b48ead; font-weight: bold;">this</span>.list.<span style="color: #8FA1B3;">shift</span>() }
+    <span style="color: #777777;">push</span>(item: T): <span style="color: #cc6666; font-weight: bold;">void</span> { <span style="color: #cc6666; font-weight: bold;">this</span>.list.<span style="color: #777777;">push</span>(item); }
+    <span style="color: #777777;">pop</span>(): T | <span style="color: #d3869b;">undefined</span> { <span style="color: #cc6666; font-weight: bold;">return</span> <span style="color: #cc6666; font-weight: bold;">this</span>.list.<span style="color: #777777;">shift</span>() }
 }
 
-<span style="color: #b48ead; font-weight: bold;">let</span> <span style="color: #BF616A;">queue</span> = <span style="color: #b48ead; font-weight: bold;">new</span> <span style="color: #ECBE7B;">Queue</span>&lt;<span style="color: #b48ead; font-weight: bold;">number</span>&gt;();
+<span style="color: #cc6666; font-weight: bold;">let</span> <span style="color: #83a598;">queue</span> = <span style="color: #cc6666; font-weight: bold;">new</span> <span style="color: #d3869b;">Queue</span>&lt;<span style="color: #cc6666; font-weight: bold;">number</span>&gt;();
 
-queue.<span style="color: #8FA1B3;">push</span>(3);
-queue.<span style="color: #8FA1B3;">push</span>(<span style="color: #A3BE8C;">'4'</span>); <span style="color: #65737E;">// </span><span style="color: #65737E;">error!</span>
+queue.<span style="color: #777777;">push</span>(3);
+queue.<span style="color: #777777;">push</span>(<span style="color: #476562;">'4'</span>); <span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">error!</span>
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org9cfdd68" class="outline-2">
-<h2 id="org9cfdd68">Currying</h2>
-<div class="outline-text-2" id="text-org9cfdd68">
+<div id="outline-container-org2c3a30f" class="outline-2">
+<h2 id="org2c3a30f">Currying</h2>
+<div class="outline-text-2" id="text-org2c3a30f">
 <p>
 In functional programming we often want to apply a function partially, we can achieve that feat by chaining together multiple fat arrow functions:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-typescript"><span style="color: #65737E;">// </span><span style="color: #65737E;">A curried function</span>
-<span style="color: #b48ead; font-weight: bold;">const</span> <span style="color: #BF616A;">add</span> = (x: <span style="color: #b48ead; font-weight: bold;">number</span>) <span style="color: #b48ead; font-weight: bold;">=&gt;</span> (y: <span style="color: #b48ead; font-weight: bold;">number</span>) <span style="color: #b48ead; font-weight: bold;">=&gt;</span> x + y;
+<pre class="src src-typescript"><span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">A curried function</span>
+<span style="color: #cc6666; font-weight: bold;">const</span> <span style="color: #83a598;">add</span> = (x: <span style="color: #cc6666; font-weight: bold;">number</span>) <span style="color: #cc6666; font-weight: bold;">=&gt;</span> (y: <span style="color: #cc6666; font-weight: bold;">number</span>) <span style="color: #cc6666; font-weight: bold;">=&gt;</span> x + y;
 
-<span style="color: #65737E;">// </span><span style="color: #65737E;">Usage</span>
-<span style="color: #8FA1B3;">add</span>(123)(456);
+<span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">Usage</span>
+<span style="color: #777777;">add</span>(123)(456);
 
-<span style="color: #65737E;">// </span><span style="color: #65737E;">Partially applied</span>
-<span style="color: #b48ead; font-weight: bold;">let</span> <span style="color: #BF616A;">add123</span> = <span style="color: #8FA1B3;">add</span>(123);
+<span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">Partially applied</span>
+<span style="color: #cc6666; font-weight: bold;">let</span> <span style="color: #83a598;">add123</span> = <span style="color: #777777;">add</span>(123);
 
-<span style="color: #65737E;">// </span><span style="color: #65737E;">fully apply the function</span>
-<span style="color: #8FA1B3;">add123</span>(456);
+<span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">fully apply the function</span>
+<span style="color: #777777;">add123</span>(456);
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-orgc42c738" class="outline-2">
-<h2 id="orgc42c738">Return type</h2>
-<div class="outline-text-2" id="text-orgc42c738">
+<div id="outline-container-org799a00c" class="outline-2">
+<h2 id="org799a00c">Return type</h2>
+<div class="outline-text-2" id="text-org799a00c">
 <p>
 We can set the return type of a function like so:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-js"><span style="color: #b48ead; font-weight: bold;">function</span> <span style="color: #8FA1B3;">startRace</span>(<span style="color: #BF616A;">race</span>: <span style="color: #BF616A;">Race</span>): Race {
+<pre class="src src-js"><span style="color: #cc6666; font-weight: bold;">function</span> <span style="color: #777777;">startRace</span>(<span style="color: #83a598;">race</span>: <span style="color: #83a598;">Race</span>): Race {
   race.status = Status.Started;
-  <span style="color: #b48ead; font-weight: bold;">return</span> race;
+  <span style="color: #cc6666; font-weight: bold;">return</span> race;
 }
 </pre>
 </div>
@@ -393,15 +393,15 @@ If the function returns nothing, return <code>void</code>.
 </div>
 </div>
 
-<div id="outline-container-org1a6f138" class="outline-2">
-<h2 id="org1a6f138">Interfaces</h2>
-<div class="outline-text-2" id="text-org1a6f138">
+<div id="outline-container-orgdddafd6" class="outline-2">
+<h2 id="orgdddafd6">Interfaces</h2>
+<div class="outline-text-2" id="text-orgdddafd6">
 <p>
 When a function has an arguments that require a specific property, we can use interfaces to define the "shape" of that object.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-js"><span style="color: #b48ead; font-weight: bold;">function</span> <span style="color: #8FA1B3;">addPointsToScore</span>(<span style="color: #BF616A;">player</span>: { <span style="color: #BF616A;">score</span>: <span style="color: #BF616A;">number</span>; }, <span style="color: #BF616A;">points</span>: <span style="color: #BF616A;">number</span>): <span style="color: #b48ead; font-weight: bold;">void</span> {
+<pre class="src src-js"><span style="color: #cc6666; font-weight: bold;">function</span> <span style="color: #777777;">addPointsToScore</span>(<span style="color: #83a598;">player</span>: { <span style="color: #83a598;">score</span>: <span style="color: #83a598;">number</span>; }, <span style="color: #83a598;">points</span>: <span style="color: #83a598;">number</span>): <span style="color: #cc6666; font-weight: bold;">void</span> {
   player.score += points;
 }
 </pre>
@@ -412,11 +412,11 @@ It means that the parameter must have a propert called <code>score</code> of the
 </p>
 
 <div class="org-src-container">
-<pre class="src src-js"><span style="color: #b48ead; font-weight: bold;">interface</span> HasScore {
+<pre class="src src-js"><span style="color: #cc6666; font-weight: bold;">interface</span> HasScore {
   score: number;
 }
 
-<span style="color: #b48ead; font-weight: bold;">function</span> <span style="color: #8FA1B3;">addPointsToScore</span>(<span style="color: #BF616A;">player</span>: <span style="color: #BF616A;">HasScore</span>, <span style="color: #BF616A;">points</span>: <span style="color: #BF616A;">number</span>): <span style="color: #b48ead; font-weight: bold;">void</span> {
+<span style="color: #cc6666; font-weight: bold;">function</span> <span style="color: #777777;">addPointsToScore</span>(<span style="color: #83a598;">player</span>: <span style="color: #83a598;">HasScore</span>, <span style="color: #83a598;">points</span>: <span style="color: #83a598;">number</span>): <span style="color: #cc6666; font-weight: bold;">void</span> {
   player.score += points;
 }
 </pre>
@@ -424,9 +424,9 @@ It means that the parameter must have a propert called <code>score</code> of the
 </div>
 </div>
 
-<div id="outline-container-org42d5ac4" class="outline-2">
-<h2 id="org42d5ac4">Optional Arguments</h2>
-<div class="outline-text-2" id="text-org42d5ac4">
+<div id="outline-container-org978bb91" class="outline-2">
+<h2 id="org978bb91">Optional Arguments</h2>
+<div class="outline-text-2" id="text-org978bb91">
 <p>
 JS arguments are optional, but in TypeScript the compiler will complain if parameters with types are forgotten.
 </p>
@@ -436,7 +436,7 @@ We can add a <code>?</code> after the parameter to make it optional.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-js"><span style="color: #b48ead; font-weight: bold;">function</span> <span style="color: #8FA1B3;">addPointsToScore</span>(<span style="color: #BF616A;">player</span>: <span style="color: #BF616A;">HasScore</span>, <span style="color: #BF616A;">points</span>?: <span style="color: #BF616A;">number</span>): <span style="color: #b48ead; font-weight: bold;">void</span> {
+<pre class="src src-js"><span style="color: #cc6666; font-weight: bold;">function</span> <span style="color: #777777;">addPointsToScore</span>(<span style="color: #83a598;">player</span>: <span style="color: #83a598;">HasScore</span>, <span style="color: #83a598;">points</span>?: <span style="color: #83a598;">number</span>): <span style="color: #cc6666; font-weight: bold;">void</span> {
   points = points || 0;
   player.score += points;
 }
@@ -445,24 +445,24 @@ We can add a <code>?</code> after the parameter to make it optional.
 </div>
 </div>
 
-<div id="outline-container-orga458bd7" class="outline-2">
-<h2 id="orga458bd7">Assert functions</h2>
-<div class="outline-text-2" id="text-orga458bd7">
+<div id="outline-container-orga12889e" class="outline-2">
+<h2 id="orga12889e">Assert functions</h2>
+<div class="outline-text-2" id="text-orga12889e">
 <div class="org-src-container">
-<pre class="src src-typescript"><span style="color: #b48ead; font-weight: bold;">type</span> <span style="color: #ECBE7B;">Email</span>: <span style="color: #b48ead; font-weight: bold;">string</span>;
+<pre class="src src-typescript"><span style="color: #cc6666; font-weight: bold;">type</span> <span style="color: #d3869b;">Email</span>: <span style="color: #cc6666; font-weight: bold;">string</span>;
 
-<span style="color: #b48ead; font-weight: bold;">const</span> <span style="color: #BF616A;">assertValidEmail</span> = (email: <span style="color: #b48ead; font-weight: bold;">string</span>): asserts email is Email {
-    <span style="color: #b48ead; font-weight: bold;">if</span> (!email.<span style="color: #8FA1B3;">includes</span>(<span style="color: #A3BE8C;">'@'</span>))
-        <span style="color: #b48ead; font-weight: bold;">throw</span> <span style="color: #b48ead; font-weight: bold;">new</span> <span style="color: #ECBE7B;">Error</span>(<span style="color: #A3BE8C;">'Not a valid email.'</span>);
+<span style="color: #cc6666; font-weight: bold;">const</span> <span style="color: #83a598;">assertValidEmail</span> = (email: <span style="color: #cc6666; font-weight: bold;">string</span>): asserts email is Email {
+    <span style="color: #cc6666; font-weight: bold;">if</span> (!email.<span style="color: #777777;">includes</span>(<span style="color: #476562;">'@'</span>))
+        <span style="color: #cc6666; font-weight: bold;">throw</span> <span style="color: #cc6666; font-weight: bold;">new</span> <span style="color: #d3869b;">Error</span>(<span style="color: #476562;">'Not a valid email.'</span>);
 }
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org95ce343" class="outline-2">
-<h2 id="org95ce343">Utility types</h2>
-<div class="outline-text-2" id="text-org95ce343">
+<div id="outline-container-org9961f60" class="outline-2">
+<h2 id="org9961f60">Utility types</h2>
+<div class="outline-text-2" id="text-org9961f60">
 <p>
 Utility types are useful generic constructs to perform type transformations, more specifically, on an object.
 Most used utility types are:
@@ -481,19 +481,19 @@ Most used utility types are:
 </div>
 </div>
 
-<div id="outline-container-orgd2c052a" class="outline-2">
-<h2 id="orgd2c052a">Brand types</h2>
-<div class="outline-text-2" id="text-orgd2c052a">
+<div id="outline-container-orgac9e872" class="outline-2">
+<h2 id="orgac9e872">Brand types</h2>
+<div class="outline-text-2" id="text-orgac9e872">
 <div class="org-src-container">
-<pre class="src src-typescript"><span style="color: #b48ead; font-weight: bold;">type</span> <span style="color: #ECBE7B;">Brand</span>&lt;<span style="color: #ECBE7B;">K</span>, <span style="color: #ECBE7B;">T</span>&gt; = K &amp; { __brand: T };
+<pre class="src src-typescript"><span style="color: #cc6666; font-weight: bold;">type</span> <span style="color: #d3869b;">Brand</span>&lt;<span style="color: #d3869b;">K</span>, <span style="color: #d3869b;">T</span>&gt; = K &amp; { __brand: T };
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org6a36eef" class="outline-2">
-<h2 id="org6a36eef">Declaration files</h2>
-<div class="outline-text-2" id="text-org6a36eef">
+<div id="outline-container-org618b5f8" class="outline-2">
+<h2 id="org618b5f8">Declaration files</h2>
+<div class="outline-text-2" id="text-org618b5f8">
 <p>
 Afaik, declaration files are used to define what the types of a javascript file are.
 This is useful for prividing intelisense in your text editor.
@@ -503,8 +503,8 @@ This is useful for prividing intelisense in your text editor.
 </div>
 <div id="postamble" class="status">
 <p class="date">Date: 2021-09-11 sáb 00:00</p>
-<p class="author">Author: b-coimbra b-coimbra (Bruno Coimbra, index)</p>
-<p class="date">Created: 2021-09-14 ter 21:36</p>
+<p class="author">Author: Bruno Coimbra (b-coimbra)</p>
+<p class="date">Created: 2021-09-17 sex 15:26</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
