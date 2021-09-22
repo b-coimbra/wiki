@@ -1,5 +1,5 @@
 #+TITLE: My Notes
-#+SUBTITLE: Various annotations/cheatsheets neatly organized for the sake of knowledge retention. Source can be found [[https://github.com/b-coimbra/notes][here]].
+#+SUBTITLE: Various annotations/cheatsheets neatly organized for the sake of knowledge retention.@@latex:\\@@ @@html:<br>@@ Source can be found [[https://github.com/b-coimbra/notes][here]].
 #+DATE: <2021-09-09 Sat>
 #+AUTHOR: Bruno Coimbra (b-coimbra)
 #+EMAIL: me@metaphoric.dev
