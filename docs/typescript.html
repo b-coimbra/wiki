@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-17 sex 15:26 -->
+<!-- 2021-10-13 qua 13:37 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Typescript</title>
@@ -193,7 +193,9 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" type="text/css" href="https://b-coimbra.github.io/org-scribbler-theme/src/css/style.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
 <script src="https://b-coimbra.github.io/org-scribbler-theme/src/js/script.js" />
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
@@ -228,66 +230,66 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org25cc87a">Static attributes and methods</a></li>
-<li><a href="#org8a6a1c6">Promises</a></li>
-<li><a href="#orgcde5980">Union</a></li>
-<li><a href="#org9c1e813">Enums</a></li>
-<li><a href="#orgb39445d">Generics</a></li>
-<li><a href="#org2c3a30f">Currying</a></li>
-<li><a href="#org799a00c">Return type</a></li>
-<li><a href="#orgdddafd6">Interfaces</a></li>
-<li><a href="#org978bb91">Optional Arguments</a></li>
-<li><a href="#orga12889e">Assert functions</a></li>
-<li><a href="#org9961f60">Utility types</a></li>
-<li><a href="#orgac9e872">Brand types</a></li>
-<li><a href="#org618b5f8">Declaration files</a></li>
+<li><a href="#org889340c">Static attributes and methods</a></li>
+<li><a href="#org1ce661e">Promises</a></li>
+<li><a href="#orgef2943e">Union</a></li>
+<li><a href="#org5c928fe">Enums</a></li>
+<li><a href="#orgb15802b">Generics</a></li>
+<li><a href="#orgd1c810b">Currying</a></li>
+<li><a href="#orgde8ffce">Return type</a></li>
+<li><a href="#orgb0600c2">Interfaces</a></li>
+<li><a href="#org2e1078e">Optional Arguments</a></li>
+<li><a href="#org4e8b77e">Assert functions</a></li>
+<li><a href="#org69d75de">Utility types</a></li>
+<li><a href="#org506f00c">Brand types</a></li>
+<li><a href="#orgd0e7264">Declaration files</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org25cc87a" class="outline-2">
-<h2 id="org25cc87a">Static attributes and methods</h2>
-<div class="outline-text-2" id="text-org25cc87a">
+<div id="outline-container-org889340c" class="outline-2">
+<h2 id="org889340c">Static attributes and methods</h2>
+<div class="outline-text-2" id="text-org889340c">
 <p>
 Static methods can be called on the class directly:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-js"><span style="color: #cc6666; font-weight: bold;">class</span> Pony {
-  <span style="color: #cc6666; font-weight: bold;">static</span> defaultSpeed() {
+<pre class="src src-js"><span style="color: #cc6666; font-weight: bold;">class</span> Pony <span style="color: #8c8c8c;">{</span>
+  <span style="color: #cc6666; font-weight: bold;">static</span> defaultSpeed<span style="color: #93a8c6;">()</span> <span style="color: #93a8c6;">{</span>
     <span style="color: #cc6666; font-weight: bold;">return</span> 10;
-  }
-}
+  <span style="color: #93a8c6;">}</span>
+<span style="color: #8c8c8c;">}</span>
 
-<span style="color: #cc6666; font-weight: bold;">const</span> <span style="color: #83a598;">speed</span> = Pony.defaultSpeed();
+<span style="color: #cc6666; font-weight: bold;">const</span> <span style="color: #83a598;">speed</span> = Pony.defaultSpeed<span style="color: #8c8c8c;">()</span>;
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org8a6a1c6" class="outline-2">
-<h2 id="org8a6a1c6">Promises</h2>
-<div class="outline-text-2" id="text-org8a6a1c6">
+<div id="outline-container-org1ce661e" class="outline-2">
+<h2 id="org1ce661e">Promises</h2>
+<div class="outline-text-2" id="text-org1ce661e">
 <div class="org-src-container">
-<pre class="src src-js"><span style="color: #cc6666; font-weight: bold;">const</span> <span style="color: #83a598;">getUser</span> = (login) =&gt; {
-  <span style="color: #cc6666; font-weight: bold;">return</span> <span style="color: #cc6666; font-weight: bold;">new</span> <span style="color: #d3869b;">Promise</span>((resolve, reject) =&gt; {
-    <span style="color: #cc6666; font-weight: bold;">if</span> (response.status === 200)
-      resolve(response.data);
+<pre class="src src-js"><span style="color: #cc6666; font-weight: bold;">const</span> <span style="color: #83a598;">getUser</span> = <span style="color: #8c8c8c;">(</span>login<span style="color: #8c8c8c;">)</span> =&gt; <span style="color: #8c8c8c;">{</span>
+  <span style="color: #cc6666; font-weight: bold;">return</span> <span style="color: #cc6666; font-weight: bold;">new</span> <span style="color: #d3869b;">Promise</span><span style="color: #93a8c6;">(</span><span style="color: #b0b1a3;">(</span>resolve, reject<span style="color: #b0b1a3;">)</span> =&gt; <span style="color: #b0b1a3;">{</span>
+    <span style="color: #cc6666; font-weight: bold;">if</span> <span style="color: #97b098;">(</span>response.status === 200<span style="color: #97b098;">)</span>
+      resolve<span style="color: #97b098;">(</span>response.data<span style="color: #97b098;">)</span>;
     <span style="color: #cc6666; font-weight: bold;">else</span>
-      reject(<span style="color: #476562;">'No user'</span>);
-  });
-};
+      reject<span style="color: #97b098;">(</span><span style="color: #476562;">'No user'</span><span style="color: #97b098;">)</span>;
+  <span style="color: #b0b1a3;">}</span><span style="color: #93a8c6;">)</span>;
+<span style="color: #8c8c8c;">}</span>;
 
-getUser(login)
-  .then(user =&gt; console.log(user));
+getUser<span style="color: #8c8c8c;">(</span>login<span style="color: #8c8c8c;">)</span>
+  .then<span style="color: #8c8c8c;">(</span>user =&gt; console.log<span style="color: #93a8c6;">(</span>user<span style="color: #93a8c6;">)</span><span style="color: #8c8c8c;">)</span>;
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgcde5980" class="outline-2">
-<h2 id="orgcde5980">Union</h2>
-<div class="outline-text-2" id="text-orgcde5980">
+<div id="outline-container-orgef2943e" class="outline-2">
+<h2 id="orgef2943e">Union</h2>
+<div class="outline-text-2" id="text-orgef2943e">
 <p>
 If a variable is require to have multiple types exclusively.
 </p>
@@ -300,15 +302,15 @@ changing = <span style="color: #d3869b;">true</span>;
 </div>
 </div>
 
-<div id="outline-container-org9c1e813" class="outline-2">
-<h2 id="org9c1e813">Enums</h2>
-<div class="outline-text-2" id="text-org9c1e813">
+<div id="outline-container-org5c928fe" class="outline-2">
+<h2 id="org5c928fe">Enums</h2>
+<div class="outline-text-2" id="text-org5c928fe">
 <p>
 By default enum starts with 0.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-js"><span style="color: #cc6666; font-weight: bold;">enum</span> Status { Ready, Started, Done }
+<pre class="src src-js"><span style="color: #cc6666; font-weight: bold;">enum</span> Status <span style="color: #8c8c8c;">{</span> Ready, Started, Done <span style="color: #8c8c8c;">}</span>
 <span style="color: #cc6666; font-weight: bold;">const</span> <span style="color: #83a598;">progress</span> = Status.Started;
 </pre>
 </div>
@@ -318,72 +320,72 @@ But custom values can also be set.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-js"><span style="color: #cc6666; font-weight: bold;">enum</span> Medal { Gold = 1, Silver, Bronze }
+<pre class="src src-js"><span style="color: #cc6666; font-weight: bold;">enum</span> Medal <span style="color: #8c8c8c;">{</span> Gold = 1, Silver, Bronze <span style="color: #8c8c8c;">}</span>
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgb39445d" class="outline-2">
-<h2 id="orgb39445d">Generics</h2>
-<div class="outline-text-2" id="text-orgb39445d">
+<div id="outline-container-orgb15802b" class="outline-2">
+<h2 id="orgb15802b">Generics</h2>
+<div class="outline-text-2" id="text-orgb15802b">
 <p>
 To define generic types in javascript we can:
 </p>
 
 <div class="org-src-container">
 <pre class="src src-typescript"><span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">A generic class</span>
-<span style="color: #cc6666; font-weight: bold;">class</span> <span style="color: #d3869b;">Queue</span>&lt;<span style="color: #d3869b;">T</span>&gt; {
-    <span style="color: #cc6666; font-weight: bold;">private</span> list: T[] = [];
+<span style="color: #cc6666; font-weight: bold;">class</span> <span style="color: #d3869b;">Queue</span>&lt;<span style="color: #d3869b;">T</span>&gt; <span style="color: #8c8c8c;">{</span>
+    <span style="color: #cc6666; font-weight: bold;">private</span> list: T<span style="color: #93a8c6;">[]</span> = <span style="color: #93a8c6;">[]</span>;
 
-    <span style="color: #777777;">push</span>(item: T): <span style="color: #cc6666; font-weight: bold;">void</span> { <span style="color: #cc6666; font-weight: bold;">this</span>.list.<span style="color: #777777;">push</span>(item); }
-    <span style="color: #777777;">pop</span>(): T | <span style="color: #d3869b;">undefined</span> { <span style="color: #cc6666; font-weight: bold;">return</span> <span style="color: #cc6666; font-weight: bold;">this</span>.list.<span style="color: #777777;">shift</span>() }
-}
+    <span style="color: #777777;">push</span><span style="color: #93a8c6;">(</span>item: T<span style="color: #93a8c6;">)</span>: <span style="color: #cc6666; font-weight: bold;">void</span> <span style="color: #93a8c6;">{</span> <span style="color: #cc6666; font-weight: bold;">this</span>.list.<span style="color: #777777;">push</span><span style="color: #b0b1a3;">(</span>item<span style="color: #b0b1a3;">)</span>; <span style="color: #93a8c6;">}</span>
+    <span style="color: #777777;">pop</span><span style="color: #93a8c6;">()</span>: T | <span style="color: #d3869b;">undefined</span> <span style="color: #93a8c6;">{</span> <span style="color: #cc6666; font-weight: bold;">return</span> <span style="color: #cc6666; font-weight: bold;">this</span>.list.<span style="color: #777777;">shift</span><span style="color: #b0b1a3;">()</span> <span style="color: #93a8c6;">}</span>
+<span style="color: #8c8c8c;">}</span>
 
-<span style="color: #cc6666; font-weight: bold;">let</span> <span style="color: #83a598;">queue</span> = <span style="color: #cc6666; font-weight: bold;">new</span> <span style="color: #d3869b;">Queue</span>&lt;<span style="color: #cc6666; font-weight: bold;">number</span>&gt;();
+<span style="color: #cc6666; font-weight: bold;">let</span> <span style="color: #83a598;">queue</span> = <span style="color: #cc6666; font-weight: bold;">new</span> <span style="color: #d3869b;">Queue</span>&lt;<span style="color: #cc6666; font-weight: bold;">number</span>&gt;<span style="color: #8c8c8c;">()</span>;
 
-queue.<span style="color: #777777;">push</span>(3);
-queue.<span style="color: #777777;">push</span>(<span style="color: #476562;">'4'</span>); <span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">error!</span>
+queue.<span style="color: #777777;">push</span><span style="color: #8c8c8c;">(</span>3<span style="color: #8c8c8c;">)</span>;
+queue.<span style="color: #777777;">push</span><span style="color: #8c8c8c;">(</span><span style="color: #476562;">'4'</span><span style="color: #8c8c8c;">)</span>; <span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">error!</span>
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org2c3a30f" class="outline-2">
-<h2 id="org2c3a30f">Currying</h2>
-<div class="outline-text-2" id="text-org2c3a30f">
+<div id="outline-container-orgd1c810b" class="outline-2">
+<h2 id="orgd1c810b">Currying</h2>
+<div class="outline-text-2" id="text-orgd1c810b">
 <p>
 In functional programming we often want to apply a function partially, we can achieve that feat by chaining together multiple fat arrow functions:
 </p>
 
 <div class="org-src-container">
 <pre class="src src-typescript"><span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">A curried function</span>
-<span style="color: #cc6666; font-weight: bold;">const</span> <span style="color: #83a598;">add</span> = (x: <span style="color: #cc6666; font-weight: bold;">number</span>) <span style="color: #cc6666; font-weight: bold;">=&gt;</span> (y: <span style="color: #cc6666; font-weight: bold;">number</span>) <span style="color: #cc6666; font-weight: bold;">=&gt;</span> x + y;
+<span style="color: #cc6666; font-weight: bold;">const</span> <span style="color: #83a598;">add</span> = <span style="color: #8c8c8c;">(</span>x: <span style="color: #cc6666; font-weight: bold;">number</span><span style="color: #8c8c8c;">)</span> <span style="color: #cc6666; font-weight: bold;">=&gt;</span> <span style="color: #8c8c8c;">(</span>y: <span style="color: #cc6666; font-weight: bold;">number</span><span style="color: #8c8c8c;">)</span> <span style="color: #cc6666; font-weight: bold;">=&gt;</span> x + y;
 
 <span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">Usage</span>
-<span style="color: #777777;">add</span>(123)(456);
+<span style="color: #777777;">add</span><span style="color: #8c8c8c;">(</span>123<span style="color: #8c8c8c;">)(</span>456<span style="color: #8c8c8c;">)</span>;
 
 <span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">Partially applied</span>
-<span style="color: #cc6666; font-weight: bold;">let</span> <span style="color: #83a598;">add123</span> = <span style="color: #777777;">add</span>(123);
+<span style="color: #cc6666; font-weight: bold;">let</span> <span style="color: #83a598;">add123</span> = <span style="color: #777777;">add</span><span style="color: #8c8c8c;">(</span>123<span style="color: #8c8c8c;">)</span>;
 
 <span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">fully apply the function</span>
-<span style="color: #777777;">add123</span>(456);
+<span style="color: #777777;">add123</span><span style="color: #8c8c8c;">(</span>456<span style="color: #8c8c8c;">)</span>;
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org799a00c" class="outline-2">
-<h2 id="org799a00c">Return type</h2>
-<div class="outline-text-2" id="text-org799a00c">
+<div id="outline-container-orgde8ffce" class="outline-2">
+<h2 id="orgde8ffce">Return type</h2>
+<div class="outline-text-2" id="text-orgde8ffce">
 <p>
 We can set the return type of a function like so:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-js"><span style="color: #cc6666; font-weight: bold;">function</span> <span style="color: #777777;">startRace</span>(<span style="color: #83a598;">race</span>: <span style="color: #83a598;">Race</span>): Race {
+<pre class="src src-js"><span style="color: #cc6666; font-weight: bold;">function</span> <span style="color: #777777;">startRace</span><span style="color: #8c8c8c;">(</span><span style="color: #83a598;">race</span>: <span style="color: #83a598;">Race</span><span style="color: #8c8c8c;">)</span>: Race <span style="color: #8c8c8c;">{</span>
   race.status = Status.Started;
   <span style="color: #cc6666; font-weight: bold;">return</span> race;
-}
+<span style="color: #8c8c8c;">}</span>
 </pre>
 </div>
 
@@ -393,17 +395,17 @@ If the function returns nothing, return <code>void</code>.
 </div>
 </div>
 
-<div id="outline-container-orgdddafd6" class="outline-2">
-<h2 id="orgdddafd6">Interfaces</h2>
-<div class="outline-text-2" id="text-orgdddafd6">
+<div id="outline-container-orgb0600c2" class="outline-2">
+<h2 id="orgb0600c2">Interfaces</h2>
+<div class="outline-text-2" id="text-orgb0600c2">
 <p>
 When a function has an arguments that require a specific property, we can use interfaces to define the "shape" of that object.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-js"><span style="color: #cc6666; font-weight: bold;">function</span> <span style="color: #777777;">addPointsToScore</span>(<span style="color: #83a598;">player</span>: { <span style="color: #83a598;">score</span>: <span style="color: #83a598;">number</span>; }, <span style="color: #83a598;">points</span>: <span style="color: #83a598;">number</span>): <span style="color: #cc6666; font-weight: bold;">void</span> {
+<pre class="src src-js"><span style="color: #cc6666; font-weight: bold;">function</span> <span style="color: #777777;">addPointsToScore</span><span style="color: #8c8c8c;">(</span><span style="color: #83a598;">player</span>: <span style="color: #93a8c6;">{</span> <span style="color: #83a598;">score</span>: <span style="color: #83a598;">number</span>; <span style="color: #93a8c6;">}</span>, <span style="color: #83a598;">points</span>: <span style="color: #83a598;">number</span><span style="color: #8c8c8c;">)</span>: <span style="color: #cc6666; font-weight: bold;">void</span> <span style="color: #8c8c8c;">{</span>
   player.score += points;
-}
+<span style="color: #8c8c8c;">}</span>
 </pre>
 </div>
 
@@ -412,21 +414,21 @@ It means that the parameter must have a propert called <code>score</code> of the
 </p>
 
 <div class="org-src-container">
-<pre class="src src-js"><span style="color: #cc6666; font-weight: bold;">interface</span> HasScore {
+<pre class="src src-js"><span style="color: #cc6666; font-weight: bold;">interface</span> HasScore <span style="color: #8c8c8c;">{</span>
   score: number;
-}
+<span style="color: #8c8c8c;">}</span>
 
-<span style="color: #cc6666; font-weight: bold;">function</span> <span style="color: #777777;">addPointsToScore</span>(<span style="color: #83a598;">player</span>: <span style="color: #83a598;">HasScore</span>, <span style="color: #83a598;">points</span>: <span style="color: #83a598;">number</span>): <span style="color: #cc6666; font-weight: bold;">void</span> {
+<span style="color: #cc6666; font-weight: bold;">function</span> <span style="color: #777777;">addPointsToScore</span><span style="color: #8c8c8c;">(</span><span style="color: #83a598;">player</span>: <span style="color: #83a598;">HasScore</span>, <span style="color: #83a598;">points</span>: <span style="color: #83a598;">number</span><span style="color: #8c8c8c;">)</span>: <span style="color: #cc6666; font-weight: bold;">void</span> <span style="color: #8c8c8c;">{</span>
   player.score += points;
-}
+<span style="color: #8c8c8c;">}</span>
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org978bb91" class="outline-2">
-<h2 id="org978bb91">Optional Arguments</h2>
-<div class="outline-text-2" id="text-org978bb91">
+<div id="outline-container-org2e1078e" class="outline-2">
+<h2 id="org2e1078e">Optional Arguments</h2>
+<div class="outline-text-2" id="text-org2e1078e">
 <p>
 JS arguments are optional, but in TypeScript the compiler will complain if parameters with types are forgotten.
 </p>
@@ -436,33 +438,33 @@ We can add a <code>?</code> after the parameter to make it optional.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-js"><span style="color: #cc6666; font-weight: bold;">function</span> <span style="color: #777777;">addPointsToScore</span>(<span style="color: #83a598;">player</span>: <span style="color: #83a598;">HasScore</span>, <span style="color: #83a598;">points</span>?: <span style="color: #83a598;">number</span>): <span style="color: #cc6666; font-weight: bold;">void</span> {
+<pre class="src src-js"><span style="color: #cc6666; font-weight: bold;">function</span> <span style="color: #777777;">addPointsToScore</span><span style="color: #8c8c8c;">(</span><span style="color: #83a598;">player</span>: <span style="color: #83a598;">HasScore</span>, <span style="color: #83a598;">points</span>?: <span style="color: #83a598;">number</span><span style="color: #8c8c8c;">)</span>: <span style="color: #cc6666; font-weight: bold;">void</span> <span style="color: #8c8c8c;">{</span>
   points = points || 0;
   player.score += points;
-}
+<span style="color: #8c8c8c;">}</span>
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orga12889e" class="outline-2">
-<h2 id="orga12889e">Assert functions</h2>
-<div class="outline-text-2" id="text-orga12889e">
+<div id="outline-container-org4e8b77e" class="outline-2">
+<h2 id="org4e8b77e">Assert functions</h2>
+<div class="outline-text-2" id="text-org4e8b77e">
 <div class="org-src-container">
 <pre class="src src-typescript"><span style="color: #cc6666; font-weight: bold;">type</span> <span style="color: #d3869b;">Email</span>: <span style="color: #cc6666; font-weight: bold;">string</span>;
 
-<span style="color: #cc6666; font-weight: bold;">const</span> <span style="color: #83a598;">assertValidEmail</span> = (email: <span style="color: #cc6666; font-weight: bold;">string</span>): asserts email is Email {
-    <span style="color: #cc6666; font-weight: bold;">if</span> (!email.<span style="color: #777777;">includes</span>(<span style="color: #476562;">'@'</span>))
-        <span style="color: #cc6666; font-weight: bold;">throw</span> <span style="color: #cc6666; font-weight: bold;">new</span> <span style="color: #d3869b;">Error</span>(<span style="color: #476562;">'Not a valid email.'</span>);
-}
+<span style="color: #cc6666; font-weight: bold;">const</span> <span style="color: #83a598;">assertValidEmail</span> = <span style="color: #8c8c8c;">(</span>email: <span style="color: #cc6666; font-weight: bold;">string</span><span style="color: #8c8c8c;">)</span>: asserts email is Email <span style="color: #8c8c8c;">{</span>
+    <span style="color: #cc6666; font-weight: bold;">if</span> <span style="color: #93a8c6;">(</span>!email.<span style="color: #777777;">includes</span><span style="color: #b0b1a3;">(</span><span style="color: #476562;">'@'</span><span style="color: #b0b1a3;">)</span><span style="color: #93a8c6;">)</span>
+        <span style="color: #cc6666; font-weight: bold;">throw</span> <span style="color: #cc6666; font-weight: bold;">new</span> <span style="color: #d3869b;">Error</span><span style="color: #93a8c6;">(</span><span style="color: #476562;">'Not a valid email.'</span><span style="color: #93a8c6;">)</span>;
+<span style="color: #8c8c8c;">}</span>
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org9961f60" class="outline-2">
-<h2 id="org9961f60">Utility types</h2>
-<div class="outline-text-2" id="text-org9961f60">
+<div id="outline-container-org69d75de" class="outline-2">
+<h2 id="org69d75de">Utility types</h2>
+<div class="outline-text-2" id="text-org69d75de">
 <p>
 Utility types are useful generic constructs to perform type transformations, more specifically, on an object.
 Most used utility types are:
@@ -481,19 +483,19 @@ Most used utility types are:
 </div>
 </div>
 
-<div id="outline-container-orgac9e872" class="outline-2">
-<h2 id="orgac9e872">Brand types</h2>
-<div class="outline-text-2" id="text-orgac9e872">
+<div id="outline-container-org506f00c" class="outline-2">
+<h2 id="org506f00c">Brand types</h2>
+<div class="outline-text-2" id="text-org506f00c">
 <div class="org-src-container">
-<pre class="src src-typescript"><span style="color: #cc6666; font-weight: bold;">type</span> <span style="color: #d3869b;">Brand</span>&lt;<span style="color: #d3869b;">K</span>, <span style="color: #d3869b;">T</span>&gt; = K &amp; { __brand: T };
+<pre class="src src-typescript"><span style="color: #cc6666; font-weight: bold;">type</span> <span style="color: #d3869b;">Brand</span>&lt;<span style="color: #d3869b;">K</span>, <span style="color: #d3869b;">T</span>&gt; = K &amp; <span style="color: #8c8c8c;">{</span> __brand: T <span style="color: #8c8c8c;">}</span>;
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org618b5f8" class="outline-2">
-<h2 id="org618b5f8">Declaration files</h2>
-<div class="outline-text-2" id="text-org618b5f8">
+<div id="outline-container-orgd0e7264" class="outline-2">
+<h2 id="orgd0e7264">Declaration files</h2>
+<div class="outline-text-2" id="text-orgd0e7264">
 <p>
 Afaik, declaration files are used to define what the types of a javascript file are.
 This is useful for prividing intelisense in your text editor.
@@ -504,7 +506,7 @@ This is useful for prividing intelisense in your text editor.
 <div id="postamble" class="status">
 <p class="date">Date: 2021-09-11 sáb 00:00</p>
 <p class="author">Author: Bruno Coimbra (b-coimbra)</p>
-<p class="date">Created: 2021-09-17 sex 15:26</p>
+<p class="date">Created: 2021-10-13 qua 13:37</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

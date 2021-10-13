@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-17 sex 15:25 -->
+<!-- 2021-10-13 qua 13:36 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>.NET</title>
@@ -193,7 +193,9 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" type="text/css" href="https://b-coimbra.github.io/org-scribbler-theme/src/css/style.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
 <script src="https://b-coimbra.github.io/org-scribbler-theme/src/js/script.js" />
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
@@ -228,71 +230,71 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org90b0bc7">Intermediate Language (IL)</a></li>
-<li><a href="#orge51e6cc">Async/await</a>
+<li><a href="#orgc4a2525">Intermediate Language (IL)</a></li>
+<li><a href="#orgea0fe93">Async/await</a>
 <ul>
-<li><a href="#org597e6c4">ConfigureAwait(bool)</a></li>
-<li><a href="#org4e44513">Why use it?</a></li>
-<li><a href="#org3e7dd21">Wait()</a></li>
-<li><a href="#org92e3c1c">Other tips</a></li>
+<li><a href="#org12380a9">ConfigureAwait(bool)</a></li>
+<li><a href="#orga449259">Why use it?</a></li>
+<li><a href="#org5be30d8">Wait()</a></li>
+<li><a href="#org76545d2">Other tips</a></li>
 </ul>
 </li>
-<li><a href="#orgbc317b9">EntityFramework</a>
+<li><a href="#org97b2879">EntityFramework</a>
 <ul>
-<li><a href="#org6c6b798">One-to-many relationship</a></li>
+<li><a href="#org694681c">One-to-many relationship</a></li>
 </ul>
 </li>
-<li><a href="#org015e4e5">Destructor (Finalizers)</a></li>
-<li><a href="#org510565c">Dynamic Type</a></li>
-<li><a href="#org357dd84">Extension Methods</a></li>
-<li><a href="#orga35ed22">Global Assembly Cache (GAC)</a></li>
-<li><a href="#orgdccdf9b">Interfaces</a></li>
-<li><a href="#org3ceed7d">Keywords</a>
+<li><a href="#org2a0e629">Destructor (Finalizers)</a></li>
+<li><a href="#org7891249">Dynamic Type</a></li>
+<li><a href="#org46ac6d2">Extension Methods</a></li>
+<li><a href="#org34dd0d6">Global Assembly Cache (GAC)</a></li>
+<li><a href="#orgfcb80a7">Interfaces</a></li>
+<li><a href="#org96dd0ae">Keywords</a>
 <ul>
-<li><a href="#org111daf6">Structs</a></li>
-<li><a href="#org2a7be90">Parameters</a></li>
-<li><a href="#org4c09e95">ref</a></li>
-<li><a href="#orgeee1e9b">out</a></li>
-<li><a href="#org798e729">Named and Optional Parameters</a></li>
+<li><a href="#org8f12d5b">Structs</a></li>
+<li><a href="#org8d3c9c1">Parameters</a></li>
+<li><a href="#orge1905d3">ref</a></li>
+<li><a href="#orga43fe64">out</a></li>
+<li><a href="#org2111d4f">Named and Optional Parameters</a></li>
 </ul>
 </li>
-<li><a href="#orgc1224e3">Reflection</a>
+<li><a href="#org4e3aa27">Reflection</a>
 <ul>
-<li><a href="#org6d8a5b0">Get the members of a type</a></li>
-<li><a href="#orgfdc578e">Get a method and invoke it</a></li>
-<li><a href="#org4013a07">Get Static Method and invoke it</a></li>
+<li><a href="#org2989a71">Get the members of a type</a></li>
+<li><a href="#orgd67cbb5">Get a method and invoke it</a></li>
+<li><a href="#orgb6565f8">Get Static Method and invoke it</a></li>
 </ul>
 </li>
-<li><a href="#org68754e3">Stack and Heap</a>
+<li><a href="#orgb8c4b05">Stack and Heap</a>
 <ul>
-<li><a href="#org0e53dee">Stack</a></li>
-<li><a href="#orgbdba17f">Heap</a></li>
+<li><a href="#org05798b6">Stack</a></li>
+<li><a href="#org80d4d3e">Heap</a></li>
 </ul>
 </li>
-<li><a href="#orgef3e42a">Delegates</a></li>
-<li><a href="#orgf758dec">Threading</a>
+<li><a href="#org9c3577f">Delegates</a></li>
+<li><a href="#org3283ba9">Threading</a>
 <ul>
-<li><a href="#org22683b5">Parallel.forEach loop</a></li>
+<li><a href="#org303c4e7">Parallel.forEach loop</a></li>
 </ul>
 </li>
-<li><a href="#org77d230a">StringBuilder</a>
+<li><a href="#orge55c0fe">StringBuilder</a>
 <ul>
-<li><a href="#orgdde05ff">Important Methods of StringBuilder</a></li>
-<li><a href="#org367bcb0">Examples</a></li>
+<li><a href="#org21de24e">Important Methods of StringBuilder</a></li>
+<li><a href="#org67a3685">Examples</a></li>
 </ul>
 </li>
-<li><a href="#org71adac2">Null Coalescing</a>
+<li><a href="#org55f75f0">Null Coalescing</a>
 <ul>
-<li><a href="#org12ec28e">Null conditional operator</a></li>
+<li><a href="#org06387ee">Null conditional operator</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org90b0bc7" class="outline-2">
-<h2 id="org90b0bc7">Intermediate Language (IL)</h2>
-<div class="outline-text-2" id="text-org90b0bc7">
+<div id="outline-container-orgc4a2525" class="outline-2">
+<h2 id="orgc4a2525">Intermediate Language (IL)</h2>
+<div class="outline-text-2" id="text-orgc4a2525">
 <p>
 Code exists on many levels.
 Abstraction is a ladder.
@@ -306,17 +308,17 @@ C# is compiled into that <b>intermediate language</b>.
 </div>
 </div>
 
-<div id="outline-container-orge51e6cc" class="outline-2">
-<h2 id="orge51e6cc">Async/await</h2>
-<div class="outline-text-2" id="text-orge51e6cc">
+<div id="outline-container-orgea0fe93" class="outline-2">
+<h2 id="orgea0fe93">Async/await</h2>
+<div class="outline-text-2" id="text-orgea0fe93">
 <p>
 Notes from Brandon Minnick's <a href="https://www.youtube.com/watch?v=J0mcYVxJEl0">Correcting Common Async/Await mistakes in .NET</a>
 </p>
 </div>
 
-<div id="outline-container-org597e6c4" class="outline-3">
-<h3 id="org597e6c4">ConfigureAwait(bool)</h3>
-<div class="outline-text-3" id="text-org597e6c4">
+<div id="outline-container-org12380a9" class="outline-3">
+<h3 id="org12380a9">ConfigureAwait(bool)</h3>
+<div class="outline-text-3" id="text-org12380a9">
 <p>
 By default, all statements marked as <code>await</code> have the <code>ConfigureAwait(true)</code> flag. By setting the value to <code>false</code>, we are explicitly saying that we do not wish to return back to the thread that called us.
 </p>
@@ -330,13 +332,13 @@ This is essential since we don't want to lock the main thread &#x2013; which is 
 </p>
 
 <div class="org-src-container">
-<pre class="src src-csharp"><span style="color: #cc6666; font-weight: bold;">async</span> <span style="color: #d3869b;">Task</span> <span style="color: #777777;">GetAllPosts</span>()
-{
-    <span style="color: #d3869b;">List</span>&lt;<span style="color: #d3869b;">Posts</span>&gt; <span style="color: #83a598;">posts</span> = <span style="color: #cc6666; font-weight: bold;">await</span> <span style="color: #777777;">GetPosts</span>().<span style="color: #777777;">ConfigureAwait</span>(<span style="color: #d3869b;">false</span>);
+<pre class="src src-csharp"><span style="color: #cc6666; font-weight: bold;">async</span> <span style="color: #d3869b;">Task</span> <span style="color: #777777;">GetAllPosts</span><span style="color: #8c8c8c;">()</span>
+<span style="color: #8c8c8c;">{</span>
+    <span style="color: #d3869b;">List</span><span style="color: #93a8c6;">&lt;</span><span style="color: #d3869b;">Posts</span><span style="color: #93a8c6;">&gt;</span> <span style="color: #83a598;">posts</span> = <span style="color: #cc6666; font-weight: bold;">await</span> <span style="color: #777777;">GetPosts</span><span style="color: #93a8c6;">()</span>.<span style="color: #777777;">ConfigureAwait</span><span style="color: #93a8c6;">(</span><span style="color: #d3869b;">false</span><span style="color: #93a8c6;">)</span>;
 
-    <span style="color: #cc6666; font-weight: bold;">foreach</span> (<span style="color: #d3869b;">var</span> <span style="color: #83a598;">post</span> <span style="color: #cc6666; font-weight: bold;">in</span> posts)
-        Console.<span style="color: #777777;">WriteLine</span>(post.Name);
-}
+    <span style="color: #cc6666; font-weight: bold;">foreach</span> <span style="color: #93a8c6;">(</span><span style="color: #d3869b;">var</span> <span style="color: #83a598;">post</span> <span style="color: #cc6666; font-weight: bold;">in</span> posts<span style="color: #93a8c6;">)</span>
+        Console.<span style="color: #777777;">WriteLine</span><span style="color: #93a8c6;">(</span>post.Name<span style="color: #93a8c6;">)</span>;
+<span style="color: #8c8c8c;">}</span>
 
 <span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">thread 1: initializes the post variable</span>
 <span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">thread 1: encounters await, spawns new thread</span>
@@ -347,9 +349,9 @@ This is essential since we don't want to lock the main thread &#x2013; which is 
 </div>
 </div>
 
-<div id="outline-container-org4e44513" class="outline-3">
-<h3 id="org4e44513">Why use it?</h3>
-<div class="outline-text-3" id="text-org4e44513">
+<div id="outline-container-orga449259" class="outline-3">
+<h3 id="orga449259">Why use it?</h3>
+<div class="outline-text-3" id="text-orga449259">
 <p>
 <b>if we don't need to return back to the calling thread, use it.</b>
 </p>
@@ -361,9 +363,9 @@ We should use it <i>almost</i> always. Unless we're dealing directly with the in
 </div>
 </div>
 
-<div id="outline-container-org3e7dd21" class="outline-3">
-<h3 id="org3e7dd21">Wait()</h3>
-<div class="outline-text-3" id="text-org3e7dd21">
+<div id="outline-container-org5be30d8" class="outline-3">
+<h3 id="org5be30d8">Wait()</h3>
+<div class="outline-text-3" id="text-org5be30d8">
 <p>
 <b>Never, ever use it.</b>
 </p>
@@ -373,15 +375,15 @@ It locks the calling thread until the current thread is done, which is not ideal
 </p>
 
 <div class="org-src-container">
-<pre class="src src-csharp"><span style="color: #cc6666; font-weight: bold;">async</span> <span style="color: #d3869b;">Task</span>&lt;<span style="color: #d3869b;">List</span>&lt;<span style="color: #d3869b;">Posts</span>&gt;&gt; <span style="color: #777777;">GetAllPosts</span>()
-{
-    <span style="color: #d3869b;">List</span>&lt;<span style="color: #d3869b;">Posts</span>&gt; <span style="color: #83a598;">posts</span> = <span style="color: #cc6666; font-weight: bold;">await</span> <span style="color: #777777;">GetAllPosts</span>().<span style="color: #777777;">Wait</span>();
+<pre class="src src-csharp"><span style="color: #cc6666; font-weight: bold;">async</span> <span style="color: #d3869b;">Task</span><span style="color: #8c8c8c;">&lt;</span><span style="color: #d3869b;">List</span><span style="color: #93a8c6;">&lt;</span><span style="color: #d3869b;">Posts</span><span style="color: #93a8c6;">&gt;</span><span style="color: #8c8c8c;">&gt;</span> <span style="color: #777777;">GetAllPosts</span><span style="color: #8c8c8c;">()</span>
+<span style="color: #8c8c8c;">{</span>
+    <span style="color: #d3869b;">List</span><span style="color: #93a8c6;">&lt;</span><span style="color: #d3869b;">Posts</span><span style="color: #93a8c6;">&gt;</span> <span style="color: #83a598;">posts</span> = <span style="color: #cc6666; font-weight: bold;">await</span> <span style="color: #777777;">GetAllPosts</span><span style="color: #93a8c6;">()</span>.<span style="color: #777777;">Wait</span><span style="color: #93a8c6;">()</span>;
 
-    <span style="color: #cc6666; font-weight: bold;">if</span> (posts == <span style="color: #d3869b;">null</span> || posts.<span style="color: #777777;">Count</span>() == 0)
-        <span style="color: #cc6666; font-weight: bold;">return</span> <span style="color: #cc6666; font-weight: bold;">new</span> <span style="color: #d3869b;">List</span>&lt;<span style="color: #d3869b;">Posts</span>&gt;();
+    <span style="color: #cc6666; font-weight: bold;">if</span> <span style="color: #93a8c6;">(</span>posts == <span style="color: #d3869b;">null</span> || posts.<span style="color: #777777;">Count</span><span style="color: #b0b1a3;">()</span> == 0<span style="color: #93a8c6;">)</span>
+        <span style="color: #cc6666; font-weight: bold;">return</span> <span style="color: #cc6666; font-weight: bold;">new</span> <span style="color: #d3869b;">List</span><span style="color: #93a8c6;">&lt;</span><span style="color: #d3869b;">Posts</span><span style="color: #93a8c6;">&gt;()</span>;
 
     <span style="color: #cc6666; font-weight: bold;">return</span> posts;
-}
+<span style="color: #8c8c8c;">}</span>
 
 <span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">thread 1: initializes the posts variables</span>
 <span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">thread 1: encounters the await keyword</span>
@@ -394,9 +396,9 @@ It locks the calling thread until the current thread is done, which is not ideal
 </div>
 </div>
 
-<div id="outline-container-org92e3c1c" class="outline-3">
-<h3 id="org92e3c1c">Other tips</h3>
-<div class="outline-text-3" id="text-org92e3c1c">
+<div id="outline-container-org76545d2" class="outline-3">
+<h3 id="org76545d2">Other tips</h3>
+<div class="outline-text-3" id="text-org76545d2">
 <ul class="org-ul">
 <li>never use <code>async void</code>. When inside a <code>try/catch</code> block, the main thread just continues to execute.</li>
 <li>never use <code>.Wait()</code> or <code>.Result()</code></li>
@@ -407,13 +409,13 @@ It locks the calling thread until the current thread is done, which is not ideal
 </div>
 </div>
 
-<div id="outline-container-orgbc317b9" class="outline-2">
-<h2 id="orgbc317b9">EntityFramework</h2>
-<div class="outline-text-2" id="text-orgbc317b9">
+<div id="outline-container-org97b2879" class="outline-2">
+<h2 id="org97b2879">EntityFramework</h2>
+<div class="outline-text-2" id="text-org97b2879">
 </div>
-<div id="outline-container-org6c6b798" class="outline-3">
-<h3 id="org6c6b798">One-to-many relationship</h3>
-<div class="outline-text-3" id="text-org6c6b798">
+<div id="outline-container-org694681c" class="outline-3">
+<h3 id="org694681c">One-to-many relationship</h3>
+<div class="outline-text-3" id="text-org694681c">
 <p>
 Using the Generics lib:
 </p>
@@ -426,7 +428,7 @@ Using the Generics lib:
 We can define a navigation property to store multiple entities (list):
 </p>
 <div class="org-src-container">
-<pre class="src src-csharp"><span style="color: #cc6666; font-weight: bold;">public</span> <span style="color: #cc6666; font-weight: bold;">virtual</span> <span style="color: #d3869b;">ICollection</span>&lt;<span style="color: #d3869b;">Enrollment</span>&gt; <span style="color: #83a598;">Enrollments</span> { <span style="color: #cc6666; font-weight: bold;">get</span>; <span style="color: #cc6666; font-weight: bold;">set</span>; }
+<pre class="src src-csharp"><span style="color: #cc6666; font-weight: bold;">public</span> <span style="color: #cc6666; font-weight: bold;">virtual</span> <span style="color: #d3869b;">ICollection</span><span style="color: #8c8c8c;">&lt;</span><span style="color: #d3869b;">Enrollment</span><span style="color: #8c8c8c;">&gt;</span> <span style="color: #83a598;">Enrollments</span> <span style="color: #8c8c8c;">{</span> <span style="color: #cc6666; font-weight: bold;">get</span>; <span style="color: #cc6666; font-weight: bold;">set</span>; <span style="color: #8c8c8c;">}</span>
 </pre>
 </div>
 
@@ -437,19 +439,19 @@ It's defined as <code>virtual</code> so they can use the EntityFramework functio
 </div>
 </div>
 
-<div id="outline-container-org015e4e5" class="outline-2">
-<h2 id="org015e4e5">Destructor (Finalizers)</h2>
-<div class="outline-text-2" id="text-org015e4e5">
+<div id="outline-container-org2a0e629" class="outline-2">
+<h2 id="org2a0e629">Destructor (Finalizers)</h2>
+<div class="outline-text-2" id="text-org2a0e629">
 <p>
 Finalizers (destructors in general) are used to perform necessary clean-ups when a class instance is being collected by the garbage collector.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-csharp"><span style="color: #cc6666; font-weight: bold;">class</span> <span style="color: #d3869b;">Car</span> {
-    ~Car { <span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">finalizer</span>
+<pre class="src src-csharp"><span style="color: #cc6666; font-weight: bold;">class</span> <span style="color: #d3869b;">Car</span> <span style="color: #8c8c8c;">{</span>
+    ~Car <span style="color: #93a8c6;">{</span> <span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">finalizer</span>
         <span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">cleanup statements</span>
-    }
-}
+    <span style="color: #93a8c6;">}</span>
+<span style="color: #8c8c8c;">}</span>
 </pre>
 </div>
 
@@ -458,17 +460,17 @@ A finalizer can also be defined as an expression body definition:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-csharp"><span style="color: #cc6666; font-weight: bold;">public</span> <span style="color: #cc6666; font-weight: bold;">class</span> <span style="color: #d3869b;">Destroyer</span> {
-    ~<span style="color: #777777;">Destroyer</span>() =&gt; Console.<span style="color: #777777;">WriteLine</span>($<span style="color: #476562;">"The {GetType().Name} destructor is executing."</span>);
-}
+<pre class="src src-csharp"><span style="color: #cc6666; font-weight: bold;">public</span> <span style="color: #cc6666; font-weight: bold;">class</span> <span style="color: #d3869b;">Destroyer</span> <span style="color: #8c8c8c;">{</span>
+    ~<span style="color: #777777;">Destroyer</span><span style="color: #93a8c6;">()</span> =&gt; Console.<span style="color: #777777;">WriteLine</span><span style="color: #93a8c6;">(</span>$<span style="color: #476562;">"The {GetType().Name} destructor is executing."</span><span style="color: #93a8c6;">)</span>;
+<span style="color: #8c8c8c;">}</span>
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org510565c" class="outline-2">
-<h2 id="org510565c">Dynamic Type</h2>
-<div class="outline-text-2" id="text-org510565c">
+<div id="outline-container-org7891249" class="outline-2">
+<h2 id="org7891249">Dynamic Type</h2>
+<div class="outline-text-2" id="text-org7891249">
 <p>
 <b>Dynamic binding defers <i>binding</i> - the process of resolving types, members, and operations
 from compile time to runtime.</b>
@@ -480,8 +482,8 @@ exists, but the <i>compiler</i> does not.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-csharp"><span style="color: #d3869b;">dynamic</span> <span style="color: #83a598;">d</span> = <span style="color: #777777;">GetsomeObject</span>();
-d.<span style="color: #777777;">Quack</span>();
+<pre class="src src-csharp"><span style="color: #d3869b;">dynamic</span> <span style="color: #83a598;">d</span> = <span style="color: #777777;">GetsomeObject</span><span style="color: #8c8c8c;">()</span>;
+d.<span style="color: #777777;">Quack</span><span style="color: #8c8c8c;">()</span>;
 </pre>
 </div>
 
@@ -492,9 +494,9 @@ Since <b>d</b> is <i>dynamic</i>, the compiler deferes binding <b>Quack</b> to <
 </div>
 </div>
 
-<div id="outline-container-org357dd84" class="outline-2">
-<h2 id="org357dd84">Extension Methods</h2>
-<div class="outline-text-2" id="text-org357dd84">
+<div id="outline-container-org46ac6d2" class="outline-2">
+<h2 id="org46ac6d2">Extension Methods</h2>
+<div class="outline-text-2" id="text-org46ac6d2">
 <p>
 Extension methods allows for an existing type to be extended with new methods without altering
 the definition of the original type.
@@ -502,22 +504,22 @@ the definition of the original type.
 
 <div class="org-src-container">
 <pre class="src src-csharp"><span style="color: #cc6666; font-weight: bold;">public</span> <span style="color: #cc6666; font-weight: bold;">static</span> <span style="color: #cc6666; font-weight: bold;">class</span> <span style="color: #d3869b;">StringHelper</span>
-{
-    <span style="color: #cc6666; font-weight: bold;">public</span> <span style="color: #cc6666; font-weight: bold;">static</span> <span style="color: #d3869b;">void</span> <span style="color: #777777;">IsCapitalized</span>(<span style="color: #cc6666; font-weight: bold;">this</span> <span style="color: #d3869b;">string</span> <span style="color: #83a598;">s</span>)
-    {
-        <span style="color: #cc6666; font-weight: bold;">if</span> (<span style="color: #d3869b;">string</span>.<span style="color: #777777;">IsNullOrEmpty</span>(<span style="color: #d3869b;">s</span>)) <span style="color: #cc6666; font-weight: bold;">return</span> <span style="color: #d3869b;">false</span>;
-        <span style="color: #cc6666; font-weight: bold;">return</span> <span style="color: #d3869b;">char</span>.<span style="color: #777777;">IsUpper</span>(<span style="color: #d3869b;">s</span>[0]);
-    }
-}
+<span style="color: #8c8c8c;">{</span>
+    <span style="color: #cc6666; font-weight: bold;">public</span> <span style="color: #cc6666; font-weight: bold;">static</span> <span style="color: #d3869b;">void</span> <span style="color: #777777;">IsCapitalized</span><span style="color: #93a8c6;">(</span><span style="color: #cc6666; font-weight: bold;">this</span> <span style="color: #d3869b;">string</span> <span style="color: #83a598;">s</span><span style="color: #93a8c6;">)</span>
+    <span style="color: #93a8c6;">{</span>
+        <span style="color: #cc6666; font-weight: bold;">if</span> <span style="color: #b0b1a3;">(</span><span style="color: #d3869b;">string</span>.<span style="color: #777777;">IsNullOrEmpty</span><span style="color: #97b098;">(</span><span style="color: #d3869b;">s</span><span style="color: #97b098;">)</span><span style="color: #b0b1a3;">)</span> <span style="color: #cc6666; font-weight: bold;">return</span> <span style="color: #d3869b;">false</span>;
+        <span style="color: #cc6666; font-weight: bold;">return</span> <span style="color: #d3869b;">char</span>.<span style="color: #777777;">IsUpper</span><span style="color: #b0b1a3;">(</span><span style="color: #d3869b;">s</span><span style="color: #97b098;">[</span>0<span style="color: #97b098;">]</span><span style="color: #b0b1a3;">)</span>;
+    <span style="color: #93a8c6;">}</span>
+<span style="color: #8c8c8c;">}</span>
 
-Console.<span style="color: #777777;">WriteLine</span>(<span style="color: #476562;">"Perth"</span>.<span style="color: #777777;">IsCapitalized</span>());
+Console.<span style="color: #777777;">WriteLine</span><span style="color: #8c8c8c;">(</span><span style="color: #476562;">"Perth"</span>.<span style="color: #777777;">IsCapitalized</span><span style="color: #93a8c6;">()</span><span style="color: #8c8c8c;">)</span>;
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-orga35ed22" class="outline-2">
-<h2 id="orga35ed22">Global Assembly Cache (GAC)</h2>
-<div class="outline-text-2" id="text-orga35ed22">
+<div id="outline-container-org34dd0d6" class="outline-2">
+<h2 id="org34dd0d6">Global Assembly Cache (GAC)</h2>
+<div class="outline-text-2" id="text-org34dd0d6">
 <p>
 <code>global</code> applies to the entire machine
 <code>assembly</code> what .NET calls its code-libraries (DLLs)
@@ -535,42 +537,42 @@ So the GAC must be a place to store code libraries so they're accessible to all 
 </div>
 </div>
 
-<div id="outline-container-orgdccdf9b" class="outline-2">
-<h2 id="orgdccdf9b">Interfaces</h2>
-<div class="outline-text-2" id="text-orgdccdf9b">
+<div id="outline-container-orgfcb80a7" class="outline-2">
+<h2 id="orgfcb80a7">Interfaces</h2>
+<div class="outline-text-2" id="text-orgfcb80a7">
 <p>
 Interfaces are "signatures" of an object, they include the behavior from multiple sources in a class.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-csharp"><span style="color: #cc6666; font-weight: bold;">interface</span> <span style="color: #d3869b;">IEquatable</span>&lt;<span style="color: #d3869b;">T</span>&gt;
-{
-    <span style="color: #d3869b;">bool</span> <span style="color: #777777;">Equals</span>(<span style="color: #d3869b;">T</span> <span style="color: #83a598;">obj</span>);
-}
+<pre class="src src-csharp"><span style="color: #cc6666; font-weight: bold;">interface</span> <span style="color: #d3869b;">IEquatable</span><span style="color: #8c8c8c;">&lt;</span><span style="color: #d3869b;">T</span><span style="color: #8c8c8c;">&gt;</span>
+<span style="color: #8c8c8c;">{</span>
+    <span style="color: #d3869b;">bool</span> <span style="color: #777777;">Equals</span><span style="color: #93a8c6;">(</span><span style="color: #d3869b;">T</span> <span style="color: #83a598;">obj</span><span style="color: #93a8c6;">)</span>;
+<span style="color: #8c8c8c;">}</span>
 </pre>
 </div>
 
 <div class="org-src-container">
-<pre class="src src-csharp"><span style="color: #cc6666; font-weight: bold;">public</span> <span style="color: #cc6666; font-weight: bold;">class</span> <span style="color: #d3869b;">Car</span> : <span style="color: #d3869b;">IEquatable</span>&lt;<span style="color: #d3869b;">Car</span>&gt;
-{
+<pre class="src src-csharp"><span style="color: #cc6666; font-weight: bold;">public</span> <span style="color: #cc6666; font-weight: bold;">class</span> <span style="color: #d3869b;">Car</span> : <span style="color: #d3869b;">IEquatable</span><span style="color: #8c8c8c;">&lt;</span><span style="color: #d3869b;">Car</span><span style="color: #8c8c8c;">&gt;</span>
+<span style="color: #8c8c8c;">{</span>
     <span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">implementation of IEquatable&lt;T&gt; interface</span>
-    <span style="color: #cc6666; font-weight: bold;">public</span> <span style="color: #d3869b;">bool</span> <span style="color: #777777;">Equals</span>(<span style="color: #d3869b;">Car</span> <span style="color: #83a598;">car</span>)
-    {
+    <span style="color: #cc6666; font-weight: bold;">public</span> <span style="color: #d3869b;">bool</span> <span style="color: #777777;">Equals</span><span style="color: #93a8c6;">(</span><span style="color: #d3869b;">Car</span> <span style="color: #83a598;">car</span><span style="color: #93a8c6;">)</span>
+    <span style="color: #93a8c6;">{</span>
         <span style="color: #cc6666; font-weight: bold;">return</span> <span style="color: #d3869b;">true</span>;
-    }
-}
+    <span style="color: #93a8c6;">}</span>
+<span style="color: #8c8c8c;">}</span>
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org3ceed7d" class="outline-2">
-<h2 id="org3ceed7d">Keywords</h2>
-<div class="outline-text-2" id="text-org3ceed7d">
+<div id="outline-container-org96dd0ae" class="outline-2">
+<h2 id="org96dd0ae">Keywords</h2>
+<div class="outline-text-2" id="text-org96dd0ae">
 </div>
-<div id="outline-container-org111daf6" class="outline-3">
-<h3 id="org111daf6">Structs</h3>
-<div class="outline-text-3" id="text-org111daf6">
+<div id="outline-container-org8f12d5b" class="outline-3">
+<h3 id="org8f12d5b">Structs</h3>
+<div class="outline-text-3" id="text-org8f12d5b">
 <ol class="org-ol">
 <li>Follows the same syntax as classes</li>
 <li>Within a <code>struct</code> declaration, fields cannot be initialized unless they are declared as <code>const</code> or <code>static</code></li>
@@ -583,35 +585,35 @@ Interfaces are "signatures" of an object, they include the behavior from multipl
 
 <div class="org-src-container">
 <pre class="src src-csharp">
-<span style="color: #cc6666; font-weight: bold;">public</span> <span style="color: #cc6666; font-weight: bold;">struct</span> <span style="color: #d3869b;">TestStruct</span> {
+<span style="color: #cc6666; font-weight: bold;">public</span> <span style="color: #cc6666; font-weight: bold;">struct</span> <span style="color: #d3869b;">TestStruct</span> <span style="color: #8c8c8c;">{</span>
     <span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">Fields, methods, properties and events ...</span>
-}
+<span style="color: #8c8c8c;">}</span>
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org2a7be90" class="outline-3">
-<h3 id="org2a7be90">Parameters</h3>
-<div class="outline-text-3" id="text-org2a7be90">
+<div id="outline-container-org8d3c9c1" class="outline-3">
+<h3 id="org8d3c9c1">Parameters</h3>
+<div class="outline-text-3" id="text-org8d3c9c1">
 <div class="org-src-container">
 <pre class="src src-csharp"><span style="color: #cc6666; font-weight: bold;">public</span> <span style="color: #cc6666; font-weight: bold;">class</span> <span style="color: #d3869b;">Keywords</span>
-{
-    <span style="color: #cc6666; font-weight: bold;">public</span> <span style="color: #cc6666; font-weight: bold;">static</span> <span style="color: #d3869b;">void</span> <span style="color: #777777;">Main</span>()
-    {
+<span style="color: #8c8c8c;">{</span>
+    <span style="color: #cc6666; font-weight: bold;">public</span> <span style="color: #cc6666; font-weight: bold;">static</span> <span style="color: #d3869b;">void</span> <span style="color: #777777;">Main</span><span style="color: #93a8c6;">()</span>
+    <span style="color: #93a8c6;">{</span>
         <span style="color: #d3869b;">int</span> <span style="color: #83a598;">val1</span> = 0; <span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">must be assigned a value;</span>
         <span style="color: #d3869b;">int</span> <span style="color: #83a598;">val2</span>; <span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">optional</span>
 
-        <span style="color: #777777;">Keywords1</span>(<span style="color: #cc6666; font-weight: bold;">ref</span> <span style="color: #d3869b;">val1</span>);
-        Console.<span style="color: #777777;">WriteLine</span>(<span style="color: #d3869b;">val1</span>);
+        <span style="color: #777777;">Keywords1</span><span style="color: #b0b1a3;">(</span><span style="color: #cc6666; font-weight: bold;">ref</span> <span style="color: #d3869b;">val1</span><span style="color: #b0b1a3;">)</span>;
+        Console.<span style="color: #777777;">WriteLine</span><span style="color: #b0b1a3;">(</span><span style="color: #d3869b;">val1</span><span style="color: #b0b1a3;">)</span>;
 
-        <span style="color: #777777;">Keywords2</span>(<span style="color: #cc6666; font-weight: bold;">out</span> <span style="color: #d3869b;">val2</span>);
-        Console.<span style="color: #777777;">WriteLine</span>(<span style="color: #d3869b;">val2</span>);
-    }
+        <span style="color: #777777;">Keywords2</span><span style="color: #b0b1a3;">(</span><span style="color: #cc6666; font-weight: bold;">out</span> <span style="color: #d3869b;">val2</span><span style="color: #b0b1a3;">)</span>;
+        Console.<span style="color: #777777;">WriteLine</span><span style="color: #b0b1a3;">(</span><span style="color: #d3869b;">val2</span><span style="color: #b0b1a3;">)</span>;
+    <span style="color: #93a8c6;">}</span>
 
-    <span style="color: #cc6666; font-weight: bold;">static</span> <span style="color: #d3869b;">void</span> <span style="color: #777777;">Keywords1</span>(<span style="color: #cc6666; font-weight: bold;">ref</span> <span style="color: #d3869b;">int</span> <span style="color: #d3869b;">value</span>) =&gt; <span style="color: #d3869b;">value</span> = 7;
-    <span style="color: #cc6666; font-weight: bold;">static</span> <span style="color: #d3869b;">void</span> <span style="color: #777777;">Keywords2</span>(<span style="color: #cc6666; font-weight: bold;">out</span> <span style="color: #d3869b;">int</span> <span style="color: #d3869b;">value</span>) =&gt; <span style="color: #d3869b;">value</span> = 9; <span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">must be defined</span>
-}
+    <span style="color: #cc6666; font-weight: bold;">static</span> <span style="color: #d3869b;">void</span> <span style="color: #777777;">Keywords1</span><span style="color: #93a8c6;">(</span><span style="color: #cc6666; font-weight: bold;">ref</span> <span style="color: #d3869b;">int</span> <span style="color: #d3869b;">value</span><span style="color: #93a8c6;">)</span> =&gt; <span style="color: #d3869b;">value</span> = 7;
+    <span style="color: #cc6666; font-weight: bold;">static</span> <span style="color: #d3869b;">void</span> <span style="color: #777777;">Keywords2</span><span style="color: #93a8c6;">(</span><span style="color: #cc6666; font-weight: bold;">out</span> <span style="color: #d3869b;">int</span> <span style="color: #d3869b;">value</span><span style="color: #93a8c6;">)</span> =&gt; <span style="color: #d3869b;">value</span> = 9; <span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">must be defined</span>
+<span style="color: #8c8c8c;">}</span>
 
 <span style="color: #7c6f64;">/* </span><span style="color: #7c6f64;">Output</span>
 <span style="color: #7c6f64;">   7</span>
@@ -621,9 +623,9 @@ Interfaces are "signatures" of an object, they include the behavior from multipl
 </div>
 </div>
 
-<div id="outline-container-org4c09e95" class="outline-3">
-<h3 id="org4c09e95">ref</h3>
-<div class="outline-text-3" id="text-org4c09e95">
+<div id="outline-container-orge1905d3" class="outline-3">
+<h3 id="orge1905d3">ref</h3>
+<div class="outline-text-3" id="text-orge1905d3">
 <p>
 <code>Ref</code> keywords are used to pass an argument as a reference, meaning that when the value of that parameter
 changes after being passed through the method, the new value is reflected in the new calling method.
@@ -631,9 +633,9 @@ changes after being passed through the method, the new value is reflected in the
 </div>
 </div>
 
-<div id="outline-container-orgeee1e9b" class="outline-3">
-<h3 id="orgeee1e9b">out</h3>
-<div class="outline-text-3" id="text-orgeee1e9b">
+<div id="outline-container-orga43fe64" class="outline-3">
+<h3 id="orga43fe64">out</h3>
+<div class="outline-text-3" id="text-orga43fe64">
 <p>
 <code>Out</code> keywords is similar to <code>ref</code> in that, they are used to pass an argument, but they differ in that
 arguments passed using <code>out</code> keyword can be passed without any value to be assigned to it.
@@ -642,105 +644,105 @@ arguments passed using <code>out</code> keyword can be passed without any value 
 </div>
 </div>
 
-<div id="outline-container-org798e729" class="outline-3">
-<h3 id="org798e729">Named and Optional Parameters</h3>
-<div class="outline-text-3" id="text-org798e729">
+<div id="outline-container-org2111d4f" class="outline-3">
+<h3 id="org2111d4f">Named and Optional Parameters</h3>
+<div class="outline-text-3" id="text-org2111d4f">
 <div class="org-src-container">
 <pre class="src src-csharp"><span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">optional arguments</span>
-<span style="color: #cc6666; font-weight: bold;">public</span> <span style="color: #d3869b;">void</span> <span style="color: #777777;">ExampleMethod</span>(<span style="color: #d3869b;">int</span> <span style="color: #83a598;">required</span>, <span style="color: #d3869b;">int</span> <span style="color: #83a598;">optionalStr</span> = <span style="color: #476562;">"default string"</span>) { }
+<span style="color: #cc6666; font-weight: bold;">public</span> <span style="color: #d3869b;">void</span> <span style="color: #777777;">ExampleMethod</span><span style="color: #8c8c8c;">(</span><span style="color: #d3869b;">int</span> <span style="color: #83a598;">required</span>, <span style="color: #d3869b;">int</span> <span style="color: #83a598;">optionalStr</span> = <span style="color: #476562;">"default string"</span><span style="color: #8c8c8c;">)</span> <span style="color: #8c8c8c;">{</span> <span style="color: #8c8c8c;">}</span>
 
-<span style="color: #cc6666; font-weight: bold;">static</span> <span style="color: #d3869b;">void</span> <span style="color: #777777;">Main</span>()
-{
+<span style="color: #cc6666; font-weight: bold;">static</span> <span style="color: #d3869b;">void</span> <span style="color: #777777;">Main</span><span style="color: #8c8c8c;">()</span>
+<span style="color: #8c8c8c;">{</span>
     <span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">named arguments</span>
-    <span style="color: #777777;">PrintOrderDetails</span>(sellerName: <span style="color: #476562;">"Gift Shop"</span>, 31, productName: <span style="color: #476562;">"Red Mug"</span>);
-}
+    <span style="color: #777777;">PrintOrderDetails</span><span style="color: #93a8c6;">(</span>sellerName: <span style="color: #476562;">"Gift Shop"</span>, 31, productName: <span style="color: #476562;">"Red Mug"</span><span style="color: #93a8c6;">)</span>;
+<span style="color: #8c8c8c;">}</span>
 
-<span style="color: #cc6666; font-weight: bold;">static</span> <span style="color: #d3869b;">void</span> <span style="color: #777777;">PrintOrderDetails</span>(<span style="color: #d3869b;">string</span> <span style="color: #83a598;">sellerName</span>, <span style="color: #d3869b;">int</span> <span style="color: #83a598;">orderNum</span>, <span style="color: #d3869b;">string</span> <span style="color: #83a598;">productName</span>) {}
+<span style="color: #cc6666; font-weight: bold;">static</span> <span style="color: #d3869b;">void</span> <span style="color: #777777;">PrintOrderDetails</span><span style="color: #8c8c8c;">(</span><span style="color: #d3869b;">string</span> <span style="color: #83a598;">sellerName</span>, <span style="color: #d3869b;">int</span> <span style="color: #83a598;">orderNum</span>, <span style="color: #d3869b;">string</span> <span style="color: #83a598;">productName</span><span style="color: #8c8c8c;">)</span> <span style="color: #8c8c8c;">{}</span>
 </pre>
 </div>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgc1224e3" class="outline-2">
-<h2 id="orgc1224e3">Reflection</h2>
-<div class="outline-text-2" id="text-orgc1224e3">
+<div id="outline-container-org4e3aa27" class="outline-2">
+<h2 id="org4e3aa27">Reflection</h2>
+<div class="outline-text-2" id="text-org4e3aa27">
 <p>
 Reflection is a C# language mechanism for accessing dynamic object properties in runtime.
 Typically, reflection is used to fetch the information about dynamic object type and object attribute values.
 </p>
 </div>
 
-<div id="outline-container-org6d8a5b0" class="outline-3">
-<h3 id="org6d8a5b0">Get the members of a type</h3>
-<div class="outline-text-3" id="text-org6d8a5b0">
+<div id="outline-container-org2989a71" class="outline-3">
+<h3 id="org2989a71">Get the members of a type</h3>
+<div class="outline-text-3" id="text-org2989a71">
 <div class="org-src-container">
 <pre class="src src-csharp"><span style="color: #cc6666; font-weight: bold;">using</span> <span style="color: #83a598;">System</span>;
 <span style="color: #cc6666; font-weight: bold;">using</span> <span style="color: #83a598;">System</span>.<span style="color: #83a598;">Reflection</span>;
 <span style="color: #cc6666; font-weight: bold;">using</span> <span style="color: #83a598;">System</span>.<span style="color: #83a598;">Reflection</span>.<span style="color: #83a598;">Linq</span>;
 
-<span style="color: #cc6666; font-weight: bold;">public</span> <span style="color: #cc6666; font-weight: bold;">class</span> <span style="color: #d3869b;">Program</span> {
-    <span style="color: #cc6666; font-weight: bold;">public</span> <span style="color: #cc6666; font-weight: bold;">static</span> <span style="color: #d3869b;">void</span> <span style="color: #777777;">Main</span>()
-    {
-        <span style="color: #d3869b;">var</span> <span style="color: #83a598;">members</span> = <span style="color: #cc6666; font-weight: bold;">typeof</span>(<span style="color: #d3869b;">object</span>)
-            .<span style="color: #777777;">GetMembers</span>(Bindingflags.Public |
+<span style="color: #cc6666; font-weight: bold;">public</span> <span style="color: #cc6666; font-weight: bold;">class</span> <span style="color: #d3869b;">Program</span> <span style="color: #8c8c8c;">{</span>
+    <span style="color: #cc6666; font-weight: bold;">public</span> <span style="color: #cc6666; font-weight: bold;">static</span> <span style="color: #d3869b;">void</span> <span style="color: #777777;">Main</span><span style="color: #93a8c6;">()</span>
+    <span style="color: #93a8c6;">{</span>
+        <span style="color: #d3869b;">var</span> <span style="color: #83a598;">members</span> = <span style="color: #cc6666; font-weight: bold;">typeof</span><span style="color: #b0b1a3;">(</span><span style="color: #d3869b;">object</span><span style="color: #b0b1a3;">)</span>
+            .<span style="color: #777777;">GetMembers</span><span style="color: #b0b1a3;">(</span>Bindingflags.Public |
                         BindingFlags.Static |
-                        BindingFlags.Instance);
+                        BindingFlags.Instance<span style="color: #b0b1a3;">)</span>;
 
-        <span style="color: #cc6666; font-weight: bold;">foreach</span> (<span style="color: #d3869b;">var</span> <span style="color: #83a598;">member</span> <span style="color: #cc6666; font-weight: bold;">in</span> members)
-        {
-            <span style="color: #d3869b;">bool</span> <span style="color: #83a598;">inherited</span> = member.DeclaringType.<span style="color: #777777;">Equals</span>(<span style="color: #cc6666; font-weight: bold;">typeof</span>(<span style="color: #d3869b;">object</span>).Name);
-            Console.<span style="color: #777777;">WriteLine</span>($<span style="color: #476562;">"{member.Name} is a {member.MemberType},"</span> +
-                              $<span style="color: #476562;">"it has {(inherited ? "" : "</span>not<span style="color: #476562;">")} been inherited."</span>);
-        }
-    }
-}
+        <span style="color: #cc6666; font-weight: bold;">foreach</span> <span style="color: #b0b1a3;">(</span><span style="color: #d3869b;">var</span> <span style="color: #83a598;">member</span> <span style="color: #cc6666; font-weight: bold;">in</span> members<span style="color: #b0b1a3;">)</span>
+        <span style="color: #b0b1a3;">{</span>
+            <span style="color: #d3869b;">bool</span> <span style="color: #83a598;">inherited</span> = member.DeclaringType.<span style="color: #777777;">Equals</span><span style="color: #97b098;">(</span><span style="color: #cc6666; font-weight: bold;">typeof</span><span style="color: #aebed8;">(</span><span style="color: #d3869b;">object</span><span style="color: #aebed8;">)</span>.Name<span style="color: #97b098;">)</span>;
+            Console.<span style="color: #777777;">WriteLine</span><span style="color: #97b098;">(</span>$<span style="color: #476562;">"{member.Name} is a {member.MemberType},"</span> +
+                              $<span style="color: #476562;">"it has {(inherited ? "" : "</span>not<span style="color: #476562;">")} been inherited."</span><span style="color: #97b098;">)</span>;
+        <span style="color: #b0b1a3;">}</span>
+    <span style="color: #93a8c6;">}</span>
+<span style="color: #8c8c8c;">}</span>
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgfdc578e" class="outline-3">
-<h3 id="orgfdc578e">Get a method and invoke it</h3>
-<div class="outline-text-3" id="text-orgfdc578e">
+<div id="outline-container-orgd67cbb5" class="outline-3">
+<h3 id="orgd67cbb5">Get a method and invoke it</h3>
+<div class="outline-text-3" id="text-orgd67cbb5">
 <div class="org-src-container">
 <pre class="src src-csharp"><span style="color: #cc6666; font-weight: bold;">using</span> <span style="color: #83a598;">System</span>;
 
-<span style="color: #cc6666; font-weight: bold;">public</span> <span style="color: #cc6666; font-weight: bold;">class</span> <span style="color: #d3869b;">Program</span> {
-    <span style="color: #cc6666; font-weight: bold;">public</span> <span style="color: #cc6666; font-weight: bold;">static</span> <span style="color: #d3869b;">void</span> <span style="color: #777777;">Main</span>()
-    {
+<span style="color: #cc6666; font-weight: bold;">public</span> <span style="color: #cc6666; font-weight: bold;">class</span> <span style="color: #d3869b;">Program</span> <span style="color: #8c8c8c;">{</span>
+    <span style="color: #cc6666; font-weight: bold;">public</span> <span style="color: #cc6666; font-weight: bold;">static</span> <span style="color: #d3869b;">void</span> <span style="color: #777777;">Main</span><span style="color: #93a8c6;">()</span>
+    <span style="color: #93a8c6;">{</span>
         <span style="color: #d3869b;">var</span> <span style="color: #83a598;">theString</span> = <span style="color: #476562;">"hello"</span>;
         <span style="color: #d3869b;">var</span> <span style="color: #83a598;">method</span> = theString
-            .<span style="color: #777777;">GetType</span>()
-            .<span style="color: #777777;">GetMethod</span>(<span style="color: #476562;">"Substring"</span>,
-                       <span style="color: #cc6666; font-weight: bold;">new</span> [] { <span style="color: #cc6666; font-weight: bold;">typeof</span>(<span style="color: #d3869b;">int</span>), <span style="color: #cc6666; font-weight: bold;">typeof</span>(<span style="color: #d3869b;">int</span>) }); <span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">the types of the method</span>
+            .<span style="color: #777777;">GetType</span><span style="color: #b0b1a3;">()</span>
+            .<span style="color: #777777;">GetMethod</span><span style="color: #b0b1a3;">(</span><span style="color: #476562;">"Substring"</span>,
+                       <span style="color: #cc6666; font-weight: bold;">new</span> <span style="color: #97b098;">[]</span> <span style="color: #97b098;">{</span> <span style="color: #cc6666; font-weight: bold;">typeof</span><span style="color: #aebed8;">(</span><span style="color: #d3869b;">int</span><span style="color: #aebed8;">)</span>, <span style="color: #cc6666; font-weight: bold;">typeof</span><span style="color: #aebed8;">(</span><span style="color: #d3869b;">int</span><span style="color: #aebed8;">)</span> <span style="color: #97b098;">}</span><span style="color: #b0b1a3;">)</span>; <span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">the types of the method</span>
 
-        <span style="color: #d3869b;">var</span> <span style="color: #83a598;">result</span> = method.<span style="color: #777777;">Invoke</span>(<span style="color: #d3869b;">theString</span>, <span style="color: #cc6666; font-weight: bold;">new</span> <span style="color: #d3869b;">object</span>[] { 0, 4 });
-        Console.<span style="color: #777777;">WriteLine</span>(<span style="color: #d3869b;">result</span>);
-    }
-}
+        <span style="color: #d3869b;">var</span> <span style="color: #83a598;">result</span> = method.<span style="color: #777777;">Invoke</span><span style="color: #b0b1a3;">(</span><span style="color: #d3869b;">theString</span>, <span style="color: #cc6666; font-weight: bold;">new</span> <span style="color: #d3869b;">object</span><span style="color: #97b098;">[]</span> <span style="color: #97b098;">{</span> 0, 4 <span style="color: #97b098;">}</span><span style="color: #b0b1a3;">)</span>;
+        Console.<span style="color: #777777;">WriteLine</span><span style="color: #b0b1a3;">(</span><span style="color: #d3869b;">result</span><span style="color: #b0b1a3;">)</span>;
+    <span style="color: #93a8c6;">}</span>
+<span style="color: #8c8c8c;">}</span>
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org4013a07" class="outline-3">
-<h3 id="org4013a07">Get Static Method and invoke it</h3>
-<div class="outline-text-3" id="text-org4013a07">
+<div id="outline-container-orgb6565f8" class="outline-3">
+<h3 id="orgb6565f8">Get Static Method and invoke it</h3>
+<div class="outline-text-3" id="text-orgb6565f8">
 <div class="org-src-container">
-<pre class="src src-csharp"><span style="color: #d3869b;">var</span> <span style="color: #83a598;">method</span> = <span style="color: #cc6666; font-weight: bold;">typeof</span>(Math).<span style="color: #777777;">getMethod</span>(<span style="color: #476562;">"Exp"</span>);
-<span style="color: #d3869b;">var</span> <span style="color: #83a598;">result</span> = method.<span style="color: #777777;">Invoke</span>(<span style="color: #d3869b;">null</span>, <span style="color: #cc6666; font-weight: bold;">new</span> <span style="color: #d3869b;">object</span>[] { 2 }); <span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">pass null as the first argument (no need for an instance)</span>
+<pre class="src src-csharp"><span style="color: #d3869b;">var</span> <span style="color: #83a598;">method</span> = <span style="color: #cc6666; font-weight: bold;">typeof</span><span style="color: #8c8c8c;">(</span>Math<span style="color: #8c8c8c;">)</span>.<span style="color: #777777;">getMethod</span><span style="color: #8c8c8c;">(</span><span style="color: #476562;">"Exp"</span><span style="color: #8c8c8c;">)</span>;
+<span style="color: #d3869b;">var</span> <span style="color: #83a598;">result</span> = method.<span style="color: #777777;">Invoke</span><span style="color: #8c8c8c;">(</span><span style="color: #d3869b;">null</span>, <span style="color: #cc6666; font-weight: bold;">new</span> <span style="color: #d3869b;">object</span><span style="color: #93a8c6;">[]</span> <span style="color: #93a8c6;">{</span> 2 <span style="color: #93a8c6;">}</span><span style="color: #8c8c8c;">)</span>; <span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">pass null as the first argument (no need for an instance)</span>
 
-Console.<span style="color: #777777;">WriteLine</span>(result); <span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">e^2</span>
+Console.<span style="color: #777777;">WriteLine</span><span style="color: #8c8c8c;">(</span>result<span style="color: #8c8c8c;">)</span>; <span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">e^2</span>
 </pre>
 </div>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org68754e3" class="outline-2">
-<h2 id="org68754e3">Stack and Heap</h2>
-<div class="outline-text-2" id="text-org68754e3">
+<div id="outline-container-orgb8c4b05" class="outline-2">
+<h2 id="orgb8c4b05">Stack and Heap</h2>
+<div class="outline-text-2" id="text-orgb8c4b05">
 <p>
 The <code>stack</code> is responsible for keeping track on what's executing in our code.
 </p>
@@ -761,20 +763,20 @@ Essentially, we have four main things we'll be putting in the stack and heap as 
 </ul>
 </div>
 
-<div id="outline-container-org0e53dee" class="outline-3">
-<h3 id="org0e53dee">Stack</h3>
-<div class="outline-text-3" id="text-org0e53dee">
+<div id="outline-container-org05798b6" class="outline-3">
+<h3 id="org05798b6">Stack</h3>
+<div class="outline-text-3" id="text-org05798b6">
 <p>
 Considering the following code:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-csharp"><span style="color: #cc6666; font-weight: bold;">public</span> <span style="color: #d3869b;">int</span> <span style="color: #777777;">AddFive</span>(<span style="color: #d3869b;">int</span> <span style="color: #83a598;">pValue</span>)
-{
+<pre class="src src-csharp"><span style="color: #cc6666; font-weight: bold;">public</span> <span style="color: #d3869b;">int</span> <span style="color: #777777;">AddFive</span><span style="color: #8c8c8c;">(</span><span style="color: #d3869b;">int</span> <span style="color: #83a598;">pValue</span><span style="color: #8c8c8c;">)</span>
+<span style="color: #8c8c8c;">{</span>
     <span style="color: #d3869b;">int</span> <span style="color: #83a598;">result</span>;
     result = pValue + 5;
     <span style="color: #cc6666; font-weight: bold;">return</span> result;
-}
+<span style="color: #8c8c8c;">}</span>
 </pre>
 </div>
 
@@ -789,9 +791,9 @@ Considering the following code:
 </div>
 </div>
 
-<div id="outline-container-orgbdba17f" class="outline-3">
-<h3 id="orgbdba17f">Heap</h3>
-<div class="outline-text-3" id="text-orgbdba17f">
+<div id="outline-container-org80d4d3e" class="outline-3">
+<h3 id="org80d4d3e">Heap</h3>
+<div class="outline-text-3" id="text-org80d4d3e">
 <p>
 Value Types always go where they are declared,
 if a value type is declared outside a method, but inside a reference type it will be placed within
@@ -800,16 +802,16 @@ the Reference Type of the heap.
 
 <div class="org-src-container">
 <pre class="src src-csharp"><span style="color: #cc6666; font-weight: bold;">public</span> <span style="color: #cc6666; font-weight: bold;">class</span> <span style="color: #d3869b;">MyInt</span>
-{
+<span style="color: #8c8c8c;">{</span>
     <span style="color: #cc6666; font-weight: bold;">public</span> <span style="color: #d3869b;">int</span> <span style="color: #83a598;">MyValue</span>;
-}
+<span style="color: #8c8c8c;">}</span>
 
-<span style="color: #cc6666; font-weight: bold;">public</span> <span style="color: #d3869b;">MyInt</span> <span style="color: #777777;">AddFive</span>(<span style="color: #d3869b;">int</span> <span style="color: #83a598;">pValue</span>)
-{
-    MyInt <span style="color: #d3869b;">result</span>  <span style="color: #cc6666; font-weight: bold;">new</span> <span style="color: #d3869b;">MyInt</span>();
+<span style="color: #cc6666; font-weight: bold;">public</span> <span style="color: #d3869b;">MyInt</span> <span style="color: #777777;">AddFive</span><span style="color: #8c8c8c;">(</span><span style="color: #d3869b;">int</span> <span style="color: #83a598;">pValue</span><span style="color: #8c8c8c;">)</span>
+<span style="color: #8c8c8c;">{</span>
+    MyInt <span style="color: #d3869b;">result</span>  <span style="color: #cc6666; font-weight: bold;">new</span> <span style="color: #d3869b;">MyInt</span><span style="color: #93a8c6;">()</span>;
     result.Myvalue = pValue + 5;
     <span style="color: #cc6666; font-weight: bold;">return</span> result;
-}
+<span style="color: #8c8c8c;">}</span>
 </pre>
 </div>
 
@@ -823,56 +825,56 @@ the Reference Type of the heap.
 </div>
 </div>
 
-<div id="outline-container-orgef3e42a" class="outline-2">
-<h2 id="orgef3e42a">Delegates</h2>
-<div class="outline-text-2" id="text-orgef3e42a">
+<div id="outline-container-org9c3577f" class="outline-2">
+<h2 id="org9c3577f">Delegates</h2>
+<div class="outline-text-2" id="text-org9c3577f">
 <p>
 Delegates are types that represent a reference to a method.
 They are used for passing arguments as reference to other methods.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-csharp"><span style="color: #cc6666; font-weight: bold;">class</span> <span style="color: #d3869b;">DelegateExample</span> {
-    <span style="color: #cc6666; font-weight: bold;">public</span> <span style="color: #d3869b;">void</span> <span style="color: #777777;">Run</span>()
-    {
+<pre class="src src-csharp"><span style="color: #cc6666; font-weight: bold;">class</span> <span style="color: #d3869b;">DelegateExample</span> <span style="color: #8c8c8c;">{</span>
+    <span style="color: #cc6666; font-weight: bold;">public</span> <span style="color: #d3869b;">void</span> <span style="color: #777777;">Run</span><span style="color: #93a8c6;">()</span>
+    <span style="color: #93a8c6;">{</span>
         <span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">using class method</span>
-        <span style="color: #777777;">InvokeDelegate</span>(<span style="color: #d3869b;">WriteToConsole</span>);
+        <span style="color: #777777;">InvokeDelegate</span><span style="color: #b0b1a3;">(</span><span style="color: #d3869b;">WriteToConsole</span><span style="color: #b0b1a3;">)</span>;
 
         <span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">using anonymous method</span>
-        <span style="color: #d3869b;">DelegateInvoker</span> <span style="color: #83a598;">di</span> = <span style="color: #cc6666; font-weight: bold;">delegate</span> (<span style="color: #d3869b;">string</span> <span style="color: #83a598;">input</span>)
-            {
-                Console.<span style="color: #777777;">WriteLine</span>(<span style="color: #d3869b;">string</span>.<span style="color: #777777;">Format</span>(<span style="color: #476562;">"di: {0}"</span>, <span style="color: #d3869b;">input</span>));
+        <span style="color: #d3869b;">DelegateInvoker</span> <span style="color: #83a598;">di</span> = <span style="color: #cc6666; font-weight: bold;">delegate</span> <span style="color: #b0b1a3;">(</span><span style="color: #d3869b;">string</span> <span style="color: #83a598;">input</span><span style="color: #b0b1a3;">)</span>
+            <span style="color: #b0b1a3;">{</span>
+                Console.<span style="color: #777777;">WriteLine</span><span style="color: #97b098;">(</span><span style="color: #d3869b;">string</span>.<span style="color: #777777;">Format</span><span style="color: #aebed8;">(</span><span style="color: #476562;">"di: {0}"</span>, <span style="color: #d3869b;">input</span><span style="color: #aebed8;">)</span><span style="color: #97b098;">)</span>;
                 <span style="color: #cc6666; font-weight: bold;">return</span> <span style="color: #d3869b;">true</span>;
-            }
+            <span style="color: #b0b1a3;">}</span>
 
-        <span style="color: #777777;">InvokeDelegate</span>(<span style="color: #d3869b;">di</span>);
+        <span style="color: #777777;">InvokeDelegate</span><span style="color: #b0b1a3;">(</span><span style="color: #d3869b;">di</span><span style="color: #b0b1a3;">)</span>;
 
         <span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">using lambda expression;</span>
-        <span style="color: #777777;">InvokeDelegate</span>(input =&gt; <span style="color: #d3869b;">true</span>);
-    }
+        <span style="color: #777777;">InvokeDelegate</span><span style="color: #b0b1a3;">(</span>input =&gt; <span style="color: #d3869b;">true</span><span style="color: #b0b1a3;">)</span>;
+    <span style="color: #93a8c6;">}</span>
 
-    <span style="color: #cc6666; font-weight: bold;">public</span> <span style="color: #cc6666; font-weight: bold;">delegate</span> <span style="color: #d3869b;">bool</span> <span style="color: #777777;">DelegateInvoker</span>(<span style="color: #d3869b;">string</span> <span style="color: #83a598;">input</span>);
+    <span style="color: #cc6666; font-weight: bold;">public</span> <span style="color: #cc6666; font-weight: bold;">delegate</span> <span style="color: #d3869b;">bool</span> <span style="color: #777777;">DelegateInvoker</span><span style="color: #93a8c6;">(</span><span style="color: #d3869b;">string</span> <span style="color: #83a598;">input</span><span style="color: #93a8c6;">)</span>;
 
-    <span style="color: #cc6666; font-weight: bold;">public</span> <span style="color: #d3869b;">void</span> <span style="color: #777777;">InvokeDelegate</span>(<span style="color: #d3869b;">DelegateInvoker</span> <span style="color: #83a598;">func</span>)
-    {
-        <span style="color: #d3869b;">var</span> <span style="color: #83a598;">ret</span> = <span style="color: #777777;">func</span>(<span style="color: #476562;">"Hello world"</span>);
-        Console.<span style="color: #777777;">WriteLine</span>(<span style="color: #476562;">"&gt; Delegate returned {ret}"</span>);
-    }
+    <span style="color: #cc6666; font-weight: bold;">public</span> <span style="color: #d3869b;">void</span> <span style="color: #777777;">InvokeDelegate</span><span style="color: #93a8c6;">(</span><span style="color: #d3869b;">DelegateInvoker</span> <span style="color: #83a598;">func</span><span style="color: #93a8c6;">)</span>
+    <span style="color: #93a8c6;">{</span>
+        <span style="color: #d3869b;">var</span> <span style="color: #83a598;">ret</span> = <span style="color: #777777;">func</span><span style="color: #b0b1a3;">(</span><span style="color: #476562;">"Hello world"</span><span style="color: #b0b1a3;">)</span>;
+        Console.<span style="color: #777777;">WriteLine</span><span style="color: #b0b1a3;">(</span><span style="color: #476562;">"&gt; Delegate returned {ret}"</span><span style="color: #b0b1a3;">)</span>;
+    <span style="color: #93a8c6;">}</span>
 
-    <span style="color: #cc6666; font-weight: bold;">public</span> <span style="color: #d3869b;">bool</span> <span style="color: #777777;">WriteToConsole</span>(<span style="color: #d3869b;">string</span> <span style="color: #83a598;">input</span>)
-    {
-        Console.<span style="color: #777777;">WriteLine</span>($<span style="color: #476562;">"WriteToConsole: {input}"</span>);
+    <span style="color: #cc6666; font-weight: bold;">public</span> <span style="color: #d3869b;">bool</span> <span style="color: #777777;">WriteToConsole</span><span style="color: #93a8c6;">(</span><span style="color: #d3869b;">string</span> <span style="color: #83a598;">input</span><span style="color: #93a8c6;">)</span>
+    <span style="color: #93a8c6;">{</span>
+        Console.<span style="color: #777777;">WriteLine</span><span style="color: #b0b1a3;">(</span>$<span style="color: #476562;">"WriteToConsole: {input}"</span><span style="color: #b0b1a3;">)</span>;
         <span style="color: #cc6666; font-weight: bold;">return</span> <span style="color: #d3869b;">true</span>;
-    }
-}
+    <span style="color: #93a8c6;">}</span>
+<span style="color: #8c8c8c;">}</span>
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgf758dec" class="outline-2">
-<h2 id="orgf758dec">Threading</h2>
-<div class="outline-text-2" id="text-orgf758dec">
+<div id="outline-container-org3283ba9" class="outline-2">
+<h2 id="org3283ba9">Threading</h2>
+<div class="outline-text-2" id="text-org3283ba9">
 <p>
 Creating and starting a second thread:
 </p>
@@ -881,22 +883,22 @@ Creating and starting a second thread:
 <pre class="src src-csharp"><span style="color: #cc6666; font-weight: bold;">using</span> <span style="color: #83a598;">System</span>;
 <span style="color: #cc6666; font-weight: bold;">using</span> <span style="color: #83a598;">System</span>.<span style="color: #83a598;">Threading</span>;
 
-<span style="color: #cc6666; font-weight: bold;">class</span> <span style="color: #d3869b;">Program</span> {
-    <span style="color: #cc6666; font-weight: bold;">static</span> <span style="color: #d3869b;">void</span> <span style="color: #777777;">Main</span>()
-    {
-        <span style="color: #d3869b;">var</span> <span style="color: #83a598;">thread</span> = <span style="color: #cc6666; font-weight: bold;">new</span> <span style="color: #d3869b;">Thread</span>(<span style="color: #d3869b;">Secondary</span>);
-        thread.<span style="color: #777777;">Start</span>();
-    }
+<span style="color: #cc6666; font-weight: bold;">class</span> <span style="color: #d3869b;">Program</span> <span style="color: #8c8c8c;">{</span>
+    <span style="color: #cc6666; font-weight: bold;">static</span> <span style="color: #d3869b;">void</span> <span style="color: #777777;">Main</span><span style="color: #93a8c6;">()</span>
+    <span style="color: #93a8c6;">{</span>
+        <span style="color: #d3869b;">var</span> <span style="color: #83a598;">thread</span> = <span style="color: #cc6666; font-weight: bold;">new</span> <span style="color: #d3869b;">Thread</span><span style="color: #b0b1a3;">(</span><span style="color: #d3869b;">Secondary</span><span style="color: #b0b1a3;">)</span>;
+        thread.<span style="color: #777777;">Start</span><span style="color: #b0b1a3;">()</span>;
+    <span style="color: #93a8c6;">}</span>
 
-    <span style="color: #cc6666; font-weight: bold;">static</span> <span style="color: #d3869b;">void</span> <span style="color: #777777;">Secondary</span>() =&gt; Console.<span style="color: #777777;">WriteLine</span>(<span style="color: #476562;">"Hello world"</span>);
-}
+    <span style="color: #cc6666; font-weight: bold;">static</span> <span style="color: #d3869b;">void</span> <span style="color: #777777;">Secondary</span><span style="color: #93a8c6;">()</span> =&gt; Console.<span style="color: #777777;">WriteLine</span><span style="color: #93a8c6;">(</span><span style="color: #476562;">"Hello world"</span><span style="color: #93a8c6;">)</span>;
+<span style="color: #8c8c8c;">}</span>
 </pre>
 </div>
 </div>
 
-<div id="outline-container-org22683b5" class="outline-3">
-<h3 id="org22683b5">Parallel.forEach loop</h3>
-<div class="outline-text-3" id="text-org22683b5">
+<div id="outline-container-org303c4e7" class="outline-3">
+<h3 id="org303c4e7">Parallel.forEach loop</h3>
+<div class="outline-text-3" id="text-org303c4e7">
 <p>
 When the order of the output is not important, we can apply multiple threads to a foreach loop:
 </p>
@@ -906,57 +908,57 @@ When the order of the output is not important, we can apply multiple threads to 
 <span style="color: #cc6666; font-weight: bold;">using</span> <span style="color: #83a598;">System</span>.<span style="color: #83a598;">Threading</span>;
 <span style="color: #cc6666; font-weight: bold;">using</span> <span style="color: #83a598;">System</span>.<span style="color: #83a598;">Threading</span>.<span style="color: #83a598;">Tasks</span>;
 
-<span style="color: #cc6666; font-weight: bold;">public</span> <span style="color: #cc6666; font-weight: bold;">class</span> <span style="color: #d3869b;">Program</span> {
-    <span style="color: #cc6666; font-weight: bold;">public</span> <span style="color: #cc6666; font-weight: bold;">static</span> <span style="color: #d3869b;">void</span> <span style="color: #777777;">Main</span>() {
-        <span style="color: #d3869b;">int</span>[] <span style="color: #83a598;">Numbers</span> = <span style="color: #cc6666; font-weight: bold;">new</span> <span style="color: #d3869b;">int</span>[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+<span style="color: #cc6666; font-weight: bold;">public</span> <span style="color: #cc6666; font-weight: bold;">class</span> <span style="color: #d3869b;">Program</span> <span style="color: #8c8c8c;">{</span>
+    <span style="color: #cc6666; font-weight: bold;">public</span> <span style="color: #cc6666; font-weight: bold;">static</span> <span style="color: #d3869b;">void</span> <span style="color: #777777;">Main</span><span style="color: #93a8c6;">()</span> <span style="color: #93a8c6;">{</span>
+        <span style="color: #d3869b;">int</span><span style="color: #b0b1a3;">[]</span> <span style="color: #83a598;">Numbers</span> = <span style="color: #cc6666; font-weight: bold;">new</span> <span style="color: #d3869b;">int</span><span style="color: #b0b1a3;">[]</span> <span style="color: #b0b1a3;">{</span> 1, 2, 3, 4, 5, 6, 7, 8, 9 <span style="color: #b0b1a3;">}</span>;
 
         <span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">single-threaded:</span>
-        Console.<span style="color: #777777;">WriteLine</span>(<span style="color: #476562;">"Normal foreach loop: "</span>);
+        Console.<span style="color: #777777;">WriteLine</span><span style="color: #b0b1a3;">(</span><span style="color: #476562;">"Normal foreach loop: "</span><span style="color: #b0b1a3;">)</span>;
 
-        <span style="color: #cc6666; font-weight: bold;">foreach</span> (<span style="color: #d3869b;">var</span> <span style="color: #83a598;">number</span> <span style="color: #cc6666; font-weight: bold;">in</span> Numbers)
-            Console.<span style="color: #777777;">WriteLine</span>(<span style="color: #777777;">longCalculation</span>(<span style="color: #d3869b;">number</span>));
+        <span style="color: #cc6666; font-weight: bold;">foreach</span> <span style="color: #b0b1a3;">(</span><span style="color: #d3869b;">var</span> <span style="color: #83a598;">number</span> <span style="color: #cc6666; font-weight: bold;">in</span> Numbers<span style="color: #b0b1a3;">)</span>
+            Console.<span style="color: #777777;">WriteLine</span><span style="color: #b0b1a3;">(</span><span style="color: #777777;">longCalculation</span><span style="color: #97b098;">(</span><span style="color: #d3869b;">number</span><span style="color: #97b098;">)</span><span style="color: #b0b1a3;">)</span>;
 
         <span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">This is the Parallel (Multi-threaded solution):</span>
-        Console.<span style="color: #777777;">WriteLine</span>(<span style="color: #476562;">"Multiple threads: "</span>);
-        Parallel.<span style="color: #777777;">forEach</span>(<span style="color: #d3869b;">Numbers</span>, number =&gt;
-                         Console.<span style="color: #777777;">WriteLine</span>(<span style="color: #777777;">longCalculation</span>(<span style="color: #d3869b;">number</span>));
-        );
-    }
+        Console.<span style="color: #777777;">WriteLine</span><span style="color: #b0b1a3;">(</span><span style="color: #476562;">"Multiple threads: "</span><span style="color: #b0b1a3;">)</span>;
+        Parallel.<span style="color: #777777;">forEach</span><span style="color: #b0b1a3;">(</span><span style="color: #d3869b;">Numbers</span>, number =&gt;
+                         Console.<span style="color: #777777;">WriteLine</span><span style="color: #97b098;">(</span><span style="color: #777777;">longCalculation</span><span style="color: #aebed8;">(</span><span style="color: #d3869b;">number</span><span style="color: #aebed8;">)</span><span style="color: #97b098;">)</span>;
+        <span style="color: #b0b1a3;">)</span>;
+    <span style="color: #93a8c6;">}</span>
 
-    <span style="color: #cc6666; font-weight: bold;">private</span> <span style="color: #cc6666; font-weight: bold;">static</span> <span style="color: #d3869b;">int</span> <span style="color: #777777;">longCalculation</span>(<span style="color: #d3869b;">int</span> <span style="color: #83a598;">number</span>)
-    {
-        Thread.<span style="color: #777777;">Sleep</span>(1000); <span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">sleep to simulate a long calculation</span>
+    <span style="color: #cc6666; font-weight: bold;">private</span> <span style="color: #cc6666; font-weight: bold;">static</span> <span style="color: #d3869b;">int</span> <span style="color: #777777;">longCalculation</span><span style="color: #93a8c6;">(</span><span style="color: #d3869b;">int</span> <span style="color: #83a598;">number</span><span style="color: #93a8c6;">)</span>
+    <span style="color: #93a8c6;">{</span>
+        Thread.<span style="color: #777777;">Sleep</span><span style="color: #b0b1a3;">(</span>1000<span style="color: #b0b1a3;">)</span>; <span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">sleep to simulate a long calculation</span>
         <span style="color: #cc6666; font-weight: bold;">return</span> number * number;
-    }
-}
+    <span style="color: #93a8c6;">}</span>
+<span style="color: #8c8c8c;">}</span>
 </pre>
 </div>
 </div>
 </div>
 </div>
-<div id="outline-container-org77d230a" class="outline-2">
-<h2 id="org77d230a">StringBuilder</h2>
-<div class="outline-text-2" id="text-org77d230a">
+<div id="outline-container-orge55c0fe" class="outline-2">
+<h2 id="orge55c0fe">StringBuilder</h2>
+<div class="outline-text-2" id="text-orge55c0fe">
 <p>
 A String is immutable, meaning String cannot be changed once created.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-csharp"><span style="color: #d3869b;">StringBuilder</span> <span style="color: #83a598;">sb</span> = <span style="color: #cc6666; font-weight: bold;">new</span> <span style="color: #d3869b;">StringBuilder</span>();
+<pre class="src src-csharp"><span style="color: #d3869b;">StringBuilder</span> <span style="color: #83a598;">sb</span> = <span style="color: #cc6666; font-weight: bold;">new</span> <span style="color: #d3869b;">StringBuilder</span><span style="color: #8c8c8c;">()</span>;
 
 <span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">or</span>
 
-<span style="color: #d3869b;">StringBuilder</span> <span style="color: #83a598;">sb</span> = <span style="color: #cc6666; font-weight: bold;">new</span> <span style="color: #d3869b;">StringBuilder</span>(<span style="color: #476562;">"Hello world!!"</span>);
+<span style="color: #d3869b;">StringBuilder</span> <span style="color: #83a598;">sb</span> = <span style="color: #cc6666; font-weight: bold;">new</span> <span style="color: #d3869b;">StringBuilder</span><span style="color: #8c8c8c;">(</span><span style="color: #476562;">"Hello world!!"</span><span style="color: #8c8c8c;">)</span>;
 
 <span style="color: #7c6f64;">// </span><span style="color: #7c6f64;">allocate 50 bytes sequentially onto the memory heap.</span>
-<span style="color: #d3869b;">StringBuilder</span> <span style="color: #83a598;">sb</span> = <span style="color: #cc6666; font-weight: bold;">new</span> <span style="color: #d3869b;">StringBuilder</span>(<span style="color: #476562;">"Hello world"</span>, 50);
+<span style="color: #d3869b;">StringBuilder</span> <span style="color: #83a598;">sb</span> = <span style="color: #cc6666; font-weight: bold;">new</span> <span style="color: #d3869b;">StringBuilder</span><span style="color: #8c8c8c;">(</span><span style="color: #476562;">"Hello world"</span>, 50<span style="color: #8c8c8c;">)</span>;
 </pre>
 </div>
 </div>
 
-<div id="outline-container-orgdde05ff" class="outline-3">
-<h3 id="orgdde05ff">Important Methods of StringBuilder</h3>
-<div class="outline-text-3" id="text-orgdde05ff">
+<div id="outline-container-org21de24e" class="outline-3">
+<h3 id="org21de24e">Important Methods of StringBuilder</h3>
+<div class="outline-text-3" id="text-org21de24e">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -1000,60 +1002,60 @@ A String is immutable, meaning String cannot be changed once created.
 </table>
 </div>
 
-<div id="outline-container-org367bcb0" class="outline-3">
-<h3 id="org367bcb0">Examples</h3>
-<div class="outline-text-3" id="text-org367bcb0">
+<div id="outline-container-org67a3685" class="outline-3">
+<h3 id="org67a3685">Examples</h3>
+<div class="outline-text-3" id="text-org67a3685">
 </div>
-<div id="outline-container-orgc0da52d" class="outline-4">
-<h4 id="orgc0da52d">Append</h4>
-<div class="outline-text-4" id="text-orgc0da52d">
+<div id="outline-container-org374b2f2" class="outline-4">
+<h4 id="org374b2f2">Append</h4>
+<div class="outline-text-4" id="text-org374b2f2">
 <div class="org-src-container">
-<pre class="src src-csharp"><span style="color: #d3869b;">StringBuilder</span> <span style="color: #83a598;">sb</span> = <span style="color: #cc6666; font-weight: bold;">new</span> <span style="color: #d3869b;">StringBuilder</span>(<span style="color: #476562;">"hello"</span>, 50);
+<pre class="src src-csharp"><span style="color: #d3869b;">StringBuilder</span> <span style="color: #83a598;">sb</span> = <span style="color: #cc6666; font-weight: bold;">new</span> <span style="color: #d3869b;">StringBuilder</span><span style="color: #8c8c8c;">(</span><span style="color: #476562;">"hello"</span>, 50<span style="color: #8c8c8c;">)</span>;
 
-sb.<span style="color: #777777;">Append</span>(<span style="color: #476562;">"World!"</span>);
-sb.<span style="color: #777777;">AppendLine</span>(<span style="color: #476562;">"Hello C#"</span>);
-sb.<span style="color: #777777;">AppendLine</span>(<span style="color: #476562;">"This is a new line."</span>);
+sb.<span style="color: #777777;">Append</span><span style="color: #8c8c8c;">(</span><span style="color: #476562;">"World!"</span><span style="color: #8c8c8c;">)</span>;
+sb.<span style="color: #777777;">AppendLine</span><span style="color: #8c8c8c;">(</span><span style="color: #476562;">"Hello C#"</span><span style="color: #8c8c8c;">)</span>;
+sb.<span style="color: #777777;">AppendLine</span><span style="color: #8c8c8c;">(</span><span style="color: #476562;">"This is a new line."</span><span style="color: #8c8c8c;">)</span>;
 
-Console.<span style="color: #777777;">WriteLine</span>(sb);
+Console.<span style="color: #777777;">WriteLine</span><span style="color: #8c8c8c;">(</span>sb<span style="color: #8c8c8c;">)</span>;
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org48f77cb" class="outline-4">
-<h4 id="org48f77cb">AppendFormat</h4>
-<div class="outline-text-4" id="text-org48f77cb">
+<div id="outline-container-org54ee18e" class="outline-4">
+<h4 id="org54ee18e">AppendFormat</h4>
+<div class="outline-text-4" id="text-org54ee18e">
 <div class="org-src-container">
-<pre class="src src-csharp"><span style="color: #d3869b;">StringBuilder</span> <span style="color: #83a598;">sb</span> = <span style="color: #cc6666; font-weight: bold;">new</span> <span style="color: #d3869b;">StringBuilder</span>(<span style="color: #476562;">"Hello world"</span>, 50);
-sb.<span style="color: #777777;">Insert</span>(5, <span style="color: #476562;">" C#"</span>);
+<pre class="src src-csharp"><span style="color: #d3869b;">StringBuilder</span> <span style="color: #83a598;">sb</span> = <span style="color: #cc6666; font-weight: bold;">new</span> <span style="color: #d3869b;">StringBuilder</span><span style="color: #8c8c8c;">(</span><span style="color: #476562;">"Hello world"</span>, 50<span style="color: #8c8c8c;">)</span>;
+sb.<span style="color: #777777;">Insert</span><span style="color: #8c8c8c;">(</span>5, <span style="color: #476562;">" C#"</span><span style="color: #8c8c8c;">)</span>;
 
-Console.<span style="color: #777777;">WriteLine</span>(sb);
+Console.<span style="color: #777777;">WriteLine</span><span style="color: #8c8c8c;">(</span>sb<span style="color: #8c8c8c;">)</span>;
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org0dace69" class="outline-4">
-<h4 id="org0dace69">Remove</h4>
-<div class="outline-text-4" id="text-org0dace69">
+<div id="outline-container-orgc588cd4" class="outline-4">
+<h4 id="orgc588cd4">Remove</h4>
+<div class="outline-text-4" id="text-orgc588cd4">
 <div class="org-src-container">
-<pre class="src src-csharp"><span style="color: #d3869b;">StringBuilder</span> <span style="color: #83a598;">sb</span> = <span style="color: #cc6666; font-weight: bold;">new</span> <span style="color: #d3869b;">StringBuilder</span>(<span style="color: #476562;">"Hello world"</span>, 50);
-sb.<span style="color: #777777;">Remove</span>(6, 7);
+<pre class="src src-csharp"><span style="color: #d3869b;">StringBuilder</span> <span style="color: #83a598;">sb</span> = <span style="color: #cc6666; font-weight: bold;">new</span> <span style="color: #d3869b;">StringBuilder</span><span style="color: #8c8c8c;">(</span><span style="color: #476562;">"Hello world"</span>, 50<span style="color: #8c8c8c;">)</span>;
+sb.<span style="color: #777777;">Remove</span><span style="color: #8c8c8c;">(</span>6, 7<span style="color: #8c8c8c;">)</span>;
 
-Console.<span style="color: #777777;">WriteLine</span>(sb);
+Console.<span style="color: #777777;">WriteLine</span><span style="color: #8c8c8c;">(</span>sb<span style="color: #8c8c8c;">)</span>;
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org11c50b4" class="outline-4">
-<h4 id="org11c50b4">Replace</h4>
-<div class="outline-text-4" id="text-org11c50b4">
+<div id="outline-container-orgde45001" class="outline-4">
+<h4 id="orgde45001">Replace</h4>
+<div class="outline-text-4" id="text-orgde45001">
 <div class="org-src-container">
-<pre class="src src-csharp"><span style="color: #d3869b;">StringBuilder</span> <span style="color: #83a598;">sb</span> = <span style="color: #cc6666; font-weight: bold;">new</span> <span style="color: #d3869b;">StringBuilder</span>(<span style="color: #476562;">"Hello world"</span>, 50);
-sb.<span style="color: #777777;">Replace</span>(<span style="color: #476562;">"World"</span>, <span style="color: #476562;">"C#"</span>);
+<pre class="src src-csharp"><span style="color: #d3869b;">StringBuilder</span> <span style="color: #83a598;">sb</span> = <span style="color: #cc6666; font-weight: bold;">new</span> <span style="color: #d3869b;">StringBuilder</span><span style="color: #8c8c8c;">(</span><span style="color: #476562;">"Hello world"</span>, 50<span style="color: #8c8c8c;">)</span>;
+sb.<span style="color: #777777;">Replace</span><span style="color: #8c8c8c;">(</span><span style="color: #476562;">"World"</span>, <span style="color: #476562;">"C#"</span><span style="color: #8c8c8c;">)</span>;
 
-Console.<span style="color: #777777;">WriteLine</span>(sb);
+Console.<span style="color: #777777;">WriteLine</span><span style="color: #8c8c8c;">(</span>sb<span style="color: #8c8c8c;">)</span>;
 </pre>
 </div>
 </div>
@@ -1062,9 +1064,9 @@ Console.<span style="color: #777777;">WriteLine</span>(sb);
 </div>
 </div>
 
-<div id="outline-container-org71adac2" class="outline-2">
-<h2 id="org71adac2">Null Coalescing</h2>
-<div class="outline-text-2" id="text-org71adac2">
+<div id="outline-container-org55f75f0" class="outline-2">
+<h2 id="org55f75f0">Null Coalescing</h2>
+<div class="outline-text-2" id="text-org55f75f0">
 <p>
 The null-coalescing operator is used to set a default value for nullable types or reference types.
 </p>
@@ -1082,9 +1084,9 @@ The null-coalescing operator is used to set a default value for nullable types o
 </div>
 </div>
 
-<div id="outline-container-org12ec28e" class="outline-3">
-<h3 id="org12ec28e">Null conditional operator</h3>
-<div class="outline-text-3" id="text-org12ec28e">
+<div id="outline-container-org06387ee" class="outline-3">
+<h3 id="org06387ee">Null conditional operator</h3>
+<div class="outline-text-3" id="text-org06387ee">
 <p>
 Executes the definition on the right-hand side if the left-hand side operation is not null.
 Returns <code>0</code> if people is null.
@@ -1101,7 +1103,7 @@ Returns <code>0</code> if people is null.
 <div id="postamble" class="status">
 <p class="date">Date: 2021-09-09 qui 00:00</p>
 <p class="author">Author: Bruno Coimbra (b-coimbra)</p>
-<p class="date">Created: 2021-09-17 sex 15:25</p>
+<p class="date">Created: 2021-10-13 qua 13:36</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

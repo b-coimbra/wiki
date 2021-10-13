@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-17 sex 15:26 -->
+<!-- 2021-10-13 qua 13:37 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Linux</title>
@@ -193,7 +193,9 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" type="text/css" href="https://b-coimbra.github.io/org-scribbler-theme/src/css/style.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
 <script src="https://b-coimbra.github.io/org-scribbler-theme/src/js/script.js" />
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
@@ -228,61 +230,61 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org2521538">Sha Bang</a></li>
-<li><a href="#orgd7a00f9">Permissions</a>
+<li><a href="#org07afa86">Sha Bang</a></li>
+<li><a href="#org16f90c5">Permissions</a>
 <ul>
-<li><a href="#orge12b4fc">Group permissions</a></li>
-<li><a href="#orgdea65f1">Operators</a></li>
-<li><a href="#org23693fa">Octal notation</a></li>
-<li><a href="#org6d4c702">chmod (Change Mode)</a></li>
-<li><a href="#orgc355335">chown (Change Ownership)</a></li>
-<li><a href="#org27decd4">su (switch user)</a></li>
-<li><a href="#org304cde3">sudo (superuser do)</a></li>
+<li><a href="#orga2bd9cf">Group permissions</a></li>
+<li><a href="#org4b904f2">Operators</a></li>
+<li><a href="#org107bd82">Octal notation</a></li>
+<li><a href="#org0e6f30d">chmod (Change Mode)</a></li>
+<li><a href="#orgd2ed7cc">chown (Change Ownership)</a></li>
+<li><a href="#org4a02180">su (switch user)</a></li>
+<li><a href="#org9f3d619">sudo (superuser do)</a></li>
 </ul>
 </li>
-<li><a href="#orgef41f15">Other commands</a></li>
-<li><a href="#orgc52679f">Fix typos</a></li>
-<li><a href="#orgc6b61c5">File Compression</a>
+<li><a href="#orgc2fabd4">Other commands</a></li>
+<li><a href="#org80dcf66">Fix typos</a></li>
+<li><a href="#org2261be0">File Compression</a>
 <ul>
-<li><a href="#org8b55e07">Syntax</a></li>
+<li><a href="#org76ac51f">Syntax</a></li>
 </ul>
 </li>
-<li><a href="#org5994426">Encryption</a>
+<li><a href="#org1722031">Encryption</a>
 <ul>
-<li><a href="#org186e72d">GPG (GNU Privacy Guard)</a></li>
-<li><a href="#org3f1828d">Import keys from keyserver</a></li>
-<li><a href="#org811cccd">Encrypt message</a></li>
-<li><a href="#org47d4c2a">Decrypt message</a></li>
-<li><a href="#org3765d85">Symmetric encryption</a></li>
+<li><a href="#org56f80c2">GPG (GNU Privacy Guard)</a></li>
+<li><a href="#org05ed27f">Import keys from keyserver</a></li>
+<li><a href="#org06472bf">Encrypt message</a></li>
+<li><a href="#org0d1c0cf">Decrypt message</a></li>
+<li><a href="#org4d4f7d0">Symmetric encryption</a></li>
 </ul>
 </li>
-<li><a href="#org8bc0cf5">Shell expansion</a>
+<li><a href="#org6cb0ab4">Shell expansion</a>
 <ul>
-<li><a href="#org3254038">The <code>*</code> Wildcard</a></li>
-<li><a href="#org432554e">The <code>?</code> Wildcard</a></li>
-<li><a href="#orgae9e8ac">Inverting Sets</a></li>
-<li><a href="#orgd376c13">Brace Expansion</a></li>
+<li><a href="#org06d8d68">The <code>*</code> Wildcard</a></li>
+<li><a href="#orgcea198c">The <code>?</code> Wildcard</a></li>
+<li><a href="#org3134472">Inverting Sets</a></li>
+<li><a href="#org5205a4a">Brace Expansion</a></li>
 </ul>
 </li>
-<li><a href="#orgce0529c">IO Redirections</a>
+<li><a href="#orgad254d0">IO Redirections</a>
 <ul>
-<li><a href="#org8417eea">Output redirections</a></li>
-<li><a href="#org44e23c0">Input redirection</a></li>
-<li><a href="#orgd548909">Here document</a></li>
+<li><a href="#org8198207">Output redirections</a></li>
+<li><a href="#orgb77d86a">Input redirection</a></li>
+<li><a href="#orgb37c3af">Here document</a></li>
 </ul>
 </li>
-<li><a href="#org1d88fbf">Chaining Operators</a></li>
-<li><a href="#org23cfb0d">RegEx Tools</a></li>
-<li><a href="#org20d5279">Bash</a></li>
-<li><a href="#orga3c4754">File System</a></li>
-<li><a href="#orge63e290">Cleanup</a></li>
+<li><a href="#org4353ddf">Chaining Operators</a></li>
+<li><a href="#org37a4ffa">RegEx Tools</a></li>
+<li><a href="#orgb6d7094">Bash</a></li>
+<li><a href="#org3bdb2a6">File System</a></li>
+<li><a href="#orgfdf9cd6">Cleanup</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org2521538" class="outline-2">
-<h2 id="org2521538">Sha Bang</h2>
-<div class="outline-text-2" id="text-org2521538">
+<div id="outline-container-org07afa86" class="outline-2">
+<h2 id="org07afa86">Sha Bang</h2>
+<div class="outline-text-2" id="text-org07afa86">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -342,13 +344,13 @@
 </div>
 </div>
 
-<div id="outline-container-orgd7a00f9" class="outline-2">
-<h2 id="orgd7a00f9">Permissions</h2>
-<div class="outline-text-2" id="text-orgd7a00f9">
+<div id="outline-container-org16f90c5" class="outline-2">
+<h2 id="org16f90c5">Permissions</h2>
+<div class="outline-text-2" id="text-org16f90c5">
 </div>
-<div id="outline-container-orge12b4fc" class="outline-3">
-<h3 id="orge12b4fc">Group permissions</h3>
-<div class="outline-text-3" id="text-orge12b4fc">
+<div id="outline-container-orga2bd9cf" class="outline-3">
+<h3 id="orga2bd9cf">Group permissions</h3>
+<div class="outline-text-3" id="text-orga2bd9cf">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -388,9 +390,9 @@
 </div>
 </div>
 
-<div id="outline-container-orgdea65f1" class="outline-3">
-<h3 id="orgdea65f1">Operators</h3>
-<div class="outline-text-3" id="text-orgdea65f1">
+<div id="outline-container-org4b904f2" class="outline-3">
+<h3 id="org4b904f2">Operators</h3>
+<div class="outline-text-3" id="text-org4b904f2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -425,9 +427,9 @@
 </div>
 </div>
 
-<div id="outline-container-org23693fa" class="outline-3">
-<h3 id="org23693fa">Octal notation</h3>
-<div class="outline-text-3" id="text-org23693fa">
+<div id="outline-container-org107bd82" class="outline-3">
+<h3 id="org107bd82">Octal notation</h3>
+<div class="outline-text-3" id="text-org107bd82">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -487,9 +489,9 @@
 </div>
 </div>
 
-<div id="outline-container-org6d4c702" class="outline-3">
-<h3 id="org6d4c702">chmod (Change Mode)</h3>
-<div class="outline-text-3" id="text-org6d4c702">
+<div id="outline-container-org0e6f30d" class="outline-3">
+<h3 id="org0e6f30d">chmod (Change Mode)</h3>
+<div class="outline-text-3" id="text-org0e6f30d">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -524,18 +526,18 @@
 </div>
 </div>
 
-<div id="outline-container-orgc355335" class="outline-3">
-<h3 id="orgc355335">chown (Change Ownership)</h3>
-<div class="outline-text-3" id="text-orgc355335">
+<div id="outline-container-orgd2ed7cc" class="outline-3">
+<h3 id="orgd2ed7cc">chown (Change Ownership)</h3>
+<div class="outline-text-3" id="text-orgd2ed7cc">
 <p>
 <code>chown user1 filename</code> changing ownership of a file to <code>user1</code>
 </p>
 </div>
 </div>
 
-<div id="outline-container-org27decd4" class="outline-3">
-<h3 id="org27decd4">su (switch user)</h3>
-<div class="outline-text-3" id="text-org27decd4">
+<div id="outline-container-org4a02180" class="outline-3">
+<h3 id="org4a02180">su (switch user)</h3>
+<div class="outline-text-3" id="text-org4a02180">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -570,9 +572,9 @@
 </div>
 </div>
 
-<div id="outline-container-org304cde3" class="outline-3">
-<h3 id="org304cde3">sudo (superuser do)</h3>
-<div class="outline-text-3" id="text-org304cde3">
+<div id="outline-container-org9f3d619" class="outline-3">
+<h3 id="org9f3d619">sudo (superuser do)</h3>
+<div class="outline-text-3" id="text-org9f3d619">
 <p>
 <code>sudo</code> will run a specific command with root level of permission.
 </p>
@@ -584,9 +586,9 @@
 </div>
 </div>
 
-<div id="outline-container-orgef41f15" class="outline-2">
-<h2 id="orgef41f15">Other commands</h2>
-<div class="outline-text-2" id="text-orgef41f15">
+<div id="outline-container-orgc2fabd4" class="outline-2">
+<h2 id="orgc2fabd4">Other commands</h2>
+<div class="outline-text-2" id="text-orgc2fabd4">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -741,9 +743,9 @@
 </div>
 </div>
 
-<div id="outline-container-orgc52679f" class="outline-2">
-<h2 id="orgc52679f">Fix typos</h2>
-<div class="outline-text-2" id="text-orgc52679f">
+<div id="outline-container-org80dcf66" class="outline-2">
+<h2 id="org80dcf66">Fix typos</h2>
+<div class="outline-text-2" id="text-org80dcf66">
 <p>
 Instead of retyping a long list of arguments of a mispelled command,
 we can correct whatever typo we made with <code>^typo^correct</code>
@@ -759,9 +761,9 @@ we can correct whatever typo we made with <code>^typo^correct</code>
 </div>
 </div>
 
-<div id="outline-container-orgc6b61c5" class="outline-2">
-<h2 id="orgc6b61c5">File Compression</h2>
-<div class="outline-text-2" id="text-orgc6b61c5">
+<div id="outline-container-org2261be0" class="outline-2">
+<h2 id="org2261be0">File Compression</h2>
+<div class="outline-text-2" id="text-org2261be0">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -820,9 +822,9 @@ we can correct whatever typo we made with <code>^typo^correct</code>
 </table>
 </div>
 
-<div id="outline-container-org8b55e07" class="outline-3">
-<h3 id="org8b55e07">Syntax</h3>
-<div class="outline-text-3" id="text-org8b55e07">
+<div id="outline-container-org76ac51f" class="outline-3">
+<h3 id="org76ac51f">Syntax</h3>
+<div class="outline-text-3" id="text-org76ac51f">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -893,13 +895,13 @@ we can correct whatever typo we made with <code>^typo^correct</code>
 </div>
 </div>
 
-<div id="outline-container-org5994426" class="outline-2">
-<h2 id="org5994426">Encryption</h2>
-<div class="outline-text-2" id="text-org5994426">
+<div id="outline-container-org1722031" class="outline-2">
+<h2 id="org1722031">Encryption</h2>
+<div class="outline-text-2" id="text-org1722031">
 </div>
-<div id="outline-container-org186e72d" class="outline-3">
-<h3 id="org186e72d">GPG (GNU Privacy Guard)</h3>
-<div class="outline-text-3" id="text-org186e72d">
+<div id="outline-container-org56f80c2" class="outline-3">
+<h3 id="org56f80c2">GPG (GNU Privacy Guard)</h3>
+<div class="outline-text-3" id="text-org56f80c2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -933,9 +935,9 @@ we can correct whatever typo we made with <code>^typo^correct</code>
 </table>
 </div>
 
-<div id="outline-container-org3f1828d" class="outline-3">
-<h3 id="org3f1828d">Import keys from keyserver</h3>
-<div class="outline-text-3" id="text-org3f1828d">
+<div id="outline-container-org05ed27f" class="outline-3">
+<h3 id="org05ed27f">Import keys from keyserver</h3>
+<div class="outline-text-3" id="text-org05ed27f">
 <div class="org-src-container">
 <pre class="src src-sh">$ gpg --keyserver &lt;server&gt; --recv-keys &lt;hex&gt;
 </pre>
@@ -947,9 +949,9 @@ Where <code>&lt;server&gt;</code> can be "pgp.mit.edu" for instance.
 </div>
 </div>
 
-<div id="outline-container-org811cccd" class="outline-3">
-<h3 id="org811cccd">Encrypt message</h3>
-<div class="outline-text-3" id="text-org811cccd">
+<div id="outline-container-org06472bf" class="outline-3">
+<h3 id="org06472bf">Encrypt message</h3>
+<div class="outline-text-3" id="text-org06472bf">
 <p>
 Having the receiver's pkey:
 </p>
@@ -961,9 +963,9 @@ Having the receiver's pkey:
 </div>
 </div>
 
-<div id="outline-container-org47d4c2a" class="outline-3">
-<h3 id="org47d4c2a">Decrypt message</h3>
-<div class="outline-text-3" id="text-org47d4c2a">
+<div id="outline-container-org0d1c0cf" class="outline-3">
+<h3 id="org0d1c0cf">Decrypt message</h3>
+<div class="outline-text-3" id="text-org0d1c0cf">
 <div class="org-src-container">
 <pre class="src src-sh">$ gpg --output doc --decrypt doc.gg
 </pre>
@@ -971,9 +973,9 @@ Having the receiver's pkey:
 </div>
 </div>
 
-<div id="outline-container-org3765d85" class="outline-3">
-<h3 id="org3765d85">Symmetric encryption</h3>
-<div class="outline-text-3" id="text-org3765d85">
+<div id="outline-container-org4d4f7d0" class="outline-3">
+<h3 id="org4d4f7d0">Symmetric encryption</h3>
+<div class="outline-text-3" id="text-org4d4f7d0">
 <p>
 <code>-c</code> is for symmetric encryption (single pkey for encrypting/decrypting).
 </p>
@@ -987,9 +989,9 @@ Having the receiver's pkey:
 </div>
 </div>
 
-<div id="outline-container-org8bc0cf5" class="outline-2">
-<h2 id="org8bc0cf5">Shell expansion</h2>
-<div class="outline-text-2" id="text-org8bc0cf5">
+<div id="outline-container-org6cb0ab4" class="outline-2">
+<h2 id="org6cb0ab4">Shell expansion</h2>
+<div class="outline-text-2" id="text-org6cb0ab4">
 <p>
 We can use shell expansion to:
 </p>
@@ -1000,9 +1002,9 @@ We can use shell expansion to:
 </ul>
 </div>
 
-<div id="outline-container-org3254038" class="outline-3">
-<h3 id="org3254038">The <code>*</code> Wildcard</h3>
-<div class="outline-text-3" id="text-org3254038">
+<div id="outline-container-org06d8d68" class="outline-3">
+<h3 id="org06d8d68">The <code>*</code> Wildcard</h3>
+<div class="outline-text-3" id="text-org06d8d68">
 <ul class="org-ul">
 <li>The <code>*</code> is a greedy operator that matches any string, incuding the null string.</li>
 </ul>
@@ -1014,9 +1016,9 @@ We can use shell expansion to:
 </div>
 </div>
 
-<div id="outline-container-org432554e" class="outline-3">
-<h3 id="org432554e">The <code>?</code> Wildcard</h3>
-<div class="outline-text-3" id="text-org432554e">
+<div id="outline-container-orgcea198c" class="outline-3">
+<h3 id="orgcea198c">The <code>?</code> Wildcard</h3>
+<div class="outline-text-3" id="text-orgcea198c">
 <ul class="org-ul">
 <li>The <code>?</code> matches a single character.</li>
 </ul>
@@ -1027,9 +1029,9 @@ We can use shell expansion to:
 </div>
 </div>
 
-<div id="outline-container-orgae9e8ac" class="outline-3">
-<h3 id="orgae9e8ac">Inverting Sets</h3>
-<div class="outline-text-3" id="text-orgae9e8ac">
+<div id="outline-container-org3134472" class="outline-3">
+<h3 id="org3134472">Inverting Sets</h3>
+<div class="outline-text-3" id="text-org3134472">
 <ul class="org-ul">
 <li>The <code>^</code> character represents <b>not</b>.
 <ul class="org-ul">
@@ -1040,9 +1042,9 @@ We can use shell expansion to:
 </div>
 </div>
 
-<div id="outline-container-orgd376c13" class="outline-3">
-<h3 id="orgd376c13">Brace Expansion</h3>
-<div class="outline-text-3" id="text-orgd376c13">
+<div id="outline-container-org5205a4a" class="outline-3">
+<h3 id="org5205a4a">Brace Expansion</h3>
+<div class="outline-text-3" id="text-org5205a4a">
 <p>
 To backup settings.conf to settings.conf.bak:
 </p>
@@ -1077,13 +1079,13 @@ Other uses:
 </div>
 </div>
 </div>
-<div id="outline-container-orgce0529c" class="outline-2">
-<h2 id="orgce0529c">IO Redirections</h2>
-<div class="outline-text-2" id="text-orgce0529c">
+<div id="outline-container-orgad254d0" class="outline-2">
+<h2 id="orgad254d0">IO Redirections</h2>
+<div class="outline-text-2" id="text-orgad254d0">
 </div>
-<div id="outline-container-org8417eea" class="outline-3">
-<h3 id="org8417eea">Output redirections</h3>
-<div class="outline-text-3" id="text-org8417eea">
+<div id="outline-container-org8198207" class="outline-3">
+<h3 id="org8198207">Output redirections</h3>
+<div class="outline-text-3" id="text-org8198207">
 <p>
 The output from a command normally intended for stdout can be easily diverted to a file.
 </p>
@@ -1116,9 +1118,9 @@ lorem ipsum
 </div>
 </div>
 </div>
-<div id="outline-container-org44e23c0" class="outline-3">
-<h3 id="org44e23c0">Input redirection</h3>
-<div class="outline-text-3" id="text-org44e23c0">
+<div id="outline-container-orgb77d86a" class="outline-3">
+<h3 id="orgb77d86a">Input redirection</h3>
+<div class="outline-text-3" id="text-orgb77d86a">
 <p>
 Commands that receive input from stdin can have their input redirected from a file.
 </p>
@@ -1131,9 +1133,9 @@ Commands that receive input from stdin can have their input redirected from a fi
 </div>
 </div>
 
-<div id="outline-container-orgd548909" class="outline-3">
-<h3 id="orgd548909">Here document</h3>
-<div class="outline-text-3" id="text-orgd548909">
+<div id="outline-container-orgb37c3af" class="outline-3">
+<h3 id="orgb37c3af">Here document</h3>
+<div class="outline-text-3" id="text-orgb37c3af">
 <p>
 A "here document" redirects input into an interactive shell script or program.
 </p>
@@ -1162,9 +1164,9 @@ The <code>&gt;&gt;</code> command is an instruction to read input until it finds
 </div>
 </div>
 
-<div id="outline-container-org1d88fbf" class="outline-2">
-<h2 id="org1d88fbf">Chaining Operators</h2>
-<div class="outline-text-2" id="text-org1d88fbf">
+<div id="outline-container-org4353ddf" class="outline-2">
+<h2 id="org4353ddf">Chaining Operators</h2>
+<div class="outline-text-2" id="text-org4353ddf">
 <ul class="org-ul">
 <li><p>
 <code>&amp;</code> (Ampersand Operator)
@@ -1260,9 +1262,9 @@ combine two or more commands
 </div>
 </div>
 
-<div id="outline-container-org23cfb0d" class="outline-2">
-<h2 id="org23cfb0d">RegEx Tools</h2>
-<div class="outline-text-2" id="text-org23cfb0d">
+<div id="outline-container-org37a4ffa" class="outline-2">
+<h2 id="org37a4ffa">RegEx Tools</h2>
+<div class="outline-text-2" id="text-org37a4ffa">
 <ul class="org-ul">
 <li><p>
 <code>grep</code> (Globally search for a Regular Expression and Print)
@@ -1298,9 +1300,9 @@ EXAMPLE: <code>find | grep "\.exe$" | xargs ls -lh</code>
 </div>
 </div>
 
-<div id="outline-container-org20d5279" class="outline-2">
-<h2 id="org20d5279">Bash</h2>
-<div class="outline-text-2" id="text-org20d5279">
+<div id="outline-container-orgb6d7094" class="outline-2">
+<h2 id="orgb6d7094">Bash</h2>
+<div class="outline-text-2" id="text-orgb6d7094">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -1349,9 +1351,9 @@ EXAMPLE: <code>find | grep "\.exe$" | xargs ls -lh</code>
 </table>
 </div>
 </div>
-<div id="outline-container-orga3c4754" class="outline-2">
-<h2 id="orga3c4754">File System</h2>
-<div class="outline-text-2" id="text-orga3c4754">
+<div id="outline-container-org3bdb2a6" class="outline-2">
+<h2 id="org3bdb2a6">File System</h2>
+<div class="outline-text-2" id="text-org3bdb2a6">
 <ul class="org-ul">
 <li><i>etc</i>: system-wide configuration folder (eg. pacman mirrorlist)</li>
 <li><i>bin</i>: common binary files for applications (eg. ls)</li>
@@ -1371,9 +1373,9 @@ EXAMPLE: <code>find | grep "\.exe$" | xargs ls -lh</code>
 </div>
 </div>
 
-<div id="outline-container-orge63e290" class="outline-2">
-<h2 id="orge63e290">Cleanup</h2>
-<div class="outline-text-2" id="text-orge63e290">
+<div id="outline-container-orgfdf9cd6" class="outline-2">
+<h2 id="orgfdf9cd6">Cleanup</h2>
+<div class="outline-text-2" id="text-orgfdf9cd6">
 <p>
 Steps to free disk space on your Linux machine:
 </p>
@@ -1393,7 +1395,7 @@ Steps to free disk space on your Linux machine:
 <div id="postamble" class="status">
 <p class="date">Date: 2021-09-11 sáb 00:00</p>
 <p class="author">Author: Bruno Coimbra (b-coimbra)</p>
-<p class="date">Created: 2021-09-17 sex 15:26</p>
+<p class="date">Created: 2021-10-13 qua 13:37</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
