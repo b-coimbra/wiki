@@ -35,8 +35,9 @@ Each pattern is like a blueprint that you can customize to solve a particular de
    #+end_src
 
 ** TODO Builder
-
 ** TODO Prototype
+
+   An existing (partially or fully constructed design) is a prototype.
 
 ** Singleton
 
