@@ -6,6 +6,8 @@
 #+SETUPFILE: https://b-coimbra.github.io/org-scribbler-theme/scribbler.setup
 #+EXPORT_FILE_NAME: docs/dorks.html
 
+* Cheat sheet
+
 | Query     | Description                                   | Example                |
 |-----------+-----------------------------------------------+------------------------|
 | =inurl=     | the URL of a site you want to query           | =inurl: domain/=         |
