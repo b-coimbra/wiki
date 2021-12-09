@@ -351,14 +351,16 @@
 
 * Bash
 
-  | keybinding | description                    |
-  |------------+--------------------------------|
-  | ~ctrl-u~   | delete entire line             |
-  | ~ctrl-l~   | clear screen                   |
-  | ~ctrl-w~   | delete last word               |
-  | ~ctrl-r~   | search through command history |
-  | ~alt-.~    | cycles through last arguments  |
-  | ~alt-*~    | expands glob                   |
+  | keybinding | description                                      |
+  |------------+--------------------------------------------------|
+  | ~ctrl-u~     | delete from cursor position to beginning of line |
+  | ~ctrl-k~     | delete from cursor position to end of line       |
+  | ~ctrl-l~     | clear screen                                     |
+  | ~ctrl-w~     | delete last word                                 |
+  | ~ctrl-r~     | search through command history                   |
+  | ~alt-.~      | cycles through last arguments                    |
+  | ~alt-*~      | expands glob                                     |
+
 * File System
 
   - /etc/: system-wide configuration folder (eg. pacman mirrorlist)
