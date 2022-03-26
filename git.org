@@ -22,6 +22,13 @@
   | ~git branch -m <oldname> <newname>~  | rename branch                            |
   | ~git diff~                           | view uncommited changes                  |
 
+* Good Practices
+
+  - [[*Commit messages][Commit messages:]] When committing, use a standard format such as [[https://www.conventionalcommits.org/en/v1.0.0/][conventional commits]], it helps to give extra meaning to commit messages and can be used to automatically generate CHANGELOGS for release.
+  - Don't do general commits with a lot of unrelated changes, you should commit the least amount of lines that make sense together.
+  - When working in a team, name your branches under the =users/<your-name>/<branch-name>= scope, it helps to track down the owner of the branches.
+  - Keep your local branch up-to-date with upstream with =git pull= or =git rebase=
+
 * Remove unwanted commited files
 
   1. ~git reset origin/develop -- <file>~
@@ -86,52 +93,46 @@
    refactor!: drop support for Node 6
    #+end_quote
 
-* Working with a team
+* [[https://git-scm.com/book/pt-br/v2/Git-Tools-Stashing-and-Cleaning][Stashing]]
 
-  Create a master branch for the feature:
+  Often, we might want to switch to a different branch and save our changes before doing so. But the issue is, if we have unfinished
+  work on our branch, we don't want to create another commit just to save our dirty, half-done work. =git stash= comes to the rescue
+  to solve this particular problem:
 
-  1. Starting at the =develop/= branch, create a new branch: ~$ git checkout -b users/bruno.coimbra/UpdateRDESP~
+  To push a new stash onto your stack, run =git stash= or =git stash save=:
 
-** [[https://git-scm.com/book/pt-br/v2/Git-Tools-Stashing-and-Cleaning][Stashing]]
+  #+begin_src sh
+    $ git stash
+    Saved working directory and index state \
+          "WIP on master: 049d078 added the index file"
+    HEAD is now at 049d078 added the index file
+    (To restore them type "git stash apply")
+  #+end_src
 
-   Often, we might want to switch to a different branch and save our changes before doing so. But the issue is, if we have unfinished
-   work on our branch, we don't want to create another commit just to save our dirty, half-done work. =git stash= comes to the rescue
-   to solve this particular problem:
+  At this point, you can easily switch branches and do work elsewhere; your changes are stored on your stack.
+  To see which stashes you’ve stored, you can use =git stash list=:
 
-   To push a new stash onto your stack, run =git stash= or =git stash save=:
+  #+begin_src sh
+    $ git stash list
+    stash@{0}: WIP on master: 049d078 added the index file
+    stash@{1}: WIP on master: c264051 Revert "added file_size"
+    stash@{2}: WIP on master: 21d80a5 added number to log
+  #+end_src
 
-   #+begin_src sh
-     $ git stash
-     Saved working directory and index state \
-           "WIP on master: 049d078 added the index file"
-     HEAD is now at 049d078 added the index file
-     (To restore them type "git stash apply")
-   #+end_src
+  In this case, two stashes were done previously, so you have access to three different stashed works.
+  You can reapply the one you just stashed by using the command shown in the help output of the original stash command: =git stash apply=.
+  If you want to apply one of the older stashes, you can specify it by naming it, like this: =git stash apply stash@{2}=.
+  If you don’t specify a stash, Git assumes the most recent stash and tries to apply it:
 
-   At this point, you can easily switch branches and do work elsewhere; your changes are stored on your stack.
-   To see which stashes you’ve stored, you can use =git stash list=:
+  #+begin_src sh
+    $ git stash apply
+    On branch master
+    Changes not staged for commit:
+    (use "git add <file>..." to update what will be committed)
+    (use "git checkout -- <file>..." to discard changes in working directory)
 
-   #+begin_src sh
-     $ git stash list
-     stash@{0}: WIP on master: 049d078 added the index file
-     stash@{1}: WIP on master: c264051 Revert "added file_size"
-     stash@{2}: WIP on master: 21d80a5 added number to log
-   #+end_src
+    modified:   index.html
+    modified:   lib/simplegit.rb
 
-   In this case, two stashes were done previously, so you have access to three different stashed works.
-   You can reapply the one you just stashed by using the command shown in the help output of the original stash command: =git stash apply=.
-   If you want to apply one of the older stashes, you can specify it by naming it, like this: =git stash apply stash@{2}=.
-   If you don’t specify a stash, Git assumes the most recent stash and tries to apply it:
-
-   #+begin_src sh
-     $ git stash apply
-     On branch master
-     Changes not staged for commit:
-     (use "git add <file>..." to update what will be committed)
-     (use "git checkout -- <file>..." to discard changes in working directory)
-
-     modified:   index.html
-     modified:   lib/simplegit.rb
-
-     no changes added to commit (use "git add" and/or "git commit -a")
-   #+end_src
+    no changes added to commit (use "git add" and/or "git commit -a")
+  #+end_src
