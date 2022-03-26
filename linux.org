@@ -6,6 +6,23 @@
 #+SETUPFILE: https://b-coimbra.github.io/org-scribbler-theme/scribbler.setup
 #+EXPORT_FILE_NAME: docs/linux.html
 
+* File System
+
+  - /etc/: system-wide configuration folder (eg. pacman mirrorlist)
+  - /bin/: common binary files for applications (eg. ls)
+  - /boot/: stores my bootloader
+  - /lib/: shared libraries that applications use
+  - /mnt/: where external drives are mounted (eg. usbstick)
+  - /opt/: manually installed softwares
+  - /proc/: information about system processes and resources, each folder is a process' PID.
+  - /root/: volatile storage
+  - /srv/: service directory, where service data is stored
+  - /sys/: it's a way to interact with the hardware
+  - /tmp/: where files are temporary stored in a session (eg. writing in a libreoffice file)
+  - /usr/: user application's space, where applications will be installed
+  - /var/: contains files that are supposed to grow (eg. logs)
+  - /home/: where you store your own personal files
+
 * Sha Bang
 
   | Expression   | Description                                                    |
@@ -360,23 +377,6 @@
   | ~ctrl-r~     | search through command history                   |
   | ~alt-.~      | cycles through last arguments                    |
   | ~alt-*~      | expands glob                                     |
-
-* File System
-
-  - /etc/: system-wide configuration folder (eg. pacman mirrorlist)
-  - /bin/: common binary files for applications (eg. ls)
-  - /boot/: stores my bootloader
-  - /lib/: shared libraries that applications use
-  - /mnt/: where external drives are mounted (eg. usbstick)
-  - /opt/: manually installed softwares
-  - /proc/: information about system processes and resources, each folder is a process' PID.
-  - /root/: volatile storage
-  - /srv/: service directory, where service data is stored
-  - /sys/: it's a way to interact with the hardware
-  - /tmp/: where files are temporary stored in a session (eg. writing in a libreoffice file)
-  - /usr/: user application's space, where applications will be installed
-  - /var/: contains files that are supposed to grow (eg. logs)
-  - /home/: where you store your own personal files
 
 * Cleanup
 

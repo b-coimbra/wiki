@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-12-09 qui 20:09 -->
+<!-- 2022-03-07 seg 18:29 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Linux</title>
@@ -231,61 +231,83 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org0649b1d">Sha Bang</a></li>
-<li><a href="#orgf39ac15">Permissions</a>
+<li><a href="#org880fc51">File System</a></li>
+<li><a href="#org87a761f">Sha Bang</a></li>
+<li><a href="#orgbda658a">Permissions</a>
 <ul>
-<li><a href="#orga18d8ba">Group permissions</a></li>
-<li><a href="#orgbe3755c">Operators</a></li>
-<li><a href="#orgfd1b1a6">Octal notation</a></li>
-<li><a href="#orgcb39a69">chmod (Change Mode)</a></li>
-<li><a href="#org9decfba">chown (Change Ownership)</a></li>
-<li><a href="#orga43b32f">su (switch user)</a></li>
-<li><a href="#org6bbb586">sudo (superuser do)</a></li>
+<li><a href="#org2a342a4">Group permissions</a></li>
+<li><a href="#orga6e7da4">Operators</a></li>
+<li><a href="#orgfbb191f">Octal notation</a></li>
+<li><a href="#orgb73f345">chmod (Change Mode)</a></li>
+<li><a href="#org7af5baf">chown (Change Ownership)</a></li>
+<li><a href="#org3e0f8bd">su (switch user)</a></li>
+<li><a href="#orga7de9a6">sudo (superuser do)</a></li>
 </ul>
 </li>
-<li><a href="#org53b7a3d">Other commands</a></li>
-<li><a href="#org17a0711">Fix typos</a></li>
-<li><a href="#org3bf81c3">File Compression</a>
+<li><a href="#org8b8f09d">Other commands</a></li>
+<li><a href="#org5f535d2">Fix typos</a></li>
+<li><a href="#orgdbeef5f">File Compression</a>
 <ul>
-<li><a href="#org08cf1f8">Syntax</a></li>
+<li><a href="#orgf7e94a9">Syntax</a></li>
 </ul>
 </li>
-<li><a href="#orgbffeac8">Encryption</a>
+<li><a href="#org6182fa0">Encryption</a>
 <ul>
-<li><a href="#org4ebefe3">GPG (GNU Privacy Guard)</a></li>
-<li><a href="#orgc89a62b">Import keys from keyserver</a></li>
-<li><a href="#org23d782a">Encrypt message</a></li>
-<li><a href="#orgf54e927">Decrypt message</a></li>
-<li><a href="#org4d131b7">Symmetric encryption</a></li>
+<li><a href="#org6193af1">GPG (GNU Privacy Guard)</a></li>
+<li><a href="#orgf0ca80b">Import keys from keyserver</a></li>
+<li><a href="#org4619399">Encrypt message</a></li>
+<li><a href="#org37e60b6">Decrypt message</a></li>
+<li><a href="#org376b56c">Symmetric encryption</a></li>
 </ul>
 </li>
-<li><a href="#orge1fdc33">Shell expansion</a>
+<li><a href="#org090278e">Shell expansion</a>
 <ul>
-<li><a href="#orgb526352">The <code>*</code> Wildcard</a></li>
-<li><a href="#org4e2c650">The <code>?</code> Wildcard</a></li>
-<li><a href="#orgb85847c">Inverting Sets</a></li>
-<li><a href="#org22f9856">Brace Expansion</a></li>
+<li><a href="#org468d5dc">The <code>*</code> Wildcard</a></li>
+<li><a href="#org362afc6">The <code>?</code> Wildcard</a></li>
+<li><a href="#orgdb11c90">Inverting Sets</a></li>
+<li><a href="#orgd24dd34">Brace Expansion</a></li>
 </ul>
 </li>
-<li><a href="#orgdf8f8f9">IO Redirections</a>
+<li><a href="#org544446e">IO Redirections</a>
 <ul>
-<li><a href="#org26f77e5">Output redirections</a></li>
-<li><a href="#org824fc2e">Input redirection</a></li>
-<li><a href="#orgb063382">Here document</a></li>
+<li><a href="#org73f7f2f">Output redirections</a></li>
+<li><a href="#org9bfbd13">Input redirection</a></li>
+<li><a href="#org7261f1a">Here document</a></li>
 </ul>
 </li>
-<li><a href="#org27bf211">Chaining Operators</a></li>
-<li><a href="#orgb20269a">RegEx Tools</a></li>
-<li><a href="#orga715bff">Bash</a></li>
-<li><a href="#orgf3970fd">File System</a></li>
-<li><a href="#org168a6d6">Cleanup</a></li>
+<li><a href="#org6ce22fa">Chaining Operators</a></li>
+<li><a href="#org609b48f">RegEx Tools</a></li>
+<li><a href="#org421f088">Bash</a></li>
+<li><a href="#orga78be42">Cleanup</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org0649b1d" class="outline-2">
-<h2 id="org0649b1d">Sha Bang</h2>
-<div class="outline-text-2" id="text-org0649b1d">
+<div id="outline-container-org880fc51" class="outline-2">
+<h2 id="org880fc51">File System</h2>
+<div class="outline-text-2" id="text-org880fc51">
+<ul class="org-ul">
+<li><i>etc</i>: system-wide configuration folder (eg. pacman mirrorlist)</li>
+<li><i>bin</i>: common binary files for applications (eg. ls)</li>
+<li><i>boot</i>: stores my bootloader</li>
+<li><i>lib</i>: shared libraries that applications use</li>
+<li><i>mnt</i>: where external drives are mounted (eg. usbstick)</li>
+<li><i>opt</i>: manually installed softwares</li>
+<li><i>proc</i>: information about system processes and resources, each folder is a process' PID.</li>
+<li><i>root</i>: volatile storage</li>
+<li><i>srv</i>: service directory, where service data is stored</li>
+<li><i>sys</i>: it's a way to interact with the hardware</li>
+<li><i>tmp</i>: where files are temporary stored in a session (eg. writing in a libreoffice file)</li>
+<li><i>usr</i>: user application's space, where applications will be installed</li>
+<li><i>var</i>: contains files that are supposed to grow (eg. logs)</li>
+<li><i>home</i>: where you store your own personal files</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org87a761f" class="outline-2">
+<h2 id="org87a761f">Sha Bang</h2>
+<div class="outline-text-2" id="text-org87a761f">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -345,13 +367,13 @@
 </div>
 </div>
 
-<div id="outline-container-orgf39ac15" class="outline-2">
-<h2 id="orgf39ac15">Permissions</h2>
-<div class="outline-text-2" id="text-orgf39ac15">
+<div id="outline-container-orgbda658a" class="outline-2">
+<h2 id="orgbda658a">Permissions</h2>
+<div class="outline-text-2" id="text-orgbda658a">
 </div>
-<div id="outline-container-orga18d8ba" class="outline-3">
-<h3 id="orga18d8ba">Group permissions</h3>
-<div class="outline-text-3" id="text-orga18d8ba">
+<div id="outline-container-org2a342a4" class="outline-3">
+<h3 id="org2a342a4">Group permissions</h3>
+<div class="outline-text-3" id="text-org2a342a4">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -391,9 +413,9 @@
 </div>
 </div>
 
-<div id="outline-container-orgbe3755c" class="outline-3">
-<h3 id="orgbe3755c">Operators</h3>
-<div class="outline-text-3" id="text-orgbe3755c">
+<div id="outline-container-orga6e7da4" class="outline-3">
+<h3 id="orga6e7da4">Operators</h3>
+<div class="outline-text-3" id="text-orga6e7da4">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -428,9 +450,9 @@
 </div>
 </div>
 
-<div id="outline-container-orgfd1b1a6" class="outline-3">
-<h3 id="orgfd1b1a6">Octal notation</h3>
-<div class="outline-text-3" id="text-orgfd1b1a6">
+<div id="outline-container-orgfbb191f" class="outline-3">
+<h3 id="orgfbb191f">Octal notation</h3>
+<div class="outline-text-3" id="text-orgfbb191f">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -490,9 +512,9 @@
 </div>
 </div>
 
-<div id="outline-container-orgcb39a69" class="outline-3">
-<h3 id="orgcb39a69">chmod (Change Mode)</h3>
-<div class="outline-text-3" id="text-orgcb39a69">
+<div id="outline-container-orgb73f345" class="outline-3">
+<h3 id="orgb73f345">chmod (Change Mode)</h3>
+<div class="outline-text-3" id="text-orgb73f345">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -527,18 +549,18 @@
 </div>
 </div>
 
-<div id="outline-container-org9decfba" class="outline-3">
-<h3 id="org9decfba">chown (Change Ownership)</h3>
-<div class="outline-text-3" id="text-org9decfba">
+<div id="outline-container-org7af5baf" class="outline-3">
+<h3 id="org7af5baf">chown (Change Ownership)</h3>
+<div class="outline-text-3" id="text-org7af5baf">
 <p>
 <code>chown user1 filename</code> changing ownership of a file to <code>user1</code>
 </p>
 </div>
 </div>
 
-<div id="outline-container-orga43b32f" class="outline-3">
-<h3 id="orga43b32f">su (switch user)</h3>
-<div class="outline-text-3" id="text-orga43b32f">
+<div id="outline-container-org3e0f8bd" class="outline-3">
+<h3 id="org3e0f8bd">su (switch user)</h3>
+<div class="outline-text-3" id="text-org3e0f8bd">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -573,9 +595,9 @@
 </div>
 </div>
 
-<div id="outline-container-org6bbb586" class="outline-3">
-<h3 id="org6bbb586">sudo (superuser do)</h3>
-<div class="outline-text-3" id="text-org6bbb586">
+<div id="outline-container-orga7de9a6" class="outline-3">
+<h3 id="orga7de9a6">sudo (superuser do)</h3>
+<div class="outline-text-3" id="text-orga7de9a6">
 <p>
 <code>sudo</code> will run a specific command with root level of permission.
 </p>
@@ -587,9 +609,9 @@
 </div>
 </div>
 
-<div id="outline-container-org53b7a3d" class="outline-2">
-<h2 id="org53b7a3d">Other commands</h2>
-<div class="outline-text-2" id="text-org53b7a3d">
+<div id="outline-container-org8b8f09d" class="outline-2">
+<h2 id="org8b8f09d">Other commands</h2>
+<div class="outline-text-2" id="text-org8b8f09d">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -744,9 +766,9 @@
 </div>
 </div>
 
-<div id="outline-container-org17a0711" class="outline-2">
-<h2 id="org17a0711">Fix typos</h2>
-<div class="outline-text-2" id="text-org17a0711">
+<div id="outline-container-org5f535d2" class="outline-2">
+<h2 id="org5f535d2">Fix typos</h2>
+<div class="outline-text-2" id="text-org5f535d2">
 <p>
 Instead of retyping a long list of arguments of a mispelled command,
 we can correct whatever typo we made with <code>^typo^correct</code>
@@ -762,9 +784,9 @@ we can correct whatever typo we made with <code>^typo^correct</code>
 </div>
 </div>
 
-<div id="outline-container-org3bf81c3" class="outline-2">
-<h2 id="org3bf81c3">File Compression</h2>
-<div class="outline-text-2" id="text-org3bf81c3">
+<div id="outline-container-orgdbeef5f" class="outline-2">
+<h2 id="orgdbeef5f">File Compression</h2>
+<div class="outline-text-2" id="text-orgdbeef5f">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -823,9 +845,9 @@ we can correct whatever typo we made with <code>^typo^correct</code>
 </table>
 </div>
 
-<div id="outline-container-org08cf1f8" class="outline-3">
-<h3 id="org08cf1f8">Syntax</h3>
-<div class="outline-text-3" id="text-org08cf1f8">
+<div id="outline-container-orgf7e94a9" class="outline-3">
+<h3 id="orgf7e94a9">Syntax</h3>
+<div class="outline-text-3" id="text-orgf7e94a9">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -896,13 +918,13 @@ we can correct whatever typo we made with <code>^typo^correct</code>
 </div>
 </div>
 
-<div id="outline-container-orgbffeac8" class="outline-2">
-<h2 id="orgbffeac8">Encryption</h2>
-<div class="outline-text-2" id="text-orgbffeac8">
+<div id="outline-container-org6182fa0" class="outline-2">
+<h2 id="org6182fa0">Encryption</h2>
+<div class="outline-text-2" id="text-org6182fa0">
 </div>
-<div id="outline-container-org4ebefe3" class="outline-3">
-<h3 id="org4ebefe3">GPG (GNU Privacy Guard)</h3>
-<div class="outline-text-3" id="text-org4ebefe3">
+<div id="outline-container-org6193af1" class="outline-3">
+<h3 id="org6193af1">GPG (GNU Privacy Guard)</h3>
+<div class="outline-text-3" id="text-org6193af1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -936,9 +958,9 @@ we can correct whatever typo we made with <code>^typo^correct</code>
 </table>
 </div>
 
-<div id="outline-container-orgc89a62b" class="outline-3">
-<h3 id="orgc89a62b">Import keys from keyserver</h3>
-<div class="outline-text-3" id="text-orgc89a62b">
+<div id="outline-container-orgf0ca80b" class="outline-3">
+<h3 id="orgf0ca80b">Import keys from keyserver</h3>
+<div class="outline-text-3" id="text-orgf0ca80b">
 <div class="org-src-container">
 <pre class="src src-sh">$ gpg --keyserver &lt;server&gt; --recv-keys &lt;hex&gt;
 </pre>
@@ -950,9 +972,9 @@ Where <code>&lt;server&gt;</code> can be "pgp.mit.edu" for instance.
 </div>
 </div>
 
-<div id="outline-container-org23d782a" class="outline-3">
-<h3 id="org23d782a">Encrypt message</h3>
-<div class="outline-text-3" id="text-org23d782a">
+<div id="outline-container-org4619399" class="outline-3">
+<h3 id="org4619399">Encrypt message</h3>
+<div class="outline-text-3" id="text-org4619399">
 <p>
 Having the receiver's pkey:
 </p>
@@ -964,9 +986,9 @@ Having the receiver's pkey:
 </div>
 </div>
 
-<div id="outline-container-orgf54e927" class="outline-3">
-<h3 id="orgf54e927">Decrypt message</h3>
-<div class="outline-text-3" id="text-orgf54e927">
+<div id="outline-container-org37e60b6" class="outline-3">
+<h3 id="org37e60b6">Decrypt message</h3>
+<div class="outline-text-3" id="text-org37e60b6">
 <div class="org-src-container">
 <pre class="src src-sh">$ gpg --output doc --decrypt doc.gg
 </pre>
@@ -974,9 +996,9 @@ Having the receiver's pkey:
 </div>
 </div>
 
-<div id="outline-container-org4d131b7" class="outline-3">
-<h3 id="org4d131b7">Symmetric encryption</h3>
-<div class="outline-text-3" id="text-org4d131b7">
+<div id="outline-container-org376b56c" class="outline-3">
+<h3 id="org376b56c">Symmetric encryption</h3>
+<div class="outline-text-3" id="text-org376b56c">
 <p>
 <code>-c</code> is for symmetric encryption (single pkey for encrypting/decrypting).
 </p>
@@ -990,9 +1012,9 @@ Having the receiver's pkey:
 </div>
 </div>
 
-<div id="outline-container-orge1fdc33" class="outline-2">
-<h2 id="orge1fdc33">Shell expansion</h2>
-<div class="outline-text-2" id="text-orge1fdc33">
+<div id="outline-container-org090278e" class="outline-2">
+<h2 id="org090278e">Shell expansion</h2>
+<div class="outline-text-2" id="text-org090278e">
 <p>
 We can use shell expansion to:
 </p>
@@ -1003,9 +1025,9 @@ We can use shell expansion to:
 </ul>
 </div>
 
-<div id="outline-container-orgb526352" class="outline-3">
-<h3 id="orgb526352">The <code>*</code> Wildcard</h3>
-<div class="outline-text-3" id="text-orgb526352">
+<div id="outline-container-org468d5dc" class="outline-3">
+<h3 id="org468d5dc">The <code>*</code> Wildcard</h3>
+<div class="outline-text-3" id="text-org468d5dc">
 <ul class="org-ul">
 <li>The <code>*</code> is a greedy operator that matches any string, incuding the null string.</li>
 </ul>
@@ -1017,9 +1039,9 @@ We can use shell expansion to:
 </div>
 </div>
 
-<div id="outline-container-org4e2c650" class="outline-3">
-<h3 id="org4e2c650">The <code>?</code> Wildcard</h3>
-<div class="outline-text-3" id="text-org4e2c650">
+<div id="outline-container-org362afc6" class="outline-3">
+<h3 id="org362afc6">The <code>?</code> Wildcard</h3>
+<div class="outline-text-3" id="text-org362afc6">
 <ul class="org-ul">
 <li>The <code>?</code> matches a single character.</li>
 </ul>
@@ -1030,9 +1052,9 @@ We can use shell expansion to:
 </div>
 </div>
 
-<div id="outline-container-orgb85847c" class="outline-3">
-<h3 id="orgb85847c">Inverting Sets</h3>
-<div class="outline-text-3" id="text-orgb85847c">
+<div id="outline-container-orgdb11c90" class="outline-3">
+<h3 id="orgdb11c90">Inverting Sets</h3>
+<div class="outline-text-3" id="text-orgdb11c90">
 <ul class="org-ul">
 <li>The <code>^</code> character represents <b>not</b>.
 <ul class="org-ul">
@@ -1043,9 +1065,9 @@ We can use shell expansion to:
 </div>
 </div>
 
-<div id="outline-container-org22f9856" class="outline-3">
-<h3 id="org22f9856">Brace Expansion</h3>
-<div class="outline-text-3" id="text-org22f9856">
+<div id="outline-container-orgd24dd34" class="outline-3">
+<h3 id="orgd24dd34">Brace Expansion</h3>
+<div class="outline-text-3" id="text-orgd24dd34">
 <p>
 To backup settings.conf to settings.conf.bak:
 </p>
@@ -1080,13 +1102,13 @@ Other uses:
 </div>
 </div>
 </div>
-<div id="outline-container-orgdf8f8f9" class="outline-2">
-<h2 id="orgdf8f8f9">IO Redirections</h2>
-<div class="outline-text-2" id="text-orgdf8f8f9">
+<div id="outline-container-org544446e" class="outline-2">
+<h2 id="org544446e">IO Redirections</h2>
+<div class="outline-text-2" id="text-org544446e">
 </div>
-<div id="outline-container-org26f77e5" class="outline-3">
-<h3 id="org26f77e5">Output redirections</h3>
-<div class="outline-text-3" id="text-org26f77e5">
+<div id="outline-container-org73f7f2f" class="outline-3">
+<h3 id="org73f7f2f">Output redirections</h3>
+<div class="outline-text-3" id="text-org73f7f2f">
 <p>
 The output from a command normally intended for stdout can be easily diverted to a file.
 </p>
@@ -1119,9 +1141,9 @@ lorem ipsum
 </div>
 </div>
 </div>
-<div id="outline-container-org824fc2e" class="outline-3">
-<h3 id="org824fc2e">Input redirection</h3>
-<div class="outline-text-3" id="text-org824fc2e">
+<div id="outline-container-org9bfbd13" class="outline-3">
+<h3 id="org9bfbd13">Input redirection</h3>
+<div class="outline-text-3" id="text-org9bfbd13">
 <p>
 Commands that receive input from stdin can have their input redirected from a file.
 </p>
@@ -1134,9 +1156,9 @@ Commands that receive input from stdin can have their input redirected from a fi
 </div>
 </div>
 
-<div id="outline-container-orgb063382" class="outline-3">
-<h3 id="orgb063382">Here document</h3>
-<div class="outline-text-3" id="text-orgb063382">
+<div id="outline-container-org7261f1a" class="outline-3">
+<h3 id="org7261f1a">Here document</h3>
+<div class="outline-text-3" id="text-org7261f1a">
 <p>
 A "here document" redirects input into an interactive shell script or program.
 </p>
@@ -1165,9 +1187,9 @@ The <code>&gt;&gt;</code> command is an instruction to read input until it finds
 </div>
 </div>
 
-<div id="outline-container-org27bf211" class="outline-2">
-<h2 id="org27bf211">Chaining Operators</h2>
-<div class="outline-text-2" id="text-org27bf211">
+<div id="outline-container-org6ce22fa" class="outline-2">
+<h2 id="org6ce22fa">Chaining Operators</h2>
+<div class="outline-text-2" id="text-org6ce22fa">
 <ul class="org-ul">
 <li><p>
 <code>&amp;</code> (Ampersand Operator)
@@ -1263,9 +1285,9 @@ combine two or more commands
 </div>
 </div>
 
-<div id="outline-container-orgb20269a" class="outline-2">
-<h2 id="orgb20269a">RegEx Tools</h2>
-<div class="outline-text-2" id="text-orgb20269a">
+<div id="outline-container-org609b48f" class="outline-2">
+<h2 id="org609b48f">RegEx Tools</h2>
+<div class="outline-text-2" id="text-org609b48f">
 <ul class="org-ul">
 <li><p>
 <code>grep</code> (Globally search for a Regular Expression and Print)
@@ -1301,9 +1323,9 @@ EXAMPLE: <code>find | grep "\.exe$" | xargs ls -lh</code>
 </div>
 </div>
 
-<div id="outline-container-orga715bff" class="outline-2">
-<h2 id="orga715bff">Bash</h2>
-<div class="outline-text-2" id="text-orga715bff">
+<div id="outline-container-org421f088" class="outline-2">
+<h2 id="org421f088">Bash</h2>
+<div class="outline-text-2" id="text-org421f088">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -1358,31 +1380,9 @@ EXAMPLE: <code>find | grep "\.exe$" | xargs ls -lh</code>
 </div>
 </div>
 
-<div id="outline-container-orgf3970fd" class="outline-2">
-<h2 id="orgf3970fd">File System</h2>
-<div class="outline-text-2" id="text-orgf3970fd">
-<ul class="org-ul">
-<li><i>etc</i>: system-wide configuration folder (eg. pacman mirrorlist)</li>
-<li><i>bin</i>: common binary files for applications (eg. ls)</li>
-<li><i>boot</i>: stores my bootloader</li>
-<li><i>lib</i>: shared libraries that applications use</li>
-<li><i>mnt</i>: where external drives are mounted (eg. usbstick)</li>
-<li><i>opt</i>: manually installed softwares</li>
-<li><i>proc</i>: information about system processes and resources, each folder is a process' PID.</li>
-<li><i>root</i>: volatile storage</li>
-<li><i>srv</i>: service directory, where service data is stored</li>
-<li><i>sys</i>: it's a way to interact with the hardware</li>
-<li><i>tmp</i>: where files are temporary stored in a session (eg. writing in a libreoffice file)</li>
-<li><i>usr</i>: user application's space, where applications will be installed</li>
-<li><i>var</i>: contains files that are supposed to grow (eg. logs)</li>
-<li><i>home</i>: where you store your own personal files</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-org168a6d6" class="outline-2">
-<h2 id="org168a6d6">Cleanup</h2>
-<div class="outline-text-2" id="text-org168a6d6">
+<div id="outline-container-orga78be42" class="outline-2">
+<h2 id="orga78be42">Cleanup</h2>
+<div class="outline-text-2" id="text-orga78be42">
 <p>
 Steps to free disk space on your Linux machine:
 </p>
@@ -1402,7 +1402,7 @@ Steps to free disk space on your Linux machine:
 <div id="postamble" class="status">
 <p class="date">Date: 2021-09-11 sáb 00:00</p>
 <p class="author">Author: Bruno Coimbra (b-coimbra)</p>
-<p class="date">Created: 2021-12-09 qui 20:09</p>
+<p class="date">Created: 2022-03-07 seg 18:29</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

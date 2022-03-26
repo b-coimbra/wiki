@@ -3,7 +3,7 @@
     {
       "name": "git",
       "color": "#cbb73d",
-      "files": ["git-hooks", "git"]
+      "files": ["git", "ssh"]
     },
     {
       "name": "automation",
@@ -17,7 +17,17 @@
     {
       "name": "tools",
       "color": "#4ed99d",
-      "files": ["tmux", "ssh", "docker", "git"]
+      "files": ["tmux", "vim", "spacemacs", "ssh", "docker", "git"]
+    },
+    {
+      "name": "langs",
+      "color": "#4251c7",
+      "files": ["dotnet", "typescript"]
+    },
+    {
+      "name": "principles",
+      "color": "#8db041",
+      "files": ["SOLID", "design-patterns"]
     }
   ]
 }
