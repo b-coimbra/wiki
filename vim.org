@@ -6,6 +6,10 @@
 #+SETUPFILE: https://b-coimbra.github.io/org-scribbler-theme/scribbler.setup
 #+EXPORT_FILE_NAME: docs/vim.html
 
+* Presentation
+
+  Slides for a Vim presentation are available [[https://talks.metaphoric.dev/vim][here]].
+
 * Keybindings
 
   | Command       | Description                                           |
