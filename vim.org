@@ -76,6 +76,8 @@
   | ~:20vs .~       | create visual split with the file structure of a dir  |
   | ~d?text~        | delete until search (?/)                              |
   | ~"1p."~         | increments the buffer number of the register          |
+  | ~"qp~           | paste contents of register =q=                          |
+  | ~"qY~           | yank the contents of the current line into register =q= |
   | ~:=~            | print all lines                                       |
   | ~1,10w file~    | write line 1 through 10 to a new file                 |
   | ~1,10w >>file~  | append line 1 through 10 to an existing file          |
