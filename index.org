@@ -1,34 +1,34 @@
 #+TITLE: Personal Wiki
-#+SUBTITLE: Various annotations/cheatsheets neatly organized for the sake of knowledge retention.@@latex:\\@@ @@html:<br>@@ Source can be found [[https://github.com/b-coimbra/notes][here]].
+#+SUBTITLE: Various annotations/cheatsheets neatly organized for the sake of knowledge retention.@@latex:\\@@ @:<br>@@ Source can be found [[https://github.com/b-coimbra/notes][here]].
 #+DATE: <2021-09-09 Sat>
 #+AUTHOR: Bruno Coimbra (b-coimbra)
 #+EMAIL: me@metaphoric.dev
 #+SETUPFILE: https://b-coimbra.github.io/org-scribbler-theme/scribbler.setup
-#+EXPORT_FILE_NAME: docs/index.html
+#+EXPORT_FILE_NAME: docs/index
 
 * General
 
-  - [[./linux.html][Linux]]
-  - [[./regex.html][Regex]]
-  - [[./SOLID.html][SOLID]]
-  - [[./design-patterns.html][Design Patterns]]
-  - [[./dorks.html][Google Dorks]]
+  - [[./linux][Linux]]
+  - [[./regex][Regex]]
+  - [[./SOLID][SOLID]]
+  - [[./design-patterns][Design Patterns]]
+  - [[./dorks][Google Dorks]]
 
 * Tools
 
-  - [[./ssh.html][SSH]]
-  - [[./vim.html][Vim]]
-  - [[./git.html][Git]]
-  - [[./tmux.html][Tmux]]
-  - [[./docker.html][Docker]]
-  - [[./k8s.html][Kubernetes]]
-  - [[./spacemacs.html][Spacemacs]]
+  - [[./ssh][SSH]]
+  - [[./vim][Vim]]
+  - [[./git][Git]]
+  - [[./tmux][Tmux]]
+  - [[./docker][Docker]]
+  - [[./k8s][Kubernetes]]
+  - [[./spacemacs][Spacemacs]]
 
 * Frameworks
 
-  - [[./angular.html][Angular]]
+  - [[./angular][Angular]]
 
 * Languages
 
-  - [[./dotnet.html][.NET]]
-  - [[./typescript.html][Typescript]]
+  - [[./dotnet][.NET]]
+  - [[./typescript][Typescript]]
